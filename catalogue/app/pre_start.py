@@ -1,5 +1,5 @@
 import logging
-from app.general.prestart_functions import waitForDatabase, waitForGoogledrive, waitForFilemanager
+from app.general.prestart_functions import waitForDatabase
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -7,8 +7,6 @@ logger = logging.getLogger(__name__)
 def main() -> None:
     logger.info("Initializing service")
     waitForDatabase()
-    waitForGoogledrive()
-    # waitForFilemanager()
     logger.info("Services finished initializing")
 
 
