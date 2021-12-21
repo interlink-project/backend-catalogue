@@ -33,7 +33,8 @@ services:
       - PORT=${PORT}
       # Allow explicit env var override for tests
     depends_on:
-      - db
+      db:
+        condition: service_healthy
     build:
       context: .
       dockerfile: Dockerfile.catalogue
