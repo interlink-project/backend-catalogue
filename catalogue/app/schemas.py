@@ -3,7 +3,6 @@ from typing import List, Optional
 from app.interlinkers.schemas import *
 from app.publicservices.schemas import *
 from app.functionalities.schemas import *
-from app.interlinkerversions.schemas import *
 from app.problemdomains.schemas import *
 from app.ratings.schemas import *
 from app.questioncomments.schemas import *
@@ -18,10 +17,6 @@ class PublicServiceOutFull(ArtefactOutFull, PublicServiceOut):
 
 
 class InterlinkerOutFull(ArtefactOutFull, InterlinkerOut):
-    pass
-
-
-class InterlinkerVersionOutFull(InterlinkerVersionOut):
     pass
 
 

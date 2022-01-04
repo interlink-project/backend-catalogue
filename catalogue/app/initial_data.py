@@ -17,7 +17,7 @@ def main() -> None:
         for interlinker in interlinkers_data:
             name = interlinker["name"]
             backend = interlinker["backend"]
-
+            init_asset_id = None
             if interlinker["type"] == "KN":
                 path = interlinker["path"]
 
@@ -29,20 +29,8 @@ def main() -> None:
                 print(f"RESPUESTA PARA {backend}")
                 files_data = response.json()
                 print(files_data)
-                interlinkerversiondata = schemas.InterlinkerVersionCreate(**{
-                    "init_asset_id": files_data["_id"],
-                    "backend": backend,
-                    "description": "First version",
-                    "documentation": "<>string</>",
-                }
-                ),
-            else:
-                interlinkerversiondata = schemas.InterlinkerVersionCreate(**{
-                    "backend": backend,
-                    "description": "First version",
-                    "documentation": "<>string</>",
-                }
-                )
+                init_asset_id = files_data["_id"]
+            
             # I don´t know why sometimes a tuple that contains InterlinkerVersionCreate instance is created
             crud.interlinker.create(
                 db=db,
@@ -52,11 +40,14 @@ def main() -> None:
                     "logotype": "string",
                     "published": True,
                     "keywords": [],
+                    "documentation": "<>string</>",
                     "SOC_type": "A11",
                     "nature": "SW" if interlinker["type"] == "SW" else "KN",
-                    "problemdomains": []}
+                    "problemdomains": [],
+                    "backend": backend,
+                    "init_asset_id": init_asset_id
+                    }
                 ),
-                interlinkerversion=interlinkerversiondata[0] if isinstance(interlinkerversiondata, tuple) else interlinkerversiondata
             )
     
     db.close()

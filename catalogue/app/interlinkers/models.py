@@ -48,9 +48,12 @@ class Interlinker(Artefact):
     # IM or SP
     knowledge_format = Column(String, nullable=True)
     use_drive = Column(Boolean, default=True)
-
-    versions = relationship("InterlinkerVersion", back_populates="interlinker")
     
+    # version
+    backend = Column(String)
+    # If knowledge interlinker, needs to have init template
+    init_asset_id = Column(String, nullable=True)
+
     __mapper_args__ = {
         "polymorphic_identity": "interlinker",
     }
@@ -61,7 +64,3 @@ class Interlinker(Artefact):
     @cached_property
     def is_knowledge(self):
         return self.nature == "KN"
-
-    @property
-    def last_version(self):
-        return self.versions[0]

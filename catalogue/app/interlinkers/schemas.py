@@ -16,7 +16,6 @@ from app.artefacts.schemas import (
     ArtefactORM,
     ArtefactOut,
 )
-from app.interlinkerversions.schemas import InterlinkerVersionOut
 # Interlinker
 
 TYPES = [("A11", "easfas"), ("A12", "ADFSSADF")]
@@ -61,6 +60,8 @@ class InterlinkerBase(ArtefactBase):
     knowledge_type: Optional[kn_types]
     knowledge_format: Optional[str]
 
+    backend: str
+    init_asset_id: Optional[str]
 
 class InterlinkerCreate(ArtefactCreate, InterlinkerBase):
     pass
@@ -80,4 +81,4 @@ class InterlinkerORM(ArtefactORM, InterlinkerBase):
 
 
 class InterlinkerOut(ArtefactOut, InterlinkerORM):
-    last_version: Optional[InterlinkerVersionOut]
+    pass

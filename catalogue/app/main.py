@@ -42,13 +42,27 @@ def healthcheck():
 #app.add_middleware(SessionMiddleware, secret_key="some-random-string")
 #app.add_middleware(AuthMiddleware)
 
-# from app.initial_data import create_diagram
-# print("CREATING DIAGRAM")
-# create_diagram()
-
 ###################
 # Staticfiles
 ###################
 
 from fastapi.staticfiles import StaticFiles
 app.mount("/static", StaticFiles(directory="static"), name="static")
+
+###################
+# Tasks
+###################
+
+from fastapi_utils.tasks import repeat_every
+from app.status import set_interlinkers_status, status_dict
+
+@app.on_event("startup")
+@repeat_every(seconds=5)
+def task_set_interlinkers_status() -> None:
+    print("Setting interlinkers status")
+    set_interlinkers_status()
+            
+
+@app.get("/interlinkers_status/")
+def status():
+    return status_dict

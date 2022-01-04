@@ -14,7 +14,7 @@ class ArtefactBase(PydanticBaseModel):
     logotype: str
     published: bool
     keywords: List[str]
-
+    documentation: Optional[str]
 
 class ArtefactCreate(ArtefactBase):
     problemdomains: Optional[List[uuid.UUID]]

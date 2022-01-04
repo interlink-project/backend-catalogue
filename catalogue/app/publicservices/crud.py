@@ -21,6 +21,7 @@ class CRUDPublicService(CRUDBase[PublicService, PublicServiceCreate, PublicServi
             logotype=publicservice.logotype,
             published=publicservice.published,
             keywords=publicservice.keywords,
+            documentation=publicservice.documentation,
             # Public Service specific
             language=publicservice.language,
             processing_time=publicservice.processing_time,

@@ -1,18 +1,16 @@
-import uuid
-from typing import Any, Dict, Optional, Union
+from typing import Optional
 
 from sqlalchemy.orm import Session
 
-from app.models import Interlinker, InterlinkerVersion
-from app.schemas import InterlinkerCreate, InterlinkerPatch, InterlinkerVersionCreate
+from app.models import Interlinker
+from app.schemas import InterlinkerCreate, InterlinkerPatch
 from app.general.utils.CRUDBase import CRUDBase
-from app import crud
 
 class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]):
     def get_by_name(self, db: Session, name: str) -> Optional[Interlinker]:
         return db.query(Interlinker).filter(Interlinker.name == name).first()
 
-    def create(self, db: Session, *, interlinker: InterlinkerCreate, interlinkerversion: InterlinkerVersionCreate) -> Interlinker:
+    def create(self, db: Session, *, interlinker: InterlinkerCreate) -> Interlinker:
         db_obj = Interlinker(
             # Artefact
             name=interlinker.name,
@@ -20,6 +18,7 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
             logotype=interlinker.logotype,
             published=interlinker.published,
             keywords=interlinker.keywords,
+            documentation=interlinker.documentation,
             # Interlinker specific
             SOC_type=interlinker.SOC_type,
             nature=interlinker.nature,
@@ -33,12 +32,11 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
             software_integration=interlinker.software_integration,
             knowledge_type=interlinker.knowledge_type,
             knowledge_format=interlinker.knowledge_format,
+            # Version
+            backend=interlinker.backend,
+            init_asset_id=interlinker.init_asset_id,
         )
         db.add(db_obj)
-        db.commit()
-
-        db_vers = crud.interlinkerversion.create(db=db, interlinkerversion=interlinkerversion, interlinker_id=db_obj.id)
-        db.add(db_vers)
         db.commit()
         db.refresh(db_obj)
         return db_obj
