@@ -28,7 +28,7 @@ class Artefact(BaseModel):
     description = Column(String)
     published = Column(Boolean, default=False)
     logotype = Column(String)
-    keywords = Column(ARRAY(String))
+    keywords = Column(String)
     documentation = Column(String, nullable=True)
     
     problemdomains = relationship(

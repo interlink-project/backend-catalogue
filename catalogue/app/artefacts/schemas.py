@@ -13,7 +13,7 @@ class ArtefactBase(PydanticBaseModel):
     description: str
     logotype: str
     published: bool
-    keywords: List[str]
+    keywords: str
     documentation: Optional[str]
 
 class ArtefactCreate(ArtefactBase):

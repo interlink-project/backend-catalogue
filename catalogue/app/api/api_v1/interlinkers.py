@@ -14,6 +14,7 @@ def list_interlinkers(
     db: Session = Depends(deps.get_db),
     skip: int = 0,
     limit: int = 100,
+    search: str = "",
     current_user: Optional[dict] = Depends(deps.get_current_user),
 ) -> Any:
     """
@@ -21,7 +22,7 @@ def list_interlinkers(
     """
     if not crud.interlinker.can_list(current_user):
         raise HTTPException(status_code=403, detail="Not enough permissions")
-    interlinkers = crud.interlinker.get_multi(db, skip=skip, limit=limit)
+    interlinkers = crud.interlinker.get_multi(db, skip=skip, limit=limit, search=search)
     return interlinkers
 
 
