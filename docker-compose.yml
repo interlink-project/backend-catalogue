@@ -1,7 +1,35 @@
 version: "3.3"
-services:      
+services:
+  #redis:
+  #  container_name: cache
+  #  image: "redis:alpine"
+  #  networks:
+  #    - default  
+  #  environment:
+  #    - REDIS_PASSWORD=${CACHE_PASSWORD}
+  #    - REDIS_REPLICATION_MODE=master
+  #  ports:
+  #    - "6379:6379"
+  #  volumes:
+  #    # save redisearch data to your current working directory
+  #    - redis-data:/data
+  #  command:
+  #    # Save if 100 keys are added in every 10 seconds
+  #    - "--save 10 100"
+  #    # Set password
+  #    - "--requirepass ${CACHE_PASSWORD}"  
+  #
+  #redisinsight: # redis db visualization dashboard
+  #  container_name: cache-mon
+  #  image: redislabs/redisinsight
+  #  ports:
+  #    - 8001:8001
+  #  volumes:
+  #    - redisinsight:/db
+  #  networks:
+  #    - default
   db:
-    container_name: catalogue-db
+    container_name: db
     image: postgres:12
     build:
       context: .
@@ -24,7 +52,7 @@ services:
           
   catalogue:
     image: 'catalogueprod:${TAG-latest}'
-    container_name: catalogue-prod
+    container_name: app-prod
     env_file:
       - .env
     environment:
@@ -54,3 +82,7 @@ services:
 networks:
   traefik-public:
     external: true
+
+volumes:
+  redis-data:
+  redisinsight:

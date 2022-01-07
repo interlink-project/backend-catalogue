@@ -2,7 +2,7 @@ version: "3.3"
 services:
   catalogue:
     image: 'cataloguedev:${TAG-latest}'
-    container_name: catalogue-solo
+    container_name: app-solo
     volumes:
       - ./catalogue:/app
     environment:
