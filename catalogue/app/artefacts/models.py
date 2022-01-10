@@ -28,6 +28,7 @@ class Artefact(BaseModel):
     description = Column(String)
     published = Column(Boolean, default=False)
     logotype = Column(String)
+    images = Column(ARRAY(String), default=dict)
     keywords = Column(String)
     documentation = Column(String, nullable=True)
     

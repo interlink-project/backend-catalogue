@@ -16,6 +16,7 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
             name=interlinker.name,
             description=interlinker.description,
             logotype=interlinker.logotype,
+            images=interlinker.images,
             published=interlinker.published,
             keywords=interlinker.keywords,
             documentation=interlinker.documentation,

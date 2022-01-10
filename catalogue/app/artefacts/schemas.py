@@ -14,6 +14,7 @@ class ArtefactBase(PydanticBaseModel):
     logotype: str
     published: bool
     keywords: str
+    images: Optional[List[str]]
     documentation: Optional[str]
 
 class ArtefactCreate(ArtefactBase):
