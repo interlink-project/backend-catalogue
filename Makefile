@@ -5,7 +5,7 @@ down: ## Stops all containers and removes volumes
 	docker-compose -f docker-compose.yml -f docker-compose.integrated.yml -f docker-compose.solodev.yml down --volumes --remove-orphans
 
 .PHONY: devbuild
-build: ## Build development containers
+devbuild: ## Build development containers
 	docker-compose -f docker-compose.yml -f docker-compose.solodev.yml build
 
 .PHONY: prodbuild
@@ -13,7 +13,7 @@ prodbuild: ## Build production containers
 	docker-compose -f docker-compose.yml build
 
 .PHONY: solodev
-dev: down ## Start solo development containers
+solodev: down ## Start solo development containers
 	docker-compose -f docker-compose.yml -f docker-compose.solodev.yml up -d
 
 .PHONY: up

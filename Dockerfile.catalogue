@@ -13,8 +13,7 @@ COPY ./catalogue/pyproject.toml ./catalogue/poetry.lock* /app/
 COPY ./catalogue/app /app
 ENV PYTHONPATH=/app
 
-RUN pip install --no-cache-dir redis
-
+RUN pip install --no-cache-dir redis 'uvicorn[standard]'
 FROM builder as dev
 
 RUN poetry install --no-root

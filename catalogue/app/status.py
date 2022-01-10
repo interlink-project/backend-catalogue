@@ -19,9 +19,9 @@ def set_interlinkers_status() -> None:
                         data = requests.get(f"http://{interlinker.backend}/healthcheck/").json()
                         current_status = "on" if data else "off"
                     except Exception as e:
-                        print(str(e))
+                        # print(str(e))
                         pass
-                    print(f"{interlinker.name} - {current_status}")
+                    # print(f"{interlinker.name} - {current_status}")
                     if (last_status == "off" and current_status == "on") or (last_status == "on" and current_status == "off"):
                         current_status = "dangling"
                     
