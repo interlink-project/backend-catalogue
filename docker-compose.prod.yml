@@ -35,7 +35,7 @@ services:
 
   catalogue:
     image: 'catalogueprod:${TAG-latest}'
-    container_name: app-prod
+    container_name: catalogue-prod
     env_file:
       - .env
     environment:

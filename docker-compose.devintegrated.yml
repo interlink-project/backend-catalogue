@@ -3,7 +3,7 @@ services:
 
   catalogue:
     image: 'cataloguedev:${TAG-latest}'
-    container_name: app-integrated
+    container_name: catalogue-integrated
     volumes:
       - ./catalogue:/app
     env_file:
