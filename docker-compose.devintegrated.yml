@@ -6,14 +6,15 @@ services:
     container_name: app-integrated
     volumes:
       - ./catalogue:/app
+    env_file:
+      - .env
+      - .env.integrated
     environment:
+      - SERVER_NAME=${DOMAIN?Variable not set}
       - SERVER_HOST=http://${DOMAIN?Variable not set}/catalogue
       - PORT=${PORT}
       # behind proxy
       - BASE_PATH=/catalogue
-    env_file:
-      - .env
-      - .env.integrated
     build:
       context: .
       dockerfile: Dockerfile.catalogue
@@ -25,4 +26,9 @@ services:
       - traefik.http.services.${STACK_NAME?Variable not set}-catalogue.loadbalancer.server.port=${PORT}
       - traefik.http.routers.${STACK_NAME?Variable not set}-catalogue-http.middlewares=catalogue-stripprefix
       - traefik.http.middlewares.catalogue-stripprefix.stripprefix.prefixes=/catalogue
+    networks:
+      - traefik-public
 
+networks:
+  traefik-public:
+    external: true

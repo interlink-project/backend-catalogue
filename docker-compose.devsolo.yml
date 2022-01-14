@@ -9,6 +9,7 @@ services:
       - .env
       - .env.solo
     environment:
+      - SERVER_NAME=${DOMAIN?Variable not set}
       - SERVER_HOST=http://${DOMAIN?Variable not set}:${SOLODEVPORT}
       - PORT
       - BASE_PATH=
@@ -18,8 +19,6 @@ services:
       target: dev
     ports:
       - "${SOLODEVPORT}:${PORT}"
-    networks:
-      - default
 
   db:
     container_name: db
@@ -42,9 +41,3 @@ services:
       placement:
         constraints:
           - node.labels.${STACK_NAME?Variable not set}.app-db-data == true
-    networks:
-      - default
-
-networks:
-  traefik-public:
-  default:

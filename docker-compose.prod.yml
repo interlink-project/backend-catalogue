@@ -42,7 +42,8 @@ services:
       - SERVER_NAME=${DOMAIN?Variable not set}
       - SERVER_HOST=https://${DOMAIN?Variable not set}
       - PORT=${PORT}
-      # Allow explicit env var override for tests
+      # behind proxy
+      - BASE_PATH=/catalogue
     build:
       context: .
       dockerfile: Dockerfile.catalogue

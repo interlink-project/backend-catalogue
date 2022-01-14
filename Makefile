@@ -10,7 +10,9 @@ clean: ## Starts production containers
 
 .PHONY: down
 down: ## Stops all containers and removes volumes
-	docker-compose -f docker-compose.yml -f docker-compose.devintegrated.yml -f docker-compose.devsolo.yml down --volumes --remove-orphans
+	docker-compose -f docker-compose.prod.yml down --volumes --remove-orphans
+	docker-compose -f docker-compose.devintegrated.yml down --volumes --remove-orphans
+	docker-compose -f docker-compose.devsolo.yml down --volumes --remove-orphans
 
 #######################
 ## BUILD IMAGES
@@ -18,26 +20,27 @@ down: ## Stops all containers and removes volumes
 
 .PHONY: devbuild
 devbuild: ## Builds development containers
-	docker-compose -f docker-compose.yml -f docker-compose.devsolo.yml build
+	docker-compose -f docker-compose.devsolo.yml build
 
 .PHONY: prodbuild
 prodbuild: ## Builds production containers
-	docker-compose -f docker-compose.yml build
+	docker-compose -f docker-compose.prod.yml build
 
 #######################
 ## RUN CONTAINERS
 #######################
 .PHONY: solo
 solo: down ## Starts solo development containers
-	docker-compose -f docker-compose.yml -f docker-compose.devsolo.yml up -d
+	docker-compose -f docker-compose.devsolo.yml up -d
 
 .PHONY: integrated
 integrated: down ## Starts integrated development containers
-	docker-compose -f docker-compose.yml -f docker-compose.devintegrated.yml up -d
+	docker network create traefik-public || true
+	docker-compose -f docker-compose.devintegrated.yml up -d
 
 .PHONY: prod
 prod: down ## Starts production containers
-	docker-compose -f docker-compose.yml up
+	docker-compose -f docker-compose.prod.yml up
 
 #######################
 ## RUN TESTS
@@ -50,3 +53,11 @@ tests: ## Starts test container
 
 .PHONY: testing
 testing: devbuild solo tests down ## Builds containers, runs them, runs test container and deletes all containers
+
+#######################
+## DATABASE SEEDING
+#######################
+
+.PHONY: seed
+seed: ## Seed data
+	docker-compose exec catalogue python /app/app/initial_data.py
