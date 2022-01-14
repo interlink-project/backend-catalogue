@@ -11,6 +11,9 @@ services:
       - PORT=${PORT}
       # behind proxy
       - BASE_PATH=/catalogue
+    env_file:
+      - .env
+      - .env.integrated
     build:
       context: .
       dockerfile: Dockerfile.catalogue

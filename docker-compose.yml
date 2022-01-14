@@ -1,4 +1,8 @@
 version: "3.3"
+volumes:
+  redis-data:
+  redisinsight:
+
 services:
   #redis:
   #  container_name: cache
@@ -28,28 +32,7 @@ services:
   #    - redisinsight:/db
   #  networks:
   #    - default
-  db:
-    container_name: db
-    image: postgres:12
-    build:
-      context: .
-      dockerfile: Dockerfile.postgres
-    #volumes:
-    #  - app-db-data:/var/lib/postgresql/data/pgdata
-    env_file:
-      - .env
-    environment:
-      - PGDATA=/var/lib/postgresql/data/pgdata
-    healthcheck:
-      test: ["CMD-SHELL", "pg_isready"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-    deploy:
-      placement:
-        constraints:
-          - node.labels.${STACK_NAME?Variable not set}.app-db-data == true
-          
+
   catalogue:
     image: 'catalogueprod:${TAG-latest}'
     container_name: app-prod
@@ -60,9 +43,6 @@ services:
       - SERVER_HOST=https://${DOMAIN?Variable not set}
       - PORT=${PORT}
       # Allow explicit env var override for tests
-    depends_on:
-      db:
-        condition: service_healthy
     build:
       context: .
       dockerfile: Dockerfile.catalogue
@@ -82,7 +62,3 @@ services:
 networks:
   traefik-public:
     external: true
-
-volumes:
-  redis-data:
-  redisinsight:
