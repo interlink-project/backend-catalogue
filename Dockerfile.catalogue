@@ -12,9 +12,8 @@ COPY ./catalogue/pyproject.toml ./catalogue/poetry.lock* /app/
 COPY ./catalogue /app
 ENV PYTHONPATH=/app
 
-RUN pip install --no-cache-dir redis 'uvicorn[standard]'
 FROM builder as dev
-
+RUN pip install --no-cache-dir 'uvicorn[standard]'
 RUN poetry install --no-root
 #TODO: include these dependencies in pyproject toml
 RUN apt-get update \
