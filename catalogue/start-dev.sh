@@ -8,12 +8,7 @@ LOG_LEVEL=${LOG_LEVEL:-info}
 # Let the DB start
 python /app/app/pre_start.py
 
-# Run migrations
-# alembic revision --autogenerate -m "Added initial table"
-# alembic upgrade head
-# echo MIGRATIONS DONE
-
-# If not migrations, create models in DB automatically
+# Create models in DB automatically without migrations
 python /app/app/create_models.py
 
 # Start Uvicorn with live reload IF DEVELOPMENT

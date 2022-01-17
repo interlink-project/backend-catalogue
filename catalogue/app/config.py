@@ -39,10 +39,10 @@ class Settings(BaseSettings):
             path=f"/{values.get('POSTGRES_DB') or ''}",
         )
 
-    CLIENT_ID: str
-    CLIENT_SECRET: str
-    SERVER_METADATA_URL: str
-
+    ACL_SERVICE_NAME: str
+    ACL_PORT: int
+    ACL_SERVICE: str = os.getenv("ACL_SERVICE_NAME") + ":" + os.getenv("ACL_PORT")
+    
     AUTH_SERVICE_NAME: str
     AUTH_PORT: int
     AUTH_SERVICE: str = os.getenv("AUTH_SERVICE_NAME") + ":" + os.getenv("AUTH_PORT")
@@ -51,20 +51,7 @@ class Settings(BaseSettings):
     COPRODUCTION_PORT: int
     COPRODUCTION_SERVICE: str = os.getenv("COPRODUCTION_SERVICE_NAME") + ":" + os.getenv("COPRODUCTION_PORT")
 
-    TEAMMANAGEMENT_SERVICE_NAME: str
-    TEAMMANAGEMENT_PORT: int
-    TEAMMANAGEMENT_SERVICE: str = os.getenv("TEAMMANAGEMENT_SERVICE_NAME") + ":" + os.getenv("TEAMMANAGEMENT_PORT")
     
-    # file backend interlinkers
-
-    GOOGLEDRIVE_SERVICE_NAME: str
-    GOOGLEDRIVE_PORT: int
-    GOOGLEDRIVE_SERVICE: str = os.getenv("GOOGLEDRIVE_SERVICE_NAME") + ":" + os.getenv("GOOGLEDRIVE_PORT")
-
-    FILEMANAGER_SERVICE_NAME: str
-    FILEMANAGER_PORT: int
-    FILEMANAGER_SERVICE: str = os.getenv("FILEMANAGER_SERVICE_NAME") + ":" + os.getenv("FILEMANAGER_PORT")
-
     # specific
     API_V1_STR: str = "/api/v1"
     PROJECT_NAME = "Catalogue API"
