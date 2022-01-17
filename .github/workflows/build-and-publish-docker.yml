@@ -23,7 +23,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: Dockerfile.coproduction
+          file: Dockerfile.catalogue
           push: true
           tags: interlinkproject/backend-catalogue:latest
           cache-from: type=registry,ref=interlinkproject/backend-catalogue:buildcache
