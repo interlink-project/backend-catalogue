@@ -37,7 +37,7 @@ class CRUDQuestionComment(CRUDBase[QuestionComment, QuestionCommentCreate, Quest
         db_obj = QuestionComment(
             artefact_id=questioncomment.artefact_id,
             user_id=questioncomment.user_id,
-            value=questioncomment.value,
+            parent_id=questioncomment.parent_id,
             title=questioncomment.title,
             text=questioncomment.text,
         )

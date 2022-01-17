@@ -9,7 +9,7 @@ from app.general import deps
 router = APIRouter()
 
 
-@router.get("/", response_model=List[schemas.InterlinkerOutFull])
+@router.get("/", response_model=List[schemas.InterlinkerOut])
 def list_interlinkers(
     db: Session = Depends(deps.get_db),
     skip: int = 0,
@@ -26,7 +26,7 @@ def list_interlinkers(
     return interlinkers
 
 
-@router.post("/", response_model=schemas.InterlinkerOutFull)
+@router.post("/", response_model=schemas.InterlinkerOut)
 def create_interlinker(
     *,
     db: Session = Depends(deps.get_db),
@@ -42,7 +42,7 @@ def create_interlinker(
     return interlinker
 
 
-@router.put("/{id}", response_model=schemas.InterlinkerOutFull)
+@router.put("/{id}", response_model=schemas.InterlinkerOut)
 def update_interlinker(
     *,
     db: Session = Depends(deps.get_db),
@@ -62,7 +62,7 @@ def update_interlinker(
     return interlinker
 
 
-@router.get("/{id}", response_model=schemas.InterlinkerOutFull)
+@router.get("/{id}", response_model=schemas.InterlinkerOut)
 def read_interlinker(
     *,
     db: Session = Depends(deps.get_db),
@@ -79,7 +79,7 @@ def read_interlinker(
         raise HTTPException(status_code=403, detail="Not enough permissions")
     return interlinker
 
-@router.get("/get_by_name/{name}", response_model=schemas.InterlinkerOutFull)
+@router.get("/get_by_name/{name}", response_model=schemas.InterlinkerOut)
 def read_interlinker(
     *,
     db: Session = Depends(deps.get_db),
@@ -94,7 +94,7 @@ def read_interlinker(
     return interlinker
 
 
-@router.delete("/{id}", response_model=schemas.InterlinkerOutFull)
+@router.delete("/{id}", response_model=schemas.InterlinkerOut)
 def delete_interlinker(
     *,
     db: Session = Depends(deps.get_db),

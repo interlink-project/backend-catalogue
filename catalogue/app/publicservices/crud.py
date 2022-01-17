@@ -16,6 +16,7 @@ class CRUDPublicService(CRUDBase[PublicService, PublicServiceCreate, PublicServi
 
     def create(self, db: Session, *, publicservice: PublicServiceCreate) -> PublicService:
         db_obj = PublicService(
+            artefact_type="publicservice",
             name=publicservice.name,
             description=publicservice.description,
             logotype=publicservice.logotype,

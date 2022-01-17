@@ -1,4 +1,5 @@
 import uuid
+from typing import Union
 
 from sqlalchemy import (
     ARRAY,
@@ -11,11 +12,12 @@ from sqlalchemy import (
     Table,
 )
 from sqlalchemy.dialects.postgresql import UUID
-from sqlalchemy.orm import relationship
+from werkzeug.utils import cached_property
 
 from app.artefacts.models import Artefact
-from app.general.db.base_class import Base as BaseModel
-from werkzeug.utils import cached_property
+
+KNOWLEDGE_INTERLINKER_LITERAL: str = "knowledgeinterlinker"
+SOFTWARE_INTERLINKER_LITERAL: str = "softwareinterlinker"
 
 class Interlinker(Artefact):
     """
@@ -27,35 +29,15 @@ class Interlinker(Artefact):
         primary_key=True,
         default=uuid.uuid4,
     )
-
-    is_implementation_type = Column(Boolean, default=False)
-    is_coproduction_type = Column(Boolean, default=False)
-    SOC_type = Column(String)
-    administrative_scope = Column(String, nullable=True)
-    specific_app_domain = Column(ARRAY(String), nullable=True)
+    nature = Column(String)
     constraints = Column(ARRAY(String), nullable=True)
     regulations = Column(ARRAY(String), nullable=True)
-
-    nature = Column(String)
-    # SW or KN
-    software_type = Column(String, nullable=True)
-    # IM or SP
-    software_implementation = Column(String, nullable=True)
-    # OS, OP, SAAS
-    software_customization = Column(String, nullable=True)
-    software_integration = Column(String, nullable=True)
-    knowledge_type = Column(String, nullable=True)
-    # IM or SP
-    knowledge_format = Column(String, nullable=True)
-    use_drive = Column(Boolean, default=True)
-    
-    # version
+    # googledrive, forum...
     backend = Column(String)
-    # If knowledge interlinker, needs to have init template
-    init_asset_id = Column(String, nullable=True)
 
     __mapper_args__ = {
         "polymorphic_identity": "interlinker",
+        "polymorphic_on": nature,
     }
 
     def __repr__(self) -> str:
@@ -64,3 +46,53 @@ class Interlinker(Artefact):
     @cached_property
     def is_knowledge(self):
         return self.nature == "KN"
+
+
+class SoftwareInterlinker(Interlinker):
+    """
+    Defines the software interlinker model
+    """
+    id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("interlinker.id"),
+        primary_key=True,
+        default=uuid.uuid4,
+    )
+    # SW or KN
+    type = Column(String, nullable=True)
+    # IM or SP
+    implementation = Column(String, nullable=True)
+    # OS, OP, SAAS
+
+    __mapper_args__ = {
+        "polymorphic_identity": SOFTWARE_INTERLINKER_LITERAL,
+    }
+
+    def __repr__(self) -> str:
+        return f"<SoftwareInterlinker {self.name}>"
+
+
+class KnowledgeInterlinker(Interlinker):
+    """
+    Defines the knowledge interlinker model
+    """
+    id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("interlinker.id"),
+        primary_key=True,
+        default=uuid.uuid4,
+    )
+
+    type = Column(String, nullable=True)
+    format = Column(String, nullable=True)
+    genesis_asset_id = Column(String, nullable=True)
+
+    __mapper_args__ = {
+        "polymorphic_identity": KNOWLEDGE_INTERLINKER_LITERAL,
+    }
+
+    def __repr__(self) -> str:
+        return f"<KnowledgeInterlinker {self.name}>"
+
+
+InterlinkerModel = Union[KnowledgeInterlinker, SoftwareInterlinker]

@@ -16,10 +16,6 @@ class PublicServiceOutFull(ArtefactOutFull, PublicServiceOut):
     pass
 
 
-class InterlinkerOutFull(ArtefactOutFull, InterlinkerOut):
-    pass
-
-
 class ProblemDomainOutFull(ProblemDomainOut):
     pass
 

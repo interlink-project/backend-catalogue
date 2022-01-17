@@ -70,35 +70,19 @@ def main() -> None:
         logo = interlinker["logo"]
         keywords = interlinker["keywords"]
         images = interlinker["images"]
-        init_asset_id = None
+        genesis_asset_id = None
 
         if crud.interlinker.get_by_name(db=db, name=name):
             return
         try:
-            if nature == "KN":
-                path = interlinker["path"]
-                files_data = {'file': ("demoooo.docx", open(path, "rb"))}
-                print(files_data)
-                response = requests.post(
-                    f"http://{backend}/api/v1/assets/", files=files_data)
-
-                print(f"RESPUESTA PARA {backend}")
-                files_data = response.json()
-                print(files_data)
-                init_asset_id = files_data["_id"]
-
-            print(images)
-            # I don´t know why sometimes a tuple that contains InterlinkerVersionCreate instance is created
-            crud.interlinker.create(
-                db=db,
-                interlinker=schemas.InterlinkerCreate(**{
-                    "name": name,
-                    "description": description,
-                    "logotype": logo,
-                    "images": images,
-                    "published": True,
-                    "keywords": keywords,
-                    "documentation": """
+            data_dict = {
+                "name": name,
+                "description": description,
+                "logotype": logo,
+                "images": images,
+                "published": True,
+                "keywords": keywords,
+                "documentation": """
                         # Dillinger
                         ## _The Last Markdown Editor, Ever_
 
@@ -232,69 +216,39 @@ def main() -> None:
                         By default, the Docker will expose port 8080, so change this within the
                         Dockerfile if necessary. When ready, simply use the Dockerfile to
                         build the image.
+                        """,
+                "problemdomains": [],
+                "functionalities": [],
+                # Interlinker
+                "constraints": [],
+                "regulations": [],
+                "backend": backend,
+            }
+            if nature == "KN":
+                path = interlinker["path"]
+                files_data = {'file': ("demoooo.docx", open(path, "rb"))}
+                response = requests.post(
+                    f"http://{backend}/api/v1/assets/", files=files_data)
 
-                        ```sh
-                        cd dillinger
-                        docker build -t <youruser>/dillinger:${package.json.version} .
-                        ```
+                print(f"RESPUESTA PARA {backend}")
+                files_data = response.json()
+                print(files_data)
 
-                        This will create the dillinger image and pull in the necessary dependencies.
-                        Be sure to swap out `${package.json.version}` with the actual
-                        version of Dillinger.
+                data_dict["nature"] = "knowledgeinterlinker"
+                data_dict["genesis_asset_id"] = files_data["_id"]
+                data_dict["type"] = "IM"
+                data_dict["format"] = None
+                schema = schemas.KnowledgeInterlinkerCreate(**data_dict)
 
-                        Once done, run the Docker image and map the port to whatever you wish on
-                        your host. In this example, we simply map port 8000 of the host to
-                        port 8080 of the Docker (or whatever port was exposed in the Dockerfile):
-
-                        ```sh
-                        docker run -d -p 8000:8080 --restart=always --cap-add=SYS_ADMIN --name=dillinger <youruser>/dillinger:${package.json.version}
-                        ```
-
-                        > Note: `--capt-add=SYS-ADMIN` is required for PDF rendering.
-
-                        Verify the deployment by navigating to your server address in
-                        your preferred browser.
-
-                        ```sh
-                        127.0.0.1:8000
-                        ```
-
-                        ## License
-
-                        MIT
-
-                        **Free Software, Hell Yeah!**
-
-                        [//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
-
-                        [dill]: <https://github.com/joemccann/dillinger>
-                        [git-repo-url]: <https://github.com/joemccann/dillinger.git>
-                        [john gruber]: <http://daringfireball.net>
-                        [df1]: <http://daringfireball.net/projects/markdown/>
-                        [markdown-it]: <https://github.com/markdown-it/markdown-it>
-                        [Ace Editor]: <http://ace.ajax.org>
-                        [node.js]: <http://nodejs.org>
-                        [Twitter Bootstrap]: <http://twitter.github.com/bootstrap/>
-                        [jQuery]: <http://jquery.com>
-                        [@tjholowaychuk]: <http://twitter.com/tjholowaychuk>
-                        [express]: <http://expressjs.com>
-                        [AngularJS]: <http://angularjs.org>
-                        [Gulp]: <http://gulpjs.com>
-
-                        [PlDb]: <https://github.com/joemccann/dillinger/tree/master/plugins/dropbox/README.md>
-                        [PlGh]: <https://github.com/joemccann/dillinger/tree/master/plugins/github/README.md>
-                        [PlGd]: <https://github.com/joemccann/dillinger/tree/master/plugins/googledrive/README.md>
-                        [PlOd]: <https://github.com/joemccann/dillinger/tree/master/plugins/onedrive/README.md>
-                        [PlMe]: <https://github.com/joemccann/dillinger/tree/master/plugins/medium/README.md>
-                        [PlGa]: <https://github.com/RahulHP/dillinger/blob/master/plugins/googleanalytics/README.md>
-                    """,
-                    "SOC_type": "A11",
-                    "nature": nature,
-                    "problemdomains": [],
-                    "backend": backend,
-                    "init_asset_id": init_asset_id
-                }
-                ),
+            else:
+                data_dict["nature"] = "softwareinterlinker"
+                data_dict["type"] = "IM"
+                data_dict["implementation"] = None
+                schema = schemas.SoftwareInterlinkerCreate(**data_dict)
+            # I don´t know why sometimes a tuple that contains InterlinkerVersionCreate instance is created
+            crud.interlinker.create(
+                db=db,
+                interlinker=schema,
             )
         except Exception as e:
             print(str(e))

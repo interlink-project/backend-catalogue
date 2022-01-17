@@ -1,46 +1,66 @@
-from typing import Optional
+from sys import implementation
+from typing import Optional, List, Union
 
 from sqlalchemy.orm import Session
 
-from app.models import Interlinker
-from app.schemas import InterlinkerCreate, InterlinkerPatch
+from app.models import InterlinkerModel, Interlinker, KnowledgeInterlinker, SoftwareInterlinker
+from app.schemas import InterlinkerCreate, SoftwareInterlinkerCreate, KnowledgeInterlinkerCreate, InterlinkerPatch
 from app.general.utils.CRUDBase import CRUDBase
+from sqlalchemy import or_, func
 
-class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]):
-    def get_by_name(self, db: Session, name: str) -> Optional[Interlinker]:
+
+class CRUDInterlinker(CRUDBase[InterlinkerModel, InterlinkerCreate, InterlinkerPatch]):
+    def get_by_name(self, db: Session, name: str) -> Optional[InterlinkerModel]:
         return db.query(Interlinker).filter(Interlinker.name == name).first()
 
-    def create(self, db: Session, *, interlinker: InterlinkerCreate) -> Interlinker:
-        db_obj = Interlinker(
-            # Artefact
-            name=interlinker.name,
-            description=interlinker.description,
-            logotype=interlinker.logotype,
-            images=interlinker.images,
-            published=interlinker.published,
-            keywords=interlinker.keywords,
-            documentation=interlinker.documentation,
-            # Interlinker specific
-            SOC_type=interlinker.SOC_type,
-            nature=interlinker.nature,
-            administrative_scope=interlinker.administrative_scope,
-            specific_app_domain=interlinker.specific_app_domain,
-            constraints=interlinker.constraints,
-            regulations=interlinker.regulations,
-            software_type=interlinker.software_type,
-            software_implementation=interlinker.software_implementation,
-            software_customization=interlinker.software_customization,
-            software_integration=interlinker.software_integration,
-            knowledge_type=interlinker.knowledge_type,
-            knowledge_format=interlinker.knowledge_format,
-            # Version
-            backend=interlinker.backend,
-            init_asset_id=interlinker.init_asset_id,
-        )
+    def create(self, db: Session, *, interlinker: InterlinkerCreate) -> InterlinkerModel:
+        data = {
+                # Artefact
+                "artefact_type": "interlinker",
+                "name": interlinker.name,
+                "description": interlinker.description,
+                "logotype": interlinker.logotype,
+                "images": interlinker.images,
+                "published": interlinker.published,
+                "keywords": interlinker.keywords,
+                "documentation": interlinker.documentation,
+                # Interlinker
+                "nature": interlinker.nature,
+                "constraints": interlinker.constraints,
+                "regulations": interlinker.regulations,
+                "backend": interlinker.backend,
+            }
+        if type(interlinker) == SoftwareInterlinkerCreate:
+            print("IS SOFTWARE")
+            # Software interlinker specific
+            data["type"] = interlinker.type
+            data["implementation"] = interlinker.implementation
+            db_obj = SoftwareInterlinker(**data)
+        if type(interlinker) == KnowledgeInterlinkerCreate:
+            print("IS KNOWLEDGE")
+            # Knowledge interlinker specific
+            data["type"] = interlinker.type
+            data["format"] = interlinker.format
+            data["genesis_asset_id"] = interlinker.genesis_asset_id
+            db_obj = KnowledgeInterlinker(**data)
         db.add(db_obj)
         db.commit()
         db.refresh(db_obj)
         return db_obj
+
+    def get_multi(
+        self, db: Session, *, skip: int = 0, limit: int = 100, search: str = ""
+    ) -> List[InterlinkerModel]:
+        if search != "":
+            search = search.lower()
+            print(f"SEARCHING FOR {search}")
+            return db.query(Interlinker).filter(
+                or_(
+                    func.lower(Interlinker.keywords).contains(search), 
+                    func.lower(Interlinker.name).contains(search)
+                )
+            ).offset(skip).limit(limit).all()
+        return db.query(Interlinker).offset(skip).limit(limit).all()
 
     # CRUD Permissions
     def can_create(self, user):
@@ -58,4 +78,4 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
     def can_remove(self, user, object):
         return True
 
-exportCrud = CRUDInterlinker(Interlinker)
+exportCrud = CRUDInterlinker(InterlinkerModel)

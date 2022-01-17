@@ -48,8 +48,8 @@ prod: down ## Starts production containers
 
 .PHONY: tests
 tests: ## Starts test container
-	#docker-compose exec catalogue pytest --cov=app --cov-report=term-missing app/tests
-	docker-compose exec -T catalogue pytest app/tests
+	#docker-compose -f docker-compose.devintegrated.yml exec catalogue pytest --cov=app --cov-report=term-missing app/tests
+	docker-compose -f docker-compose.devintegrated.yml exec -T catalogue pytest app/tests
 
 .PHONY: testing
 testing: devbuild solo tests down ## Builds containers, runs them, runs test container and deletes all containers
@@ -60,4 +60,4 @@ testing: devbuild solo tests down ## Builds containers, runs them, runs test con
 
 .PHONY: seed
 seed: ## Seed data
-	docker-compose exec catalogue python /app/app/initial_data.py
+	docker-compose -f docker-compose.devintegrated.yml exec catalogue python /app/app/initial_data.py
