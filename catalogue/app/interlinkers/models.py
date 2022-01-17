@@ -93,6 +93,3 @@ class KnowledgeInterlinker(Interlinker):
 
     def __repr__(self) -> str:
         return f"<KnowledgeInterlinker {self.name}>"
-
-
-InterlinkerModel = Union[KnowledgeInterlinker, SoftwareInterlinker]

@@ -3,17 +3,17 @@ from typing import Optional, List, Union
 
 from sqlalchemy.orm import Session
 
-from app.models import InterlinkerModel, Interlinker, KnowledgeInterlinker, SoftwareInterlinker
+from app.models import Interlinker, KnowledgeInterlinker, SoftwareInterlinker
 from app.schemas import InterlinkerCreate, SoftwareInterlinkerCreate, KnowledgeInterlinkerCreate, InterlinkerPatch
 from app.general.utils.CRUDBase import CRUDBase
 from sqlalchemy import or_, func
 
 
-class CRUDInterlinker(CRUDBase[InterlinkerModel, InterlinkerCreate, InterlinkerPatch]):
-    def get_by_name(self, db: Session, name: str) -> Optional[InterlinkerModel]:
+class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]):
+    def get_by_name(self, db: Session, name: str) -> Optional[Interlinker]:
         return db.query(Interlinker).filter(Interlinker.name == name).first()
 
-    def create(self, db: Session, *, interlinker: InterlinkerCreate) -> InterlinkerModel:
+    def create(self, db: Session, *, interlinker: InterlinkerCreate) -> Interlinker:
         data = {
                 # Artefact
                 "artefact_type": "interlinker",
@@ -50,7 +50,7 @@ class CRUDInterlinker(CRUDBase[InterlinkerModel, InterlinkerCreate, InterlinkerP
 
     def get_multi(
         self, db: Session, *, skip: int = 0, limit: int = 100, search: str = ""
-    ) -> List[InterlinkerModel]:
+    ) -> List[Interlinker]:
         if search != "":
             search = search.lower()
             print(f"SEARCHING FOR {search}")
@@ -78,4 +78,4 @@ class CRUDInterlinker(CRUDBase[InterlinkerModel, InterlinkerCreate, InterlinkerP
     def can_remove(self, user, object):
         return True
 
-exportCrud = CRUDInterlinker(InterlinkerModel)
+exportCrud = CRUDInterlinker(Interlinker)
