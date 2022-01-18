@@ -88,7 +88,7 @@ async def websocket_endpoint(
     websocket: WebSocket,
     current_user: str = Depends(deps.get_current_user_socket)
 ):
-    user_id = current_user["email"]
+    user_id = current_user["sub"]
     await manager.connect(websocket)
     print(f"Client #{user_id} connected")
     data = {

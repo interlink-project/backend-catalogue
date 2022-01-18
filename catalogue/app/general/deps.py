@@ -55,10 +55,10 @@ async def get_current_user_socket(
             return user_data
         if websocket:
             await websocket.close(code=status.WS_1008_POLICY_VIOLATION)
-        return None
+        raise HTTPException(status_code=401, detail="Not authenticated")
     except Exception as e:
         print(str(e))
-        return None
+        raise HTTPException(status_code=401, detail="Not authenticated")
 
 def get_current_active_user(
     current_user: dict = Depends(get_current_user),
