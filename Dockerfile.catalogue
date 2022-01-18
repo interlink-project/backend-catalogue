@@ -13,24 +13,17 @@ COPY ./catalogue /app
 ENV PYTHONPATH=/app
 
 FROM builder as dev
-RUN pip install --no-cache-dir 'uvicorn[standard]'
 RUN poetry install --no-root
-#TODO: include these dependencies in pyproject toml
 RUN apt-get update \
   && apt-get install -y --no-install-recommends graphviz \
   && rm -rf /var/lib/apt/lists/*
-
-EXPOSE 80
 
 COPY ./catalogue/start-dev.sh ./start-dev.sh
 RUN chmod +x ./start-dev.sh
 CMD ["bash", "./start-dev.sh"]
 
 FROM builder as prod
-
 RUN poetry install --no-root --no-dev
-EXPOSE 80
-
 COPY ./catalogue/start-prod.sh ./start-prod.sh
 RUN chmod +x ./start-prod.sh
 CMD ["bash", "./start-prod.sh"]
