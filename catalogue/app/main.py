@@ -50,61 +50,14 @@ from fastapi.staticfiles import StaticFiles
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 ###################
-# Tasks and sockets
+# Tasks
 ###################
 
 from fastapi_utils.tasks import repeat_every
-from app.status import set_interlinkers_status, status_dict
-import json
-from fastapi import WebSocket, WebSocketDisconnect, Depends
-from app.general import deps
-from app.sockets import manager
+from app.status import set_interlinkers_status
 
 @app.on_event("startup")
 @repeat_every(seconds=5)
 async def task_set_interlinkers_status() -> None:
     print("Setting interlinkers status")
-    last_status = status_dict
     set_interlinkers_status()
-    if (last_status != status_dict):
-        print("UPDATED STATUS")
-        data = {
-            "event": "NEW_STATUS",
-            "payload": status_dict
-        }
-        await manager.broadcast(json.dumps(data))
-
-@app.get("/interlinkers_status/")
-async def status():
-    data = {
-        "event": "NEW_STATUS",
-        "payload": status_dict
-    }
-    await manager.broadcast(json.dumps(data))
-    return status_dict
-
-@app.websocket("/connect/")
-async def websocket_endpoint(
-    websocket: WebSocket,
-    current_user: str = Depends(deps.get_current_user_socket)
-):  
-    if not current_user:
-        await websocket.close(code=status.WS_1008_POLICY_VIOLATION)
-        return
-
-    user_id = current_user["sub"]
-    await manager.connect(websocket)
-    print(f"Client #{user_id} connected")
-    data = {
-        "event": "NEW_STATUS",
-        "payload": status_dict
-    }
-    await manager.send_personal_message(json.dumps(data), websocket)
-    try:
-        while True:
-            await websocket.receive_text()
-    except WebSocketDisconnect:
-        manager.disconnect(websocket)
-        
-        print(f"Client #{user_id} disconnected")
-        await manager.broadcast(f"Client #{user_id} disconnected")

@@ -3,13 +3,13 @@ from datetime import datetime
 from typing import List, Optional, Union, Literal
 
 from pydantic_choices import choice
+from pydantic import BaseModel as PydanticBaseModel
 
 from app.artefacts.schemas import ArtefactBase, ArtefactCreate, ArtefactORM, ArtefactOut
 from app.general.utils.AllOptional import AllOptional
 from typing_extensions import Annotated
 from pydantic import Field
 from pydantic import BaseModel
-from app.interlinkers.models import SOFTWARE_INTERLINKER_LITERAL, KNOWLEDGE_INTERLINKER_LITERAL
 # Interlinker
 
 NATURES = [("SoftwareInterlinker", "SOFTWARE"), ("KnowledgeInterlinker", "KNOWLEDGE")]
@@ -39,7 +39,6 @@ kn_types = choice([key for key, value in KNOWLEDGE_TYPES])
 class BaseInterlinkerBase(ArtefactBase):
     constraints: Optional[List[str]]
     regulations: Optional[List[str]]
-    backend: str
 
 
 class BaseInterlinkerCreate(ArtefactCreate, BaseInterlinkerBase):
@@ -66,13 +65,18 @@ class BaseInterlinkerOut(ArtefactOut, BaseInterlinkerORM):
 ###
 
 class SoftwareBaseInterlinkerBase(BaseInterlinkerBase):
-    nature: Literal[SOFTWARE_INTERLINKER_LITERAL]
-    type: sw_types
-    implementation: Optional[str]
+    nature: Literal["softwareinterlinker"]
+    backend: str
+    assets_deletable: bool
+    assets_updatable: bool
+    assets_clonable: bool
+    
 
 
 class SoftwareInterlinkerCreate(BaseInterlinkerCreate, SoftwareBaseInterlinkerBase):
-    pass
+    assets_deletable: Optional[bool]
+    assets_updatable: Optional[bool]
+    assets_clonable: Optional[bool]
 
 
 class SoftwareInterlinkerPatch(SoftwareInterlinkerCreate, metaclass=AllOptional):
@@ -89,15 +93,25 @@ class SoftwareBaseInterlinkerORM(BaseInterlinkerORM, SoftwareBaseInterlinkerBase
 
 
 class SoftwareInterlinkerOut(BaseInterlinkerOut, SoftwareBaseInterlinkerORM):
+    # status: str
     pass
 
 
+class BasicSoftwareInterlinkerOut(PydanticBaseModel):
+    id: uuid.UUID
+    created_at: datetime
+    updated_at: Optional[datetime]
+    name: str
+    backend: str
+    # status: str
+    
+    class Config:
+        orm_mode = True
 ### 
 
 class KnowledgeBaseInterlinkerBase(BaseInterlinkerBase):
-    nature: Literal[KNOWLEDGE_INTERLINKER_LITERAL]
-    type: Optional[str]
-    format: Optional[str]
+    nature: Literal["knowledgeinterlinker"]
+    softwareinterlinker_id: uuid.UUID
     genesis_asset_id: Optional[str]
 
 
@@ -119,8 +133,7 @@ class KnowledgeBaseInterlinkerORM(BaseInterlinkerORM, KnowledgeBaseInterlinkerBa
 
 
 class KnowledgeInterlinkerOut(BaseInterlinkerOut, KnowledgeBaseInterlinkerORM):
-    pass
-
+    softwareinterlinker: BasicSoftwareInterlinkerOut
 
 InterlinkerCreate = Annotated[
     Union[KnowledgeInterlinkerCreate, SoftwareInterlinkerCreate],

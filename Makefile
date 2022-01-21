@@ -60,4 +60,5 @@ testing: devbuild solo tests down ## Builds containers, runs them, runs test con
 
 .PHONY: seed
 seed: ## Seed data
+	docker-compose -f docker-compose.devintegrated.yml exec catalogue python /app/app/pre_start.py
 	docker-compose -f docker-compose.devintegrated.yml exec catalogue python /app/app/initial_data.py

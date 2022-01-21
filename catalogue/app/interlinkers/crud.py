@@ -7,11 +7,24 @@ from app.models import Interlinker, KnowledgeInterlinker, SoftwareInterlinker
 from app.schemas import InterlinkerCreate, SoftwareInterlinkerCreate, KnowledgeInterlinkerCreate, InterlinkerPatch
 from app.general.utils.CRUDBase import CRUDBase
 from sqlalchemy import or_, func
-
+from app.exceptions import CrudException
 
 class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]):
     def get_by_name(self, db: Session, name: str) -> Optional[Interlinker]:
         return db.query(Interlinker).filter(Interlinker.name == name).first()
+
+    def get_multi_knowledgeinterlinkers(
+        self, db: Session, *, skip: int = 0, limit: int = 100
+    ) -> List[KnowledgeInterlinker]:
+        return db.query(KnowledgeInterlinker).offset(skip).limit(limit).all()
+
+    def get_multi_softwareinterlinkers(
+        self, db: Session, *, skip: int = 0, limit: int = 100
+    ) -> List[SoftwareInterlinker]:
+        return db.query(SoftwareInterlinker).offset(skip).limit(limit).all()
+
+    def get_softwareinterlinker_by_backend(self, db: Session, backend: str) -> Optional[SoftwareInterlinker]:
+        return db.query(SoftwareInterlinker).filter(SoftwareInterlinker.backend == backend).first()
 
     def create(self, db: Session, *, interlinker: InterlinkerCreate) -> Interlinker:
         data = {
@@ -28,19 +41,23 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
                 "nature": interlinker.nature,
                 "constraints": interlinker.constraints,
                 "regulations": interlinker.regulations,
-                "backend": interlinker.backend,
             }
         if type(interlinker) == SoftwareInterlinkerCreate:
             print("IS SOFTWARE")
             # Software interlinker specific
-            data["type"] = interlinker.type
-            data["implementation"] = interlinker.implementation
+            data["backend"] = interlinker.backend
+            data["assets_deletable"] = interlinker.assets_deletable
+            data["assets_updatable"] = interlinker.assets_updatable
+            data["assets_clonable"] = interlinker.assets_clonable
             db_obj = SoftwareInterlinker(**data)
         if type(interlinker) == KnowledgeInterlinkerCreate:
             print("IS KNOWLEDGE")
             # Knowledge interlinker specific
-            data["type"] = interlinker.type
-            data["format"] = interlinker.format
+            software_interlinker = self.get(db, interlinker.softwareinterlinker_id)
+            if not software_interlinker:
+                raise CrudException("Software interlinker does not exist")
+            print(software_interlinker.__dict__)
+            data["softwareinterlinker_id"] = interlinker.softwareinterlinker_id
             data["genesis_asset_id"] = interlinker.genesis_asset_id
             db_obj = KnowledgeInterlinker(**data)
         db.add(db_obj)

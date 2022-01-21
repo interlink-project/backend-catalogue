@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 
 from app import crud, models, schemas
 from app.general import deps
-
+from app.exceptions import CrudException
 router = APIRouter()
 
 
@@ -38,8 +38,11 @@ def create_interlinker(
     """
     if not crud.interlinker.can_create(current_user):
         raise HTTPException(status_code=403, detail="Not enough permissions")
-    interlinker = crud.interlinker.create(db=db, interlinker=interlinker_in)
-    return interlinker
+    try:
+        interlinker = crud.interlinker.create(db=db, interlinker=interlinker_in)
+        return interlinker
+    except CrudException as e:
+        raise HTTPException(status_code=400, detail=str(e))
 
 
 @router.put("/{id}", response_model=schemas.InterlinkerOut)
@@ -77,6 +80,7 @@ def read_interlinker(
         raise HTTPException(status_code=404, detail="Interlinker not found")
     if not crud.interlinker.can_read(current_user, interlinker):
         raise HTTPException(status_code=403, detail="Not enough permissions")
+    print(interlinker.softwareinterlinker.__dict__)
     return interlinker
 
 @router.get("/get_by_name/{name}", response_model=schemas.InterlinkerOut)

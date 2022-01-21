@@ -1,6 +1,6 @@
 from typing import Generator
 
-from fastapi import Depends, HTTPException, Request, WebSocket, status
+from fastapi import Depends, HTTPException, Request
 from sqlalchemy.orm import Session
 
 from app.general.db.session import SessionLocal
@@ -37,19 +37,6 @@ async def get_current_user(
 ):
     try:
         token = get_token_in_cookie(request) or get_token_in_header(request)
-        if token:
-            user_data = decode_token(token)
-            return user_data
-        return None
-    except Exception as e:
-        print(str(e))
-        return None
-
-async def get_current_user_socket(
-    websocket: WebSocket = None,
-):
-    try:
-        token = get_token_in_cookie(websocket)
         if token:
             user_data = decode_token(token)
             return user_data

@@ -13,11 +13,9 @@ from sqlalchemy import (
 )
 from sqlalchemy.dialects.postgresql import UUID
 from werkzeug.utils import cached_property
+from sqlalchemy.orm import relationship
 
 from app.artefacts.models import Artefact
-
-KNOWLEDGE_INTERLINKER_LITERAL: str = "knowledgeinterlinker"
-SOFTWARE_INTERLINKER_LITERAL: str = "softwareinterlinker"
 
 class Interlinker(Artefact):
     """
@@ -32,9 +30,10 @@ class Interlinker(Artefact):
     nature = Column(String)
     constraints = Column(ARRAY(String), nullable=True)
     regulations = Column(ARRAY(String), nullable=True)
-    # googledrive, forum...
-    backend = Column(String)
 
+    # discriminator
+    nature = Column(String)
+    
     __mapper_args__ = {
         "polymorphic_identity": "interlinker",
         "polymorphic_on": nature,
@@ -45,7 +44,7 @@ class Interlinker(Artefact):
 
     @cached_property
     def is_knowledge(self):
-        return self.nature == "KN"
+        return self.nature == "knowledgeinterlinker"
 
 
 class SoftwareInterlinker(Interlinker):
@@ -58,14 +57,19 @@ class SoftwareInterlinker(Interlinker):
         primary_key=True,
         default=uuid.uuid4,
     )
-    # SW or KN
-    type = Column(String, nullable=True)
-    # IM or SP
-    implementation = Column(String, nullable=True)
-    # OS, OP, SAAS
+    #knowledgeinterlinkers = relationship("KnowledgeInterlinker", back_populates="softwareinterlinker")
+    # googledrive, forum...
+    backend = Column(String)
+    # has DELETE endpoint
+    assets_deletable = Column(Boolean, default=False)
+    # has /modify endpoint
+    assets_updatable = Column(Boolean, default=False)
+    # has /clone endpoint
+    assets_clonable = Column(Boolean, default=False)
 
+    status = Column(String, default="off")
     __mapper_args__ = {
-        "polymorphic_identity": SOFTWARE_INTERLINKER_LITERAL,
+        "polymorphic_identity": "softwareinterlinker",
     }
 
     def __repr__(self) -> str:
@@ -83,12 +87,12 @@ class KnowledgeInterlinker(Interlinker):
         default=uuid.uuid4,
     )
 
-    type = Column(String, nullable=True)
-    format = Column(String, nullable=True)
     genesis_asset_id = Column(String, nullable=True)
+    softwareinterlinker_id = Column(UUID(as_uuid=True), ForeignKey("softwareinterlinker.id"))
+    softwareinterlinker = relationship("SoftwareInterlinker", backref='softwareinterlinker', foreign_keys=[softwareinterlinker_id])
 
     __mapper_args__ = {
-        "polymorphic_identity": KNOWLEDGE_INTERLINKER_LITERAL,
+        "polymorphic_identity": "knowledgeinterlinker",
     }
 
     def __repr__(self) -> str:
