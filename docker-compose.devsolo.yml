@@ -21,7 +21,7 @@ services:
       - "${SOLODEVPORT}:${PORT}"
 
   db:
-    container_name: db-solo
+    container_name: catalogue-postgres
     image: postgres-solo
     build:
       context: .
