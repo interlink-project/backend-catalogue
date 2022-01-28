@@ -1,6 +1,7 @@
 import uuid
 from datetime import datetime
 from typing import List, Optional, Union, Literal
+from enum import Enum
 
 from pydantic_choices import choice
 from pydantic import BaseModel as PydanticBaseModel
@@ -10,35 +11,31 @@ from app.general.utils.AllOptional import AllOptional
 from typing_extensions import Annotated
 from pydantic import Field
 from pydantic import BaseModel
+from app.config import settings
 # Interlinker
 
-NATURES = [("SoftwareInterlinker", "SOFTWARE"), ("KnowledgeInterlinker", "KNOWLEDGE")]
-
-SOFTWARE_IMPLEMENTATIONS = [
-    ("OS", "OPEN SOURCE"),
-    ("OP", "ON PREMISES"),
-    ("SA", "SAAS"),
-]
-
-SOFTWARE_TYPES = [
-    ("IM", "IMPLEMENTATION"),
-    ("SP", "SUPPORT"),
-]
-
-KNOWLEDGE_TYPES = [
-    ("IM", "IMPLEMENTATION"),
-    ("SP", "SUPPORT"),
-]
-
-natures = choice([key for key, value in NATURES])
-sw_implementations = choice([key for key, value in SOFTWARE_IMPLEMENTATIONS])
-sw_types = choice([key for key, value in SOFTWARE_TYPES])
-kn_types = choice([key for key, value in KNOWLEDGE_TYPES])
+Difficulties = choice(["very_easy", "easy", "medium", "difficult", "very_difficult"])
+Licences = choice(["public_domain", "permissive", "copyleft",
+                  "non_commercial", "propietary"])
+Targets = choice(["all", "all;pas", "all;pas;public_servants", "all;pas;politicians", "all;businesses", "all;businesses;smes", "all;businesses;freelancers", "all;businesses;large_companies", "all;businesses;private_non_profit",
+                  "all;citizens", "all;citizens;potential_end_users", "all;citizens;expert_citizens", "all;research_organizations", "all;research_organizations;universities", "all;research_organizations;other_research_entities"])
+InterlinkerTypes = choice(["enabling_services", "enabling_services;implementing_software_and_artifacts", "enabling_services;operation_services",
+                          "enhancing_services", "enhancing_services;onboarding_services", "enhancing_services;followup_services", "enhancing_services:external_experts"])
+AdministrativeScopes = choice(["eu", "national", "local"])
 
 
 class BaseInterlinkerBase(ArtefactBase):
-    constraints: Optional[List[str]]
-    regulations: Optional[List[str]]
+    difficulty: Difficulties
+    targets: Optional[List[Targets]]
+    licence: Licences
+    problem_profiles: List[str]
+    types: Optional[List[InterlinkerTypes]]
+    related_interlinkers: Optional[List[str]]
+    administrative_scopes: Optional[List[AdministrativeScopes]]
+    domain: Optional[str]
+    process: Optional[str]
+    constraints_and_limitations: Optional[str]
+    regulations_and_standards: Optional[str]
 
 
 class BaseInterlinkerCreate(ArtefactCreate, BaseInterlinkerBase):
@@ -64,19 +61,33 @@ class BaseInterlinkerOut(ArtefactOut, BaseInterlinkerORM):
 
 ###
 
+Supporters = choice(["saas", "on_premise", "installed_app"])
+AuthMethods = choice(["header", "cookie"])
+
 class SoftwareBaseInterlinkerBase(BaseInterlinkerBase):
     nature: Literal["softwareinterlinker"]
-    backend: str
-    assets_deletable: bool
-    assets_updatable: bool
+
+    supported_by: Supporters
+    auth_method: AuthMethods
+    deployment_manual: Optional[str]
+    user_manual: Optional[str]
+    developer_manual: Optional[str]
+
+    supports_internationalization: bool
+
+    is_responsive: bool
+    # GUI is responsive
+    open_in_modal: bool
+    # assets for specific interlinkers may be opened on a modal, not in a new tab
     assets_clonable: bool
-    
+    # exposes an /assets/{id}/clone/ API endpoint?
+
+    path: str
+    is_subdomain: bool
 
 
 class SoftwareInterlinkerCreate(BaseInterlinkerCreate, SoftwareBaseInterlinkerBase):
-    assets_deletable: Optional[bool]
-    assets_updatable: Optional[bool]
-    assets_clonable: Optional[bool]
+    pass
 
 
 class SoftwareInterlinkerPatch(SoftwareInterlinkerCreate, metaclass=AllOptional):
@@ -93,8 +104,7 @@ class SoftwareBaseInterlinkerORM(BaseInterlinkerORM, SoftwareBaseInterlinkerBase
 
 
 class SoftwareInterlinkerOut(BaseInterlinkerOut, SoftwareBaseInterlinkerORM):
-    # status: str
-    pass
+    backend: Optional[str]
 
 
 class BasicSoftwareInterlinkerOut(PydanticBaseModel):
@@ -102,17 +112,26 @@ class BasicSoftwareInterlinkerOut(PydanticBaseModel):
     created_at: datetime
     updated_at: Optional[datetime]
     name: str
-    backend: str
+    backend: Optional[str]
     # status: str
-    
+
     class Config:
         orm_mode = True
+
 ### 
+
+
+FormTypes = choice(["visual_template", "document_template", "canvas", "best_practices", "guidelines", "checklist", "survey_template", "legal_agreement_template", "other"])
+Formats = choice(["pdf", "editable_source_document", "open_document", "structured_format"])
+
 
 class KnowledgeBaseInterlinkerBase(BaseInterlinkerBase):
     nature: Literal["knowledgeinterlinker"]
     softwareinterlinker_id: uuid.UUID
-    genesis_asset_id: Optional[str]
+    genesis_asset_id: str
+    form: FormTypes
+    format: Formats
+    instructions: str
 
 
 class KnowledgeInterlinkerCreate(BaseInterlinkerCreate, KnowledgeBaseInterlinkerBase):
@@ -134,6 +153,7 @@ class KnowledgeBaseInterlinkerORM(BaseInterlinkerORM, KnowledgeBaseInterlinkerBa
 
 class KnowledgeInterlinkerOut(BaseInterlinkerOut, KnowledgeBaseInterlinkerORM):
     softwareinterlinker: BasicSoftwareInterlinkerOut
+
 
 InterlinkerCreate = Annotated[
     Union[KnowledgeInterlinkerCreate, SoftwareInterlinkerCreate],

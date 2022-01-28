@@ -11,6 +11,7 @@ from sqlalchemy import (
     String,
     Table,
     Text,
+    event
 )
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
@@ -18,8 +19,6 @@ from app.tables import (
     artefact_problem_association_table,
     artefact_functionality_association_table,
 )
-
-
 class Artefact(BaseModel):
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     artefact_type = Column(String(70))
@@ -27,11 +26,10 @@ class Artefact(BaseModel):
     name = Column(String)
     description = Column(String)
     published = Column(Boolean, default=False)
-    logotype = Column(String)
-    images = Column(ARRAY(String), default=dict)
-    keywords = Column(String)
-    documentation = Column(String, nullable=True)
-    
+    logotype = Column(String, nullable=True)
+    snapshots = Column(ARRAY(String), default=list)
+    tags = Column(String, default=list)
+
     problemdomains = relationship(
         "ProblemDomain",
         secondary=artefact_problem_association_table,

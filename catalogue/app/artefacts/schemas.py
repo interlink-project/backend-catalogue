@@ -3,19 +3,17 @@ from typing import List, Optional
 from datetime import datetime
 
 from app.general.db.base_class import Base as BaseModel
-from pydantic import BaseModel as PydanticBaseModel
+from pydantic import validator, BaseModel as PydanticBaseModel
 from app.problemdomains.schemas import ProblemDomainOut
 from app.questioncomments.schemas import QuestionCommentOut
-
 
 class ArtefactBase(PydanticBaseModel):
     name: str
     description: str
-    logotype: str
-    published: bool
-    keywords: str
-    images: Optional[List[str]]
-    documentation: Optional[str]
+    logotype: Optional[str]
+    published: Optional[bool]
+    tags: str
+    snapshots: Optional[List[str]]
 
 class ArtefactCreate(ArtefactBase):
     problemdomains: Optional[List[uuid.UUID]]
@@ -29,7 +27,6 @@ class ArtefactORM(ArtefactBase):
 
     class Config:
         orm_mode = True
-
 
 class ArtefactOut(ArtefactORM):
     artefact_type: str

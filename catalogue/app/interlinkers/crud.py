@@ -23,8 +23,8 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
     ) -> List[SoftwareInterlinker]:
         return db.query(SoftwareInterlinker).offset(skip).limit(limit).all()
 
-    def get_softwareinterlinker_by_backend(self, db: Session, backend: str) -> Optional[SoftwareInterlinker]:
-        return db.query(SoftwareInterlinker).filter(SoftwareInterlinker.backend == backend).first()
+    def get_softwareinterlinker_by_path(self, db: Session, path: str) -> Optional[SoftwareInterlinker]:
+        return db.query(SoftwareInterlinker).filter(SoftwareInterlinker.path == path).first()
 
     def create(self, db: Session, *, interlinker: InterlinkerCreate) -> Interlinker:
         data = {
@@ -33,22 +33,38 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
                 "name": interlinker.name,
                 "description": interlinker.description,
                 "logotype": interlinker.logotype,
-                "images": interlinker.images,
+                "snapshots": interlinker.snapshots,
                 "published": interlinker.published,
-                "keywords": interlinker.keywords,
-                "documentation": interlinker.documentation,
+                "tags": interlinker.tags,
                 # Interlinker
                 "nature": interlinker.nature,
-                "constraints": interlinker.constraints,
-                "regulations": interlinker.regulations,
+                "difficulty": interlinker.difficulty,
+                "targets": interlinker.targets,
+                "licence": interlinker.licence,
+                "problem_profiles": interlinker.problem_profiles,
+                "types": interlinker.types,
+                # "related_interlinkers":interlinker.related_interlinkers,
+                "administrative_scopes": interlinker.administrative_scopes,
+                "domain": interlinker.domain,
+                "process": interlinker.process,
+                "constraints_and_limitations": interlinker.constraints_and_limitations,
+                "regulations_and_standards": interlinker.regulations_and_standards,
             }
         if type(interlinker) == SoftwareInterlinkerCreate:
             print("IS SOFTWARE")
             # Software interlinker specific
-            data["backend"] = interlinker.backend
-            data["assets_deletable"] = interlinker.assets_deletable
-            data["assets_updatable"] = interlinker.assets_updatable
+            data["supported_by"] = interlinker.supported_by
+            data["auth_method"] = interlinker.auth_method
+            data["deployment_manual"] = interlinker.deployment_manual
+            data["user_manual"] = interlinker.user_manual
+            data["developer_manual"] = interlinker.developer_manual
+            data["supports_internationalization"] = interlinker.supports_internationalization
+            data["is_responsive"] = interlinker.is_responsive
+            data["open_in_modal"] = interlinker.open_in_modal
             data["assets_clonable"] = interlinker.assets_clonable
+            data["path"] = interlinker.path
+            data["is_subdomain"] = interlinker.is_subdomain
+
             db_obj = SoftwareInterlinker(**data)
         if type(interlinker) == KnowledgeInterlinkerCreate:
             print("IS KNOWLEDGE")
@@ -56,9 +72,11 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
             software_interlinker = self.get(db, interlinker.softwareinterlinker_id)
             if not software_interlinker:
                 raise CrudException("Software interlinker does not exist")
-            print(software_interlinker.__dict__)
             data["softwareinterlinker_id"] = interlinker.softwareinterlinker_id
             data["genesis_asset_id"] = interlinker.genesis_asset_id
+            data["form"] = interlinker.form
+            data["format"] = interlinker.format
+            data["instructions"] = interlinker.instructions
             db_obj = KnowledgeInterlinker(**data)
         db.add(db_obj)
         db.commit()

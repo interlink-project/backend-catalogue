@@ -1,7 +1,13 @@
 import json
 import logging
+import ntpath
+import os
+import shutil
+from distutils.dir_util import copy_tree
+from pathlib import Path
 
 import requests
+from slugify import slugify
 
 from app import crud, schemas
 from app.general.db.session import SessionLocal
@@ -9,164 +15,139 @@ from app.general.db.session import SessionLocal
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-interlinkers = [
-    {
-        "name": "Collaborative editor",
-        "nature": "SW",
-        "backend": "etherwrapper",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacus sapien, dapibus fringilla dolor sit amet, bibendum aliquam massa. Duis nec faucibus nunc. In sit amet vulputate justo. In dictum turpis eu dolor posuere vehicula. Sed turpis risus, vestibulum sed aliquam id, tempus nec dolor. Nulla facilisi. Suspendisse tempor pulvinar dignissim. Nulla dui ante, finibus in bibendum vel, dignissim nec risus. Nullam gravida nisi quis purus porttitor, sed hendrerit ante tristique. Donec eget augue vitae purus vehicula vehicula non sit amet lacus. Quisque porta nisi pharetra, fringilla felis id, porta arcu. Mauris vel elementum tortor. Ut sed magna id enim finibus molestie eu vitae leo. Mauris at sem elit. Fusce viverra accumsan orci et feugiat. Mauris ullamcorper molestie massa ac faucibus. Integer sit amet tellus tortor. Vivamus bibendum at libero at aliquet. Proin consectetur, erat et vulputate tincidunt, tortor quam euismod elit, id efficitur sem sapien tempus dolor. Aliquam a molestie risus. Nunc rutrum rutrum felis, in malesuada dolor porttitor nec. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc condimentum porta magna sed pharetra. In non quam dolor.",
-        "logo": "/static/demodata/interlinkers/etherpad/logo.jpeg",
-        "images": ["/static/demodata/interlinkers/etherpad/screenshot.png"],
-        "keywords": "collaborative;document;editor;etherpad",
-        "deletable": True,
-        "updatable": True,
-        "clonable": True
-    },
-    {
-        "name": "File manager",
-        "nature": "SW",
-        "backend": "filemanager",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacus sapien, dapibus fringilla dolor sit amet, bibendum aliquam massa. Duis nec faucibus nunc. In sit amet vulputate justo. In dictum turpis eu dolor posuere vehicula. Sed turpis risus, vestibulum sed aliquam id, tempus nec dolor. Nulla facilisi. Suspendisse tempor pulvinar dignissim. Nulla dui ante, finibus in bibendum vel, dignissim nec risus. Nullam gravida nisi quis purus porttitor, sed hendrerit ante tristique. Donec eget augue vitae purus vehicula vehicula non sit amet lacus. Quisque porta nisi pharetra, fringilla felis id, porta arcu. Mauris vel elementum tortor. Ut sed magna id enim finibus molestie eu vitae leo. Mauris at sem elit. Fusce viverra accumsan orci et feugiat. Mauris ullamcorper molestie massa ac faucibus. Integer sit amet tellus tortor. Vivamus bibendum at libero at aliquet. Proin consectetur, erat et vulputate tincidunt, tortor quam euismod elit, id efficitur sem sapien tempus dolor. Aliquam a molestie risus. Nunc rutrum rutrum felis, in malesuada dolor porttitor nec. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc condimentum porta magna sed pharetra. In non quam dolor.",
-        "logo": "/static/demodata/interlinkers/filemanager/logo.png",
-        "images": ["/static/demodata/interlinkers/filemanager/screenshot.jpeg"],
-        "keywords": "static;file;manager",
-        "deletable": True,
-        "updatable": False,
-        "clonable": True
-    },
-    {
-        "name": "Forum",
-        "nature": "SW",
-        "backend": "forum",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacus sapien, dapibus fringilla dolor sit amet, bibendum aliquam massa. Duis nec faucibus nunc. In sit amet vulputate justo. In dictum turpis eu dolor posuere vehicula. Sed turpis risus, vestibulum sed aliquam id, tempus nec dolor. Nulla facilisi. Suspendisse tempor pulvinar dignissim. Nulla dui ante, finibus in bibendum vel, dignissim nec risus. Nullam gravida nisi quis purus porttitor, sed hendrerit ante tristique. Donec eget augue vitae purus vehicula vehicula non sit amet lacus. Quisque porta nisi pharetra, fringilla felis id, porta arcu. Mauris vel elementum tortor. Ut sed magna id enim finibus molestie eu vitae leo. Mauris at sem elit. Fusce viverra accumsan orci et feugiat. Mauris ullamcorper molestie massa ac faucibus. Integer sit amet tellus tortor. Vivamus bibendum at libero at aliquet. Proin consectetur, erat et vulputate tincidunt, tortor quam euismod elit, id efficitur sem sapien tempus dolor. Aliquam a molestie risus. Nunc rutrum rutrum felis, in malesuada dolor porttitor nec. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc condimentum porta magna sed pharetra. In non quam dolor.",
-        "logo": "/static/demodata/interlinkers/forum/logo.png",
-        "images": [],
-        "keywords": "forum;chat;conversation;discussion",
-        "deletable": True,
-        "updatable": True,
-        "clonable": True
-    },
-    {
-        "name": "Google Drive",
-        "nature": "SW",
-        "backend": "googledrive",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacus sapien, dapibus fringilla dolor sit amet, bibendum aliquam massa. Duis nec faucibus nunc. In sit amet vulputate justo. In dictum turpis eu dolor posuere vehicula. Sed turpis risus, vestibulum sed aliquam id, tempus nec dolor. Nulla facilisi. Suspendisse tempor pulvinar dignissim. Nulla dui ante, finibus in bibendum vel, dignissim nec risus. Nullam gravida nisi quis purus porttitor, sed hendrerit ante tristique. Donec eget augue vitae purus vehicula vehicula non sit amet lacus. Quisque porta nisi pharetra, fringilla felis id, porta arcu. Mauris vel elementum tortor. Ut sed magna id enim finibus molestie eu vitae leo. Mauris at sem elit. Fusce viverra accumsan orci et feugiat. Mauris ullamcorper molestie massa ac faucibus. Integer sit amet tellus tortor. Vivamus bibendum at libero at aliquet. Proin consectetur, erat et vulputate tincidunt, tortor quam euismod elit, id efficitur sem sapien tempus dolor. Aliquam a molestie risus. Nunc rutrum rutrum felis, in malesuada dolor porttitor nec. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc condimentum porta magna sed pharetra. In non quam dolor.",
-        "logo": "/static/demodata/interlinkers/googledrive/logo.png",
-        "images": ["/static/demodata/interlinkers/googledrive/sheets.png", "/static/demodata/interlinkers/googledrive/docs.png", "/static/demodata/interlinkers/googledrive/slides.png"],
-        "keywords": "document;share;edit;slide;collaboration",
-        "deletable": True,
-        "updatable": False,
-        "clonable": True
-    },
-    {
-        "name": "Survey",
-        "nature": "SW",
-        "backend": "survey",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacus sapien, dapibus fringilla dolor sit amet, bibendum aliquam massa. Duis nec faucibus nunc. In sit amet vulputate justo. In dictum turpis eu dolor posuere vehicula. Sed turpis risus, vestibulum sed aliquam id, tempus nec dolor. Nulla facilisi. Suspendisse tempor pulvinar dignissim. Nulla dui ante, finibus in bibendum vel, dignissim nec risus. Nullam gravida nisi quis purus porttitor, sed hendrerit ante tristique. Donec eget augue vitae purus vehicula vehicula non sit amet lacus. Quisque porta nisi pharetra, fringilla felis id, porta arcu. Mauris vel elementum tortor. Ut sed magna id enim finibus molestie eu vitae leo. Mauris at sem elit. Fusce viverra accumsan orci et feugiat. Mauris ullamcorper molestie massa ac faucibus. Integer sit amet tellus tortor. Vivamus bibendum at libero at aliquet. Proin consectetur, erat et vulputate tincidunt, tortor quam euismod elit, id efficitur sem sapien tempus dolor. Aliquam a molestie risus. Nunc rutrum rutrum felis, in malesuada dolor porttitor nec. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc condimentum porta magna sed pharetra. In non quam dolor.",
-        "logo": "/static/demodata/interlinkers/survey/logo.png",
-        "images": ["/static/demodata/interlinkers/survey/screenshot.png"],
-        "keywords": "survey;question;voting",
-        "deletable": True,
-        "updatable": True,
-        "clonable": True
-    },
-    {
-        "name": "Skeleton to guide the description of the main aim of the collaborative project",
-        "nature": "KN",
-        "softwareinterlinker": "googledrive",
-        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam lacus sapien, dapibus fringilla dolor sit amet, bibendum aliquam massa. Duis nec faucibus nunc. In sit amet vulputate justo. In dictum turpis eu dolor posuere vehicula. Sed turpis risus, vestibulum sed aliquam id, tempus nec dolor. Nulla facilisi. Suspendisse tempor pulvinar dignissim. Nulla dui ante, finibus in bibendum vel, dignissim nec risus. Nullam gravida nisi quis purus porttitor, sed hendrerit ante tristique. Donec eget augue vitae purus vehicula vehicula non sit amet lacus. Quisque porta nisi pharetra, fringilla felis id, porta arcu. Mauris vel elementum tortor. Ut sed magna id enim finibus molestie eu vitae leo. Mauris at sem elit. Fusce viverra accumsan orci et feugiat. Mauris ullamcorper molestie massa ac faucibus. Integer sit amet tellus tortor. Vivamus bibendum at libero at aliquet. Proin consectetur, erat et vulputate tincidunt, tortor quam euismod elit, id efficitur sem sapien tempus dolor. Aliquam a molestie risus. Nunc rutrum rutrum felis, in malesuada dolor porttitor nec. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nunc condimentum porta magna sed pharetra. In non quam dolor.",
-        "logo": "/static/demodata/interlinkers/knowledge/doc.png",
-        "images": [],
-        "keywords": "skeleton;aim;project",
-        "path": "static/demodata/interlinkers/knowledge/skeleton_to_guide_the_description_of_the_main_aim_of_the_collaborative_project.docx",
-    },
-]
+# in start-dev.sh and start-prod.sh it is made a git clone of https://github.com/interlink-project/interlinkers-data/
+
+db = SessionLocal()
 
 
-def main() -> None:
-    logger.info("Creating initial data")
-    db = SessionLocal()
-    for interlinker in interlinkers:
-        nature = interlinker["nature"]
-        name = interlinker["name"]
-        description = interlinker["description"]
-        logo = interlinker["logo"]
-        keywords = interlinker["keywords"]
-        images = interlinker["images"]
+class bcolors:
+    HEADER = "\033[95m"
+    OKBLUE = "\033[94m"
+    OKCYAN = "\033[96m"
+    OKGREEN = "\033[92m"
+    WARNING = "\033[93m"
+    FAIL = "\033[91m"
+    ENDC = "\033[0m"
+    BOLD = "\033[1m"
+    UNDERLINE = "\033[4m"
 
-        if crud.interlinker.get_by_name(db=db, name=name):
+
+def path_leaf(path):
+    head, tail = ntpath.split(path)
+    return tail or ntpath.basename(head)
+
+
+def move_file(origin, destination):
+    # print(f"Copying from {origin} to {destination}")
+    shutil.copy(origin, destination)
+
+
+def create_interlinker(metadata_path):
+    str_metadata_path = str(metadata_path)
+    with open(str_metadata_path) as json_file:
+        data = json.load(json_file)
+
+    # if already exists, stop iteration
+    name = data["name"]
+    slug = slugify(name)
+    print(f"\n{bcolors.OKBLUE}Processing {bcolors.ENDC}{bcolors.BOLD}{name}{bcolors.ENDC}")
+
+    if crud.interlinker.get_by_name(db=db, name=name):
+        print(f"\t{bcolors.WARNING}Already in the database{bcolors.ENDC}")
+        return
+
+    parentparent = str(metadata_path.parents[0].parents[0])
+
+    # parent folder where metadata.json is located
+    folder = metadata_path.parents[0]
+
+    # create directory in static for its files and clean if has contents
+    static_path = Path(f'/app/static/{slug}')
+    shutil.rmtree(static_path, ignore_errors=True)
+    static_path.mkdir(parents=True, exist_ok=True)
+
+    # switch tags to string with delimiter
+    data["tags"] = ";".join(data["tags"])
+
+    # get snapshots folder content and move them to static folder
+    snapshots_folder = str(folder) + "/snapshots"
+    static_snapshots_folder = f"/app/static/{slug}/snapshots"
+    snapshots = [
+        f"/static/{slug}/snapshots/{file}" for file in os.listdir(snapshots_folder) if file.endswith(('.png', '.jpg', '.jpeg', '.tiff', '.bmp', '.gif'))]
+    copy_tree(snapshots_folder, static_snapshots_folder)
+    data["snapshots"] = snapshots
+
+    # if inside software dir
+    if "software" in parentparent:
+        print("\tis software interlinker")
+        # set nature
+        data["nature"] = "softwareinterlinker"
+
+        # get logotype and move it to static folder
+        file_path = path_leaf(data["logotype"])
+        filename, file_extension = os.path.splitext(file_path)
+        origin = str(folder) + "/" + file_path
+        destination = f"/app/static/{slug}/logotype{file_extension}"
+        move_file(origin, destination)
+        data["logotype"] = f"/static/{slug}/logotype{file_extension}"
+
+        # create interlinker
+        crud.interlinker.create(
+            db=db,
+            interlinker=schemas.SoftwareInterlinkerCreate(**data),
+        )
+        print(f"\t{bcolors.OKGREEN}Created successfully!{bcolors.ENDC}")
+
+    if "knowledge" in parentparent:
+        # set nature
+        data["nature"] = "knowledgeinterlinker"
+
+        # get instructions file contents
+        filename = path_leaf(data["instructions"])
+        with open(str(folder) + "/" + filename, 'r') as f:
+            data["instructions"] = f.read()
+
+        # get file contents in file and send to the software interlinker
+        filename = path_leaf(data["file"])
+        files_data = {'file': (filename, open(str(folder) + "/" + filename, "rb"))}
+
+        backend = data["softwareinterlinker"]
+        softwareinterlinker = crud.interlinker.get_softwareinterlinker_by_path(
+            db=db, path=backend)
+        if not softwareinterlinker:
+            print(f"\t{bcolors.FAIL}there is no {backend} softwareinterlinker")
             return
+
         try:
-            data_dict = {
-                "name": name,
-                "description": description,
-                "logotype": logo,
-                "images": images,
-                "published": True,
-                "keywords": keywords,
-                "documentation": """
-                        # Dillinger
-                        ## _The Last Markdown Editor, Ever_
+            print(f"\tis {backend} supported knowledge interlinker")
+            response = requests.post(
+                f"http://{backend}/api/v1/assets/with_file", files=files_data).json()
 
-                        Dillinger is a cloud-enabled, mobile-ready, offline-storage compatible,
-                        AngularJS-powered HTML5 Markdown editor.
+            print(f"RESPUESTA PARA {backend}")
+            print(response)
+            del data["softwareinterlinker"]
+            data["softwareinterlinker_id"] = softwareinterlinker.id
+            data["genesis_asset_id"] = response["id"] if "id" in response else response["_id"]
 
-                        - Type some Markdown on the left
-                        - See HTML in the right
-                        - ✨Magic ✨
-
-                        ## Features
-
-                        - Import a HTML file and watch it magically convert to Markdown
-                        - Drag and drop images (requires your Dropbox account be linked)
-                        - Import and save files from GitHub, Dropbox, Google Drive and One Drive
-                        - Drag and drop markdown and HTML files into Dillinger
-                        - Export documents as Markdown, HTML and PDF
-                        """,
-                "problemdomains": [],
-                "functionalities": [],
-                # Interlinker
-                "constraints": [],
-                "regulations": [],
-            }
-            if nature == "KN":
-                path = interlinker["path"]
-                files_data = {'file': ("demo.docx", open(path, "rb"))}
-                
-                backend = interlinker["softwareinterlinker"]
-                softwareinterlinker = crud.interlinker.get_softwareinterlinker_by_backend(db=db, backend=backend)
-                
-                response = requests.post(
-                    f"http://{backend}/api/v1/assets/", files=files_data)
-
-                print(f"RESPUESTA PARA {backend}")
-                files_data = response.json()
-                print(files_data)
-
-                data_dict["nature"] = "knowledgeinterlinker"
-                data_dict["softwareinterlinker_id"] = softwareinterlinker.id
-                data_dict["genesis_asset_id"] = files_data["_id"]
-                schema = schemas.KnowledgeInterlinkerCreate(**data_dict)
-
-            else:
-                data_dict["nature"] = "softwareinterlinker"
-                data_dict["backend"] = interlinker["backend"]
-                data_dict["assets_deletable"] = interlinker["deletable"]
-                data_dict["assets_updatable"] = interlinker["updatable"]
-                data_dict["assets_clonable"] = interlinker["clonable"]
-                schema = schemas.SoftwareInterlinkerCreate(**data_dict)
-            # I don´t know why sometimes a tuple that contains InterlinkerVersionCreate instance is created
             crud.interlinker.create(
                 db=db,
-                interlinker=schema,
+                interlinker=schemas.KnowledgeInterlinkerCreate(**data),
             )
+            print(f"\t{bcolors.OKGREEN}Created successfully!{bcolors.ENDC}")
         except Exception as e:
-            print(str(e))
-            pass
-
-    db.close()
-    logger.info("Initial data created")
+            print(f"\t{bcolors.FAIL}{str(e)}{bcolors.ENDC}")
 
 
 if __name__ == "__main__":
-    main()
+    logger.info("Creating initial data")
+
+    # create software interlinkers first
+    for metadata_path in Path("/app/interlinkers-data").glob("software/**/metadata.json"):
+        create_interlinker(metadata_path)
+
+    # then knowledge interlinkers
+    for metadata_path in Path("/app/interlinkers-data").glob("knowledge/**/metadata.json"):
+        create_interlinker(metadata_path)
+
+    db.close()
+    logger.info("Initial data created")

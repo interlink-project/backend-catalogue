@@ -14,7 +14,7 @@ from sqlalchemy import (
 from sqlalchemy.dialects.postgresql import UUID
 from werkzeug.utils import cached_property
 from sqlalchemy.orm import relationship
-
+from app.config import settings
 from app.artefacts.models import Artefact
 
 class Interlinker(Artefact):
@@ -28,8 +28,18 @@ class Interlinker(Artefact):
         default=uuid.uuid4,
     )
     nature = Column(String)
-    constraints = Column(ARRAY(String), nullable=True)
-    regulations = Column(ARRAY(String), nullable=True)
+
+    difficulty = Column(String)
+    targets = Column(ARRAY(String), default=list)
+    licence = Column(String)
+    problem_profiles = Column(ARRAY(String), default=list)
+    types = Column(ARRAY(String), default=list)
+    # related_interlinkers
+    administrative_scopes = Column(ARRAY(String), default=list)
+    domain = Column(String, nullable=True)
+    process = Column(String, nullable=True)
+    constraints_and_limitations = Column(String, nullable=True)
+    regulations_and_standards = Column(String, nullable=True)
 
     # discriminator
     nature = Column(String)
@@ -58,14 +68,20 @@ class SoftwareInterlinker(Interlinker):
         default=uuid.uuid4,
     )
     #knowledgeinterlinkers = relationship("KnowledgeInterlinker", back_populates="softwareinterlinker")
-    # googledrive, forum...
-    backend = Column(String)
-    # has DELETE endpoint
-    assets_deletable = Column(Boolean, default=False)
-    # has /modify endpoint
-    assets_updatable = Column(Boolean, default=False)
-    # has /clone endpoint
+
+    supported_by = Column(String)
+    auth_method = Column(String)
+    deployment_manual = Column(String, nullable=True)
+    user_manual = Column(String, nullable=True)
+    developer_manual = Column(String, nullable=True)
+    supports_internationalization = Column(Boolean, default=False)
+    is_responsive = Column(Boolean, default=False)
+    open_in_modal = Column(Boolean, default=False)
     assets_clonable = Column(Boolean, default=False)
+
+    path = Column(String)
+    is_subdomain = Column(Boolean, default=False)
+
 
     status = Column(String, default="off")
     __mapper_args__ = {
@@ -75,6 +91,13 @@ class SoftwareInterlinker(Interlinker):
     def __repr__(self) -> str:
         return f"<SoftwareInterlinker {self.name}>"
 
+    @property
+    def backend(self):
+        if settings.DEVSOLOMODE:
+            return None
+        if self.is_subdomain:
+            return f"{self.path}.{settings.SERVER_HOST}"
+        return f"{settings.SERVER_HOST}/{self.path}"
 
 class KnowledgeInterlinker(Interlinker):
     """
@@ -86,8 +109,12 @@ class KnowledgeInterlinker(Interlinker):
         primary_key=True,
         default=uuid.uuid4,
     )
+    
+    form = Column(String)
+    format = Column(String)
+    instructions = Column(String)
 
-    genesis_asset_id = Column(String, nullable=True)
+    genesis_asset_id = Column(String)
     softwareinterlinker_id = Column(UUID(as_uuid=True), ForeignKey("softwareinterlinker.id"))
     softwareinterlinker = relationship("SoftwareInterlinker", backref='softwareinterlinker', foreign_keys=[softwareinterlinker_id])
 

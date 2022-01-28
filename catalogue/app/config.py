@@ -51,7 +51,8 @@ class Settings(BaseSettings):
     COPRODUCTION_PORT: int
     COPRODUCTION_SERVICE: str = os.getenv("COPRODUCTION_SERVICE_NAME") + ":" + os.getenv("COPRODUCTION_PORT")
 
-    
+    DEVSOLOMODE: bool = False if os.getenv("BASE_PATH") else True
+
     # specific
     API_V1_STR: str = "/api/v1"
     PROJECT_NAME = "Catalogue API"
