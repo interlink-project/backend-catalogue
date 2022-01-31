@@ -39,26 +39,12 @@ class Settings(BaseSettings):
             path=f"/{values.get('POSTGRES_DB') or ''}",
         )
 
-    ACL_SERVICE_NAME: str
-    ACL_PORT: int
-    ACL_SERVICE: str = os.getenv("ACL_SERVICE_NAME") + ":" + os.getenv("ACL_PORT")
-    
-    AUTH_SERVICE_NAME: str
-    AUTH_PORT: int
-    AUTH_SERVICE: str = os.getenv("AUTH_SERVICE_NAME") + ":" + os.getenv("AUTH_PORT")
-
-    COPRODUCTION_SERVICE_NAME: str
-    COPRODUCTION_PORT: int
-    COPRODUCTION_SERVICE: str = os.getenv("COPRODUCTION_SERVICE_NAME") + ":" + os.getenv("COPRODUCTION_PORT")
-
     DEVSOLOMODE: bool = False if os.getenv("BASE_PATH") else True
 
     # specific
     API_V1_STR: str = "/api/v1"
     PROJECT_NAME = "Catalogue API"
     BASE_PATH: str
-    CACHE_HOST: str
-    CACHE_PASSWORD: str
 
     class Config:
         case_sensitive = True
