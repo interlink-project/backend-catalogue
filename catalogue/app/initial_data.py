@@ -106,7 +106,7 @@ def create_interlinker(metadata_path):
 
         # get instructions file contents if IS FILE PATH
         if not "http" in data["instructions"]:
-            filename = path_leaf()
+            filename = path_leaf(data["instructions"])
             with open(str(folder) + "/" + filename, 'r') as f:
                 data["instructions"] = f.read()
 
