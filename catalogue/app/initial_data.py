@@ -73,7 +73,7 @@ def create_interlinker(metadata_path):
     snapshots_folder = str(folder) + "/snapshots"
     static_snapshots_folder = f"/app/static/{slug}/snapshots"
 
-    if os.path.isdir('snapshots_folder'):
+    if os.path.isdir(snapshots_folder):
         snapshots = [
             f"/static/{slug}/snapshots/{file}" for file in os.listdir(snapshots_folder) if file.endswith(('.png', '.jpg', '.jpeg', '.tiff', '.bmp', '.gif'))]
         copy_tree(snapshots_folder, static_snapshots_folder)
