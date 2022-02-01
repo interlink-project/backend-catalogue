@@ -5,6 +5,7 @@ HOST=${HOST:-0.0.0.0}
 PORT=${PORT}
 LOG_LEVEL=${LOG_LEVEL:-info}
 
+rm -rf /app/interlinkers-data || true
 git clone https://github.com/interlink-project/interlinkers-data /app/interlinkers-data
 
 # Let the DB start

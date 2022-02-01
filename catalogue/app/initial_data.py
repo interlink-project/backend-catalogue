@@ -72,10 +72,12 @@ def create_interlinker(metadata_path):
     # get snapshots folder content and move them to static folder
     snapshots_folder = str(folder) + "/snapshots"
     static_snapshots_folder = f"/app/static/{slug}/snapshots"
-    snapshots = [
-        f"/static/{slug}/snapshots/{file}" for file in os.listdir(snapshots_folder) if file.endswith(('.png', '.jpg', '.jpeg', '.tiff', '.bmp', '.gif'))]
-    copy_tree(snapshots_folder, static_snapshots_folder)
-    data["snapshots"] = snapshots
+
+    if os.path.isdir('snapshots_folder'):
+        snapshots = [
+            f"/static/{slug}/snapshots/{file}" for file in os.listdir(snapshots_folder) if file.endswith(('.png', '.jpg', '.jpeg', '.tiff', '.bmp', '.gif'))]
+        copy_tree(snapshots_folder, static_snapshots_folder)
+        data["snapshots"] = snapshots
 
     # if inside software dir
     if "software" in parentparent:
@@ -102,14 +104,13 @@ def create_interlinker(metadata_path):
         # set nature
         data["nature"] = "knowledgeinterlinker"
 
-        # get instructions file contents
-        filename = path_leaf(data["instructions"])
-        with open(str(folder) + "/" + filename, 'r') as f:
-            data["instructions"] = f.read()
+        # get instructions file contents if IS FILE PATH
+        if not "http" in data["instructions"]:
+            filename = path_leaf()
+            with open(str(folder) + "/" + filename, 'r') as f:
+                data["instructions"] = f.read()
 
         # get file contents in file and send to the software interlinker
-        filename = path_leaf(data["file"])
-        files_data = {'file': (filename, open(str(folder) + "/" + filename, "rb"))}
 
         backend = data["softwareinterlinker"]
         softwareinterlinker = crud.interlinker.get_softwareinterlinker_by_path(
@@ -120,10 +121,20 @@ def create_interlinker(metadata_path):
 
         try:
             print(f"\tis {backend} supported knowledge interlinker")
-            response = requests.post(
-                f"http://{backend}/api/v1/assets/with_file", files=files_data).json()
 
-            print(f"RESPUESTA PARA {backend}")
+            filename = path_leaf(data["file"])
+            short_filename, file_extension = os.path.splitext(filename)
+
+            if "json" in file_extension:
+                with open(str(folder) + "/" + filename, 'r') as f:
+                    response = requests.post(
+                        f"http://{backend}/assets", data=f.read()).json()
+            else:
+                files_data = {'file': (filename, open(str(folder) + "/" + filename, "rb"))}
+                response = requests.post(
+                    f"http://{backend}/assets", files=files_data).json()
+
+            print(f"ANSWER FOR {backend}")
             print(response)
             del data["softwareinterlinker"]
             data["softwareinterlinker_id"] = softwareinterlinker.id
