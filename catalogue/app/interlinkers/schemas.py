@@ -11,7 +11,8 @@ from app.general.utils.AllOptional import AllOptional
 from typing_extensions import Annotated
 from pydantic import Field
 from pydantic import BaseModel
-from app.config import settings
+from app.representations.schemas import RepresentationOut
+
 # Interlinker
 
 Difficulties = choice(["very_easy", "easy", "medium", "difficult", "very_difficult"])
@@ -121,16 +122,8 @@ class BasicSoftwareInterlinkerOut(PydanticBaseModel):
 ### 
 
 
-FormTypes = choice(["visual_template", "document_template", "canvas", "best_practices", "guidelines", "checklist", "survey_template", "legal_agreement_template", "other"])
-Formats = choice(["pdf", "editable_source_document", "open_document", "structured_format"])
-
-
 class KnowledgeBaseInterlinkerBase(BaseInterlinkerBase):
     nature: Literal["knowledgeinterlinker"]
-    softwareinterlinker_id: uuid.UUID
-    genesis_asset_id: str
-    form: FormTypes
-    format: Formats
     instructions: str
 
 
@@ -146,14 +139,15 @@ class KnowledgeBaseInterlinkerORM(BaseInterlinkerORM, KnowledgeBaseInterlinkerBa
     id: uuid.UUID
     created_at: datetime
     updated_at: Optional[datetime]
-
+    representations: List[RepresentationOut]
+    representations_count: int
+    
     class Config:
         orm_mode = True
 
 
 class KnowledgeInterlinkerOut(BaseInterlinkerOut, KnowledgeBaseInterlinkerORM):
-    softwareinterlinker: BasicSoftwareInterlinkerOut
-
+    pass
 
 InterlinkerCreate = Annotated[
     Union[KnowledgeInterlinkerCreate, SoftwareInterlinkerCreate],

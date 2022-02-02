@@ -16,6 +16,8 @@ from werkzeug.utils import cached_property
 from sqlalchemy.orm import relationship
 from app.config import settings
 from app.artefacts.models import Artefact
+from sqlalchemy_utils import aggregated
+from sqlalchemy import func
 
 class Interlinker(Artefact):
     """
@@ -51,11 +53,6 @@ class Interlinker(Artefact):
 
     def __repr__(self) -> str:
         return f"<Interlinker {self.name}>"
-
-    @cached_property
-    def is_knowledge(self):
-        return self.nature == "knowledgeinterlinker"
-
 
 class SoftwareInterlinker(Interlinker):
     """
@@ -97,8 +94,8 @@ class SoftwareInterlinker(Interlinker):
             return None
         if self.is_subdomain:
             #TODO: http if in prod / dev envs
-            return f"http://{self.path}.{settings.SERVER_NAME}"
-        return f"http://{settings.SERVER_NAME}/{self.path}"
+            return f"{settings.PROTOCOL}{self.path}.{settings.SERVER_NAME}"
+        return f"{settings.PROTOCOL}{settings.SERVER_NAME}/{self.path}"
 
 class KnowledgeInterlinker(Interlinker):
     """
@@ -111,13 +108,13 @@ class KnowledgeInterlinker(Interlinker):
         default=uuid.uuid4,
     )
     
-    form = Column(String)
-    format = Column(String)
     instructions = Column(String)
 
-    genesis_asset_id = Column(String)
-    softwareinterlinker_id = Column(UUID(as_uuid=True), ForeignKey("softwareinterlinker.id"))
-    softwareinterlinker = relationship("SoftwareInterlinker", backref='softwareinterlinker', foreign_keys=[softwareinterlinker_id])
+    @aggregated('representations', Column(Integer))
+    def representations_count(self):
+        return func.count('1')
+
+    # backref of representations
 
     __mapper_args__ = {
         "polymorphic_identity": "knowledgeinterlinker",

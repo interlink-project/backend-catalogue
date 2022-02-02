@@ -43,6 +43,9 @@ def move_file(origin, destination):
 
 
 def create_interlinker(metadata_path):
+    ####################
+    ## COMMON
+    ####################
     str_metadata_path = str(metadata_path)
     with open(str_metadata_path) as json_file:
         data = json.load(json_file)
@@ -62,7 +65,8 @@ def create_interlinker(metadata_path):
     folder = metadata_path.parents[0]
 
     # create directory in static for its files and clean if has contents
-    static_path = Path(f'/app/static/{slug}')
+    str_static_path = f'/app/static/{slug}'
+    static_path = Path(str_static_path)
     shutil.rmtree(static_path, ignore_errors=True)
     static_path.mkdir(parents=True, exist_ok=True)
 
@@ -71,7 +75,7 @@ def create_interlinker(metadata_path):
 
     # get snapshots folder content and move them to static folder
     snapshots_folder = str(folder) + "/snapshots"
-    static_snapshots_folder = f"/app/static/{slug}/snapshots"
+    static_snapshots_folder = f"{str_static_path}/snapshots"
 
     if os.path.isdir(snapshots_folder):
         snapshots = [
@@ -79,7 +83,9 @@ def create_interlinker(metadata_path):
         copy_tree(snapshots_folder, static_snapshots_folder)
         data["snapshots"] = snapshots
 
-    # if inside software dir
+    ####################
+    ## SOFTWARE
+    ####################
     if "software" in parentparent:
         print("\tis software interlinker")
         # set nature
@@ -89,7 +95,7 @@ def create_interlinker(metadata_path):
         file_path = path_leaf(data["logotype"])
         filename, file_extension = os.path.splitext(file_path)
         origin = str(folder) + "/" + file_path
-        destination = f"/app/static/{slug}/logotype{file_extension}"
+        destination = f"{str_static_path}/logotype{file_extension}"
         move_file(origin, destination)
         data["logotype"] = f"/static/{slug}/logotype{file_extension}"
 
@@ -100,6 +106,9 @@ def create_interlinker(metadata_path):
         )
         print(f"\t{bcolors.OKGREEN}Created successfully!{bcolors.ENDC}")
 
+    ####################
+    ## KNOWLEDGE
+    ####################
     if "knowledge" in parentparent:
         # set nature
         data["nature"] = "knowledgeinterlinker"
@@ -110,44 +119,52 @@ def create_interlinker(metadata_path):
             with open(str(folder) + "/" + filename, 'r') as f:
                 data["instructions"] = f.read()
 
-        # get file contents in file and send to the software interlinker
-
-        backend = data["softwareinterlinker"]
-        softwareinterlinker = crud.interlinker.get_softwareinterlinker_by_path(
-            db=db, path=backend)
-        if not softwareinterlinker:
-            print(f"\t{bcolors.FAIL}there is no {backend} softwareinterlinker")
-            return
-
-        try:
-            print(f"\tis {backend} supported knowledge interlinker")
-
-            filename = path_leaf(data["file"])
-            short_filename, file_extension = os.path.splitext(filename)
-
-            if "json" in file_extension:
-                with open(str(folder) + "/" + filename, 'r') as f:
-                    response = requests.post(
-                        f"http://{backend}/assets", data=f.read()).json()
-            else:
-                files_data = {'file': (filename, open(str(folder) + "/" + filename, "rb"))}
-                response = requests.post(
-                    f"http://{backend}/assets", files=files_data).json()
-
-            print(f"ANSWER FOR {backend}")
-            print(response)
-            del data["softwareinterlinker"]
-            data["softwareinterlinker_id"] = softwareinterlinker.id
-            data["genesis_asset_id"] = response["id"] if "id" in response else response["_id"]
-
-            crud.interlinker.create(
+        # create knowledge interlinker
+        knowledgeinterlinker = crud.interlinker.create(
                 db=db,
                 interlinker=schemas.KnowledgeInterlinkerCreate(**data),
             )
-            print(f"\t{bcolors.OKGREEN}Created successfully!{bcolors.ENDC}")
-        except Exception as e:
-            print(f"\t{bcolors.FAIL}{str(e)}{bcolors.ENDC}")
 
+        # loop over representations and create them
+        for representation in data["representations"]:
+            # get file contents in file and send to the software interlinker
+
+            service = representation["softwareinterlinker"]
+            softwareinterlinker = crud.interlinker.get_softwareinterlinker_by_path(
+                db=db, path=service)
+            if not softwareinterlinker:
+                print(f"\t{bcolors.FAIL}there is no {service} softwareinterlinker")
+                return
+            
+            try:
+                print(f"\tis {service} supported knowledge interlinker")
+
+                filename = path_leaf(representation["file"])
+                short_filename, file_extension = os.path.splitext(filename)
+                
+                if "json" in file_extension:
+                    with open(str(folder) + "/" + filename, 'r') as f:
+                        response = requests.post(
+                            f"http://{service}/assets", data=f.read()).json()
+                else:
+                    files_data = {'file': (filename, open(str(folder) + "/" + filename, "rb"))}
+                    response = requests.post(
+                        f"http://{service}/assets", files=files_data).json()
+
+                print(f"ANSWER FOR {service}")
+                print(response)
+                representation["knowledgeinterlinker_id"] = knowledgeinterlinker.id
+                representation["softwareinterlinker_id"] = softwareinterlinker.id
+                representation["genesis_asset_id"] = response["id"] if "id" in response else response["_id"]
+                print(f"\t{bcolors.HEADER}Representation with {service} created successfully!{bcolors.ENDC}")
+                crud.representation.create(
+                    db=db,
+                    representation=schemas.RepresentationCreate(**representation)
+                )
+            except Exception as e:
+                print(f"\t{bcolors.FAIL}{str(e)}{bcolors.ENDC}")
+
+            print(f"\t{bcolors.OKGREEN}Created successfully!{bcolors.ENDC}")
 
 if __name__ == "__main__":
     logger.info("Creating initial data")

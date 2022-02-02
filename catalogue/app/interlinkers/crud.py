@@ -68,14 +68,6 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
             db_obj = SoftwareInterlinker(**data)
         if type(interlinker) == KnowledgeInterlinkerCreate:
             print("IS KNOWLEDGE")
-            # Knowledge interlinker specific
-            software_interlinker = self.get(db, interlinker.softwareinterlinker_id)
-            if not software_interlinker:
-                raise CrudException("Software interlinker does not exist")
-            data["softwareinterlinker_id"] = interlinker.softwareinterlinker_id
-            data["genesis_asset_id"] = interlinker.genesis_asset_id
-            data["form"] = interlinker.form
-            data["format"] = interlinker.format
             data["instructions"] = interlinker.instructions
             db_obj = KnowledgeInterlinker(**data)
         db.add(db_obj)

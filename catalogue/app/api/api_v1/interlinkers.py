@@ -80,7 +80,6 @@ def read_interlinker(
         raise HTTPException(status_code=404, detail="Interlinker not found")
     if not crud.interlinker.can_read(current_user, interlinker):
         raise HTTPException(status_code=403, detail="Not enough permissions")
-    print(interlinker.softwareinterlinker.__dict__)
     return interlinker
 
 @router.get("/get_by_name/{name}", response_model=schemas.InterlinkerOut)

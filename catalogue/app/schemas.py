@@ -1,11 +1,12 @@
 from typing import List, Optional
 
-from app.interlinkers.schemas import *
-from app.publicservices.schemas import *
 from app.functionalities.schemas import *
+from app.interlinkers.schemas import *
 from app.problemdomains.schemas import *
-from app.ratings.schemas import *
+from app.publicservices.schemas import *
 from app.questioncomments.schemas import *
+from app.ratings.schemas import *
+from app.representations.schemas import *
 
 
 class ArtefactOutFull(ArtefactOut):
@@ -29,4 +30,8 @@ class QuestionCommentOutFull(QuestionCommentOut):
 
 
 class RatingOutFull(RatingOut):
+    pass
+
+
+class RepresentationOutFull(RatingOut):
     pass
