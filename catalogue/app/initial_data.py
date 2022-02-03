@@ -147,7 +147,7 @@ def create_interlinker(metadata_path):
                         response = requests.post(
                             f"http://{service}/assets", data=f.read()).json()
                 else:
-                    files_data = {'file': (filename, open(str(folder) + "/" + filename, "rb"))}
+                    files_data = {'file': (name + file_extension, open(str(folder) + "/" + filename, "rb").read())}
                     response = requests.post(
                         f"http://{service}/assets", files=files_data).json()
 
