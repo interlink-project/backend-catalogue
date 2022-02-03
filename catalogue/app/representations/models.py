@@ -5,8 +5,6 @@ from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 
 from app.general.db.base_class import Base as BaseModel
-
-
 class Representation(BaseModel):
     """
     Defines the representations model
@@ -21,6 +19,10 @@ class Representation(BaseModel):
     softwareinterlinker_id = Column(UUID(as_uuid=True), ForeignKey("softwareinterlinker.id"))
     softwareinterlinker = relationship("SoftwareInterlinker", backref='representations')
     genesis_asset_id = Column(String)
+
+    @property
+    def link(self):
+        return f"{self.softwareinterlinker.backend}/assets/{self.genesis_asset_id}"
 
     def __repr__(self) -> str:
         return f"<Representation for {self.knowledgeinterlinker.name}>"

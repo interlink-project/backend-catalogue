@@ -32,6 +32,7 @@ class Representation(RepresentationBase):
     created_at: datetime
     updated_at: Optional[datetime]
 
+    link: str
     class Config:
         orm_mode = True
 
