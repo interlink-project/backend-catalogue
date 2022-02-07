@@ -10,10 +10,9 @@ services:
       - .env
       - .env.integrated
     environment:
+      - PROTOCOL=http://
       - SERVER_NAME=${DOMAIN?Variable not set}
-      - SERVER_HOST=http://${DOMAIN?Variable not set}/catalogue
       - PORT=${PORT}
-      # behind proxy
       - BASE_PATH=/catalogue
     build:
       context: .

@@ -93,7 +93,6 @@ class SoftwareInterlinker(Interlinker):
         if settings.DEVSOLOMODE:
             return None
         if self.is_subdomain:
-            #TODO: http if in prod / dev envs
             return f"{settings.PROTOCOL}{self.path}.{settings.SERVER_NAME}"
         return f"{settings.PROTOCOL}{settings.SERVER_NAME}/{self.path}"
 
