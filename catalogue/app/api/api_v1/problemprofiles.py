@@ -26,6 +26,16 @@ def list_problemprofiles(
     problemprofiles = crud.problemprofile.get_multi(db, skip=skip, limit=limit)
     return problemprofiles
 
+@router.get("/ids", response_model=list)
+def ids_list_problemprofiles(
+    db: Session = Depends(deps.get_db),
+    current_user: Optional[dict] = Depends(deps.get_current_user),
+) -> Any:
+    """
+    Retrieve problemprofiles ids.
+    """
+    problemprofiles = [problemprofile.id for problemprofile in crud.problemprofile.get_multi(db)]
+    return problemprofiles
 
 @router.post("/", response_model=schemas.ProblemProfileOut)
 def create_problemprofile(

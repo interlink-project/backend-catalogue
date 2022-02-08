@@ -9,6 +9,7 @@ from app.general.utils.CRUDBase import CRUDBase
 from sqlalchemy import or_, func
 from app.exceptions import CrudException
 from app.problemprofiles.crud import exportCrud as problems_crud
+from app.problemprofiles.models import ProblemProfile
 
 class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]):
     def get_by_name(self, db: Session, name: str) -> Optional[Interlinker]:
@@ -94,6 +95,12 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
                 )
             ).offset(skip).limit(limit).all()
         return db.query(Interlinker).offset(skip).limit(limit).all()
+    
+    def get_by_problem_profiles(
+        self, db: Session, *, skip: int = 0, limit: int = 100, problem_profiles: list
+    ) -> List[Interlinker]:
+        
+        return db.query(Interlinker).filter(Interlinker.problemprofiles.any(ProblemProfile.id.in_(problem_profiles))).offset(skip).limit(limit).all()
 
     # CRUD Permissions
     def can_create(self, user):

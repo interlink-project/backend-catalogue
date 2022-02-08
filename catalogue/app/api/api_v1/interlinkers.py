@@ -1,6 +1,7 @@
 from typing import Any, List, Optional
 import uuid
 from fastapi import APIRouter, Depends, HTTPException
+from pydantic import BaseModel
 from sqlalchemy.orm import Session
 
 from app import crud, models, schemas
@@ -23,6 +24,24 @@ def list_interlinkers(
     if not crud.interlinker.can_list(current_user):
         raise HTTPException(status_code=403, detail="Not enough permissions")
     interlinkers = crud.interlinker.get_multi(db, skip=skip, limit=limit, search=search)
+    return interlinkers
+
+class Problems(BaseModel):
+    problem_profiles: List[str]
+
+@router.post("/by_problem_profiles", response_model=List[schemas.InterlinkerOut])
+def list_interlinkers_by_problem_profiles(
+    problems: Problems,
+    db: Session = Depends(deps.get_db),
+    skip: int = 0,
+    limit: int = 100,
+    current_user: Optional[dict] = Depends(deps.get_current_user),
+) -> Any:
+    """
+    Retrieve interlinkers.
+    """
+    print(problems)
+    interlinkers = crud.interlinker.get_by_problem_profiles(db, skip=skip, limit=limit, problem_profiles=problems.problem_profiles)
     return interlinkers
 
 
