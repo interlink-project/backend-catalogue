@@ -29,7 +29,6 @@ class BaseInterlinkerBase(ArtefactBase):
     difficulty: Difficulties
     targets: Optional[List[Targets]]
     licence: Licences
-    problem_profiles: List[str]
     types: Optional[List[InterlinkerTypes]]
     related_interlinkers: Optional[List[str]]
     administrative_scopes: Optional[List[AdministrativeScopes]]

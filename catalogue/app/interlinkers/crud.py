@@ -8,6 +8,7 @@ from app.schemas import InterlinkerCreate, SoftwareInterlinkerCreate, KnowledgeI
 from app.general.utils.CRUDBase import CRUDBase
 from sqlalchemy import or_, func
 from app.exceptions import CrudException
+from app.problemprofiles.crud import exportCrud as problems_crud
 
 class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]):
     def get_by_name(self, db: Session, name: str) -> Optional[Interlinker]:
@@ -41,7 +42,6 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
                 "difficulty": interlinker.difficulty,
                 "targets": interlinker.targets,
                 "licence": interlinker.licence,
-                "problem_profiles": interlinker.problem_profiles,
                 "types": interlinker.types,
                 # "related_interlinkers":interlinker.related_interlinkers,
                 "administrative_scopes": interlinker.administrative_scopes,
@@ -71,6 +71,12 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
             data["instructions"] = interlinker.instructions
             db_obj = KnowledgeInterlinker(**data)
         db.add(db_obj)
+        db.commit()
+
+        for id in interlinker.problem_profiles:
+            print(id)
+            problem = problems_crud.get(db=db, id=id)
+            db_obj.problemprofiles.append(problem)
         db.commit()
         db.refresh(db_obj)
         return db_obj

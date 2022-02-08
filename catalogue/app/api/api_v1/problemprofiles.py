@@ -50,7 +50,7 @@ def create_problemprofile(
 def update_problemprofile(
     *,
     db: Session = Depends(deps.get_db),
-    id: uuid.UUID,
+    id: str,
     problemprofile_in: schemas.ProblemProfilePatch,
     current_user: dict = Depends(deps.get_current_active_user),
 ) -> Any:
@@ -70,7 +70,7 @@ def update_problemprofile(
 def read_problemprofile(
     *,
     db: Session = Depends(deps.get_db),
-    id: uuid.UUID,
+    id: str,
     current_user: Optional[dict] = Depends(deps.get_current_user),
 ) -> Any:
     """
@@ -82,6 +82,22 @@ def read_problemprofile(
     if not crud.problemprofile.can_read(current_user, problemprofile):
         raise HTTPException(status_code=403, detail="Not enough permissions")
     return problemprofile
+
+@router.get("/{id}/interlinkers", response_model=List[schemas.ArtefactOut])
+def get_interlinkers(
+    *,
+    db: Session = Depends(deps.get_db),
+    id: str,
+    current_user: Optional[dict] = Depends(deps.get_current_user),
+) -> Any:
+    """
+    Get interlinkers for problem profile
+    """
+    if (problemprofile := crud.problemprofile.get(db=db, id=id)):
+        print(problemprofile.artefacts)
+        return problemprofile.artefacts
+    raise HTTPException(status_code=404, detail="ProblemProfile not found")
+
 
 @router.get("/get_by_name/{name}", response_model=schemas.ProblemProfileOut)
 def read_problemprofile(
@@ -102,7 +118,7 @@ def read_problemprofile(
 def delete_problemprofile(
     *,
     db: Session = Depends(deps.get_db),
-    id: uuid.UUID,
+    id: str,
     current_user: dict = Depends(deps.get_current_active_user),
 ) -> Any:
     """

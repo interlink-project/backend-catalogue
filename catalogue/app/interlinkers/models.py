@@ -34,7 +34,6 @@ class Interlinker(Artefact):
     difficulty = Column(String)
     targets = Column(ARRAY(String), default=list)
     licence = Column(String)
-    problem_profiles = Column(ARRAY(String), default=list)
     types = Column(ARRAY(String), default=list)
     # related_interlinkers
     administrative_scopes = Column(ARRAY(String), default=list)
