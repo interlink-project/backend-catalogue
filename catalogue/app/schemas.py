@@ -1,8 +1,7 @@
 from typing import List, Optional
 
-from app.functionalities.schemas import *
 from app.interlinkers.schemas import *
-from app.problemdomains.schemas import *
+from app.problemprofiles.schemas import *
 from app.publicservices.schemas import *
 from app.questioncomments.schemas import *
 from app.ratings.schemas import *
@@ -17,11 +16,7 @@ class PublicServiceOutFull(ArtefactOutFull, PublicServiceOut):
     pass
 
 
-class ProblemDomainOutFull(ProblemDomainOut):
-    pass
-
-
-class FunctionalityOutFull(FunctionalityOut):
+class ProblemProfileOutFull(ProblemProfileOut):
     pass
 
 

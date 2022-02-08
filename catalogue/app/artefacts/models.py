@@ -17,12 +17,12 @@ from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 from app.tables import (
     artefact_problem_association_table,
-    artefact_functionality_association_table,
 )
+
 class Artefact(BaseModel):
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     artefact_type = Column(String(70))
-
+    
     name = Column(String)
     description = Column(String)
     published = Column(Boolean, default=False)
@@ -30,17 +30,11 @@ class Artefact(BaseModel):
     snapshots = Column(ARRAY(String), default=list)
     tags = Column(String, default=list)
 
-    problemdomains = relationship(
-        "ProblemDomain",
+    problemprofiles = relationship(
+        "ProblemProfile",
         secondary=artefact_problem_association_table,
         back_populates="artefacts",
     )
-    functionalities = relationship(
-        "Functionality",
-        secondary=artefact_functionality_association_table,
-        back_populates="artefacts",
-    )
-    #
     ratings = relationship("Rating", back_populates="artefact")
     questioncomments = relationship("QuestionComment", back_populates="artefact")
 

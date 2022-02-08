@@ -169,13 +169,31 @@ def create_interlinker(metadata_path):
 if __name__ == "__main__":
     logger.info("Creating initial data")
 
+    # create problem profiles
+    with open("/app/interlinkers-data/problem_profiles.json") as json_file:
+        for problem in json.load(json_file):
+            id = problem["id"]
+            if not crud.problemprofile.get(
+                db=db,
+                id=id
+            ):
+                problem["name_translations"] =  problem["name"]
+                problem["description_translations"] =  problem["description"]
+                problem["functionality_translations"] =  problem["functionality"]
+                crud.problemprofile.create(
+                    db=db,
+                    problemprofile=schemas.ProblemProfileCreate(**problem)
+                )
+                print(f"\t{bcolors.OKGREEN}Problem profile {id} successfully!{bcolors.ENDC}")
+
     # create software interlinkers first
-    for metadata_path in Path("/app/interlinkers-data").glob("software/**/metadata.json"):
+    for metadata_path in Path("/app/interlinkers-data/interlinkers").glob("software/**/metadata.json"):
         create_interlinker(metadata_path)
 
     # then knowledge interlinkers
-    for metadata_path in Path("/app/interlinkers-data").glob("knowledge/**/metadata.json"):
+    for metadata_path in Path("/app/interlinkers-data/interlinkers").glob("knowledge/**/metadata.json"):
         create_interlinker(metadata_path)
 
+    
     db.close()
     logger.info("Initial data created")

@@ -5,8 +5,6 @@ HOST=${HOST:-0.0.0.0}
 PORT=${PORT}
 LOG_LEVEL=${LOG_LEVEL:-info}
 
-git clone https://github.com/interlink-project/interlinkers-data /app/interlinkers-data
-
 # Let the DB start
 python /app/app/pre_start.py
 
