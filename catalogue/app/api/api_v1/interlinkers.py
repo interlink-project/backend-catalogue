@@ -10,7 +10,7 @@ from app.exceptions import CrudException
 router = APIRouter()
 
 
-@router.get("/", response_model=List[schemas.InterlinkerOut])
+@router.get("", response_model=List[schemas.InterlinkerOut])
 def list_interlinkers(
     db: Session = Depends(deps.get_db),
     skip: int = 0,
@@ -45,7 +45,7 @@ def list_interlinkers_by_problem_profiles(
     return interlinkers
 
 
-@router.post("/", response_model=schemas.InterlinkerOut)
+@router.post("", response_model=schemas.InterlinkerOut)
 def create_interlinker(
     *,
     db: Session = Depends(deps.get_db),
@@ -106,6 +106,7 @@ def read_interlinker(
     *,
     db: Session = Depends(deps.get_db),
     name: str,
+    locale: str = "en"
 ) -> Any:
     """
     Get interlinker by ID.

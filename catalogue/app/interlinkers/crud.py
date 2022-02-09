@@ -87,11 +87,11 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
     ) -> List[Interlinker]:
         if search != "":
             search = search.lower()
-            print(f"SEARCHING FOR {search}")
             return db.query(Interlinker).filter(
                 or_(
-                    func.lower(Interlinker.tags).contains(search), 
-                    func.lower(Interlinker.name).contains(search)
+                    Interlinker.tags.any(search), 
+                    func.lower(Interlinker.name).contains(search),
+                    func.lower(Interlinker.description).contains(search)
                 )
             ).offset(skip).limit(limit).all()
         return db.query(Interlinker).offset(skip).limit(limit).all()

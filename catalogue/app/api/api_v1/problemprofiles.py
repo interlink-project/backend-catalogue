@@ -11,7 +11,7 @@ router = APIRouter()
 def user_get_locale():
     return "es"
 
-@router.get("/", response_model=List[schemas.ProblemProfileOut])
+@router.get("", response_model=List[schemas.ProblemProfileOut])
 def list_problemprofiles(
     db: Session = Depends(deps.get_db),
     skip: int = 0,
@@ -37,7 +37,7 @@ def ids_list_problemprofiles(
     problemprofiles = [problemprofile.id for problemprofile in crud.problemprofile.get_multi(db)]
     return problemprofiles
 
-@router.post("/", response_model=schemas.ProblemProfileOut)
+@router.post("", response_model=schemas.ProblemProfileOut)
 def create_problemprofile(
     *,
     db: Session = Depends(deps.get_db),
@@ -114,11 +114,12 @@ def read_problemprofile(
     *,
     db: Session = Depends(deps.get_db),
     name: str,
+    locale: str
 ) -> Any:
     """
     Get problemprofile by ID.
     """
-    problemprofile = crud.problemprofile.get_by_name(db=db, name=name)
+    problemprofile = crud.problemprofile.get_by_name(db=db, name=name, locale=locale)
     if not problemprofile:
         raise HTTPException(status_code=404, detail="ProblemProfile not found")
     return problemprofile

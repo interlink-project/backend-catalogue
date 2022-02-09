@@ -9,8 +9,8 @@ from app.general.utils.CRUDBase import CRUDBase
 
 
 class CRUDProblemProfile(CRUDBase[ProblemProfile, ProblemProfileCreate, ProblemProfilePatch]):
-    def get_by_name(self, db: Session, name: str) -> Optional[ProblemProfile]:
-        return db.query(ProblemProfile).filter(ProblemProfile.name == name).first()
+    def get_by_name(self, db: Session, name: str, locale: str) -> Optional[ProblemProfile]:
+        return db.query(ProblemProfile).filter(ProblemProfile.name_translations[locale] == name).first()
 
     def create(self, db: Session, *, problemprofile: ProblemProfileCreate) -> ProblemProfile:
         db_obj = ProblemProfile(
