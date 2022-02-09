@@ -11,7 +11,7 @@ class ArtefactBase(PydanticBaseModel):
     description: str
     logotype: Optional[str]
     published: Optional[bool]
-    tags: str
+    tags: List[str]
     snapshots: Optional[List[str]]
 
 class ArtefactCreate(ArtefactBase):

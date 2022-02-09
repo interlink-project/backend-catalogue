@@ -70,9 +70,6 @@ def create_interlinker(metadata_path):
     shutil.rmtree(static_path, ignore_errors=True)
     static_path.mkdir(parents=True, exist_ok=True)
 
-    # switch tags to string with delimiter
-    data["tags"] = ";".join(data["tags"])
-
     # get snapshots folder content and move them to static folder
     snapshots_folder = str(folder) + "/snapshots"
     static_snapshots_folder = f"{str_static_path}/snapshots"

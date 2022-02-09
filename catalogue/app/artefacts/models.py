@@ -28,7 +28,7 @@ class Artefact(BaseModel):
     published = Column(Boolean, default=False)
     logotype = Column(String, nullable=True)
     snapshots = Column(ARRAY(String), default=list)
-    tags = Column(String, default=list)
+    tags = Column(ARRAY(String), default=list)
 
     problemprofiles = relationship(
         "ProblemProfile",
