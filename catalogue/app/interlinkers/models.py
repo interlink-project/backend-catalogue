@@ -18,6 +18,8 @@ from app.config import settings
 from app.artefacts.models import Artefact
 from sqlalchemy_utils import aggregated
 from sqlalchemy import func
+from sqlalchemy.dialects.postgresql import HSTORE
+from app.general.utils.DatabaseLocalization import translation_hybrid
 
 class Interlinker(Artefact):
     """
@@ -42,6 +44,11 @@ class Interlinker(Artefact):
     constraints_and_limitations = Column(String, nullable=True)
     regulations_and_standards = Column(String, nullable=True)
 
+    constraints_and_limitations_translations = Column(HSTORE)
+    regulations_and_standards_translations = Column(HSTORE, nullable=True)
+
+    constraints_and_limitations = translation_hybrid(constraints_and_limitations_translations)
+    regulations_and_standards = translation_hybrid(regulations_and_standards_translations)
     # discriminator
     nature = Column(String)
     
@@ -108,11 +115,13 @@ class KnowledgeInterlinker(Interlinker):
     
     instructions = Column(String)
 
+    representations = relationship(
+        "Representation",
+        back_populates="knowledgeinterlinker",
+    )
     @aggregated('representations', Column(Integer))
     def representations_count(self):
         return func.count('1')
-
-    # backref of representations
 
     __mapper_args__ = {
         "polymorphic_identity": "knowledgeinterlinker",

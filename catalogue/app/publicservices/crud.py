@@ -11,14 +11,14 @@ from app.general.utils.CRUDBase import CRUDBase
 
 
 class CRUDPublicService(CRUDBase[PublicService, PublicServiceCreate, PublicServicePatch]):
-    def get_by_name(self, db: Session, name: str) -> Optional[PublicService]:
-        return db.query(PublicService).filter(PublicService.name == name).first()
+    def get_by_name(self, db: Session, name: str, language:str = "en") -> Optional[PublicService]:
+        return db.query(PublicService).filter(PublicService.name_translations[language] == name).first()
 
     def create(self, db: Session, *, publicservice: PublicServiceCreate) -> PublicService:
         db_obj = PublicService(
             artefact_type="publicservice",
-            name=publicservice.name,
-            description=publicservice.description,
+            name_translations=publicservice.name_translations,
+            description_translations=publicservice.description_translations,
             logotype=publicservice.logotype,
             snapshots=publicservice.snapshots,
             published=publicservice.published,

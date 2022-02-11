@@ -1,6 +1,6 @@
 import uuid
 from datetime import datetime
-from app.general.db.base_class import Base as BaseModel
+
 from sqlalchemy import (
     ARRAY,
     Boolean,
@@ -11,20 +11,26 @@ from sqlalchemy import (
     String,
     Table,
     Text,
-    event
+    event,
 )
-from sqlalchemy.dialects.postgresql import UUID
+from sqlalchemy.dialects.postgresql import HSTORE, UUID
 from sqlalchemy.orm import relationship
-from app.tables import (
-    artefact_problem_association_table,
-)
+
+from app.general.db.base_class import Base as BaseModel
+from app.tables import artefact_problem_association_table
+from app.translations import translation_hybrid
+
 
 class Artefact(BaseModel):
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     artefact_type = Column(String(70))
-    
-    name = Column(String)
-    description = Column(String)
+
+    name_translations = Column(HSTORE)
+    description_translations = Column(HSTORE, nullable=True)
+
+    name = translation_hybrid(name_translations)
+    description = translation_hybrid(description_translations)
+
     published = Column(Boolean, default=False)
     logotype = Column(String, nullable=True)
     snapshots = Column(ARRAY(String), default=list)

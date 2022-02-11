@@ -10,6 +10,7 @@ class CRUDRepresentation(CRUDBase[Representation, RepresentationCreate, Represen
         db_obj = Representation(
             knowledgeinterlinker_id=representation.knowledgeinterlinker_id,
             form=representation.form,
+            language=representation.language,
             format=representation.format,
             genesis_asset_id=representation.genesis_asset_id,
             softwareinterlinker_id=representation.softwareinterlinker_id,

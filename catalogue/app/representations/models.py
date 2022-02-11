@@ -11,12 +11,13 @@ class Representation(BaseModel):
     """
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
 
+    language = Column(String)
     form = Column(String)
     format = Column(String)
-    knowledgeinterlinker_id = Column(UUID(as_uuid=True), ForeignKey("knowledgeinterlinker.id"))
-    knowledgeinterlinker = relationship("KnowledgeInterlinker", backref='representations')
+    knowledgeinterlinker_id = Column(UUID(as_uuid=True), ForeignKey("knowledgeinterlinker.id", ondelete='CASCADE'))
+    knowledgeinterlinker = relationship("KnowledgeInterlinker", back_populates='representations')
 
-    softwareinterlinker_id = Column(UUID(as_uuid=True), ForeignKey("softwareinterlinker.id"))
+    softwareinterlinker_id = Column(UUID(as_uuid=True), ForeignKey("softwareinterlinker.id", ondelete='SET NULL'))
     softwareinterlinker = relationship("SoftwareInterlinker", backref='representations')
     genesis_asset_id = Column(String)
 

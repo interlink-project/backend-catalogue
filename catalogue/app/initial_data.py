@@ -51,7 +51,13 @@ def create_interlinker(metadata_path):
         data = json.load(json_file)
 
     # if already exists, stop iteration
-    name = data["name"]
+    data["name_translations"] = data["name"]
+    data["description_translations"] = data["description"]
+    data["constraints_and_limitations_translations"] = data["constraints_and_limitations"]
+    data["regulations_and_standards_translations"] = data["regulations_and_standards"]
+    print(data["name_translations"])
+
+    name = data["name"]["en"]
     slug = slugify(name)
     print(f"\n{bcolors.OKBLUE}Processing {bcolors.ENDC}{bcolors.BOLD}{name}{bcolors.ENDC}")
 
@@ -107,6 +113,7 @@ def create_interlinker(metadata_path):
     ## KNOWLEDGE
     ####################
     if "knowledge" in parentparent:
+        error = False
         # set nature
         data["nature"] = "knowledgeinterlinker"
 
@@ -159,9 +166,13 @@ def create_interlinker(metadata_path):
                     representation=schemas.RepresentationCreate(**representation)
                 )
             except Exception as e:
+                error = True
                 print(f"\t{bcolors.FAIL}{str(e)}{bcolors.ENDC}")
 
-            print(f"\t{bcolors.OKGREEN}Created successfully!{bcolors.ENDC}")
+            if error:
+                crud.interlinker.remove(db=db, id=knowledgeinterlinker.id)
+            else:
+                print(f"\t{bcolors.OKGREEN}Created successfully!{bcolors.ENDC}")
 
 if __name__ == "__main__":
     logger.info("Creating initial data")

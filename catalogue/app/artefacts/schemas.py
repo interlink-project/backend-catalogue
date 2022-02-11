@@ -7,8 +7,6 @@ from app.problemprofiles.schemas import ProblemProfileOut
 from app.questioncomments.schemas import QuestionCommentOut
 
 class ArtefactBase(PydanticBaseModel):
-    name: str
-    description: str
     logotype: Optional[str]
     published: Optional[bool]
     tags: List[str]
@@ -16,12 +14,16 @@ class ArtefactBase(PydanticBaseModel):
 
 class ArtefactCreate(ArtefactBase):
     problem_profiles: Optional[List[str]]
-
+    name_translations: dict
+    description_translations: dict
 
 class ArtefactORM(ArtefactBase):
     id: uuid.UUID
     created_at: datetime
     updated_at: Optional[datetime]
+    
+    name: str
+    description: str
 
     class Config:
         orm_mode = True
@@ -30,10 +32,11 @@ class ProblemProfile(PydanticBaseModel):
     id: str
     name: str
     description: str
-
+    
     class Config:
         orm_mode = True
 
 class ArtefactOut(ArtefactORM):
+
     artefact_type: str
     problemprofiles: List[ProblemProfile]

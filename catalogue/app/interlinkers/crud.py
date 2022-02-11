@@ -12,8 +12,8 @@ from app.problemprofiles.crud import exportCrud as problems_crud
 from app.problemprofiles.models import ProblemProfile
 
 class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]):
-    def get_by_name(self, db: Session, name: str) -> Optional[Interlinker]:
-        return db.query(Interlinker).filter(Interlinker.name == name).first()
+    def get_by_name(self, db: Session, name: str, language: str ="en") -> Optional[Interlinker]:
+        return db.query(Interlinker).filter(Interlinker.name_translations[language] == name).first()
 
     def get_multi_knowledgeinterlinkers(
         self, db: Session, *, skip: int = 0, limit: int = 100
@@ -32,8 +32,8 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
         data = {
                 # Artefact
                 "artefact_type": "interlinker",
-                "name": interlinker.name,
-                "description": interlinker.description,
+                "name_translations": interlinker.name_translations,
+                "description_translations": interlinker.description_translations,
                 "logotype": interlinker.logotype,
                 "snapshots": interlinker.snapshots,
                 "published": interlinker.published,
@@ -48,8 +48,8 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
                 "administrative_scopes": interlinker.administrative_scopes,
                 "domain": interlinker.domain,
                 "process": interlinker.process,
-                "constraints_and_limitations": interlinker.constraints_and_limitations,
-                "regulations_and_standards": interlinker.regulations_and_standards,
+                "constraints_and_limitations_translations": interlinker.constraints_and_limitations_translations,
+                "regulations_and_standards_translations": interlinker.regulations_and_standards_translations,
             }
         if type(interlinker) == SoftwareInterlinkerCreate:
             print("IS SOFTWARE")
@@ -83,15 +83,15 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
         return db_obj
 
     def get_multi(
-        self, db: Session, *, skip: int = 0, limit: int = 100, search: str = ""
+        self, db: Session, *, skip: int = 0, limit: int = 100, search: str = "", language: str = "en"
     ) -> List[Interlinker]:
         if search != "":
             search = search.lower()
             return db.query(Interlinker).filter(
                 or_(
                     Interlinker.tags.any(search), 
-                    func.lower(Interlinker.name).contains(search),
-                    func.lower(Interlinker.description).contains(search)
+                    func.lower(Interlinker.name_translations[language]).contains(search),
+                    func.lower(Interlinker.description_translations[language]).contains(search)
                 )
             ).offset(skip).limit(limit).all()
         return db.query(Interlinker).offset(skip).limit(limit).all()

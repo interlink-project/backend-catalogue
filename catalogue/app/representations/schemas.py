@@ -15,6 +15,7 @@ Formats = choice(["pdf", "editable_source_document",
 
 class RepresentationBase(BaseModel):
     softwareinterlinker_id: uuid.UUID
+    language: str
     genesis_asset_id: str
     form: FormTypes
     format: Formats

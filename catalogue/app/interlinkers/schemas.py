@@ -34,13 +34,10 @@ class BaseInterlinkerBase(ArtefactBase):
     administrative_scopes: Optional[List[AdministrativeScopes]]
     domain: Optional[str]
     process: Optional[str]
-    constraints_and_limitations: Optional[str]
-    regulations_and_standards: Optional[str]
-
 
 class BaseInterlinkerCreate(ArtefactCreate, BaseInterlinkerBase):
-    pass
-
+    constraints_and_limitations_translations: Optional[dict]
+    regulations_and_standards_translations: Optional[dict]
 
 class BaseInterlinkerPatch(BaseInterlinkerCreate, metaclass=AllOptional):
     pass
@@ -56,7 +53,9 @@ class BaseInterlinkerORM(ArtefactORM, BaseInterlinkerBase):
 
 
 class BaseInterlinkerOut(ArtefactOut, BaseInterlinkerORM):
-    pass
+    constraints_and_limitations: Optional[str]
+    regulations_and_standards: Optional[str]
+
 
 
 ###

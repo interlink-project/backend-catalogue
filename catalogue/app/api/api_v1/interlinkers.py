@@ -24,6 +24,9 @@ def list_interlinkers(
     if not crud.interlinker.can_list(current_user):
         raise HTTPException(status_code=403, detail="Not enough permissions")
     interlinkers = crud.interlinker.get_multi(db, skip=skip, limit=limit, search=search)
+    for i in interlinkers:
+        print(i.name_translations)
+        print(i.name)
     return interlinkers
 
 class Problems(BaseModel):
