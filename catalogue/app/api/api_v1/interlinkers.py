@@ -21,13 +21,21 @@ def list_interlinkers(
     """
     Retrieve interlinkers.
     """
-    if not crud.interlinker.can_list(current_user):
-        raise HTTPException(status_code=403, detail="Not enough permissions")
-    interlinkers = crud.interlinker.get_multi(db, skip=skip, limit=limit, search=search)
-    for i in interlinkers:
-        print(i.name_translations)
-        print(i.name)
-    return interlinkers
+    return crud.interlinker.get_multi(db, skip=skip, limit=limit, search=search)
+
+@router.get("/software", response_model=List[schemas.InterlinkerOut])
+def list_software_interlinkers(
+    db: Session = Depends(deps.get_db),
+    skip: int = 0,
+    limit: int = 100,
+    search: str = "",
+    current_user: Optional[dict] = Depends(deps.get_current_user),
+) -> Any:
+    """
+    Retrieve software interlinkers.
+    """
+    return crud.interlinker.get_multi_softwareinterlinkers(db, skip=skip, limit=limit)
+
 
 class Problems(BaseModel):
     problem_profiles: List[str]
