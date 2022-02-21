@@ -33,7 +33,7 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
         return db.query(SoftwareInterlinker).filter(and_(Integration.service_name != None, Integration.shortcut == True)).offset(skip).limit(limit).all()
 
     def get_softwareinterlinker_by_service_name(self, db: Session, service_name: str) -> Optional[SoftwareInterlinker]:
-        return db.query(SoftwareInterlinker).filter(Integration.service_name == service_name).first()
+        return db.query(SoftwareInterlinker).filter(SoftwareInterlinker.id == Integration.softwareinterlinker_id).filter(Integration.service_name == service_name).first()
 
     def create(self, db: Session, *, interlinker: InterlinkerCreate) -> Interlinker:
         data = {
