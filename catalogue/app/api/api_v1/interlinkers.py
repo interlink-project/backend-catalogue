@@ -23,7 +23,7 @@ def list_interlinkers(
     """
     return crud.interlinker.get_multi(db, skip=skip, limit=limit, search=search)
 
-@router.get("/software", response_model=List[schemas.InterlinkerOut])
+@router.get("/software", response_model=List[schemas.SoftwareInterlinkerOut])
 def list_software_interlinkers(
     db: Session = Depends(deps.get_db),
     skip: int = 0,

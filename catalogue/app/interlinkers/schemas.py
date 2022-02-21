@@ -12,6 +12,7 @@ from typing_extensions import Annotated
 from pydantic import Field
 from pydantic import BaseModel
 from app.representations.schemas import RepresentationOut
+from .models import Supporters
 
 # Interlinker
 
@@ -59,8 +60,6 @@ class BaseInterlinkerOut(ArtefactOut, BaseInterlinkerORM):
 
 
 ###
-
-Supporters = choice(["saas", "on_premise", "installed_app"])
 
 class SoftwareBaseInterlinkerBase(BaseInterlinkerBase):
     nature: Literal["softwareinterlinker"]
