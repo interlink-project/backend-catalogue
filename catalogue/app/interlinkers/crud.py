@@ -11,6 +11,7 @@ from app.exceptions import CrudException
 from app.problemprofiles.crud import exportCrud as problems_crud
 from app.problemprofiles.models import ProblemProfile
 from app.integrations.models import Integration
+from sqlalchemy import and_
 
 class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]):
     def get_by_name(self, db: Session, name: str, language: str ="en") -> Optional[Interlinker]:
@@ -29,7 +30,7 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
     def get_multi_integrated_softwareinterlinkers(
         self, db: Session, *, skip: int = 0, limit: int = 100
     ) -> List[SoftwareInterlinker]:
-        return db.query(SoftwareInterlinker).filter(Integration.service_name != None & Integration.shortcut == True).offset(skip).limit(limit).all()
+        return db.query(SoftwareInterlinker).filter(and_(Integration.service_name != None, Integration.shortcut == True)).offset(skip).limit(limit).all()
 
     def get_softwareinterlinker_by_service_name(self, db: Session, service_name: str) -> Optional[SoftwareInterlinker]:
         return db.query(SoftwareInterlinker).filter(Integration.service_name == service_name).first()
