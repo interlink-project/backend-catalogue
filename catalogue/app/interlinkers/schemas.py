@@ -32,7 +32,7 @@ class BaseInterlinkerBase(ArtefactBase):
     types: Optional[List[InterlinkerTypes]]
     related_interlinkers: Optional[List[str]]
     administrative_scopes: Optional[List[AdministrativeScopes]]
-    domain: Optional[str]
+    # domain: Optional[str]
     process: Optional[str]
 
 class BaseInterlinkerCreate(ArtefactCreate, BaseInterlinkerBase):
@@ -78,12 +78,20 @@ class SoftwareBaseInterlinkerBase(BaseInterlinkerBase):
     # GUI is responsive
     open_in_modal: bool
     # assets for specific interlinkers may be opened on a modal, not in a new tab
-    assets_clonable: bool
-    # exposes an /assets/{id}/clone/ API endpoint?
 
+    # endpoint
+    service_name: str
+    domain: str
     path: str
     is_subdomain: bool
+    api_path: str
 
+    # capabilities
+    instantiate: bool
+    clone: bool
+    view: bool
+    edit: bool
+    delete: bool
 
 class SoftwareInterlinkerCreate(BaseInterlinkerCreate, SoftwareBaseInterlinkerBase):
     pass

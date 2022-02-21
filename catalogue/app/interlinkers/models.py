@@ -39,7 +39,7 @@ class Interlinker(Artefact):
     types = Column(ARRAY(String), default=list)
     # related_interlinkers
     administrative_scopes = Column(ARRAY(String), default=list)
-    domain = Column(String, nullable=True)
+    # domain = Column(String, nullable=True)
     process = Column(String, nullable=True)
     constraints_and_limitations = Column(String, nullable=True)
     regulations_and_standards = Column(String, nullable=True)
@@ -80,11 +80,19 @@ class SoftwareInterlinker(Interlinker):
     supports_internationalization = Column(Boolean, default=False)
     is_responsive = Column(Boolean, default=False)
     open_in_modal = Column(Boolean, default=False)
-    assets_clonable = Column(Boolean, default=False)
 
+    service_name = Column(String)
+    domain = Column(String)
     path = Column(String)
     is_subdomain = Column(Boolean, default=False)
+    api_path = Column(String)
 
+    # capabilities
+    clone = Column(Boolean, default=False)
+    instantiate = Column(Boolean, default=True)
+    view = Column(Boolean, default=True)
+    edit = Column(Boolean, default=False)
+    delete = Column(Boolean, default=True)
 
     status = Column(String, default="off")
     __mapper_args__ = {
@@ -98,9 +106,10 @@ class SoftwareInterlinker(Interlinker):
     def backend(self):
         if settings.DEVSOLOMODE:
             return None
+        SERVER_NAME = self.domain or settings.SERVER_NAME
         if self.is_subdomain:
-            return f"{settings.PROTOCOL}{self.path}.{settings.SERVER_NAME}"
-        return f"{settings.PROTOCOL}{settings.SERVER_NAME}/{self.path}"
+            return f"{settings.PROTOCOL}{self.path}.{SERVER_NAME}{self.api_path}"
+        return f"{settings.PROTOCOL}{SERVER_NAME}/{self.path}{self.api_path}"
 
 class KnowledgeInterlinker(Interlinker):
     """

@@ -51,13 +51,9 @@ def create_interlinker(metadata_path):
         data = json.load(json_file)
 
     # if already exists, stop iteration
-    data["name_translations"] = data["name"]
-    data["description_translations"] = data["description"]
-    data["constraints_and_limitations_translations"] = data["constraints_and_limitations"]
-    data["regulations_and_standards_translations"] = data["regulations_and_standards"]
     print(data["name_translations"])
 
-    name = data["name"]["en"]
+    name = data["name_translations"]["en"]
     slug = slugify(name)
     print(f"\n{bcolors.OKBLUE}Processing {bcolors.ENDC}{bcolors.BOLD}{name}{bcolors.ENDC}")
 
@@ -101,6 +97,19 @@ def create_interlinker(metadata_path):
         destination = f"{str_static_path}/logotype{file_extension}"
         move_file(origin, destination)
         data["logotype"] = f"/static/{slug}/logotype{file_extension}"
+
+        data["service_name"] = data["endpoint"]["service_name"]
+        data["domain"] = data["endpoint"]["domain"]
+        data["path"] = data["endpoint"]["path"]
+        data["is_subdomain"] = data["endpoint"]["is_subdomain"]
+        data["api_path"] = data["endpoint"]["api_path"]
+        del data["endpoint"]
+        data["instantiate"] = data["capabilities"]["instantiate"]
+        data["clone"] = data["capabilities"]["clone"]
+        data["view"] = data["capabilities"]["view"]
+        data["edit"] = data["capabilities"]["edit"]
+        data["delete"] = data["capabilities"]["delete"]
+        del data["capabilities"]
 
         # create interlinker
         crud.interlinker.create(
@@ -185,9 +194,6 @@ if __name__ == "__main__":
                 db=db,
                 id=id
             ):
-                problem["name_translations"] =  problem["name"]
-                problem["description_translations"] =  problem["description"]
-                problem["functionality_translations"] =  problem["functionality"]
                 crud.problemprofile.create(
                     db=db,
                     problemprofile=schemas.ProblemProfileCreate(**problem)

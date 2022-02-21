@@ -46,7 +46,6 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
                 "types": interlinker.types,
                 # "related_interlinkers":interlinker.related_interlinkers,
                 "administrative_scopes": interlinker.administrative_scopes,
-                "domain": interlinker.domain,
                 "process": interlinker.process,
                 "constraints_and_limitations_translations": interlinker.constraints_and_limitations_translations,
                 "regulations_and_standards_translations": interlinker.regulations_and_standards_translations,
@@ -62,9 +61,16 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
             data["supports_internationalization"] = interlinker.supports_internationalization
             data["is_responsive"] = interlinker.is_responsive
             data["open_in_modal"] = interlinker.open_in_modal
-            data["assets_clonable"] = interlinker.assets_clonable
+            data["service_name"] = interlinker.service_name
+            data["domain"] = interlinker.domain
             data["path"] = interlinker.path
             data["is_subdomain"] = interlinker.is_subdomain
+            data["api_path"] = interlinker.api_path
+            data["instantiate"] = interlinker.instantiate
+            data["clone"] = interlinker.clone
+            data["view"] = interlinker.view
+            data["edit"] = interlinker.edit
+            data["delete"] = interlinker.delete
 
             db_obj = SoftwareInterlinker(**data)
         if type(interlinker) == KnowledgeInterlinkerCreate:
