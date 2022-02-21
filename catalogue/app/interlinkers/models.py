@@ -1,6 +1,6 @@
 import uuid
 from typing import Union
-
+import enum
 from sqlalchemy import (
     ARRAY,
     Boolean,
@@ -9,7 +9,7 @@ from sqlalchemy import (
     ForeignKey,
     Integer,
     String,
-    Table,
+    Enum,
 )
 from sqlalchemy.dialects.postgresql import UUID
 from werkzeug.utils import cached_property
@@ -20,6 +20,13 @@ from sqlalchemy_utils import aggregated
 from sqlalchemy import func
 from sqlalchemy.dialects.postgresql import HSTORE
 from app.general.utils.DatabaseLocalization import translation_hybrid
+from app.integrations.models import Integration
+from pydantic_choices import choice
+
+class Supporters(enum.Enum):
+    saas = "saas"
+    on_premise = "on_premise"
+    installed_app = "installed_app"
 
 class Interlinker(Artefact):
     """
@@ -72,28 +79,18 @@ class SoftwareInterlinker(Interlinker):
     )
     #knowledgeinterlinkers = relationship("KnowledgeInterlinker", back_populates="softwareinterlinker")
 
-    supported_by = Column(String)
-    auth_method = Column(String)
+    supported_by = Column(
+        ARRAY(Enum(Supporters, create_constraint=False, native_enum=False))
+    )
+
     deployment_manual = Column(String, nullable=True)
     user_manual = Column(String, nullable=True)
     developer_manual = Column(String, nullable=True)
     supports_internationalization = Column(Boolean, default=False)
     is_responsive = Column(Boolean, default=False)
-    open_in_modal = Column(Boolean, default=False)
-
-    service_name = Column(String)
-    domain = Column(String)
-    path = Column(String)
-    is_subdomain = Column(Boolean, default=False)
-    api_path = Column(String)
-
-    # capabilities
-    clone = Column(Boolean, default=False)
-    instantiate = Column(Boolean, default=True)
-    view = Column(Boolean, default=True)
-    edit = Column(Boolean, default=False)
-    delete = Column(Boolean, default=True)
-
+    
+    integration = relationship("Integration", back_populates="softwareinterlinker", uselist=False)
+    
     status = Column(String, default="off")
     __mapper_args__ = {
         "polymorphic_identity": "softwareinterlinker",
@@ -104,12 +101,13 @@ class SoftwareInterlinker(Interlinker):
 
     @property
     def backend(self):
-        if settings.DEVSOLOMODE:
+        if not self.integration or settings.DEVSOLOMODE:
             return None
-        SERVER_NAME = self.domain or settings.SERVER_NAME
-        if self.is_subdomain:
-            return f"{settings.PROTOCOL}{self.path}.{SERVER_NAME}{self.api_path}"
-        return f"{settings.PROTOCOL}{SERVER_NAME}/{self.path}{self.api_path}"
+        integration : Integration = self.integration
+        SERVER_NAME = integration.domain or settings.SERVER_NAME
+        if integration.is_subdomain:
+            return f"{settings.PROTOCOL}{integration.path}.{SERVER_NAME}{integration.api_path}"
+        return f"{settings.PROTOCOL}{SERVER_NAME}/{integration.path}{integration.api_path}"
 
 class KnowledgeInterlinker(Interlinker):
     """

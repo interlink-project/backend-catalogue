@@ -91,31 +91,37 @@ def create_interlinker(metadata_path):
         data["nature"] = "softwareinterlinker"
 
         # get logotype and move it to static folder
-        file_path = path_leaf(data["logotype"])
-        filename, file_extension = os.path.splitext(file_path)
-        origin = str(folder) + "/" + file_path
-        destination = f"{str_static_path}/logotype{file_extension}"
-        move_file(origin, destination)
-        data["logotype"] = f"/static/{slug}/logotype{file_extension}"
-
-        data["service_name"] = data["endpoint"]["service_name"]
-        data["domain"] = data["endpoint"]["domain"]
-        data["path"] = data["endpoint"]["path"]
-        data["is_subdomain"] = data["endpoint"]["is_subdomain"]
-        data["api_path"] = data["endpoint"]["api_path"]
-        del data["endpoint"]
-        data["instantiate"] = data["capabilities"]["instantiate"]
-        data["clone"] = data["capabilities"]["clone"]
-        data["view"] = data["capabilities"]["view"]
-        data["edit"] = data["capabilities"]["edit"]
-        data["delete"] = data["capabilities"]["delete"]
-        del data["capabilities"]
+        if "logotype" in data and data["logotype"]:
+            file_path = path_leaf(data["logotype"])
+            filename, file_extension = os.path.splitext(file_path)
+            origin = str(folder) + "/" + file_path
+            destination = f"{str_static_path}/logotype{file_extension}"
+            move_file(origin, destination)
+            data["logotype"] = f"/static/{slug}/logotype{file_extension}"
 
         # create interlinker
-        crud.interlinker.create(
+        interlinker = crud.interlinker.create(
             db=db,
             interlinker=schemas.SoftwareInterlinkerCreate(**data),
         )
+        
+        integrationData = data["integration"]
+        integrationData["softwareinterlinker_id"] = interlinker.id
+
+        #capabilities to root
+        integrationData["instantiate"] = data["integration"]["capabilities"]["instantiate"]
+        integrationData["clone"] = data["integration"]["capabilities"]["clone"]
+        integrationData["view"] = data["integration"]["capabilities"]["view"]
+        integrationData["edit"] = data["integration"]["capabilities"]["edit"]
+        integrationData["delete"] = data["integration"]["capabilities"]["delete"]
+        integrationData["open_in_modal"] = data["integration"]["capabilities"]["open_in_modal"]
+        integrationData["shortcut"] = data["integration"]["capabilities"]["shortcut"]
+        
+        crud.integration.create(
+            db=db,
+            obj_in=schemas.IntegrationCreate(**integrationData)
+        )
+        
         print(f"\t{bcolors.OKGREEN}Created successfully!{bcolors.ENDC}")
 
     ####################
@@ -143,8 +149,7 @@ def create_interlinker(metadata_path):
             # get file contents in file and send to the software interlinker
 
             service = representation["softwareinterlinker"]
-            softwareinterlinker = crud.interlinker.get_softwareinterlinker_by_path(
-                db=db, path=service)
+            softwareinterlinker = crud.interlinker.get_softwareinterlinker_by_service_name(db=db, service_name=service)
             if not softwareinterlinker:
                 print(f"\t{bcolors.FAIL}there is no {service} softwareinterlinker")
                 return

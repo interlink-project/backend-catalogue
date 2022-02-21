@@ -1,5 +1,6 @@
 from typing import List, Optional
 
+from app.integrations.schemas import *
 from app.interlinkers.schemas import *
 from app.problemprofiles.schemas import *
 from app.publicservices.schemas import *
@@ -28,5 +29,9 @@ class RatingOutFull(RatingOut):
     pass
 
 
-class RepresentationOutFull(RatingOut):
+class RepresentationOutFull(RepresentationOut):
+    pass
+
+
+class IntegrationOutFull(IntegrationOut):
     pass

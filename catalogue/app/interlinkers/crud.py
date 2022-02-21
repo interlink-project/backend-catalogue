@@ -10,6 +10,7 @@ from sqlalchemy import or_, func
 from app.exceptions import CrudException
 from app.problemprofiles.crud import exportCrud as problems_crud
 from app.problemprofiles.models import ProblemProfile
+from app.integrations.models import Integration
 
 class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]):
     def get_by_name(self, db: Session, name: str, language: str ="en") -> Optional[Interlinker]:
@@ -24,9 +25,14 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
         self, db: Session, *, skip: int = 0, limit: int = 100
     ) -> List[SoftwareInterlinker]:
         return db.query(SoftwareInterlinker).offset(skip).limit(limit).all()
+    
+    def get_multi_integrated_softwareinterlinkers(
+        self, db: Session, *, skip: int = 0, limit: int = 100
+    ) -> List[SoftwareInterlinker]:
+        return db.query(SoftwareInterlinker).filter(Integration.service_name != None & Integration.shortcut == True).offset(skip).limit(limit).all()
 
-    def get_softwareinterlinker_by_path(self, db: Session, path: str) -> Optional[SoftwareInterlinker]:
-        return db.query(SoftwareInterlinker).filter(SoftwareInterlinker.path == path).first()
+    def get_softwareinterlinker_by_service_name(self, db: Session, service_name: str) -> Optional[SoftwareInterlinker]:
+        return db.query(SoftwareInterlinker).filter(Integration.service_name == service_name).first()
 
     def create(self, db: Session, *, interlinker: InterlinkerCreate) -> Interlinker:
         data = {
@@ -54,23 +60,11 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
             print("IS SOFTWARE")
             # Software interlinker specific
             data["supported_by"] = interlinker.supported_by
-            data["auth_method"] = interlinker.auth_method
             data["deployment_manual"] = interlinker.deployment_manual
             data["user_manual"] = interlinker.user_manual
             data["developer_manual"] = interlinker.developer_manual
             data["supports_internationalization"] = interlinker.supports_internationalization
             data["is_responsive"] = interlinker.is_responsive
-            data["open_in_modal"] = interlinker.open_in_modal
-            data["service_name"] = interlinker.service_name
-            data["domain"] = interlinker.domain
-            data["path"] = interlinker.path
-            data["is_subdomain"] = interlinker.is_subdomain
-            data["api_path"] = interlinker.api_path
-            data["instantiate"] = interlinker.instantiate
-            data["clone"] = interlinker.clone
-            data["view"] = interlinker.view
-            data["edit"] = interlinker.edit
-            data["delete"] = interlinker.delete
 
             db_obj = SoftwareInterlinker(**data)
         if type(interlinker) == KnowledgeInterlinkerCreate:

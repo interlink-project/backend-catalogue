@@ -34,7 +34,7 @@ def list_software_interlinkers(
     """
     Retrieve software interlinkers.
     """
-    return crud.interlinker.get_multi_softwareinterlinkers(db, skip=skip, limit=limit)
+    return crud.interlinker.get_multi_integrated_softwareinterlinkers(db, skip=skip, limit=limit)
 
 
 class Problems(BaseModel):

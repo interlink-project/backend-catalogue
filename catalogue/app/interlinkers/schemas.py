@@ -61,13 +61,11 @@ class BaseInterlinkerOut(ArtefactOut, BaseInterlinkerORM):
 ###
 
 Supporters = choice(["saas", "on_premise", "installed_app"])
-AuthMethods = choice(["header", "cookie"])
 
 class SoftwareBaseInterlinkerBase(BaseInterlinkerBase):
     nature: Literal["softwareinterlinker"]
 
-    supported_by: Supporters
-    auth_method: AuthMethods
+    supported_by: List[Supporters]
     deployment_manual: Optional[str]
     user_manual: Optional[str]
     developer_manual: Optional[str]
@@ -76,22 +74,7 @@ class SoftwareBaseInterlinkerBase(BaseInterlinkerBase):
 
     is_responsive: bool
     # GUI is responsive
-    open_in_modal: bool
-    # assets for specific interlinkers may be opened on a modal, not in a new tab
-
-    # endpoint
-    service_name: str
-    domain: str
-    path: str
-    is_subdomain: bool
-    api_path: str
-
-    # capabilities
-    instantiate: bool
-    clone: bool
-    view: bool
-    edit: bool
-    delete: bool
+    
 
 class SoftwareInterlinkerCreate(BaseInterlinkerCreate, SoftwareBaseInterlinkerBase):
     pass
