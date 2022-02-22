@@ -4,7 +4,7 @@ from typing import List, Optional, Union, Literal
 from enum import Enum
 
 from pydantic_choices import choice
-from pydantic import BaseModel as PydanticBaseModel
+from pydantic import BaseModel as PydanticBaseModel, root_validator
 
 from app.artefacts.schemas import ArtefactBase, ArtefactCreate, ArtefactORM, ArtefactOut
 from app.general.utils.AllOptional import AllOptional
@@ -13,6 +13,7 @@ from pydantic import Field
 from pydantic import BaseModel
 from app.representations.schemas import RepresentationOut
 from .models import Supporters
+from app.integrations.schemas import IntegrationOut
 
 # Interlinker
 
@@ -94,18 +95,18 @@ class SoftwareBaseInterlinkerORM(BaseInterlinkerORM, SoftwareBaseInterlinkerBase
 
 class SoftwareInterlinkerOut(BaseInterlinkerOut, SoftwareBaseInterlinkerORM):
     backend: Optional[str]
+    integration: Optional[IntegrationOut]
 
-
-class BasicSoftwareInterlinkerOut(PydanticBaseModel):
-    id: uuid.UUID
-    created_at: datetime
-    updated_at: Optional[datetime]
-    name: str
-    backend: Optional[str]
-    # status: str
-
-    class Config:
-        orm_mode = True
+# class BasicSoftwareInterlinkerOut(PydanticBaseModel):
+#     id: uuid.UUID
+#     created_at: datetime
+#     updated_at: Optional[datetime]
+#     name: str
+#     backend: Optional[str]
+#     # status: str
+# 
+#     class Config:
+#         orm_mode = True
 
 ### 
 
