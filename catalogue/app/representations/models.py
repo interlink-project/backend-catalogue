@@ -2,8 +2,7 @@ import uuid
 
 from sqlalchemy import Column, ForeignKey, String
 from sqlalchemy.dialects.postgresql import UUID
-from sqlalchemy.orm import relationship
-
+from sqlalchemy.orm import relationship, reconstructor
 from app.general.db.base_class import Base as BaseModel
 
 
@@ -26,6 +25,14 @@ class Representation(BaseModel):
     @property
     def link(self):
         return f"{self.softwareinterlinker.backend}/{self.genesis_asset_id}"
+
+    # not exposed in out schema
+    @property
+    def internal_link(self):
+        backend = self.softwareinterlinker.integration.service_name
+        api_path = self.softwareinterlinker.integration.api_path
+        return f"http://{backend}{api_path}/{self.genesis_asset_id}"
+        
 
     def __repr__(self) -> str:
         return f"<Representation for {self.knowledgeinterlinker.name}>"
