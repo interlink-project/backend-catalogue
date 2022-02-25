@@ -65,7 +65,7 @@ def clone_representation(
     if not representation:
         raise HTTPException(status_code=404, detail="Representation not found")
 
-    external_info = requests.post(representation.internal_link + "/clone", headers={
+    external_info = requests.post(representation.link + "/clone", headers={
         "Authorization": "Bearer " + token
     }).json()
     return external_info
@@ -121,7 +121,7 @@ def read_external_asset(
     representation = crud.representation.get(db=db, id=id)
     if not representation:
         raise HTTPException(status_code=404, detail="Representation not found")
-    return requests.get(representation.internal_link, headers={
+    return requests.get(representation.link, headers={
         "Authorization": "Bearer " + token
     }).json()
 
