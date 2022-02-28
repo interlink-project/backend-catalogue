@@ -119,8 +119,6 @@ class KnowledgeInterlinker(Interlinker):
         primary_key=True,
         default=uuid.uuid4,
     )
-    
-    instructions = Column(String)
 
     representations = relationship(
         "Representation",

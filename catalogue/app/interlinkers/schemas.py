@@ -63,7 +63,7 @@ class BaseInterlinkerOut(ArtefactOut, BaseInterlinkerORM):
 ###
 
 class SoftwareBaseInterlinkerBase(BaseInterlinkerBase):
-    nature: Literal["softwareinterlinker"]
+    nature: Literal["softwareinterlinker"] = "softwareinterlinker"
 
     supported_by: List[Supporters]
     deployment_manual: Optional[str]
@@ -112,8 +112,7 @@ class SoftwareInterlinkerOut(BaseInterlinkerOut, SoftwareBaseInterlinkerORM):
 
 
 class KnowledgeBaseInterlinkerBase(BaseInterlinkerBase):
-    nature: Literal["knowledgeinterlinker"]
-    instructions: str
+    nature: Literal["knowledgeinterlinker"] = "knowledgeinterlinker"
 
 
 class KnowledgeInterlinkerCreate(BaseInterlinkerCreate, KnowledgeBaseInterlinkerBase):
@@ -139,18 +138,18 @@ class KnowledgeInterlinkerOut(BaseInterlinkerOut, KnowledgeBaseInterlinkerORM):
     pass
 
 InterlinkerCreate = Annotated[
-    Union[KnowledgeInterlinkerCreate, SoftwareInterlinkerCreate],
+    Union[SoftwareInterlinkerCreate, KnowledgeInterlinkerCreate],
     Field(discriminator="nature"),
 ]
 
 InterlinkerPatch = Annotated[
-    Union[KnowledgeInterlinkerPatch, SoftwareInterlinkerPatch],
+    Union[SoftwareInterlinkerPatch, KnowledgeInterlinkerPatch],
     Field(discriminator="nature"),
 ]
 
 
 class InterlinkerOut(BaseModel):
     __root__: Annotated[
-        Union[KnowledgeInterlinkerOut, SoftwareInterlinkerOut],
+        Union[SoftwareInterlinkerOut, KnowledgeInterlinkerOut],
         Field(discriminator="nature"),
     ]

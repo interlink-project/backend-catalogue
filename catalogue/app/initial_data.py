@@ -132,12 +132,6 @@ def create_interlinker(metadata_path):
         # set nature
         data["nature"] = "knowledgeinterlinker"
 
-        # get instructions file contents if IS FILE PATH
-        if not "http" in data["instructions"]:
-            filename = path_leaf(data["instructions"])
-            with open(str(folder) + "/" + filename, 'r') as f:
-                data["instructions"] = f.read()
-
         # create knowledge interlinker
         knowledgeinterlinker = crud.interlinker.create(
                 db=db,
@@ -145,43 +139,50 @@ def create_interlinker(metadata_path):
             )
 
         # loop over representations and create them
-        for representation in data["representations"]:
-            # get file contents in file and send to the software interlinker
-
-            service = representation["softwareinterlinker"]
-            softwareinterlinker = crud.interlinker.get_softwareinterlinker_by_service_name(db=db, service_name=service)
-            if not softwareinterlinker:
-                print(f"\t{bcolors.FAIL}there is no {service} softwareinterlinker")
-                return
-            
-            try:
-                print(f"\tis {service} supported knowledge interlinker")
-
-                filename = path_leaf(representation["file"])
-                short_filename, file_extension = os.path.splitext(filename)
-                
-                if "json" in file_extension:
+        for language, representations_list in data["representations"].items():
+            for representation in representations_list:
+                representation["language"] = language
+                # get instructions file contents if IS FILE PATH
+                if not "http" in representation["instructions"]:
+                    filename = path_leaf(representation["instructions"])
                     with open(str(folder) + "/" + filename, 'r') as f:
-                        response = requests.post(
-                            f"http://{service}/assets", data=f.read()).json()
-                else:
-                    files_data = {'file': (name + file_extension, open(str(folder) + "/" + filename, "rb").read())}
-                    response = requests.post(
-                        f"http://{service}/assets", files=files_data).json()
+                        representation["instructions"] = f.read()
 
-                print(f"ANSWER FOR {service}")
-                print(response)
-                representation["knowledgeinterlinker_id"] = knowledgeinterlinker.id
-                representation["softwareinterlinker_id"] = softwareinterlinker.id
-                representation["genesis_asset_id"] = response["id"] if "id" in response else response["_id"]
-                print(f"\t{bcolors.HEADER}Representation with {service} created successfully!{bcolors.ENDC}")
-                crud.representation.create(
-                    db=db,
-                    representation=schemas.RepresentationCreate(**representation)
-                )
-            except Exception as e:
-                error = True
-                print(f"\t{bcolors.FAIL}{str(e)}{bcolors.ENDC}")
+                # get file contents in file and send to the software interlinker
+                service = representation["softwareinterlinker"]
+                softwareinterlinker = crud.interlinker.get_softwareinterlinker_by_service_name(db=db, service_name=service)
+                if not softwareinterlinker:
+                    print(f"\t{bcolors.FAIL}there is no {service} softwareinterlinker")
+                    return
+                
+                try:
+                    print(f"\tis {service} supported knowledge interlinker")
+
+                    filename = path_leaf(representation["file"])
+                    short_filename, file_extension = os.path.splitext(filename)
+                    
+                    if "json" in file_extension:
+                        with open(str(folder) + "/" + filename, 'r') as f:
+                            response = requests.post(
+                                f"http://{service}/assets", data=f.read()).json()
+                    else:
+                        files_data = {'file': (name + file_extension, open(str(folder) + "/" + filename, "rb").read())}
+                        response = requests.post(
+                            f"http://{service}/assets", files=files_data).json()
+
+                    print(f"ANSWER FOR {service}")
+                    print(response)
+                    representation["knowledgeinterlinker_id"] = knowledgeinterlinker.id
+                    representation["softwareinterlinker_id"] = softwareinterlinker.id
+                    representation["genesis_asset_id"] = response["id"] if "id" in response else response["_id"]
+                    print(f"\t{bcolors.HEADER}Representation with {service} created successfully!{bcolors.ENDC}")
+                    crud.representation.create(
+                        db=db,
+                        representation=schemas.RepresentationCreate(**representation)
+                    )
+                except Exception as e:
+                    error = True
+                    print(f"\t{bcolors.FAIL}{str(e)}{bcolors.ENDC}")
 
             if error:
                 crud.interlinker.remove(db=db, id=knowledgeinterlinker.id)

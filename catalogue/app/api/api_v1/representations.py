@@ -65,9 +65,14 @@ def clone_representation(
     if not representation:
         raise HTTPException(status_code=404, detail="Representation not found")
 
-    external_info = requests.post(representation.link + "/clone", headers={
-        "Authorization": "Bearer " + token
-    }).json()
+    try:
+        external_info = requests.post(representation.internal_link + "/clone", headers={
+            "Authorization": "Bearer " + token
+        }).json()
+    except:
+        external_info = requests.post(representation.link + "/clone", headers={
+            "Authorization": "Bearer " + token
+        }).json()
     return external_info
 
 @router.put("/{id}", response_model=schemas.RepresentationOut)
@@ -121,9 +126,16 @@ def read_external_asset(
     representation = crud.representation.get(db=db, id=id)
     if not representation:
         raise HTTPException(status_code=404, detail="Representation not found")
-    return requests.get(representation.link, headers={
-        "Authorization": "Bearer " + token
-    }).json()
+
+    try:
+        return requests.get(representation.internal_link, headers={
+            "Authorization": "Bearer " + token
+        }).json()
+    except:
+        return requests.get(representation.link, headers={
+            "Authorization": "Bearer " + token
+        }).json()
+    
 
 @router.delete("/{id}", response_model=schemas.RepresentationOut)
 def delete_representation(

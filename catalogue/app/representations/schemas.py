@@ -19,6 +19,7 @@ class RepresentationBase(BaseModel):
     genesis_asset_id: str
     form: FormTypes
     format: Formats
+    instructions: str
 
 class RepresentationCreate(RepresentationBase):
     knowledgeinterlinker_id: uuid.UUID

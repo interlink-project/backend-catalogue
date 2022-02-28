@@ -70,7 +70,6 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
             db_obj = SoftwareInterlinker(**data)
         if type(interlinker) == KnowledgeInterlinkerCreate:
             print("IS KNOWLEDGE")
-            data["instructions"] = interlinker.instructions
             db_obj = KnowledgeInterlinker(**data)
         db.add(db_obj)
         db.commit()

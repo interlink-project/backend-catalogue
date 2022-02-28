@@ -9,6 +9,7 @@ class CRUDRepresentation(CRUDBase[Representation, RepresentationCreate, Represen
     def create(self, db: Session, *, representation: RepresentationCreate) -> Representation:
         db_obj = Representation(
             knowledgeinterlinker_id=representation.knowledgeinterlinker_id,
+            instructions=representation.instructions,
             form=representation.form,
             language=representation.language,
             format=representation.format,
