@@ -23,26 +23,10 @@ def list_interlinkers(
     """
     return crud.interlinker.get_multi(db, skip=skip, limit=limit, search=search)
 
-@router.get("/software", response_model=List[schemas.SoftwareInterlinkerOut])
-def list_software_interlinkers(
-    db: Session = Depends(deps.get_db),
-    skip: int = 0,
-    limit: int = 100,
-    search: str = "",
-    current_user: Optional[dict] = Depends(deps.get_current_user),
-) -> Any:
-    """
-    Retrieve software interlinkers.
-    """
-    return crud.interlinker.get_multi_integrated_softwareinterlinkers(db, skip=skip, limit=limit)
-
-
-class Problems(BaseModel):
-    problem_profiles: List[str]
 
 @router.post("/by_problem_profiles", response_model=List[schemas.InterlinkerOut])
 def list_interlinkers_by_problem_profiles(
-    problems: Problems,
+    problems: List[str],
     db: Session = Depends(deps.get_db),
     skip: int = 0,
     limit: int = 100,
@@ -51,8 +35,7 @@ def list_interlinkers_by_problem_profiles(
     """
     Retrieve interlinkers.
     """
-    print(problems)
-    interlinkers = crud.interlinker.get_by_problem_profiles(db, skip=skip, limit=limit, problem_profiles=problems.problem_profiles)
+    interlinkers = crud.interlinker.get_by_problem_profiles(db, skip=skip, limit=limit, problem_profiles=problems)
     return interlinkers
 
 

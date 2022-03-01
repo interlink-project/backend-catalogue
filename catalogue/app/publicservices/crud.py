@@ -22,7 +22,7 @@ class CRUDPublicService(CRUDBase[PublicService, PublicServiceCreate, PublicServi
             logotype=publicservice.logotype,
             snapshots=publicservice.snapshots,
             published=publicservice.published,
-            tags=publicservice.tags,
+            tags_translations=publicservice.tags_translations,
             # Public Service specific
             language=publicservice.language,
             processing_time=publicservice.processing_time,

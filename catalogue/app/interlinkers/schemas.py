@@ -1,21 +1,23 @@
 import uuid
 from datetime import datetime
-from typing import List, Optional, Union, Literal
 from enum import Enum
+from typing import Dict, List, Literal, Optional, Union
 
+from pydantic import BaseModel, Field, validator
 from pydantic_choices import choice
-from pydantic import BaseModel as PydanticBaseModel, root_validator
+from typing_extensions import Annotated
 
 from app.artefacts.schemas import ArtefactBase, ArtefactCreate, ArtefactORM, ArtefactOut
+from app.config import settings
 from app.general.utils.AllOptional import AllOptional
-from typing_extensions import Annotated
-from pydantic import Field
-from pydantic import BaseModel
-from app.representations.schemas import RepresentationOut
-from .models import Supporters
 from app.integrations.schemas import IntegrationOut
+from pydantic_choices import choice
+
+
+from .models import Supporters
 
 # Interlinker
+
 
 Difficulties = choice(["very_easy", "easy", "medium", "difficult", "very_difficult"])
 Licences = choice(["public_domain", "permissive", "copyleft",
@@ -26,8 +28,19 @@ InterlinkerTypes = choice(["enabling_services", "enabling_services;implementing_
                           "enhancing_services", "enhancing_services;onboarding_services", "enhancing_services;followup_services", "enhancing_services:external_experts"])
 AdministrativeScopes = choice(["eu", "national", "local"])
 
+# kn
+FormTypes = choice(["visual_template", "document_template", "canvas", "best_practices",
+                   "guidelines", "checklist", "survey_template", "legal_agreement_template", "other"])
+Formats = choice(["pdf", "editable_source_document",
+                 "open_document", "structured_format"])
+
 
 class BaseInterlinkerBase(ArtefactBase):
+    languages: list = ["en"]
+    published: Optional[bool]
+    logotype: Optional[str]
+    snapshots: Optional[List[str]]
+
     difficulty: Difficulties
     targets: Optional[List[Targets]]
     licence: Licences
@@ -37,9 +50,10 @@ class BaseInterlinkerBase(ArtefactBase):
     # domain: Optional[str]
     process: Optional[str]
 
+
 class BaseInterlinkerCreate(ArtefactCreate, BaseInterlinkerBase):
-    constraints_and_limitations_translations: Optional[dict]
-    regulations_and_standards_translations: Optional[dict]
+    pass
+
 
 class BaseInterlinkerPatch(BaseInterlinkerCreate, metaclass=AllOptional):
     pass
@@ -55,9 +69,20 @@ class BaseInterlinkerORM(ArtefactORM, BaseInterlinkerBase):
 
 
 class BaseInterlinkerOut(ArtefactOut, BaseInterlinkerORM):
-    constraints_and_limitations: Optional[str]
-    regulations_and_standards: Optional[str]
+    @validator('logotype', pre=True)
+    def set_logotype(cls, v):
+        if v:
+            return settings.COMPLETE_SERVER_NAME + v
+        return v
 
+    @validator('snapshots', pre=True)
+    def set_snapshots(cls, v):
+        if v and type(v) == list:
+            new = []
+            for i in v:
+                new.append(settings.COMPLETE_SERVER_NAME + i)
+            return new
+        return v
 
 
 ###
@@ -74,11 +99,10 @@ class SoftwareBaseInterlinkerBase(BaseInterlinkerBase):
 
     is_responsive: bool
     # GUI is responsive
-    
+
 
 class SoftwareInterlinkerCreate(BaseInterlinkerCreate, SoftwareBaseInterlinkerBase):
     pass
-
 
 class SoftwareInterlinkerPatch(SoftwareInterlinkerCreate, metaclass=AllOptional):
     pass
@@ -104,7 +128,7 @@ class SoftwareInterlinkerOut(BaseInterlinkerOut, SoftwareBaseInterlinkerORM):
 #     name: str
 #     backend: Optional[str]
 #     # status: str
-# 
+#
 #     class Config:
 #         orm_mode = True
 
@@ -113,10 +137,14 @@ class SoftwareInterlinkerOut(BaseInterlinkerOut, SoftwareBaseInterlinkerORM):
 
 class KnowledgeBaseInterlinkerBase(BaseInterlinkerBase):
     nature: Literal["knowledgeinterlinker"] = "knowledgeinterlinker"
-
+    form: FormTypes
+    format: Formats
+    softwareinterlinker_id: uuid.UUID
+    parent_id: Optional[uuid.UUID]
 
 class KnowledgeInterlinkerCreate(BaseInterlinkerCreate, KnowledgeBaseInterlinkerBase):
-    pass
+    genesis_asset_id_translations: Optional[dict]
+    instructions_translations: dict
 
 
 class KnowledgeInterlinkerPatch(KnowledgeInterlinkerCreate, metaclass=AllOptional):
@@ -127,15 +155,20 @@ class KnowledgeBaseInterlinkerORM(BaseInterlinkerORM, KnowledgeBaseInterlinkerBa
     id: uuid.UUID
     created_at: datetime
     updated_at: Optional[datetime]
-    representations: List[RepresentationOut]
-    representations_count: int
     
+    genesis_asset_id: str
+    instructions: str
+
     class Config:
         orm_mode = True
 
 
-class KnowledgeInterlinkerOut(BaseInterlinkerOut, KnowledgeBaseInterlinkerORM):
-    pass
+class BasicKnowledgeInterlinker(BaseInterlinkerOut, KnowledgeBaseInterlinkerORM):
+    link: str
+
+class KnowledgeInterlinkerOut(BasicKnowledgeInterlinker, KnowledgeBaseInterlinkerORM):
+    children: List[BasicKnowledgeInterlinker]
+
 
 InterlinkerCreate = Annotated[
     Union[SoftwareInterlinkerCreate, KnowledgeInterlinkerCreate],

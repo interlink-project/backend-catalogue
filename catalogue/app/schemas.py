@@ -6,7 +6,6 @@ from app.problemprofiles.schemas import *
 from app.publicservices.schemas import *
 from app.questioncomments.schemas import *
 from app.ratings.schemas import *
-from app.representations.schemas import *
 
 
 class ArtefactOutFull(ArtefactOut):
@@ -26,10 +25,6 @@ class QuestionCommentOutFull(QuestionCommentOut):
 
 
 class RatingOutFull(RatingOut):
-    pass
-
-
-class RepresentationOutFull(RepresentationOut):
     pass
 
 

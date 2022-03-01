@@ -1,30 +1,36 @@
 import uuid
-from typing import List, Optional
 from datetime import datetime
+from typing import Dict, List, Optional
 
-from pydantic import validator, BaseModel as PydanticBaseModel
-from app.problemprofiles.schemas import ProblemProfileOut
-from app.questioncomments.schemas import QuestionCommentOut
-from app.config import settings
+from pydantic import BaseModel as PydanticBaseModel, validator
 
 class ArtefactBase(PydanticBaseModel):
-    logotype: Optional[str]
-    published: Optional[bool]
-    tags: List[str]
-    snapshots: Optional[List[str]]
+    pass
+
 
 class ArtefactCreate(ArtefactBase):
-    problem_profiles: Optional[List[str]]
-    name_translations: dict
-    description_translations: dict
+    problem_profiles: List[str] = []
+    name_translations: Dict[str, str]
+    description_translations: Dict[str, str]
+    constraints_and_limitations_translations: Optional[Dict[str, str]]
+    regulations_and_standards_translations: Optional[Dict[str, str]]
+    tags_translations: Dict[str, str]
+
+    @validator('tags_translations', pre=True)
+    def swith_array_to_str(cls, v):
+        if v:
+            return { key: ";".join(value) for key, value in v.items()}
+        return v
 
 class ArtefactORM(ArtefactBase):
     id: uuid.UUID
     created_at: datetime
     updated_at: Optional[datetime]
-    
+
     name: str
     description: str
+    constraints_and_limitations: Optional[str]
+    regulations_and_standards: Optional[str]
 
     class Config:
         orm_mode = True
@@ -36,23 +42,14 @@ class ProblemProfile(PydanticBaseModel):
     
     class Config:
         orm_mode = True
-
+        
 class ArtefactOut(ArtefactORM):
-
     artefact_type: str
     problemprofiles: List[ProblemProfile]
-
-    @validator('logotype', pre=True)
-    def set_logotype(cls, v):
+    tags: list
+    
+    @validator('tags', pre=True)
+    def str_to_array(cls, v):
         if v:
-            return settings.COMPLETE_SERVER_NAME + v
-        return v
-        
-    @validator('snapshots', pre=True)
-    def set_snapshots(cls, v):
-        if v and type(v) == list:
-            new = []
-            for i in v:
-                new.append(settings.COMPLETE_SERVER_NAME + i) 
-            return new
+            return v.split(";")
         return v

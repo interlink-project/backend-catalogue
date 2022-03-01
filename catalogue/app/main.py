@@ -55,11 +55,11 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # Tasks
 ###################
 
-from fastapi_utils.tasks import repeat_every
-from app.status import set_interlinkers_status
-
-@app.on_event("startup")
-@repeat_every(seconds=5)
-async def task_set_interlinkers_status() -> None:
-    print("Setting interlinkers status")
-    set_interlinkers_status()
+# from fastapi_utils.tasks import repeat_every
+# from app.status import set_interlinkers_status
+# 
+# @app.on_event("startup")
+# @repeat_every(seconds=5)
+# async def task_set_interlinkers_status() -> None:
+#     print("Setting interlinkers status")
+#     set_interlinkers_status()

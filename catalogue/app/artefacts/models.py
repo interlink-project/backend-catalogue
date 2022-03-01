@@ -27,15 +27,16 @@ class Artefact(BaseModel):
 
     name_translations = Column(HSTORE)
     description_translations = Column(HSTORE, nullable=True)
+    constraints_and_limitations_translations = Column(HSTORE)
+    regulations_and_standards_translations = Column(HSTORE, nullable=True)
+    tags_translations = Column(HSTORE)
 
     name = translation_hybrid(name_translations)
     description = translation_hybrid(description_translations)
-
-    published = Column(Boolean, default=False)
-    logotype = Column(String, nullable=True)
-    snapshots = Column(ARRAY(String), default=list)
-    tags = Column(ARRAY(String), default=list)
-
+    constraints_and_limitations = translation_hybrid(constraints_and_limitations_translations)
+    regulations_and_standards = translation_hybrid(regulations_and_standards_translations)
+    tags = translation_hybrid(tags_translations)
+    
     problemprofiles = relationship(
         "ProblemProfile",
         secondary=artefact_problem_association_table,

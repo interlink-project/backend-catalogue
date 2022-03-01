@@ -12,8 +12,7 @@ from sqlalchemy import (
     Enum,
 )
 from sqlalchemy.dialects.postgresql import UUID
-from werkzeug.utils import cached_property
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, backref
 from app.config import settings
 from app.artefacts.models import Artefact
 from sqlalchemy_utils import aggregated
@@ -39,6 +38,11 @@ class Interlinker(Artefact):
         default=uuid.uuid4,
     )
     nature = Column(String)
+    languages = Column(ARRAY(String), default=list)
+
+    published = Column(Boolean, default=False)
+    logotype = Column(String, nullable=True)
+    snapshots = Column(ARRAY(String), default=list)
 
     difficulty = Column(String)
     targets = Column(ARRAY(String), default=list)
@@ -48,14 +52,7 @@ class Interlinker(Artefact):
     administrative_scopes = Column(ARRAY(String), default=list)
     # domain = Column(String, nullable=True)
     process = Column(String, nullable=True)
-    constraints_and_limitations = Column(String, nullable=True)
-    regulations_and_standards = Column(String, nullable=True)
 
-    constraints_and_limitations_translations = Column(HSTORE)
-    regulations_and_standards_translations = Column(HSTORE, nullable=True)
-
-    constraints_and_limitations = translation_hybrid(constraints_and_limitations_translations)
-    regulations_and_standards = translation_hybrid(regulations_and_standards_translations)
     # discriminator
     nature = Column(String)
     
@@ -65,7 +62,7 @@ class Interlinker(Artefact):
     }
 
     def __repr__(self) -> str:
-        return f"<Interlinker {self.name}>"
+        return f"<Interlinker {self.id}>"
 
 class SoftwareInterlinker(Interlinker):
     """
@@ -77,7 +74,6 @@ class SoftwareInterlinker(Interlinker):
         primary_key=True,
         default=uuid.uuid4,
     )
-    #knowledgeinterlinkers = relationship("KnowledgeInterlinker", back_populates="softwareinterlinker")
 
     supported_by = Column(
         ARRAY(Enum(Supporters, create_constraint=False, native_enum=False))
@@ -97,7 +93,7 @@ class SoftwareInterlinker(Interlinker):
     }
 
     def __repr__(self) -> str:
-        return f"<SoftwareInterlinker {self.name}>"
+        return f"<SoftwareInterlinker {self.id}>"
 
     @property
     def backend(self):
@@ -119,18 +115,40 @@ class KnowledgeInterlinker(Interlinker):
         primary_key=True,
         default=uuid.uuid4,
     )
+    form = Column(String)
+    format = Column(String)
 
-    representations = relationship(
-        "Representation",
-        back_populates="knowledgeinterlinker",
+    instructions_translations = Column(HSTORE)
+    instructions = translation_hybrid(instructions_translations)
+
+    softwareinterlinker_id = Column(UUID(as_uuid=True), ForeignKey("softwareinterlinker.id", ondelete='CASCADE'))
+    softwareinterlinker = relationship("SoftwareInterlinker", backref='knowledgeinterlinkers', foreign_keys=[softwareinterlinker_id])
+    
+    genesis_asset_id_translations = Column(HSTORE)
+    genesis_asset_id = translation_hybrid(genesis_asset_id_translations)
+
+    # creator type: team or user
+    creator_id = Column(UUID(as_uuid=True))
+    
+    parent_id = Column(UUID(as_uuid=True), ForeignKey("knowledgeinterlinker.id"))
+    children = relationship(
+        "KnowledgeInterlinker", backref=backref("parent", remote_side=[id]), foreign_keys=[parent_id]
     )
-    @aggregated('representations', Column(Integer))
-    def representations_count(self):
-        return func.count('1')
-
     __mapper_args__ = {
         "polymorphic_identity": "knowledgeinterlinker",
     }
 
     def __repr__(self) -> str:
-        return f"<KnowledgeInterlinker {self.name}>"
+        return f"<KnowledgeInterlinker {self.id}>"
+
+    @property
+    def link(self):
+        return f"{self.softwareinterlinker.backend}/{self.genesis_asset_id}"
+
+    # not exposed in out schema
+    @property
+    def internal_link(self):
+        backend = self.softwareinterlinker.integration.service_name
+        api_path = self.softwareinterlinker.integration.api_path
+        return f"http://{backend}{api_path}/{self.genesis_asset_id}"
+        
