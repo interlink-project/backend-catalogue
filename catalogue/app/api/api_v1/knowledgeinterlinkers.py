@@ -75,3 +75,20 @@ def read_knowledgeinterlinker_external_asset(
         return requests.get(interlinker.link, headers={
             "Authorization": "Bearer " + token
         }).json()
+
+@router.get("/{id}/best_practices", response_model=List[schemas.KnowledgeInterlinkerOut])
+def related_interlinkers(
+    *,
+    db: Session = Depends(deps.get_db),
+    id: uuid.UUID,
+    current_user: Optional[dict] = Depends(deps.get_current_user),
+) -> Any:
+    """
+    Get interlinker by ID.
+    """
+    knowledgeinterlinker = crud.interlinker.get_knowledgeinterlinker(db=db, id=id)
+    if not knowledgeinterlinker:
+        raise HTTPException(status_code=404, detail="Interlinker not found")
+    if not crud.interlinker.can_read(current_user, knowledgeinterlinker):
+        raise HTTPException(status_code=403, detail="Not enough permissions")
+    return knowledgeinterlinker.children

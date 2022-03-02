@@ -128,3 +128,23 @@ def delete_interlinker(
         raise HTTPException(status_code=403, detail="Not enough permissions")
     crud.interlinker.remove(db=db, id=id)
     return None
+
+@router.get("/{id}/related", response_model=List[schemas.InterlinkerOut])
+def related_interlinkers(
+    *,
+    db: Session = Depends(deps.get_db),
+    id: uuid.UUID,
+    skip: int = 0,
+    limit: int = 100,
+    current_user: Optional[dict] = Depends(deps.get_current_user),
+) -> Any:
+    """
+    Get interlinker by ID.
+    """
+    interlinker = crud.interlinker.get(db=db, id=id)
+    if not interlinker:
+        raise HTTPException(status_code=404, detail="Interlinker not found")
+    if not crud.interlinker.can_read(current_user, interlinker):
+        raise HTTPException(status_code=403, detail="Not enough permissions")
+    return crud.interlinker.get_by_problem_profiles(db=db, exclude=[interlinker.id], problem_profiles=[pr.id for pr in interlinker.problemprofiles], skip=skip, limit=limit)
+    # return crud.interlinker.get_related(db=db, interlinker=interlinker, skip=skip, limit=limit)

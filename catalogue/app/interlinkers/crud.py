@@ -117,13 +117,28 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
                 )
             ).offset(skip).limit(limit).all()
         return db.query(Interlinker).offset(skip).limit(limit).all()
+    
+    def get_related(
+        self, db: Session, interlinker: Interlinker, skip: int = 0, limit: int = 100
+    ) -> List[Interlinker]:
+        return db.query(Interlinker).filter(
+            or_(
+                Interlinker.problemprofiles.any(ProblemProfile.id.in_(interlinker.problemprofiles)),
+            )
+        ).offset(skip).limit(limit).all()
 
     def get_by_problem_profiles(
-        self, db: Session, *, skip: int = 0, limit: int = 100, problem_profiles: list
+        self, db: Session, problem_profiles: list, exclude: list = [], skip: int = 0, limit: int = 100
     ) -> List[Interlinker]:
 
-        return db.query(Interlinker).filter(Interlinker.problemprofiles.any(ProblemProfile.id.in_(problem_profiles))
+        return db.query(Interlinker).filter(
+            and_(
+                Interlinker.problemprofiles.any(ProblemProfile.id.in_(problem_profiles)),
+                Interlinker.id.not_in(exclude)
+            )
+                
         ).offset(skip).limit(limit).all()
+       
 
     # CRUD Permissions
     def can_create(self, user):
