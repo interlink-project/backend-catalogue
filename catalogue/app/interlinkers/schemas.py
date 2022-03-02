@@ -38,9 +38,7 @@ Formats = choice(["pdf", "editable_source_document",
 class BaseInterlinkerBase(ArtefactBase):
     languages: list = ["en"]
     published: Optional[bool]
-    logotype: Optional[str]
-    snapshots: Optional[List[str]]
-
+    
     difficulty: Difficulties
     targets: Optional[List[Targets]]
     licence: Licences
@@ -52,8 +50,8 @@ class BaseInterlinkerBase(ArtefactBase):
 
 
 class BaseInterlinkerCreate(ArtefactCreate, BaseInterlinkerBase):
-    pass
-
+    logotype: Optional[str]
+    snapshots: Optional[List[str]]
 
 class BaseInterlinkerPatch(BaseInterlinkerCreate, metaclass=AllOptional):
     pass
@@ -69,20 +67,8 @@ class BaseInterlinkerORM(ArtefactORM, BaseInterlinkerBase):
 
 
 class BaseInterlinkerOut(ArtefactOut, BaseInterlinkerORM):
-    @validator('logotype', pre=True)
-    def set_logotype(cls, v):
-        if v:
-            return settings.COMPLETE_SERVER_NAME + v
-        return v
-
-    @validator('snapshots', pre=True)
-    def set_snapshots(cls, v):
-        if v and type(v) == list:
-            new = []
-            for i in v:
-                new.append(settings.COMPLETE_SERVER_NAME + i)
-            return new
-        return v
+    logotype_link: Optional[str]
+    snapshots_links: Optional[List[str]]
 
 
 ###

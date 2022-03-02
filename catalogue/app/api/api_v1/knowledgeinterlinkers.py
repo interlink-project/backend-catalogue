@@ -3,6 +3,8 @@ import uuid
 from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
+from fastapi_pagination import Page
+from fastapi_pagination.ext.sqlalchemy import paginate
 
 from app import crud, models, schemas
 from app.general import deps
@@ -10,17 +12,15 @@ import requests
 
 router = APIRouter()
 
-@router.get("", response_model=List[schemas.KnowledgeInterlinkerOut])
+@router.get("", response_model=Page[schemas.KnowledgeInterlinkerOut])
 def list_knowledgeinterlinkers(
     db: Session = Depends(deps.get_db),
-    skip: int = 0,
-    limit: int = 100,
     current_user: Optional[dict] = Depends(deps.get_current_user),
 ) -> Any:
     """
     Retrieve knowledge interlinkers.
     """
-    return crud.interlinker.get_multi_knowledgeinterlinkers(db, skip=skip, limit=limit)
+    return crud.interlinker.get_multi_knowledgeinterlinkers(db)
 
 @router.post("/{id}/instantiate")
 def instantiate_knowledgeinterlinker(
@@ -76,7 +76,7 @@ def read_knowledgeinterlinker_external_asset(
             "Authorization": "Bearer " + token
         }).json()
 
-@router.get("/{id}/best_practices", response_model=List[schemas.KnowledgeInterlinkerOut])
+@router.get("/{id}/best_practices", response_model=Page[schemas.KnowledgeInterlinkerOut])
 def related_interlinkers(
     *,
     db: Session = Depends(deps.get_db),
@@ -91,4 +91,4 @@ def related_interlinkers(
         raise HTTPException(status_code=404, detail="Interlinker not found")
     if not crud.interlinker.can_read(current_user, knowledgeinterlinker):
         raise HTTPException(status_code=403, detail="Not enough permissions")
-    return knowledgeinterlinker.children
+    return paginate(knowledgeinterlinker.children)

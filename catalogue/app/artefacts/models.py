@@ -19,6 +19,8 @@ from sqlalchemy.orm import relationship
 from app.general.db.base_class import Base as BaseModel
 from app.tables import artefact_problem_association_table
 from app.translations import translation_hybrid
+from sqlalchemy.ext.hybrid import hybrid_property
+from sqlalchemy import func
 
 
 class Artefact(BaseModel):
@@ -35,7 +37,7 @@ class Artefact(BaseModel):
     description = translation_hybrid(description_translations)
     constraints_and_limitations = translation_hybrid(constraints_and_limitations_translations)
     regulations_and_standards = translation_hybrid(regulations_and_standards_translations)
-    tags = translation_hybrid(tags_translations)
+    _tags = translation_hybrid(tags_translations)
     
     problemprofiles = relationship(
         "ProblemProfile",
@@ -45,7 +47,15 @@ class Artefact(BaseModel):
     ratings = relationship("Rating", back_populates="artefact")
     questioncomments = relationship("QuestionComment", back_populates="artefact")
 
+    # TODO: creator type: team or user
+    creator_id = Column(UUID(as_uuid=True), nullable=True)
+
     __mapper_args__ = {
         "polymorphic_identity": "artefact",
         "polymorphic_on": artefact_type,
     }
+
+    @hybrid_property
+    def tags(self):
+        # can not store arrays on hstore, so stored in string and splitted in get
+        return self._tags.split(";")

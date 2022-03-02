@@ -1,41 +1,43 @@
-from typing import Any, List, Optional
 import uuid
-from fastapi import APIRouter, Depends, HTTPException
+from typing import Any, List, Optional
+
+from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi_pagination import Page
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
 
 from app import crud, models, schemas
-from app.general import deps
 from app.exceptions import CrudException
+from app.general import deps
+
 router = APIRouter()
 
 
-@router.get("", response_model=List[schemas.InterlinkerOut])
+@router.get("", response_model=Page[schemas.InterlinkerOut])
 def list_interlinkers(
+    nature: Optional[List[str]] = Query(None),
+    creator: Optional[List[str]] = Query(None),
+    search: Optional[str] = Query(None),
     db: Session = Depends(deps.get_db),
-    skip: int = 0,
-    limit: int = 100,
-    search: str = "",
     current_user: Optional[dict] = Depends(deps.get_current_user),
 ) -> Any:
     """
     Retrieve interlinkers.
     """
-    return crud.interlinker.get_multi(db, skip=skip, limit=limit, search=search)
+    print("FILTER", nature, creator, search)
+    return crud.interlinker.get_multi(db, search=search, natures=nature, creator=creator)
 
 
-@router.post("/by_problem_profiles", response_model=List[schemas.InterlinkerOut])
+@router.post("/by_problem_profiles", response_model=Page[schemas.InterlinkerOut])
 def list_interlinkers_by_problem_profiles(
     problems: List[str],
     db: Session = Depends(deps.get_db),
-    skip: int = 0,
-    limit: int = 100,
     current_user: Optional[dict] = Depends(deps.get_current_user),
 ) -> Any:
     """
     Retrieve interlinkers.
     """
-    interlinkers = crud.interlinker.get_by_problem_profiles(db, skip=skip, limit=limit, problem_profiles=problems)
+    interlinkers = crud.interlinker.get_by_problem_profiles(db, problem_profiles=problems)
     return interlinkers
 
 
@@ -129,13 +131,10 @@ def delete_interlinker(
     crud.interlinker.remove(db=db, id=id)
     return None
 
-@router.get("/{id}/related", response_model=List[schemas.InterlinkerOut])
+@router.get("/{id}/related", response_model=Page[schemas.InterlinkerOut])
 def related_interlinkers(
-    *,
-    db: Session = Depends(deps.get_db),
     id: uuid.UUID,
-    skip: int = 0,
-    limit: int = 100,
+    db: Session = Depends(deps.get_db),
     current_user: Optional[dict] = Depends(deps.get_current_user),
 ) -> Any:
     """

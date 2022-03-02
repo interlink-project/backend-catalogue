@@ -13,6 +13,7 @@ from app.models import ProblemProfile
 from app.integrations.models import Integration
 from sqlalchemy import and_, or_
 import uuid
+from fastapi_pagination.ext.sqlalchemy import paginate
 
 
 class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]):
@@ -27,19 +28,19 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
         ).first()
 
     def get_multi_knowledgeinterlinkers(
-        self, db: Session, *, skip: int = 0, limit: int = 100
+        self, db: Session
     ) -> List[KnowledgeInterlinker]:
-        return db.query(KnowledgeInterlinker).offset(skip).limit(limit).all()
+        return paginate(db.query(KnowledgeInterlinker))
 
     def get_multi_softwareinterlinkers(
-        self, db: Session, *, skip: int = 0, limit: int = 100
+        self, db: Session
     ) -> List[SoftwareInterlinker]:
-        return db.query(SoftwareInterlinker).offset(skip).limit(limit).all()
+        return paginate(db.query(SoftwareInterlinker))
 
     def get_multi_integrated_softwareinterlinkers(
-        self, db: Session, *, skip: int = 0, limit: int = 100
+        self, db: Session
     ) -> List[SoftwareInterlinker]:
-        return db.query(SoftwareInterlinker).filter(and_(Integration.service_name != None, Integration.shortcut == True)).offset(skip).limit(limit).all()
+        return db.query(SoftwareInterlinker).filter(and_(Integration.service_name != None, Integration.shortcut == True)).all()
 
     def get_softwareinterlinker_by_service_name(self, db: Session, service_name: str) -> Optional[SoftwareInterlinker]:
         return db.query(SoftwareInterlinker).filter(SoftwareInterlinker.id == Integration.softwareinterlinker_id).filter(Integration.service_name == service_name).first()
@@ -52,7 +53,8 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
         data["constraints_and_limitations_translations"] = interlinker.constraints_and_limitations_translations
         data["regulations_and_standards_translations"] = interlinker.regulations_and_standards_translations
         data["tags_translations"] = interlinker.tags_translations
-        
+        data["creator_id"] = interlinker.creator_id
+
         # Interlinker
         data["logotype"] = interlinker.logotype
         data["snapshots"] = interlinker.snapshots
@@ -76,7 +78,6 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
             data["developer_manual"] = interlinker.developer_manual
             data["supports_internationalization"] = interlinker.supports_internationalization
             data["is_responsive"] = interlinker.is_responsive
-
             db_obj = SoftwareInterlinker(**data)
 
         if type(interlinker) == KnowledgeInterlinkerCreate:
@@ -103,41 +104,49 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
         return db_obj
 
     def get_multi(
-        self, db: Session, *, skip: int = 0, limit: int = 100, search: str = "", language: str = "en"
+        self, db: Session, search: str = "", natures: list = [], creator: list = [], language: str = "en"
     ) -> List[Interlinker]:
-        if search != "":
+        queries = []
+        if search:
             search = search.lower()
-            return db.query(Interlinker).filter(
-                or_(
+            queries.append(or_(
                     # Interlinker.tags.any(search),
                     func.lower(Interlinker.name_translations[language]).contains(
                         search),
                     func.lower(
                         Interlinker.description_translations[language]).contains(search)
-                )
-            ).offset(skip).limit(limit).all()
-        return db.query(Interlinker).offset(skip).limit(limit).all()
+                ))
+        
+        if natures:
+            queries.append(
+                Interlinker.nature.in_(natures)
+            )
+        
+        # if creator:
+        #     queries.append(
+        #         Interlinker.creator_id != None
+        #     )
+        return paginate(db.query(Interlinker).filter(*queries))
     
     def get_related(
-        self, db: Session, interlinker: Interlinker, skip: int = 0, limit: int = 100
+        self, db: Session, interlinker: Interlinker
     ) -> List[Interlinker]:
-        return db.query(Interlinker).filter(
+        return paginate(db.query(Interlinker).filter(
             or_(
                 Interlinker.problemprofiles.any(ProblemProfile.id.in_(interlinker.problemprofiles)),
             )
-        ).offset(skip).limit(limit).all()
+        ))
 
     def get_by_problem_profiles(
-        self, db: Session, problem_profiles: list, exclude: list = [], skip: int = 0, limit: int = 100
+        self, db: Session, problem_profiles: list, exclude: list = []
     ) -> List[Interlinker]:
 
-        return db.query(Interlinker).filter(
+        return paginate(db.query(Interlinker).filter(
             and_(
                 Interlinker.problemprofiles.any(ProblemProfile.id.in_(problem_profiles)),
                 Interlinker.id.not_in(exclude)
             )
-                
-        ).offset(skip).limit(limit).all()
+        ))
        
 
     # CRUD Permissions

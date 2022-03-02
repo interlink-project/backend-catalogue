@@ -5,6 +5,7 @@ from starlette.middleware.cors import CORSMiddleware
 from app.api.api_v1 import api_router
 from app.config import settings
 from app.translations import RequestContextMiddleware
+from fastapi_pagination import add_pagination
 
 app = FastAPI(
     title=settings.PROJECT_NAME, docs_url="/docs", openapi_url=f"{settings.API_V1_STR}/openapi.json", root_path=settings.BASE_PATH
@@ -63,3 +64,6 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # async def task_set_interlinkers_status() -> None:
 #     print("Setting interlinkers status")
 #     set_interlinkers_status()
+
+# PAGINATION
+add_pagination(app)

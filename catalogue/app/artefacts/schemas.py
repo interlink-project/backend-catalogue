@@ -15,6 +15,7 @@ class ArtefactCreate(ArtefactBase):
     constraints_and_limitations_translations: Optional[Dict[str, str]]
     regulations_and_standards_translations: Optional[Dict[str, str]]
     tags_translations: Dict[str, str]
+    creator_id: Optional[uuid.UUID]
 
     @validator('tags_translations', pre=True)
     def swith_array_to_str(cls, v):
@@ -47,9 +48,3 @@ class ArtefactOut(ArtefactORM):
     artefact_type: str
     problemprofiles: List[ProblemProfile]
     tags: list
-    
-    @validator('tags', pre=True)
-    def str_to_array(cls, v):
-        if v:
-            return v.split(";")
-        return v

@@ -1,26 +1,29 @@
-import uuid
-from typing import Union
 import enum
+import uuid
+from typing import Optional, Union
+
+from pydantic_choices import choice
 from sqlalchemy import (
     ARRAY,
     Boolean,
     Column,
     DateTime,
+    Enum,
     ForeignKey,
     Integer,
     String,
-    Enum,
+    func,
 )
-from sqlalchemy.dialects.postgresql import UUID
-from sqlalchemy.orm import relationship, backref
-from app.config import settings
-from app.artefacts.models import Artefact
+from sqlalchemy.dialects.postgresql import HSTORE, UUID
+from sqlalchemy.ext.hybrid import hybrid_property
+from sqlalchemy.orm import backref, relationship
 from sqlalchemy_utils import aggregated
-from sqlalchemy import func
-from sqlalchemy.dialects.postgresql import HSTORE
+
+from app.artefacts.models import Artefact
+from app.config import settings
 from app.general.utils.DatabaseLocalization import translation_hybrid
 from app.integrations.models import Integration
-from pydantic_choices import choice
+
 
 class Supporters(enum.Enum):
     saas = "saas"
@@ -60,6 +63,14 @@ class Interlinker(Artefact):
         "polymorphic_identity": "interlinker",
         "polymorphic_on": nature,
     }
+
+    @property
+    def logotype_link(self):
+        return settings.COMPLETE_SERVER_NAME + self.logotype if self.logotype else ""
+
+    @property
+    def snapshots_links(self):
+        return [settings.COMPLETE_SERVER_NAME + i for i in self.snapshots] if self.snapshots else []
 
     def __repr__(self) -> str:
         return f"<Interlinker {self.id}>"
@@ -126,9 +137,6 @@ class KnowledgeInterlinker(Interlinker):
     
     genesis_asset_id_translations = Column(HSTORE)
     genesis_asset_id = translation_hybrid(genesis_asset_id_translations)
-
-    # creator type: team or user
-    creator_id = Column(UUID(as_uuid=True))
     
     parent_id = Column(UUID(as_uuid=True), ForeignKey("knowledgeinterlinker.id"))
     children = relationship(
