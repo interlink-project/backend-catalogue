@@ -32,7 +32,12 @@ class IntegrationBase(BaseModel):
 
 
 class IntegrationCreate(IntegrationBase):
-    pass
+    # capabilities translations
+    instantiate_text_translations: Optional[dict]
+    view_text_translations: Optional[dict]
+    edit_text_translations: Optional[dict]
+    delete_text_translations: Optional[dict]
+    clone_text_translations: Optional[dict]
 
 
 class IntegrationPatch(IntegrationCreate, metaclass=AllOptional):
@@ -43,6 +48,12 @@ class Integration(IntegrationBase):
     id: uuid.UUID
     created_at: datetime
     updated_at: Optional[datetime]
+
+    instantiate_text: Optional[str]
+    view_text: Optional[str]
+    clone_text: Optional[str]
+    edit_text: Optional[str]
+    delete_text: Optional[str]
 
     class Config:
         orm_mode = True

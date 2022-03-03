@@ -15,6 +15,8 @@ from sqlalchemy import (
 )
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
+from sqlalchemy.dialects.postgresql import HSTORE
+from app.translations import translation_hybrid
 
 
 class Integration(BaseModel):
@@ -38,3 +40,16 @@ class Integration(BaseModel):
     delete = Column(Boolean, default=True)
     open_in_modal = Column(Boolean, default=False)
     shortcut = Column(Boolean, default=False)
+    
+    # capabilities translations
+    instantiate_text_translations = Column(HSTORE)
+    view_text_translations = Column(HSTORE)
+    edit_text_translations = Column(HSTORE)
+    delete_text_translations = Column(HSTORE)
+    clone_text_translations = Column(HSTORE)
+
+    instantiate_text = translation_hybrid(instantiate_text_translations)
+    view_text = translation_hybrid(view_text_translations)
+    clone_text = translation_hybrid(clone_text_translations)
+    edit_text = translation_hybrid(edit_text_translations)
+    delete_text = translation_hybrid(delete_text_translations)

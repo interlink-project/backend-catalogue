@@ -21,7 +21,7 @@ from sqlalchemy_utils import aggregated
 
 from app.artefacts.models import Artefact
 from app.config import settings
-from app.general.utils.DatabaseLocalization import translation_hybrid
+from app.translations import translation_hybrid
 from app.integrations.models import Integration
 
 

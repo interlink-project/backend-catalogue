@@ -110,14 +110,9 @@ def create_softwareinterlinker(metadata_path):
     integrationData["softwareinterlinker_id"] = interlinker.id
 
     # capabilities to root
-    integrationData["instantiate"] = data["integration"]["capabilities"]["instantiate"]
-    integrationData["clone"] = data["integration"]["capabilities"]["clone"]
-    integrationData["view"] = data["integration"]["capabilities"]["view"]
-    integrationData["edit"] = data["integration"]["capabilities"]["edit"]
-    integrationData["delete"] = data["integration"]["capabilities"]["delete"]
-    integrationData["open_in_modal"] = data["integration"]["capabilities"]["open_in_modal"]
-    integrationData["shortcut"] = data["integration"]["capabilities"]["shortcut"]
-
+    integrationData = {**integrationData, **data["integration"]["capabilities"]}
+    integrationData = {**integrationData, **data["integration"]["capabilities_translations"]}
+    
     crud.integration.create(
         db=db,
         obj_in=schemas.IntegrationCreate(**integrationData)
