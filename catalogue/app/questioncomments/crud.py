@@ -12,24 +12,20 @@ from app.general.utils.CRUDBase import CRUDBase
 
 class CRUDQuestionComment(CRUDBase[QuestionComment, QuestionCommentCreate, QuestionCommentPatch]):
     def get_multi_by_user(
-        self, db: Session, *, user_id: uuid.UUID, skip: int = 0, limit: int = 100
+        self, db: Session, *, user_id: uuid.UUID,
     ) -> List[QuestionComment]:
         return (
             db.query(self.model)
             .filter(QuestionComment.user_id == user_id)
-            .offset(skip)
-            .limit(limit)
             .all()
         )
 
     def get_multi_by_artefact(
-        self, db: Session, *, artefact_id:  uuid.UUID, skip: int = 0, limit: int = 100
+        self, db: Session, *, artefact_id:  uuid.UUID,
     ) -> List[QuestionComment]:
         return (
             db.query(self.model)
             .filter(QuestionComment.artefact_id == artefact_id)
-            .offset(skip)
-            .limit(limit)
             .all()
         )
 

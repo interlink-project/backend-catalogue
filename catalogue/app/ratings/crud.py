@@ -12,13 +12,11 @@ from app.general.utils.CRUDBase import CRUDBase
 
 class CRUDRating(CRUDBase[Rating, RatingCreate, RatingPatch]):
     def get_multi_by_artefact(
-        self, db: Session, *, artefact_id:  uuid.UUID, skip: int = 0, limit: int = 100
+        self, db: Session, *, artefact_id:  uuid.UUID,
     ) -> List[Rating]:
         return (
             db.query(self.model)
             .filter(Rating.artefact_id == artefact_id)
-            .offset(skip)
-            .limit(limit)
             .all()
         )
 

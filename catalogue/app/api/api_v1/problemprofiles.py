@@ -14,8 +14,6 @@ def user_get_locale():
 @router.get("", response_model=List[schemas.ProblemProfileOut])
 def list_problemprofiles(
     db: Session = Depends(deps.get_db),
-    skip: int = 0,
-    limit: int = 100,
     current_user: Optional[dict] = Depends(deps.get_current_user),
 ) -> Any:
     """
@@ -23,7 +21,7 @@ def list_problemprofiles(
     """
     if not crud.problemprofile.can_list(current_user):
         raise HTTPException(status_code=403, detail="Not enough permissions")
-    problemprofiles = crud.problemprofile.get_multi(db, skip=skip, limit=limit)
+    problemprofiles = crud.problemprofile.get_multi(db)
     return problemprofiles
 
 @router.get("/ids", response_model=list)
