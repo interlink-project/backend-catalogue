@@ -22,7 +22,7 @@ class Rating(BaseModel):
 
     artefact_id = Column(UUID(as_uuid=True), ForeignKey("artefact.id"))
     artefact = relationship("Artefact", back_populates="ratings")
-    user_id = Column(UUID(as_uuid=True))
+    user_id = Column(String)
     value = Column(Integer)
     title = Column(String, nullable=True)
     text = Column(Text)

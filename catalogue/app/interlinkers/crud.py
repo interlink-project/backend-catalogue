@@ -40,7 +40,7 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
     def get_multi_integrated_softwareinterlinkers(
         self, db: Session
     ) -> List[SoftwareInterlinker]:
-        return db.query(SoftwareInterlinker).filter(and_(Integration.service_name != None, Integration.shortcut == True)).all()
+        return db.query(SoftwareInterlinker).filter(Integration.softwareinterlinker_id == SoftwareInterlinker.id).filter(and_(Integration.service_name != None, Integration.shortcut == True)).all()
 
     def get_softwareinterlinker_by_service_name(self, db: Session, service_name: str) -> Optional[SoftwareInterlinker]:
         return db.query(SoftwareInterlinker).filter(SoftwareInterlinker.id == Integration.softwareinterlinker_id).filter(Integration.service_name == service_name).first()

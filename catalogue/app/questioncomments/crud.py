@@ -12,7 +12,7 @@ from app.general.utils.CRUDBase import CRUDBase
 
 class CRUDQuestionComment(CRUDBase[QuestionComment, QuestionCommentCreate, QuestionCommentPatch]):
     def get_multi_by_user(
-        self, db: Session, *, user_id: uuid.UUID,
+        self, db: Session, user_id: str,
     ) -> List[QuestionComment]:
         return (
             db.query(self.model)
@@ -21,7 +21,7 @@ class CRUDQuestionComment(CRUDBase[QuestionComment, QuestionCommentCreate, Quest
         )
 
     def get_multi_by_artefact(
-        self, db: Session, *, artefact_id:  uuid.UUID,
+        self, db: Session, *, artefact_id: uuid.UUID,
     ) -> List[QuestionComment]:
         return (
             db.query(self.model)
@@ -29,7 +29,7 @@ class CRUDQuestionComment(CRUDBase[QuestionComment, QuestionCommentCreate, Quest
             .all()
         )
 
-    def create(self, db: Session, *, questioncomment: QuestionCommentCreate) -> QuestionComment:
+    def create(self, db: Session, questioncomment: QuestionCommentCreate) -> QuestionComment:
         db_obj = QuestionComment(
             artefact_id=questioncomment.artefact_id,
             user_id=questioncomment.user_id,

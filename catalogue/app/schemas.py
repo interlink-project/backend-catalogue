@@ -11,7 +11,6 @@ from app.ratings.schemas import *
 class ArtefactOutFull(ArtefactOut):
     questioncomments: List[QuestionCommentOut]
 
-
 class PublicServiceOutFull(ArtefactOutFull, PublicServiceOut):
     pass
 

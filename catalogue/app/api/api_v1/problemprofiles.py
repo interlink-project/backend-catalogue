@@ -8,9 +8,6 @@ from app.general import deps
 from app.exceptions import CrudException
 router = APIRouter()
 
-def user_get_locale():
-    return "es"
-
 @router.get("", response_model=List[schemas.ProblemProfileOut])
 def list_problemprofiles(
     db: Session = Depends(deps.get_db),

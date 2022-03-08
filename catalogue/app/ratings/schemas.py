@@ -9,10 +9,15 @@ from pydantic.typing import ForwardRef
 class RatingBase(BaseModel):
     title: Optional[str]
     text: str
+    value: int
 
+    @validator('value')
+    def value_not_greater_than_5(cls, v):
+        if v > 5 or v < 0:
+            raise ValueError('must be between 0 and 5')
+        return v
 
 class RatingCreate(RatingBase):
-    user_id: uuid.UUID
     artefact_id: uuid.UUID
 
 
@@ -24,6 +29,8 @@ class Rating(RatingBase):
     id: uuid.UUID
     created_at: datetime
     updated_at: Optional[datetime]
+
+    user_id: str
 
     class Config:
         orm_mode = True

@@ -1,5 +1,5 @@
 import uuid
-from typing import Any, List, Optional
+from typing import Any, List, Optional, Union
 
 from fastapi import APIRouter, Depends, HTTPException, Query
 from fastapi_pagination import Page
@@ -146,3 +146,19 @@ def related_interlinkers(
     if not crud.interlinker.can_read(current_user, interlinker):
         raise HTTPException(status_code=403, detail="Not enough permissions")
     return crud.interlinker.get_by_problem_profiles(db=db, exclude=[interlinker.id], problem_profiles=[pr.id for pr in interlinker.problemprofiles])
+
+@router.get("/{id}/ratings", response_model=List[schemas.RatingOut])
+def interlinker_ratings(
+    id: uuid.UUID,
+    db: Session = Depends(deps.get_db),
+    current_user: Optional[dict] = Depends(deps.get_current_user),
+) -> Any:
+    """
+    Get ratings of an interlinker
+    """
+    interlinker = crud.interlinker.get(db=db, id=id)
+    if not interlinker:
+        raise HTTPException(status_code=404, detail="Interlinker not found")
+    if not crud.interlinker.can_read(current_user, interlinker):
+        raise HTTPException(status_code=403, detail="Not enough permissions")
+    return interlinker.ratings

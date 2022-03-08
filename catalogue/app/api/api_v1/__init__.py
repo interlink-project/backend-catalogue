@@ -5,7 +5,8 @@ from app.api.api_v1 import (
     interlinkers,
     problemprofiles,
     knowledgeinterlinkers,
-    softwareinterlinkers
+    softwareinterlinkers,
+    rating
 )
 
 
@@ -19,6 +20,8 @@ api_router.include_router(softwareinterlinkers.router,
                           prefix="/softwareinterlinkers", tags=["artefacts"])                         
 api_router.include_router(problemprofiles.router,
                           prefix="/problemprofiles", tags=["problemprofiles"])
+api_router.include_router(rating.router,
+                          prefix="/ratings", tags=["social"])
 
 @api_router.get("/")
 def main():

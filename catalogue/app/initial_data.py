@@ -106,17 +106,18 @@ def create_softwareinterlinker(metadata_path):
         interlinker=schemas.SoftwareInterlinkerCreate(**data),
     )
 
-    integrationData = data["integration"]
-    integrationData["softwareinterlinker_id"] = interlinker.id
+    if "integration" in data:
+        integrationData = data["integration"]
+        integrationData["softwareinterlinker_id"] = interlinker.id
 
-    # capabilities to root
-    integrationData = {**integrationData, **data["integration"]["capabilities"]}
-    integrationData = {**integrationData, **data["integration"]["capabilities_translations"]}
-    
-    crud.integration.create(
-        db=db,
-        obj_in=schemas.IntegrationCreate(**integrationData)
-    )
+        # capabilities to root
+        integrationData = {**integrationData, **data["integration"]["capabilities"]}
+        integrationData = {**integrationData, **data["integration"]["capabilities_translations"]}
+        
+        crud.integration.create(
+            db=db,
+            obj_in=schemas.IntegrationCreate(**integrationData)
+        )
 
     print(f"\t{bcolors.OKGREEN}Created successfully!{bcolors.ENDC}")
 

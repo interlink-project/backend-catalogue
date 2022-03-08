@@ -12,7 +12,7 @@ class QuestionCommentBase(BaseModel):
 
 
 class QuestionCommentCreate(QuestionCommentBase):
-    user_id: uuid.UUID
+    user_id: str
     artefact_id: Optional[uuid.UUID]
     parent_id: Optional[uuid.UUID]
 
