@@ -7,6 +7,7 @@ from distutils.dir_util import copy_tree
 from pathlib import Path
 
 import requests
+from pydantic import BaseModel, parse_obj_as
 from slugify import slugify
 
 from app import crud, schemas
@@ -94,7 +95,8 @@ def create_softwareinterlinker(metadata_path):
     slug = slugify(name)
     str_static_path = f'/app/static/{slug}'
     data["snapshots"] = get_snapshots(folder, str_static_path)
-    data["logotype"] = get_logotype(data["logotype"], folder, str_static_path) if "logotype" in data else None
+    data["logotype"] = get_logotype(
+        data["logotype"], folder, str_static_path) if "logotype" in data else None
 
     # set nature
     data["nature"] = "softwareinterlinker"
@@ -110,13 +112,20 @@ def create_softwareinterlinker(metadata_path):
         integrationData = data["integration"]
         integrationData["softwareinterlinker_id"] = interlinker.id
 
-        # capabilities to root
-        integrationData = {**integrationData, **data["integration"]["capabilities"]}
-        integrationData = {**integrationData, **data["integration"]["capabilities_translations"]}
-        
+        if data["integration"]["type"] == "internalintegration":
+            # capabilities to root
+            integrationData = {**integrationData, **data["integration"]["capabilities"]}
+            integrationData = {**integrationData, **
+                               data["integration"]["capabilities_translations"]}
+        else:
+            if data["integration"]["result"]:
+                if result_interlinker := crud.interlinker.get_by_name(db=db, name=data["integration"]["result"]):
+                    integrationData["result_softwareinterlinker_id"] = result_interlinker.id
+
+        print(parse_obj_as(schemas.IntegrationCreate, integrationData))
         crud.integration.create(
             db=db,
-            obj_in=schemas.IntegrationCreate(**integrationData)
+            obj_in=parse_obj_as(schemas.IntegrationCreate, integrationData)
         )
 
     print(f"\t{bcolors.OKGREEN}Created successfully!{bcolors.ENDC}")
@@ -135,8 +144,7 @@ def create_knowledgeinterlinker(metadata_path):
         return
 
     error = False
-    # loop over representations and create them
-    
+
     knowledgeinterlinker["nature"] = "knowledgeinterlinker"
 
     folder = metadata_path.parents[0]
@@ -184,7 +192,7 @@ def create_knowledgeinterlinker(metadata_path):
         # parent folder where metadata.json is located
         str_static_path = f'/app/static/{slug}'
         knowledgeinterlinker["snapshots"] = get_snapshots(folder, str_static_path)
-            
+
         crud.interlinker.create(
             db=db,
             interlinker=schemas.KnowledgeInterlinkerCreate(
@@ -192,7 +200,7 @@ def create_knowledgeinterlinker(metadata_path):
         )
         print(
             f"\t{bcolors.HEADER}Knowledge interlinker with {service} created successfully!{bcolors.ENDC}")
-        
+
     except Exception as e:
         error = True
         print(f"\t{bcolors.FAIL}{str(e)}{bcolors.ENDC}")

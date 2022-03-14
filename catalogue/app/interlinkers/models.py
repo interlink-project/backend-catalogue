@@ -51,7 +51,6 @@ class Interlinker(Artefact):
     targets = Column(ARRAY(String), default=list)
     licence = Column(String)
     types = Column(ARRAY(String), default=list)
-    # related_interlinkers
     administrative_scopes = Column(ARRAY(String), default=list)
     # domain = Column(String, nullable=True)
     process = Column(String, nullable=True)
@@ -159,4 +158,3 @@ class KnowledgeInterlinker(Interlinker):
         backend = self.softwareinterlinker.integration.service_name
         api_path = self.softwareinterlinker.integration.api_path
         return f"http://{backend}{api_path}/{self.genesis_asset_id}"
-        

@@ -11,8 +11,6 @@ from app.artefacts.schemas import ArtefactBase, ArtefactCreate, ArtefactORM, Art
 from app.config import settings
 from app.general.utils.AllOptional import AllOptional
 from app.integrations.schemas import IntegrationOut
-from pydantic_choices import choice
-
 
 from .models import Supporters
 
@@ -38,12 +36,11 @@ Formats = choice(["pdf", "editable_source_document",
 class BaseInterlinkerBase(ArtefactBase):
     languages: list = ["en"]
     published: Optional[bool]
-    
+
     difficulty: Difficulties
     targets: Optional[List[Targets]]
     licence: Licences
     types: Optional[List[InterlinkerTypes]]
-    related_interlinkers: Optional[List[str]]
     administrative_scopes: Optional[List[AdministrativeScopes]]
     # domain: Optional[str]
     process: Optional[str]
@@ -52,6 +49,7 @@ class BaseInterlinkerBase(ArtefactBase):
 class BaseInterlinkerCreate(ArtefactCreate, BaseInterlinkerBase):
     logotype: Optional[str]
     snapshots: Optional[List[str]]
+
 
 class BaseInterlinkerPatch(BaseInterlinkerCreate, metaclass=AllOptional):
     pass
@@ -69,9 +67,10 @@ class BaseInterlinkerORM(ArtefactORM, BaseInterlinkerBase):
 class BaseInterlinkerOut(ArtefactOut, BaseInterlinkerORM):
     logotype_link: Optional[str]
     snapshots_links: Optional[List[str]]
-
+    related_interlinkers: Optional[List[str]]
 
 ###
+
 
 class SoftwareBaseInterlinkerBase(BaseInterlinkerBase):
     nature: Literal["softwareinterlinker"] = "softwareinterlinker"
@@ -89,6 +88,7 @@ class SoftwareBaseInterlinkerBase(BaseInterlinkerBase):
 
 class SoftwareInterlinkerCreate(BaseInterlinkerCreate, SoftwareBaseInterlinkerBase):
     pass
+
 
 class SoftwareInterlinkerPatch(SoftwareInterlinkerCreate, metaclass=AllOptional):
     pass
@@ -128,6 +128,7 @@ class KnowledgeBaseInterlinkerBase(BaseInterlinkerBase):
     softwareinterlinker_id: uuid.UUID
     parent_id: Optional[uuid.UUID]
 
+
 class KnowledgeInterlinkerCreate(BaseInterlinkerCreate, KnowledgeBaseInterlinkerBase):
     genesis_asset_id_translations: Optional[dict]
     instructions_translations: dict
@@ -141,7 +142,7 @@ class KnowledgeBaseInterlinkerORM(BaseInterlinkerORM, KnowledgeBaseInterlinkerBa
     id: uuid.UUID
     created_at: datetime
     updated_at: Optional[datetime]
-    
+
     genesis_asset_id: str
     instructions: str
 
@@ -152,7 +153,9 @@ class KnowledgeBaseInterlinkerORM(BaseInterlinkerORM, KnowledgeBaseInterlinkerBa
 class BasicKnowledgeInterlinker(BaseInterlinkerOut, KnowledgeBaseInterlinkerORM):
     link: str
 
+
 class KnowledgeInterlinkerOut(BasicKnowledgeInterlinker, KnowledgeBaseInterlinkerORM):
+    softwareinterlinker: Optional[SoftwareInterlinkerOut]
     children: List[BasicKnowledgeInterlinker]
 
 

@@ -25,7 +25,3 @@ class QuestionCommentOutFull(QuestionCommentOut):
 
 class RatingOutFull(RatingOut):
     pass
-
-
-class IntegrationOutFull(IntegrationOut):
-    pass

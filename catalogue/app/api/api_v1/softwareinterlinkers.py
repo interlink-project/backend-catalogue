@@ -33,4 +33,4 @@ def list_softwareinterlinkers(
     """
     Retrieve software interlinkers.
     """
-    return crud.interlinker.get_multi_integrated_softwareinterlinkers(db)
+    return crud.interlinker.get_multi_internally_integrated_softwareinterlinkers(db)
