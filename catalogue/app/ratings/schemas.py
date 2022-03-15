@@ -2,14 +2,17 @@ import uuid
 from datetime import datetime
 from typing import List, Optional
 from app.general.utils.AllOptional import AllOptional
-from pydantic import BaseModel, validator
+from pydantic import BaseModel, validator, root_validator
 from pydantic.typing import ForwardRef
-
+from app.questioncomments.schemas import QuestionCommentOut
+import requests
+from app.config import settings
 
 class RatingBase(BaseModel):
+    value: int
+    artefact_id: uuid.UUID
     title: Optional[str]
     text: str
-    value: int
 
     @validator('value')
     def value_not_greater_than_5(cls, v):
@@ -18,7 +21,7 @@ class RatingBase(BaseModel):
         return v
 
 class RatingCreate(RatingBase):
-    artefact_id: uuid.UUID
+    pass
 
 
 class RatingPatch(RatingCreate, metaclass=AllOptional):
@@ -37,4 +40,17 @@ class Rating(RatingBase):
 
 
 class RatingOut(Rating):
-    pass
+    user: Optional[dict]
+
+    @root_validator(pre=True)
+    def get_user_data_from_auth_microservice(cls, values):
+        id = values["user_id"]
+        try:
+            newValues = {**values}
+            response = requests.get(f"http://{settings.AUTH_SERVICE}/auth/api/v1/users/{id}", headers={
+                "X-API-Key": "secret"
+            }).json()
+            newValues["user"] = response
+            return newValues
+        except:
+            return values

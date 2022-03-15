@@ -75,9 +75,13 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
         return db_obj
 
     def get_multi(
-        self, db: Session, search: str = "", natures: list = [], creator: list = [], language: str = "en"
+        self, db: Session, search: str = "", natures: list = [], rating: int = 0, creator: list = [], language: str = "en"
     ) -> List[Interlinker]:
         queries = []
+
+        if rating:
+            queries.append(Interlinker.rating >= rating)
+            
         if search:
             search = search.lower()
             queries.append(or_(

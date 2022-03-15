@@ -8,6 +8,7 @@ from sqlalchemy import (
     DateTime,
     ForeignKey,
     Integer,
+    Numeric,
     String,
     Table,
     Text,
@@ -21,6 +22,9 @@ from app.tables import artefact_problem_association_table
 from app.translations import translation_hybrid
 from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy import func
+from sqlalchemy_utils import aggregated
+
+from app.ratings.models import Rating
 
 
 class Artefact(BaseModel):
@@ -44,6 +48,16 @@ class Artefact(BaseModel):
         secondary=artefact_problem_association_table,
         back_populates="artefacts",
     )
+
+    # 1 digit for decimals
+    @aggregated('ratings', Column(Numeric(2, 1), default=0))
+    def rating(self):
+        return func.avg(Rating.value)
+    
+    @aggregated('ratings', Column(Integer, default=0))
+    def ratings_count(self):
+        return func.count('1')
+
     ratings = relationship("Rating", back_populates="artefact")
     questioncomments = relationship("QuestionComment", back_populates="artefact")
 

@@ -16,6 +16,7 @@ router = APIRouter()
 @router.get("", response_model=Page[schemas.InterlinkerOut])
 def list_interlinkers(
     nature: Optional[List[str]] = Query(None),
+    rating: Optional[int] = Query(None),
     creator: Optional[List[str]] = Query(None),
     search: Optional[str] = Query(None),
     db: Session = Depends(deps.get_db),
@@ -25,7 +26,7 @@ def list_interlinkers(
     Retrieve interlinkers.
     """
     print("FILTER", nature, creator, search)
-    return crud.interlinker.get_multi(db, search=search, natures=nature, creator=creator)
+    return crud.interlinker.get_multi(db, search=search, rating=rating, natures=nature, creator=creator)
 
 
 @router.post("/by_problem_profiles", response_model=Page[schemas.InterlinkerOut])
@@ -146,19 +147,3 @@ def related_interlinkers(
     if not crud.interlinker.can_read(current_user, interlinker):
         raise HTTPException(status_code=403, detail="Not enough permissions")
     return crud.interlinker.get_by_problem_profiles(db=db, exclude=[interlinker.id], problem_profiles=[pr.id for pr in interlinker.problemprofiles])
-
-@router.get("/{id}/ratings", response_model=List[schemas.RatingOut])
-def interlinker_ratings(
-    id: uuid.UUID,
-    db: Session = Depends(deps.get_db),
-    current_user: Optional[dict] = Depends(deps.get_current_user),
-) -> Any:
-    """
-    Get ratings of an interlinker
-    """
-    interlinker = crud.interlinker.get(db=db, id=id)
-    if not interlinker:
-        raise HTTPException(status_code=404, detail="Interlinker not found")
-    if not crud.interlinker.can_read(current_user, interlinker):
-        raise HTTPException(status_code=403, detail="Not enough permissions")
-    return interlinker.ratings

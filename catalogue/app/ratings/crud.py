@@ -8,16 +8,16 @@ from sqlalchemy.orm import Session
 from app.models import Rating
 from app.schemas import RatingCreate, RatingPatch
 from app.general.utils.CRUDBase import CRUDBase
+from fastapi_pagination.ext.sqlalchemy import paginate
 
 
 class CRUDRating(CRUDBase[Rating, RatingCreate, RatingPatch]):
     def get_multi_by_artefact(
-        self, db: Session, *, artefact_id: uuid.UUID,
+        self, db: Session, artefact_id: uuid.UUID,
     ) -> List[Rating]:
-        return (
+        return paginate(
             db.query(self.model)
             .filter(Rating.artefact_id == artefact_id)
-            .all()
         )
 
     def create(self, db: Session, user_id: str, rating: RatingCreate) -> Rating:

@@ -33,6 +33,9 @@ class ArtefactORM(ArtefactBase):
     constraints_and_limitations: Optional[str]
     regulations_and_standards: Optional[str]
 
+    rating: Optional[float]
+    ratings_count: Optional[int]
+    
     class Config:
         orm_mode = True
 

@@ -1,14 +1,28 @@
 import uuid
 from typing import Any, List, Optional
 
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
 
 from app import crud, models, schemas
 from app.exceptions import CrudException
 from app.general import deps
+from fastapi_pagination import Page
 
 router = APIRouter()
+
+@router.get("", response_model=Page[schemas.RatingOut])
+def list_ratings(
+    db: Session = Depends(deps.get_db),
+    current_user: Optional[dict] = Depends(deps.get_current_user),
+    artefact_id: uuid.UUID = Query(None),
+) -> Any:
+    """
+    Retrieve ratings.
+    """
+    if not crud.rating.can_list(current_user):
+        raise HTTPException(status_code=403, detail="Not enough permissions")
+    return crud.rating.get_multi_by_artefact(db, artefact_id=artefact_id)
 
 @router.post("", response_model=schemas.RatingOut)
 def create_rating(

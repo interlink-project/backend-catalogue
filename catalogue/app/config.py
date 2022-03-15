@@ -28,6 +28,11 @@ class Settings(BaseSettings):
     POSTGRES_DB: str
     SQLALCHEMY_DATABASE_URI: Optional[PostgresDsn] = None
 
+    # OTHER MICROS
+    AUTH_SERVICE_NAME: str = "auth"
+    AUTH_PORT: int = 80
+    AUTH_SERVICE: str = "auth:80"
+    
     @validator("SQLALCHEMY_DATABASE_URI", pre=True)
     def assemble_db_connection(cls, v: Optional[str], values: Dict[str, Any]) -> Any:
         if isinstance(v, str):

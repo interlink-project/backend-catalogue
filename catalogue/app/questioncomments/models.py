@@ -19,15 +19,14 @@ from sqlalchemy.orm import backref, relationship
 
 class QuestionComment(BaseModel):
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-
-    title = Column(String, nullable=True)
-    text = Column(Text)
-
     user_id = Column(String)
 
     artefact_id = Column(UUID(as_uuid=True), ForeignKey("artefact.id"))
     artefact = relationship("Artefact", back_populates="questioncomments")
 
+    title = Column(String, nullable=True)
+    text = Column(Text)
+    
     parent_id = Column(UUID(as_uuid=True), ForeignKey("questioncomment.id"))
     children = relationship(
         "QuestionComment", backref=backref("parent", remote_side=[id])
