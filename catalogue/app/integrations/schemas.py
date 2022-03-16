@@ -24,14 +24,15 @@ class InternalIntegrationBase(BaseModel):
     api_path: str
 
     # capabilities
-    instantiate: bool
-    clone: bool
-    view: bool
-    edit: bool
-    delete: bool
-    download: bool
-    open_in_modal: bool
-    shortcut: bool
+    instantiate: Optional[bool]
+    clone: Optional[bool]
+    view: Optional[bool]
+    edit: Optional[bool]
+    delete: Optional[bool]
+    download: Optional[bool]
+    preview: Optional[bool]
+    open_in_modal: Optional[bool]
+    shortcut: Optional[bool]
 
 
 class InternalIntegrationCreate(InternalIntegrationBase):
@@ -42,6 +43,7 @@ class InternalIntegrationCreate(InternalIntegrationBase):
     delete_text_translations: Optional[dict]
     clone_text_translations: Optional[dict]
     download_text_translations: Optional[dict]
+    preview_text_translations: Optional[dict]
 
 
 class InternalIntegrationPatch(InternalIntegrationCreate, metaclass=AllOptional):
@@ -58,7 +60,7 @@ class InternalIntegration(InternalIntegrationBase):
     clone_text: Optional[str]
     edit_text: Optional[str]
     delete_text: Optional[str]
-    download_text: Optional[str]
+    preview_text: Optional[str]
 
     class Config:
         orm_mode = True

@@ -47,12 +47,13 @@ class InternalIntegration(Integration):
     auth_method = Column(String)
 
     # capabilities
-    clone = Column(Boolean, default=False)
-    instantiate = Column(Boolean, default=True)
-    view = Column(Boolean, default=True)
+    instantiate = Column(Boolean, default=False)
+    view = Column(Boolean, default=False)
     edit = Column(Boolean, default=False)
-    delete = Column(Boolean, default=True)
+    clone = Column(Boolean, default=False)
+    delete = Column(Boolean, default=False)
     download = Column(Boolean, default=False)
+    preview = Column(Boolean, default=False)
     open_in_modal = Column(Boolean, default=False)
     shortcut = Column(Boolean, default=False)
     
@@ -63,6 +64,7 @@ class InternalIntegration(Integration):
     delete_text_translations = Column(HSTORE)
     clone_text_translations = Column(HSTORE)
     download_text_translations = Column(HSTORE)
+    preview_text_translations = Column(HSTORE)
 
     instantiate_text = translation_hybrid(instantiate_text_translations)
     view_text = translation_hybrid(view_text_translations)
@@ -70,6 +72,7 @@ class InternalIntegration(Integration):
     edit_text = translation_hybrid(edit_text_translations)
     delete_text = translation_hybrid(delete_text_translations)
     download_text = translation_hybrid(download_text_translations)
+    preview_text = translation_hybrid(preview_text_translations)
 
     __mapper_args__ = {
         "polymorphic_identity": "internalintegration",
