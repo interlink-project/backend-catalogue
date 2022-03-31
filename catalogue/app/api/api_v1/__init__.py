@@ -6,7 +6,8 @@ from app.api.api_v1 import (
     problemprofiles,
     knowledgeinterlinkers,
     softwareinterlinkers,
-    rating
+    rating,
+    coproductionschemas
 )
 
 
@@ -20,6 +21,8 @@ api_router.include_router(softwareinterlinkers.router,
                           prefix="/softwareinterlinkers", tags=["artefacts"])                         
 api_router.include_router(problemprofiles.router,
                           prefix="/problemprofiles", tags=["problemprofiles"])
+api_router.include_router(coproductionschemas.router,
+                          prefix="/coproductionschemas", tags=["coproductionschemas"])
 api_router.include_router(rating.router,
                           prefix="/ratings", tags=["social"])
 
