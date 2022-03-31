@@ -26,6 +26,17 @@ def list_coproductionschemas(
     """
     return crud.coproductionschema.get_multi(db, search=search, rating=rating, creator=creator)
 
+@router.get("/public", response_model=List[schemas.CoproductionSchemaOutFull])
+def public_coproductionschemas(
+    db: Session = Depends(deps.get_db),
+    skip: int = 0,
+    limit: int = 100,
+) -> Any:
+    """
+    Retrieve public coproductionschemas.
+    """
+    return crud.coproductionschema.get_public(db, skip=skip, limit=limit)
+
 
 @router.post("", response_model=schemas.CoproductionSchemaOut)
 def create_coproductionschema(
