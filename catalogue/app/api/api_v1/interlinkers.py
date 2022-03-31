@@ -29,16 +29,16 @@ def list_interlinkers(
     return crud.interlinker.get_multi(db, search=search, rating=rating, natures=nature, creator=creator)
 
 
-@router.post("/by_problem_profiles", response_model=Page[schemas.InterlinkerOut])
-def list_interlinkers_by_problem_profiles(
-    problems: List[str],
+@router.post("/by_problemprofiles", response_model=Page[schemas.InterlinkerOut])
+def list_interlinkers_by_problemprofiles(
+    problemprofiles: List[str],
     db: Session = Depends(deps.get_db),
     current_user: Optional[dict] = Depends(deps.get_current_user),
 ) -> Any:
     """
     Retrieve interlinkers.
     """
-    interlinkers = crud.interlinker.get_by_problem_profiles(db, problem_profiles=problems)
+    interlinkers = crud.interlinker.get_by_problemprofiles(db, problemprofiles=problemprofiles)
     return interlinkers
 
 
@@ -146,4 +146,4 @@ def related_interlinkers(
         raise HTTPException(status_code=404, detail="Interlinker not found")
     if not crud.interlinker.can_read(current_user, interlinker):
         raise HTTPException(status_code=403, detail="Not enough permissions")
-    return crud.interlinker.get_by_problem_profiles(db=db, exclude=[interlinker.id], problem_profiles=[pr.id for pr in interlinker.problemprofiles])
+    return crud.interlinker.get_by_problemprofiles(db=db, exclude=[interlinker.id], problemprofiles=[pr.id for pr in interlinker.problemprofiles])

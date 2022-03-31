@@ -108,12 +108,12 @@ class TaskMetadataBase(BaseModel):
 
 class TaskMetadataCreate(TaskMetadataBase):
     objectivemetadata_id: uuid.UUID
-    problem_profiles: list
+    problemprofiles: list
     name_translations: dict
     description_translations: dict
 
 class TaskMetadataPatch(TaskMetadataBase):
-    problem_profiles: Optional[list]
+    problemprofiles: Optional[list]
 
     name_translations: Optional[dict]
     description_translations: Optional[dict]

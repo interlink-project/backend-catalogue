@@ -48,10 +48,10 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
 
     def create(self, db: Session, *, interlinker: InterlinkerCreate) -> Interlinker:
         data = jsonable_encoder(interlinker)
-
         data["artefact_type"] = "interlinker"
-        del data["problem_profiles"]
-
+        problemprofiles = data["problemprofiles"]
+        del data["problemprofiles"]
+        
         if type(interlinker) == SoftwareInterlinkerCreate:
             print("IS SOFTWARE")
             data["nature"] = "softwareinterlinker"
@@ -65,10 +65,10 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
         db.add(db_obj)
         db.commit()
 
-        for id in interlinker.problem_profiles:
+        for id in problemprofiles:
             print(id)
-            problem = problems_crud.get(db=db, id=id)
-            db_obj.problemprofiles.append(problem)
+            if problem := problems_crud.get(db=db, id=id):
+                db_obj.problemprofiles.append(problem)
 
         db.commit()
         db.refresh(db_obj)
@@ -112,13 +112,13 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
             )
         ))
 
-    def get_by_problem_profiles(
-        self, db: Session, problem_profiles: list, exclude: list = []
+    def get_by_problemprofiles(
+        self, db: Session, problemprofiles: list, exclude: list = []
     ) -> List[Interlinker]:
 
         return paginate(db.query(Interlinker).filter(
             and_(
-                Interlinker.problemprofiles.any(ProblemProfile.id.in_(problem_profiles)),
+                Interlinker.problemprofiles.any(ProblemProfile.id.in_(problemprofiles)),
                 Interlinker.id.not_in(exclude)
             )
         ))

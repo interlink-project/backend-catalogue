@@ -144,7 +144,7 @@ def create_knowledgeinterlinker(db, metadata_path):
     error = False
 
     knowledgeinterlinker["nature"] = "knowledgeinterlinker"
-
+    
     folder = metadata_path.parents[0]
     slug = slugify(name)
 
@@ -207,8 +207,8 @@ def create_knowledgeinterlinker(db, metadata_path):
         print(f"\t{bcolors.OKGREEN}Created successfully!{bcolors.ENDC}")
 
 
-def create_problem_profiles(db):
-    with open("/app/interlinkers-data/problem_profiles.json") as json_file:
+def create_problemprofiles(db):
+    with open("/app/interlinkers-data/problemprofiles.json") as json_file:
         for problem in json.load(json_file):
             id = problem["id"]
             if not crud.problemprofile.get(
@@ -281,9 +281,9 @@ def create_coproductionschemas(db):
                 task_data: dict
                 for task_data in objective_data["tasks"]:
                     task_data["objectivemetadata_id"] = db_objective.id
-                    sum = list(task_data["problem_profiles"]) + \
-                        list(objective_data["problem_profiles"])
-                    task_data["problem_profiles"] = list(set(sum))
+                    sum = list(task_data["problemprofiles"]) + \
+                        list(objective_data["problemprofiles"])
+                    task_data["problemprofiles"] = list(set(sum))
                     db_task = crud.taskmetadata.create(
                         db=db,
                         taskmetadata=schemas.TaskMetadataCreate(
@@ -334,7 +334,7 @@ if __name__ == "__main__":
 
     try:
         # create problem profiles
-        create_problem_profiles(db)
+        create_problemprofiles(db)
 
         create_coproductionschemas(db)
 

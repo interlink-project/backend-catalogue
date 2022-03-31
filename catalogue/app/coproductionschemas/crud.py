@@ -183,7 +183,7 @@ class CRUDTaskMetadata(CRUDBase[TaskMetadata, TaskMetadataCreate, TaskMetadataPa
             objectivemetadata_id=taskmetadata.objectivemetadata_id,
         )
 
-        for id in taskmetadata.problem_profiles:
+        for id in taskmetadata.problemprofiles:
             if pp := problemprofilesCrud.get(db=db, id=id):
                 db_obj.problemprofiles.append(pp)
 

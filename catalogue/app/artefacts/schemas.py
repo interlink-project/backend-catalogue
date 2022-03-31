@@ -9,7 +9,7 @@ class ArtefactBase(PydanticBaseModel):
 
 
 class ArtefactCreate(ArtefactBase):
-    problem_profiles: List[str] = []
+    problemprofiles: List[str] = []
     name_translations: Dict[str, str]
     description_translations: Dict[str, str]
     constraints_and_limitations_translations: Optional[Dict[str, str]]
