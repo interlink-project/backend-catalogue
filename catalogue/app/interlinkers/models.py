@@ -1,28 +1,22 @@
 import enum
 import uuid
-from typing import Optional, Union
 
 from pydantic_choices import choice
 from sqlalchemy import (
     ARRAY,
     Boolean,
     Column,
-    DateTime,
     Enum,
     ForeignKey,
-    Integer,
     String,
-    func,
 )
 from sqlalchemy.dialects.postgresql import HSTORE, UUID
-from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy.orm import backref, relationship
-from sqlalchemy_utils import aggregated
 
 from app.artefacts.models import Artefact
 from app.config import settings
-from app.translations import translation_hybrid
 from app.integrations.models import Integration
+from app.middleware import translation_hybrid
 
 
 class Supporters(enum.Enum):

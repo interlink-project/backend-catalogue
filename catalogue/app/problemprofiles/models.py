@@ -13,7 +13,7 @@ from sqlalchemy.orm import relationship
 
 from app.general.db.base_class import Base as BaseModel
 from app.tables import artefact_problem_association_table
-from app.translations import translation_hybrid
+from app.middleware import translation_hybrid
 
 
 class ProblemProfile(BaseModel):

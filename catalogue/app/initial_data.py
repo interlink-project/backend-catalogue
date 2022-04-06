@@ -12,6 +12,9 @@ from slugify import slugify
 
 from app import crud, schemas
 from app.general.db.session import SessionLocal
+import asyncio
+from app.middleware import set_user
+from app.messages import set_logging_disabled
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -73,7 +76,7 @@ def get_logotype(logotype_path, origin, dest):
     return dst.replace("/app", "")
 
 
-def create_softwareinterlinker(db, metadata_path):
+async def create_softwareinterlinker(db, metadata_path):
     ####################
     # COMMON
     ####################
@@ -84,7 +87,7 @@ def create_softwareinterlinker(db, metadata_path):
     name = data["name_translations"]["en"]
     print(f"\n{bcolors.OKBLUE}Processing {bcolors.ENDC}{bcolors.BOLD}{name}{bcolors.ENDC}")
 
-    if crud.interlinker.get_by_name(db=db, name=name):
+    if await crud.interlinker.get_by_name(db=db, name=name):
         print(f"\t{bcolors.WARNING}Already in the database{bcolors.ENDC}")
         return
 
@@ -101,7 +104,7 @@ def create_softwareinterlinker(db, metadata_path):
 
     print(data)
     # create interlinker
-    interlinker = crud.interlinker.create(
+    interlinker = await crud.interlinker.create(
         db=db,
         interlinker=schemas.SoftwareInterlinkerCreate(**data),
     )
@@ -117,11 +120,11 @@ def create_softwareinterlinker(db, metadata_path):
                                data["integration"]["capabilities_translations"]}
         else:
             if data["integration"]["result"]:
-                if result_interlinker := crud.interlinker.get_by_name(db=db, name=data["integration"]["result"]):
+                if result_interlinker := await crud.interlinker.get_by_name(db=db, name=data["integration"]["result"]):
                     integrationData["result_softwareinterlinker_id"] = result_interlinker.id
 
         print(parse_obj_as(schemas.IntegrationCreate, integrationData))
-        crud.integration.create(
+        await crud.integration.create(
             db=db,
             obj_in=parse_obj_as(schemas.IntegrationCreate, integrationData)
         )
@@ -129,7 +132,7 @@ def create_softwareinterlinker(db, metadata_path):
     print(f"\t{bcolors.OKGREEN}Created successfully!{bcolors.ENDC}")
 
 
-def create_knowledgeinterlinker(db, metadata_path):
+async def create_knowledgeinterlinker(db, metadata_path):
     str_metadata_path = str(metadata_path)
     with open(str_metadata_path) as json_file:
         knowledgeinterlinker = json.load(json_file)
@@ -137,7 +140,7 @@ def create_knowledgeinterlinker(db, metadata_path):
     name = knowledgeinterlinker["name_translations"]["en"]
     print(f"\n{bcolors.OKBLUE}Processing {bcolors.ENDC}{bcolors.BOLD}{name}{bcolors.ENDC}")
 
-    if crud.interlinker.get_by_name(db=db, name=name):
+    if await crud.interlinker.get_by_name(db=db, name=name):
         print(f"\t{bcolors.WARNING}Already in the database{bcolors.ENDC}")
         return
 
@@ -157,7 +160,7 @@ def create_knowledgeinterlinker(db, metadata_path):
 
     # get file contents in file and send to the software interlinker
     service = knowledgeinterlinker["softwareinterlinker"]
-    softwareinterlinker = crud.interlinker.get_softwareinterlinker_by_service_name(
+    softwareinterlinker = await crud.interlinker.get_softwareinterlinker_by_service_name(
         db=db, service_name=service)
     if not softwareinterlinker:
         print(f"\t{bcolors.FAIL}there is no {service} softwareinterlinker")
@@ -191,7 +194,7 @@ def create_knowledgeinterlinker(db, metadata_path):
         str_static_path = f'/app/static/{slug}'
         knowledgeinterlinker["snapshots"] = get_snapshots(folder, str_static_path)
 
-        crud.interlinker.create(
+        await crud.interlinker.create(
             db=db,
             interlinker=schemas.KnowledgeInterlinkerCreate(
                 **knowledgeinterlinker)
@@ -207,28 +210,28 @@ def create_knowledgeinterlinker(db, metadata_path):
         print(f"\t{bcolors.OKGREEN}Created successfully!{bcolors.ENDC}")
 
 
-def create_problemprofiles(db):
+async def create_problemprofiles(db):
     with open("/app/interlinkers-data/problemprofiles.json") as json_file:
         for problem in json.load(json_file):
             id = problem["id"]
-            if not crud.problemprofile.get(
+            if not await crud.problemprofile.get(
                 db=db,
                 id=id
             ):
-                crud.problemprofile.create(
+                await crud.problemprofile.create(
                     db=db,
-                    problemprofile=schemas.ProblemProfileCreate(**problem)
+                    obj_in=schemas.ProblemProfileCreate(**problem)
                 )
                 print(f"\t{bcolors.OKGREEN}Problem profile {id} successfully!{bcolors.ENDC}")
 
 
-def create_coproductionschemas(db):
-    if (sc := crud.coproductionschema.get_by_name(db=db, locale="en", name="Default schema")):
-        crud.coproductionschema.remove(db=db, id=sc.id)
+async def create_coproductionschemas(db):
+    if (sc := await crud.coproductionschema.get_by_name(db=db, locale="en", name="Default schema")):
+        await crud.coproductionschema.remove(db=db, id=sc.id)
         print("Schema removed")
 
-    if (sc := crud.coproductionschema.get_by_name(db=db, locale="en", name="hackathon")):
-        crud.coproductionschema.remove(db=db, id=sc.id)
+    if (sc := await crud.coproductionschema.get_by_name(db=db, locale="en", name="hackathon")):
+        await crud.coproductionschema.remove(db=db, id=sc.id)
         print("Schema removed")
         
     data = requests.get(
@@ -239,7 +242,7 @@ def create_coproductionschemas(db):
     for schema_data in data["schemas"]:
         name = schema_data["name_translations"]["en"]
         print(f"{bcolors.OKBLUE}## PROCESSING {bcolors.ENDC}{name}{bcolors.OKBLUE}")
-        SCHEMA = crud.coproductionschema.create(
+        SCHEMA = await crud.coproductionschema.create(
             db=db,
             coproductionschema=schemas.CoproductionSchemaCreate(
                 **schema_data, is_public=True
@@ -250,7 +253,7 @@ def create_coproductionschemas(db):
         for phase_data in schema_data["phases"]:
             phase_data["coproductionschema_id"] = SCHEMA.id
 
-            db_phase = crud.phasemetadata.create(
+            db_phase = await crud.phasemetadata.create(
                 db=db,
                 phasemetadata=schemas.PhaseMetadataCreate(
                     **phase_data
@@ -266,7 +269,7 @@ def create_coproductionschemas(db):
             for objective_data in phase_data["objectives"]:
                 objective_data["phasemetadata_id"] = db_phase.id
 
-                db_objective = crud.objectivemetadata.create(
+                db_objective = await crud.objectivemetadata.create(
                     db=db,
                     objectivemetadata=schemas.ObjectiveMetadataCreate(
                         **objective_data
@@ -284,7 +287,7 @@ def create_coproductionschemas(db):
                     sum = list(task_data["problemprofiles"]) + \
                         list(objective_data["problemprofiles"])
                     task_data["problemprofiles"] = list(set(sum))
-                    db_task = crud.taskmetadata.create(
+                    db_task = await crud.taskmetadata.create(
                         db=db,
                         taskmetadata=schemas.TaskMetadataCreate(
                             **task_data
@@ -296,58 +299,65 @@ def create_coproductionschemas(db):
                     }
                 # prerequisites
                 for key, task_resume in tasks_resume.items():
-                    db_taskmetadata = crud.taskmetadata.get(db=db, id=task_resume["id"])
+                    db_taskmetadata = await crud.taskmetadata.get(db=db, id=task_resume["id"])
                     prerequisite_reference: dict
                     for prerequisite_reference in task_resume["prerequisites"]:
                         if (ref := prerequisite_reference.get("item", None)):
-                            db_prerequisite = crud.taskmetadata.get(
+                            db_prerequisite = await crud.taskmetadata.get(
                                 db=db, id=tasks_resume[ref]["id"])
                             print(db_prerequisite, "is a prerequisite for", db_task)
-                            crud.taskmetadata.add_prerequisite(
+                            await crud.taskmetadata.add_prerequisite(
                                 db=db, taskmetadata=db_taskmetadata, prerequisite=db_prerequisite)
             for key, objective_resume in objectives_resume.items():
-                db_objectivemetadata = crud.objectivemetadata.get(
+                db_objectivemetadata = await crud.objectivemetadata.get(
                     db=db, id=objective_resume["id"])
                 prerequisite_reference: dict
                 for prerequisite_reference in objective_resume["prerequisites"]:
                     if (ref := prerequisite_reference.get("item", None)):
-                        db_prerequisite = crud.objectivemetadata.get(
+                        db_prerequisite = await crud.objectivemetadata.get(
                             db=db, id=objectives_resume[ref]["id"])
                         print(db_prerequisite, "is a prerequisite for", db_objective)
-                        crud.objectivemetadata.add_prerequisite(
+                        await crud.objectivemetadata.add_prerequisite(
                             db=db, objectivemetadata=db_objectivemetadata, prerequisite=db_prerequisite)
         print(phases_resume)
         for key, phase_resume in phases_resume.items():
-            db_phasemetadata = crud.phasemetadata.get(db=db, id=phase_resume["id"])
+            db_phasemetadata = await crud.phasemetadata.get(db=db, id=phase_resume["id"])
             for prerequisite_reference in phase_resume["prerequisites"]:
                 if (ref := prerequisite_reference.get("item", None)):
-                    db_prerequisite = crud.phasemetadata.get(
+                    db_prerequisite = await crud.phasemetadata.get(
                         db=db, id=phases_resume[ref]["id"])
                     print(db_prerequisite, "is a prerequisite for", db_phasemetadata)
-                    crud.phasemetadata.add_prerequisite(
+                    await crud.phasemetadata.add_prerequisite(
                         db=db, phasemetadata=db_phasemetadata, prerequisite=db_prerequisite)
 
 
-if __name__ == "__main__":
-    logger.info("Creating initial data")
+async def init():
     db = SessionLocal()
+    set_logging_disabled(True)
 
     try:
-        # create problem profiles
-        create_problemprofiles(db)
 
-        create_coproductionschemas(db)
+        # create problem profiles
+        await create_problemprofiles(db)
+
+        await create_coproductionschemas(db)
 
         # create software interlinkers first
         for metadata_path in Path("/app/interlinkers-data/interlinkers").glob("software/**/metadata.json"):
-            create_softwareinterlinker(db, metadata_path)
+            await create_softwareinterlinker(db, metadata_path)
 
         # then knowledge interlinkers
         for metadata_path in Path("/app/interlinkers-data/interlinkers").glob("knowledge/**/metadata.json"):
-            create_knowledgeinterlinker(db, metadata_path)
-
-        logger.info("Initial data created")
+            await create_knowledgeinterlinker(db, metadata_path)
 
     except Exception as e:
-        db.close()
         raise e
+        
+    db.close()
+
+if __name__ == "__main__":
+    logger.info("Creating initial data")
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(init())
+    logger.info("Initial data created")
+    

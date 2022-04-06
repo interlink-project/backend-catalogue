@@ -12,7 +12,7 @@ from fastapi.encoders import jsonable_encoder
 
 
 class CRUDIntegration(CRUDBase[Integration, IntegrationCreate, IntegrationPatch]):
-    def create(self, db: Session, obj_in: IntegrationCreate) -> Integration:
+    async def create(self, db: Session, obj_in: IntegrationCreate) -> Integration:
         json_compatible_item_data = jsonable_encoder(obj_in)
         if type(obj_in) == InternalIntegrationCreate:
             db_obj = InternalIntegration(**json_compatible_item_data)
@@ -24,7 +24,7 @@ class CRUDIntegration(CRUDBase[Integration, IntegrationCreate, IntegrationPatch]
         db.commit()
         return db_obj
 
-    def get_internal_integration_by_service_name(self, db: Session, service_name: str) -> Optional[InternalIntegration]:
+    async def get_internal_integration_by_service_name(self, db: Session, service_name: str) -> Optional[InternalIntegration]:
         return db.query(InternalIntegration).filter(InternalIntegration.service_name == service_name).first()
 
 exportCrud = CRUDIntegration(Integration)

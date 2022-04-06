@@ -16,7 +16,7 @@ from app.schemas import CoproductionSchemaCreate, CoproductionSchemaPatch, TaskM
 
 
 class CRUDCoproductionSchema(CRUDBase[CoproductionSchema, CoproductionSchemaCreate, CoproductionSchemaPatch]):
-    def get_multi(
+    async def get_multi(
         self, db: Session, search: str = "", rating: int = 0, creator: list = [], language: str = "en"
     ) -> List[CoproductionSchema]:
         queries = []
@@ -35,13 +35,13 @@ class CRUDCoproductionSchema(CRUDBase[CoproductionSchema, CoproductionSchemaCrea
 
         return paginate(db.query(CoproductionSchema).filter(*queries))
 
-    def get_public(self, db: Session, skip: int = 0, limit: int = 100) -> List[CoproductionSchema]:
+    async def get_public(self, db: Session, skip: int = 0, limit: int = 100) -> List[CoproductionSchema]:
         return db.query(CoproductionSchema).filter(CoproductionSchema.is_public == True).offset(skip).limit(limit).all()
 
-    def get_by_name(self, db: Session, name: str, locale: str) -> Optional[CoproductionSchema]:
+    async def get_by_name(self, db: Session, name: str, locale: str) -> Optional[CoproductionSchema]:
         return db.query(CoproductionSchema).filter(CoproductionSchema.name_translations[locale] == name).first()
 
-    def create(self, db: Session, coproductionschema: CoproductionSchemaCreate) -> CoproductionSchema:
+    async def create(self, db: Session, coproductionschema: CoproductionSchemaCreate) -> CoproductionSchema:
         db_obj = CoproductionSchema(
             name_translations=coproductionschema.name_translations,
             description_translations=coproductionschema.description_translations,
@@ -76,10 +76,10 @@ exportCrud = CRUDCoproductionSchema(CoproductionSchema)
 
 class CRUDObjectiveMetadata(CRUDBase[ObjectiveMetadata, ObjectiveMetadataCreate, ObjectiveMetadataPatch]):
 
-    def get_by_name(self, db: Session, name: str, language: str = "en") -> Optional[ObjectiveMetadata]:
+    async def get_by_name(self, db: Session, name: str, language: str = "en") -> Optional[ObjectiveMetadata]:
         return db.query(ObjectiveMetadata).filter(ObjectiveMetadata.name_translations[language] == name).first()
 
-    def create(self, db: Session, *, objectivemetadata: ObjectiveMetadataCreate) -> ObjectiveMetadata:
+    async def create(self, db: Session, *, objectivemetadata: ObjectiveMetadataCreate) -> ObjectiveMetadata:
         db_obj = ObjectiveMetadata(
             name_translations=objectivemetadata.name_translations,
             description_translations=objectivemetadata.description_translations,
@@ -91,7 +91,7 @@ class CRUDObjectiveMetadata(CRUDBase[ObjectiveMetadata, ObjectiveMetadataCreate,
         db.refresh(db_obj)
         return db_obj
 
-    def add_prerequisite(self, db: Session, objectivemetadata: ObjectiveMetadata, prerequisite: ObjectiveMetadata) -> ObjectiveMetadata:
+    async def add_prerequisite(self, db: Session, objectivemetadata: ObjectiveMetadata, prerequisite: ObjectiveMetadata) -> ObjectiveMetadata:
         if objectivemetadata.id == prerequisite.id:
             raise Exception("Same object")
         objectivemetadata.prerequisites.append(prerequisite)
@@ -120,7 +120,7 @@ objectivesExportCrud = CRUDObjectiveMetadata(ObjectiveMetadata)
 
 
 class CRUDPhaseMetadata(CRUDBase[PhaseMetadata, PhaseMetadataCreate, PhaseMetadataPatch]):
-    def create(self, db: Session, phasemetadata: PhaseMetadataCreate) -> PhaseMetadata:
+    async def create(self, db: Session, phasemetadata: PhaseMetadataCreate) -> PhaseMetadata:
         db_obj = PhaseMetadata(
             name_translations=phasemetadata.name_translations,
             description_translations=phasemetadata.description_translations,
@@ -132,10 +132,10 @@ class CRUDPhaseMetadata(CRUDBase[PhaseMetadata, PhaseMetadataCreate, PhaseMetada
         db.refresh(db_obj)
         return db_obj
 
-    def get_by_name(self, db: Session, name: str, language: str = "en") -> Optional[PhaseMetadata]:
+    async def get_by_name(self, db: Session, name: str, language: str = "en") -> Optional[PhaseMetadata]:
         return db.query(PhaseMetadata).filter(PhaseMetadata.name_translations[language] == name).first()
 
-    def add_prerequisite(self, db: Session, phasemetadata: PhaseMetadata, prerequisite: PhaseMetadata) -> PhaseMetadata:
+    async def add_prerequisite(self, db: Session, phasemetadata: PhaseMetadata, prerequisite: PhaseMetadata) -> PhaseMetadata:
         if phasemetadata.id == prerequisite.id:
             raise Exception("Same object")
         phasemetadata.prerequisites.append(prerequisite)
@@ -165,10 +165,10 @@ phasesExportCrud = CRUDPhaseMetadata(PhaseMetadata)
 
 class CRUDTaskMetadata(CRUDBase[TaskMetadata, TaskMetadataCreate, TaskMetadataPatch]):
 
-    def get_by_name(self, db: Session, name: str, language: str = "en") -> Optional[TaskMetadata]:
+    async def get_by_name(self, db: Session, name: str, language: str = "en") -> Optional[TaskMetadata]:
         return db.query(TaskMetadata).filter(TaskMetadata.name_translations[language] == name).first()
 
-    def add_prerequisite(self, db: Session, taskmetadata: TaskMetadata, prerequisite: TaskMetadata) -> TaskMetadata:
+    async def add_prerequisite(self, db: Session, taskmetadata: TaskMetadata, prerequisite: TaskMetadata) -> TaskMetadata:
         if taskmetadata.id == prerequisite.id:
             raise Exception("Same object")
         taskmetadata.prerequisites.append(prerequisite)
@@ -176,7 +176,7 @@ class CRUDTaskMetadata(CRUDBase[TaskMetadata, TaskMetadataCreate, TaskMetadataPa
         db.refresh(taskmetadata)
         return taskmetadata
 
-    def create(self, db: Session, *, taskmetadata: TaskMetadataCreate) -> TaskMetadata:
+    async def create(self, db: Session, *, taskmetadata: TaskMetadataCreate) -> TaskMetadata:
         db_obj = TaskMetadata(
             name_translations=taskmetadata.name_translations,
             description_translations=taskmetadata.description_translations,
@@ -184,7 +184,7 @@ class CRUDTaskMetadata(CRUDBase[TaskMetadata, TaskMetadataCreate, TaskMetadataPa
         )
 
         for id in taskmetadata.problemprofiles:
-            if pp := problemprofilesCrud.get(db=db, id=id):
+            if pp := await problemprofilesCrud.get(db=db, id=id):
                 db_obj.problemprofiles.append(pp)
 
         db.add(db_obj)

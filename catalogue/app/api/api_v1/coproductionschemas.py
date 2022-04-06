@@ -14,7 +14,7 @@ router = APIRouter()
 
 
 @router.get("", response_model=Page[schemas.CoproductionSchemaOut])
-def list_coproductionschemas(
+async def list_coproductionschemas(
     rating: Optional[int] = Query(None),
     creator: Optional[List[str]] = Query(None),
     search: Optional[str] = Query(None),
@@ -24,10 +24,10 @@ def list_coproductionschemas(
     """
     Retrieve coproductionschemas.
     """
-    return crud.coproductionschema.get_multi(db, search=search, rating=rating, creator=creator)
+    return await crud.coproductionschema.get_multi(db, search=search, rating=rating, creator=creator)
 
 @router.get("/public", response_model=List[schemas.CoproductionSchemaOutFull])
-def public_coproductionschemas(
+async def public_coproductionschemas(
     db: Session = Depends(deps.get_db),
     skip: int = 0,
     limit: int = 100,
@@ -35,11 +35,11 @@ def public_coproductionschemas(
     """
     Retrieve public coproductionschemas.
     """
-    return crud.coproductionschema.get_public(db, skip=skip, limit=limit)
+    return await crud.coproductionschema.get_public(db, skip=skip, limit=limit)
 
 
 @router.post("", response_model=schemas.CoproductionSchemaOut)
-def create_coproductionschema(
+async def create_coproductionschema(
     *,
     db: Session = Depends(deps.get_db),
     coproductionschema_in: schemas.CoproductionSchemaCreate,
@@ -51,13 +51,13 @@ def create_coproductionschema(
     if not crud.coproductionschema.can_create(current_user):
         raise HTTPException(status_code=403, detail="Not enough permissions")
     try:
-        return crud.coproductionschema.create(db=db, coproductionschema=coproductionschema_in)
+        return await crud.coproductionschema.create(db=db, coproductionschema=coproductionschema_in)
     except CrudException as e:
         raise HTTPException(status_code=400, detail=str(e))
 
 
 @router.put("/{id}", response_model=schemas.CoproductionSchemaOut)
-def update_coproductionschema(
+async def update_coproductionschema(
     *,
     db: Session = Depends(deps.get_db),
     id: uuid.UUID,
@@ -67,17 +67,17 @@ def update_coproductionschema(
     """
     Update an coproductionschema.
     """
-    coproductionschema = crud.coproductionschema.get(db=db, id=id)
+    coproductionschema = await crud.coproductionschema.get(db=db, id=id)
     if not coproductionschema:
         raise HTTPException(status_code=404, detail="CoproductionSchema not found")
     if not crud.coproductionschema.can_update(current_user, coproductionschema):
         raise HTTPException(status_code=403, detail="Not enough permissions")
-    coproductionschema = crud.coproductionschema.update(db=db, db_obj=coproductionschema, obj_in=coproductionschema_in)
+    coproductionschema = await crud.coproductionschema.update(db=db, db_obj=coproductionschema, obj_in=coproductionschema_in)
     return coproductionschema
 
 
 @router.get("/{id}", response_model=schemas.CoproductionSchemaOutFull)
-def read_coproductionschema(
+async def read_coproductionschema(
     *,
     db: Session = Depends(deps.get_db),
     id: uuid.UUID,
@@ -86,7 +86,7 @@ def read_coproductionschema(
     """
     Get coproductionschema by ID.
     """
-    coproductionschema = crud.coproductionschema.get(db=db, id=id)
+    coproductionschema = await crud.coproductionschema.get(db=db, id=id)
     # for i in coproductionschema.phasemetadatas:
     #     print(i.prerequisites_ids)
     if not coproductionschema:
@@ -96,7 +96,7 @@ def read_coproductionschema(
     return coproductionschema
 
 @router.get("/get_by_name/{name}", response_model=schemas.CoproductionSchemaOut)
-def read_coproductionschema(
+async def read_coproductionschema(
     *,
     db: Session = Depends(deps.get_db),
     name: str,
@@ -105,14 +105,14 @@ def read_coproductionschema(
     """
     Get coproductionschema by ID.
     """
-    coproductionschema = crud.coproductionschema.get_by_name(db=db, name=name)
+    coproductionschema = await crud.coproductionschema.get_by_name(db=db, name=name)
     if not coproductionschema:
         raise HTTPException(status_code=404, detail="CoproductionSchema not found")
     return coproductionschema
 
 
 @router.delete("/{id}", response_model=schemas.CoproductionSchemaOut)
-def delete_coproductionschema(
+async def delete_coproductionschema(
     *,
     db: Session = Depends(deps.get_db),
     id: uuid.UUID,
@@ -121,10 +121,10 @@ def delete_coproductionschema(
     """
     Delete an coproductionschema.
     """
-    coproductionschema = crud.coproductionschema.get(db=db, id=id)
+    coproductionschema = await crud.coproductionschema.get(db=db, id=id)
     if not coproductionschema:
         raise HTTPException(status_code=404, detail="CoproductionSchema not found")
     if not crud.coproductionschema.can_remove(current_user, coproductionschema):
         raise HTTPException(status_code=403, detail="Not enough permissions")
-    crud.coproductionschema.remove(db=db, id=id)
+    await crud.coproductionschema.remove(db=db, id=id)
     return None

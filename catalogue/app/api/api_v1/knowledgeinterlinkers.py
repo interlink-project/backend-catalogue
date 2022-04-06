@@ -13,17 +13,17 @@ import requests
 router = APIRouter()
 
 @router.get("", response_model=Page[schemas.KnowledgeInterlinkerOut])
-def list_knowledgeinterlinkers(
+async def list_knowledgeinterlinkers(
     db: Session = Depends(deps.get_db),
     current_user: Optional[dict] = Depends(deps.get_current_user),
 ) -> Any:
     """
     Retrieve knowledge interlinkers.
     """
-    return crud.interlinker.get_multi_knowledgeinterlinkers(db)
+    return await crud.interlinker.get_multi_knowledgeinterlinkers(db)
 
 @router.post("/{id}/instantiate")
-def instantiate_knowledgeinterlinker(
+async def instantiate_knowledgeinterlinker(
     *,
     id: str,
     db: Session = Depends(deps.get_db),
@@ -38,7 +38,7 @@ def instantiate_knowledgeinterlinker(
         raise HTTPException(status_code=403, detail="Not enough permissions")
 
     # TODO: check if interlinker can clone
-    interlinker = crud.interlinker.get_knowledgeinterlinker(db=db, id=id)
+    interlinker = await crud.interlinker.get_knowledgeinterlinker(db=db, id=id)
     if not interlinker:
         raise HTTPException(status_code=404, detail="Knowledge interlinker not found")
 
@@ -54,7 +54,7 @@ def instantiate_knowledgeinterlinker(
 
 
 @router.get("/{id}/external")
-def read_knowledgeinterlinker_external_asset(
+async def read_knowledgeinterlinker_external_asset(
     *,
     db: Session = Depends(deps.get_db),
     id: uuid.UUID,
@@ -63,7 +63,7 @@ def read_knowledgeinterlinker_external_asset(
     """
     Get asset of interlinker by interlinker ID.
     """
-    interlinker = crud.interlinker.get_knowledgeinterlinker(db=db, id=id)
+    interlinker = await crud.interlinker.get_knowledgeinterlinker(db=db, id=id)
     if not interlinker:
         raise HTTPException(status_code=404, detail="Knowledge interlinker not found")
 

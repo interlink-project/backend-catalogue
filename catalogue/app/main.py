@@ -4,7 +4,7 @@ from starlette.middleware.cors import CORSMiddleware
 
 from app.api.api_v1 import api_router
 from app.config import settings
-from app.translations import RequestContextMiddleware
+from app.middleware import RequestContextMiddleware
 from fastapi_pagination import add_pagination
 
 app = FastAPI(

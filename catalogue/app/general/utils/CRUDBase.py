@@ -5,9 +5,9 @@ from typing import Any, Dict, Generic, List, Optional, Type, TypeVar, Union
 from fastapi.encoders import jsonable_encoder
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
-from sqlalchemy import or_, func
 
 from app.general.db.base_class import Base
+from app.messages import log
 
 ModelType = TypeVar("ModelType", bound=Base)
 CreateSchemaType = TypeVar("CreateSchemaType", bound=BaseModel)
@@ -27,25 +27,42 @@ class CRUDBase(Generic[ModelType, CreateSchemaType, PatchSchemaType]):
         * `model`: A SQLAlchemy model class
         * `schema`: A Pydantic model (schema) class
         """
+        self.modelName = model.__name__.upper()
         self.model = model
 
-    def get(self, db: Session, id: uuid.UUID) -> Optional[ModelType]:
-        return db.query(self.model).filter(self.model.id == id).first()
+    async def get(self, db: Session, id: uuid.UUID) -> Optional[ModelType]:
+        if obj := db.query(self.model).filter(self.model.id == id).first():
+            await log({
+                "model": self.modelName,
+                "action": "GET",
+                "id": id
+            })
+            return obj
+        return
 
-    def get_multi(
-        self, db: Session
+    async def get_multi(
+        self, db: Session, *, skip: int = 0, limit: int = 100
     ) -> List[ModelType]:
-        return db.query(self.model).all()
+        await log({
+            "model": self.modelName,
+            "action": "LIST",
+        })
+        return db.query(self.model).order_by(self.model.created_at.asc()).offset(skip).limit(limit).all()
 
-    def create(self, db: Session, *, obj_in: CreateSchemaType) -> ModelType:
+    async def create(self, db: Session, *, obj_in: CreateSchemaType) -> ModelType:
         obj_in_data = jsonable_encoder(obj_in)
         db_obj = self.model(**obj_in_data)  # type: ignore
         db.add(db_obj)
         db.commit()
+        log({
+            "model": self.modelName,
+            "action": "CREATE",
+            "id": db_obj.id
+        })
         db.refresh(db_obj)
         return db_obj
 
-    def update(
+    async def update(
         self,
         db: Session,
         *,
@@ -62,13 +79,23 @@ class CRUDBase(Generic[ModelType, CreateSchemaType, PatchSchemaType]):
                 setattr(db_obj, field, update_data[field])
         db.add(db_obj)
         db.commit()
+        await log({
+            "model": self.modelName,
+            "action": "UPDATE",
+            "id": obj_in.id
+        })
         db.refresh(db_obj)
         return db_obj
 
-    def remove(self, db: Session, *, id: uuid.UUID) -> ModelType:
+    async def remove(self, db: Session, *, id: uuid.UUID) -> ModelType:
         obj = db.query(self.model).get(id)
         db.delete(obj)
         db.commit()
+        await log({
+            "model": self.modelName,
+            "action": "DELETE",
+            "id": id
+        })
         return obj
 
     # CRUD Permissions

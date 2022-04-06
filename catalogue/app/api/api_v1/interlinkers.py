@@ -14,7 +14,7 @@ router = APIRouter()
 
 
 @router.get("", response_model=Page[schemas.InterlinkerOut])
-def list_interlinkers(
+async def list_interlinkers(
     nature: Optional[List[str]] = Query(None),
     rating: Optional[int] = Query(None),
     creator: Optional[List[str]] = Query(None),
@@ -25,12 +25,11 @@ def list_interlinkers(
     """
     Retrieve interlinkers.
     """
-    print("FILTER", nature, creator, search)
-    return crud.interlinker.get_multi(db, search=search, rating=rating, natures=nature, creator=creator)
+    return await crud.interlinker.get_multi(db, search=search, rating=rating, natures=nature, creator=creator)
 
 
 @router.post("/by_problemprofiles", response_model=Page[schemas.InterlinkerOut])
-def list_interlinkers_by_problemprofiles(
+async def list_interlinkers_by_problemprofiles(
     problemprofiles: List[str],
     db: Session = Depends(deps.get_db),
     current_user: Optional[dict] = Depends(deps.get_current_user),
@@ -38,12 +37,11 @@ def list_interlinkers_by_problemprofiles(
     """
     Retrieve interlinkers.
     """
-    interlinkers = crud.interlinker.get_by_problemprofiles(db, problemprofiles=problemprofiles)
-    return interlinkers
+    return await crud.interlinker.get_by_problemprofiles(db, problemprofiles=problemprofiles)
 
 
 @router.post("", response_model=schemas.InterlinkerOut)
-def create_interlinker(
+async def create_interlinker(
     *,
     db: Session = Depends(deps.get_db),
     interlinker_in: schemas.InterlinkerCreate,
@@ -55,14 +53,14 @@ def create_interlinker(
     if not crud.interlinker.can_create(current_user):
         raise HTTPException(status_code=403, detail="Not enough permissions")
     try:
-        interlinker = crud.interlinker.create(db=db, interlinker=interlinker_in)
+        interlinker = await crud.interlinker.create(db=db, interlinker=interlinker_in)
         return interlinker
     except CrudException as e:
         raise HTTPException(status_code=400, detail=str(e))
 
 
 @router.put("/{id}", response_model=schemas.InterlinkerOut)
-def update_interlinker(
+async def update_interlinker(
     *,
     db: Session = Depends(deps.get_db),
     id: uuid.UUID,
@@ -72,17 +70,16 @@ def update_interlinker(
     """
     Update an interlinker.
     """
-    interlinker = crud.interlinker.get(db=db, id=id)
+    interlinker = await crud.interlinker.get(db=db, id=id)
     if not interlinker:
         raise HTTPException(status_code=404, detail="Interlinker not found")
     if not crud.interlinker.can_update(current_user, interlinker):
         raise HTTPException(status_code=403, detail="Not enough permissions")
-    interlinker = crud.interlinker.update(db=db, db_obj=interlinker, obj_in=interlinker_in)
-    return interlinker
+    return await crud.interlinker.update(db=db, db_obj=interlinker, obj_in=interlinker_in)
 
 
 @router.get("/{id}", response_model=schemas.InterlinkerOut)
-def read_interlinker(
+async def read_interlinker(
     *,
     db: Session = Depends(deps.get_db),
     id: uuid.UUID,
@@ -91,7 +88,7 @@ def read_interlinker(
     """
     Get interlinker by ID.
     """
-    interlinker = crud.interlinker.get(db=db, id=id)
+    interlinker = await crud.interlinker.get(db=db, id=id)
     if not interlinker:
         raise HTTPException(status_code=404, detail="Interlinker not found")
     if not crud.interlinker.can_read(current_user, interlinker):
@@ -99,7 +96,7 @@ def read_interlinker(
     return interlinker
 
 @router.get("/get_by_name/{name}", response_model=schemas.InterlinkerOut)
-def read_interlinker(
+async def read_interlinker(
     *,
     db: Session = Depends(deps.get_db),
     name: str,
@@ -108,14 +105,14 @@ def read_interlinker(
     """
     Get interlinker by ID.
     """
-    interlinker = crud.interlinker.get_by_name(db=db, name=name)
+    interlinker = await crud.interlinker.get_by_name(db=db, name=name)
     if not interlinker:
         raise HTTPException(status_code=404, detail="Interlinker not found")
     return interlinker
 
 
 @router.delete("/{id}", response_model=schemas.InterlinkerOut)
-def delete_interlinker(
+async def delete_interlinker(
     *,
     db: Session = Depends(deps.get_db),
     id: uuid.UUID,
@@ -124,16 +121,16 @@ def delete_interlinker(
     """
     Delete an interlinker.
     """
-    interlinker = crud.interlinker.get(db=db, id=id)
+    interlinker = await crud.interlinker.get(db=db, id=id)
     if not interlinker:
         raise HTTPException(status_code=404, detail="Interlinker not found")
     if not crud.interlinker.can_remove(current_user, interlinker):
         raise HTTPException(status_code=403, detail="Not enough permissions")
-    crud.interlinker.remove(db=db, id=id)
+    await crud.interlinker.remove(db=db, id=id)
     return None
 
 @router.get("/{id}/related", response_model=Page[schemas.InterlinkerOut])
-def related_interlinkers(
+async def related_interlinkers(
     id: uuid.UUID,
     db: Session = Depends(deps.get_db),
     current_user: Optional[dict] = Depends(deps.get_current_user),
@@ -141,9 +138,9 @@ def related_interlinkers(
     """
     Get interlinker by ID.
     """
-    interlinker = crud.interlinker.get(db=db, id=id)
+    interlinker = await crud.interlinker.get(db=db, id=id)
     if not interlinker:
         raise HTTPException(status_code=404, detail="Interlinker not found")
     if not crud.interlinker.can_read(current_user, interlinker):
         raise HTTPException(status_code=403, detail="Not enough permissions")
-    return crud.interlinker.get_by_problemprofiles(db=db, exclude=[interlinker.id], problemprofiles=[pr.id for pr in interlinker.problemprofiles])
+    return await crud.interlinker.get_by_problemprofiles(db=db, exclude=[interlinker.id], problemprofiles=[pr.id for pr in interlinker.problemprofiles])

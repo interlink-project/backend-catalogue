@@ -5,8 +5,6 @@ from fastapi import Depends, HTTPException, Request
 from sqlalchemy.orm import Session
 
 from app.general.db.session import SessionLocal
-from app.general.authentication import decode_token
-from app import crud, models
 
 def get_token_in_cookie(request):
     try:
@@ -39,19 +37,15 @@ def get_current_active_token(
             raise HTTPException(status_code=403, detail="Not authenticated")
         return current_token
 
-def get_current_user(
-    request: Request,
+async def get_current_user(
+    # request: Request,
     db: Session = Depends(get_db),
-    current_token: str = Depends(get_current_token)
+    # current_token: str = Depends(get_current_token)
 ) -> Optional[dict]:
+    from app.middleware import get_user
+
     try:
-        token = get_token_in_cookie(request) or get_token_in_header(request)
-        if token:
-            user_data = decode_token(token)
-            return user_data
-        return None
-        # token_data = decode_token(current_token)
-        # return crud.user.get(db=db, id=token_data["sub"])
+        return get_user()
     except Exception as e:
         print(str(e))
         return None

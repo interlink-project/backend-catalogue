@@ -9,7 +9,7 @@ from app.exceptions import CrudException
 router = APIRouter()
 
 @router.get("", response_model=List[schemas.ProblemProfileOut])
-def list_problemprofiles(
+async def list_problemprofiles(
     db: Session = Depends(deps.get_db),
     current_user: Optional[dict] = Depends(deps.get_current_user),
 ) -> Any:
@@ -18,22 +18,21 @@ def list_problemprofiles(
     """
     if not crud.problemprofile.can_list(current_user):
         raise HTTPException(status_code=403, detail="Not enough permissions")
-    problemprofiles = crud.problemprofile.get_multi(db)
-    return problemprofiles
+    return await crud.problemprofile.get_multi(db)
 
 @router.get("/ids", response_model=list)
-def ids_list_problemprofiles(
+async def ids_list_problemprofiles(
     db: Session = Depends(deps.get_db),
     current_user: Optional[dict] = Depends(deps.get_current_user),
 ) -> Any:
     """
     Retrieve problemprofiles ids.
     """
-    problemprofiles = [problemprofile.id for problemprofile in crud.problemprofile.get_multi(db)]
+    problemprofiles = [problemprofile.id for problemprofile in await crud.problemprofile.get_multi(db)]
     return problemprofiles
 
 @router.post("", response_model=schemas.ProblemProfileOut)
-def create_problemprofile(
+async def create_problemprofile(
     *,
     db: Session = Depends(deps.get_db),
     problemprofile_in: schemas.ProblemProfileCreate,
@@ -45,14 +44,13 @@ def create_problemprofile(
     if not crud.problemprofile.can_create(current_user):
         raise HTTPException(status_code=403, detail="Not enough permissions")
     try:
-        problemprofile = crud.problemprofile.create(db=db, problemprofile=problemprofile_in)
-        return problemprofile
+        return await crud.problemprofile.create(db=db, obj_in=problemprofile_in)
     except CrudException as e:
         raise HTTPException(status_code=400, detail=str(e))
 
 
 @router.put("/{id}", response_model=schemas.ProblemProfileOut)
-def update_problemprofile(
+async def update_problemprofile(
     *,
     db: Session = Depends(deps.get_db),
     id: str,
@@ -62,17 +60,16 @@ def update_problemprofile(
     """
     Update an problemprofile.
     """
-    problemprofile = crud.problemprofile.get(db=db, id=id)
+    problemprofile = await crud.problemprofile.get(db=db, id=id)
     if not problemprofile:
         raise HTTPException(status_code=404, detail="ProblemProfile not found")
     if not crud.problemprofile.can_update(current_user, problemprofile):
         raise HTTPException(status_code=403, detail="Not enough permissions")
-    problemprofile = crud.problemprofile.update(db=db, db_obj=problemprofile, obj_in=problemprofile_in)
-    return problemprofile
+    return await crud.problemprofile.update(db=db, db_obj=problemprofile, obj_in=problemprofile_in)
 
 
 @router.get("/{id}", response_model=schemas.ProblemProfileOut)
-def read_problemprofile(
+async def read_problemprofile(
     *,
     db: Session = Depends(deps.get_db),
     id: str,
@@ -81,31 +78,16 @@ def read_problemprofile(
     """
     Get problemprofile by ID.
     """
-    problemprofile = crud.problemprofile.get(db=db, id=id)
+    problemprofile = await crud.problemprofile.get(db=db, id=id)
     if not problemprofile:
         raise HTTPException(status_code=404, detail="ProblemProfile not found")
     if not crud.problemprofile.can_read(current_user, problemprofile):
         raise HTTPException(status_code=403, detail="Not enough permissions")
     return problemprofile
 
-@router.get("/{id}/interlinkers", response_model=List[schemas.ArtefactOut])
-def get_interlinkers(
-    *,
-    db: Session = Depends(deps.get_db),
-    id: str,
-    current_user: Optional[dict] = Depends(deps.get_current_user),
-) -> Any:
-    """
-    Get interlinkers for problem profile
-    """
-    if (problemprofile := crud.problemprofile.get(db=db, id=id)):
-        print(problemprofile.artefacts)
-        return problemprofile.artefacts
-    raise HTTPException(status_code=404, detail="ProblemProfile not found")
-
 
 @router.get("/get_by_name/{name}", response_model=schemas.ProblemProfileOut)
-def read_problemprofile(
+async def read_problemprofile(
     *,
     db: Session = Depends(deps.get_db),
     name: str,
@@ -114,14 +96,14 @@ def read_problemprofile(
     """
     Get problemprofile by ID.
     """
-    problemprofile = crud.problemprofile.get_by_name(db=db, name=name, locale=locale)
+    problemprofile = await crud.problemprofile.get_by_name(db=db, name=name, locale=locale)
     if not problemprofile:
         raise HTTPException(status_code=404, detail="ProblemProfile not found")
     return problemprofile
 
 
 @router.delete("/{id}", response_model=schemas.ProblemProfileOut)
-def delete_problemprofile(
+async def delete_problemprofile(
     *,
     db: Session = Depends(deps.get_db),
     id: str,
@@ -130,10 +112,10 @@ def delete_problemprofile(
     """
     Delete an problemprofile.
     """
-    problemprofile = crud.problemprofile.get(db=db, id=id)
+    problemprofile = await crud.problemprofile.get(db=db, id=id)
     if not problemprofile:
         raise HTTPException(status_code=404, detail="ProblemProfile not found")
     if not crud.problemprofile.can_remove(current_user, problemprofile):
         raise HTTPException(status_code=403, detail="Not enough permissions")
-    crud.problemprofile.remove(db=db, id=id)
+    await crud.problemprofile.remove(db=db, id=id)
     return None
