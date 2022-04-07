@@ -54,7 +54,7 @@ class CRUDBase(Generic[ModelType, CreateSchemaType, PatchSchemaType]):
         db_obj = self.model(**obj_in_data)  # type: ignore
         db.add(db_obj)
         db.commit()
-        log({
+        await log({
             "model": self.modelName,
             "action": "CREATE",
             "id": db_obj.id
