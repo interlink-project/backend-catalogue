@@ -12,6 +12,7 @@ from sqlalchemy.orm import relationship, backref
 from app.general.db.base_class import Base as BaseModel
 from app.middleware import translation_hybrid
 from sqlalchemy.ext.associationproxy import association_proxy
+from app.artefacts.models import Artefact
 
 phases_prerequisites_metadata = Table(
     'phases_metadata_prerequisites', BaseModel.metadata,
@@ -40,22 +41,23 @@ tasks_problemprofiles_association = Table(
 )
 
 
-class CoproductionSchema(BaseModel):
+class CoproductionSchema(Artefact):
     """
-    Defines phase structure of a coproduction process
+    Defines phase structure of a coproduction process.
+    Inherits from artefact (name, description, tags...)
     """
-    id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    is_public = Column(Boolean, default=False)
-    name_translations = Column(HSTORE)
-    description_translations = Column(HSTORE)
-
-    # TODO: supported languages
-    name = translation_hybrid(name_translations)
-    description = translation_hybrid(description_translations)
-    author = Column(String, nullable=True)
-    licence = Column(String, nullable=True)
+    id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("artefact.id"),
+        primary_key=True,
+        default=uuid.uuid4,
+    )
 
     phasemetadatas = relationship("PhaseMetadata", back_populates="coproductionschema")
+
+    __mapper_args__ = {
+        "polymorphic_identity": "coproductionschema",
+    }
 
     def __repr__(self):
         return "<CoproductionSchema %r>" % self.name

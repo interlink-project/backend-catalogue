@@ -6,22 +6,19 @@ from app.general.utils.AllOptional import AllOptional
 from pydantic import BaseModel, validator
 import requests
 from app.config import settings
+from app.artefacts.schemas import ArtefactBase, ArtefactCreate, ArtefactORM, ArtefactOut
 
-class CoproductionSchemaBase(BaseModel):
-    is_public: bool = False
-    licence: str
-    author: str
+class CoproductionSchemaBase(ArtefactBase):
+    pass
+    
+class CoproductionSchemaCreate(ArtefactCreate, CoproductionSchemaBase):
+    pass
 
-class CoproductionSchemaCreate(CoproductionSchemaBase):
-    name_translations: dict
-    description_translations: dict
-
-
-class CoproductionSchemaPatch(CoproductionSchemaBase, metaclass=AllOptional):
+class CoproductionSchemaPatch(CoproductionSchemaCreate, metaclass=AllOptional):
     pass
 
 
-class CoproductionSchema(CoproductionSchemaBase):
+class CoproductionSchema(ArtefactORM, CoproductionSchemaBase):
     id: uuid.UUID
     created_at: datetime
     updated_at: Optional[datetime]
@@ -33,7 +30,7 @@ class CoproductionSchema(CoproductionSchemaBase):
         orm_mode = True
 
 
-class CoproductionSchemaOut(CoproductionSchema):
+class CoproductionSchemaOut(ArtefactOut, CoproductionSchema):
     pass
 
 

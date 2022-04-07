@@ -18,8 +18,7 @@ from .models import Supporters
 
 
 Difficulties = choice(["very_easy", "easy", "medium", "difficult", "very_difficult"])
-Licences = choice(["public_domain", "permissive", "copyleft",
-                  "non_commercial", "propietary"])
+
 Targets = choice(["all", "all;pas", "all;pas;public_servants", "all;pas;politicians", "all;businesses", "all;businesses;smes", "all;businesses;freelancers", "all;businesses;large_companies", "all;businesses;private_non_profit",
                   "all;citizens", "all;citizens;potential_end_users", "all;citizens;expert_citizens", "all;research_organizations", "all;research_organizations;universities", "all;research_organizations;other_research_entities"])
 InterlinkerTypes = choice(["enabling_services", "enabling_services;implementing_software_and_artifacts", "enabling_services;operation_services",
@@ -36,20 +35,22 @@ Formats = choice(["pdf", "editable_source_document",
 class BaseInterlinkerBase(ArtefactBase):
     languages: list = ["en"]
     published: Optional[bool]
-
     difficulty: Difficulties
     targets: Optional[List[Targets]]
-    licence: Licences
+    
     types: Optional[List[InterlinkerTypes]]
     administrative_scopes: Optional[List[AdministrativeScopes]]
     # domain: Optional[str]
     process: Optional[str]
 
+    form: Optional[FormTypes]
+    format: Optional[Formats]
+
 
 class BaseInterlinkerCreate(ArtefactCreate, BaseInterlinkerBase):
     logotype: Optional[str]
     snapshots: Optional[List[str]]
-
+    instructions_translations: dict
 
 class BaseInterlinkerPatch(BaseInterlinkerCreate, metaclass=AllOptional):
     pass
@@ -59,6 +60,8 @@ class BaseInterlinkerORM(ArtefactORM, BaseInterlinkerBase):
     id: uuid.UUID
     created_at: datetime
     updated_at: Optional[datetime]
+
+    instructions: str
 
     class Config:
         orm_mode = True
@@ -74,14 +77,8 @@ class BaseInterlinkerOut(ArtefactOut, BaseInterlinkerORM):
 
 class SoftwareBaseInterlinkerBase(BaseInterlinkerBase):
     nature: Literal["softwareinterlinker"] = "softwareinterlinker"
-
     supported_by: List[Supporters]
-    deployment_manual: Optional[str]
-    user_manual: Optional[str]
-    developer_manual: Optional[str]
-
     supports_internationalization: bool
-
     is_responsive: bool
     # GUI is responsive
 
@@ -123,8 +120,6 @@ class SoftwareInterlinkerOut(BaseInterlinkerOut, SoftwareBaseInterlinkerORM):
 
 class KnowledgeBaseInterlinkerBase(BaseInterlinkerBase):
     nature: Literal["knowledgeinterlinker"] = "knowledgeinterlinker"
-    form: FormTypes
-    format: Formats
     softwareinterlinker_id: uuid.UUID
     parent_id: Optional[uuid.UUID]
 
@@ -144,8 +139,7 @@ class KnowledgeBaseInterlinkerORM(BaseInterlinkerORM, KnowledgeBaseInterlinkerBa
     updated_at: Optional[datetime]
 
     genesis_asset_id: str
-    instructions: str
-
+    
     class Config:
         orm_mode = True
 
@@ -159,19 +153,57 @@ class KnowledgeInterlinkerOut(BasicKnowledgeInterlinker, KnowledgeBaseInterlinke
     children: List[BasicKnowledgeInterlinker]
 
 
+### ExternalInterlinker
+
+
+class ExternalBaseInterlinkerBase(BaseInterlinkerBase):
+    nature: Literal["externalinterlinker"] = "externalinterlinker"
+    type: str
+    
+
+
+class ExternalInterlinkerCreate(BaseInterlinkerCreate, ExternalBaseInterlinkerBase):
+    uri_translations: dict
+    asset_name_translations: Optional[dict]
+
+
+class ExternalInterlinkerPatch(ExternalInterlinkerCreate, metaclass=AllOptional):
+    pass
+
+
+class ExternalBaseInterlinkerORM(BaseInterlinkerORM, ExternalBaseInterlinkerBase):
+    id: uuid.UUID
+    created_at: datetime
+    updated_at: Optional[datetime]
+
+    uri: str
+    asset_name: Optional[str]
+
+    class Config:
+        orm_mode = True
+
+
+class BasicExternalInterlinker(BaseInterlinkerOut, ExternalBaseInterlinkerORM):
+    pass
+
+
+class ExternalInterlinkerOut(BasicExternalInterlinker, ExternalBaseInterlinkerORM):
+    pass
+
+
 InterlinkerCreate = Annotated[
-    Union[SoftwareInterlinkerCreate, KnowledgeInterlinkerCreate],
+    Union[SoftwareInterlinkerCreate, KnowledgeInterlinkerCreate, ExternalInterlinkerCreate],
     Field(discriminator="nature"),
 ]
 
 InterlinkerPatch = Annotated[
-    Union[SoftwareInterlinkerPatch, KnowledgeInterlinkerPatch],
+    Union[SoftwareInterlinkerPatch, KnowledgeInterlinkerPatch, ExternalInterlinkerPatch],
     Field(discriminator="nature"),
 ]
 
 
 class InterlinkerOut(BaseModel):
     __root__: Annotated[
-        Union[SoftwareInterlinkerOut, KnowledgeInterlinkerOut],
+        Union[SoftwareInterlinkerOut, KnowledgeInterlinkerOut, ExternalInterlinkerOut],
         Field(discriminator="nature"),
     ]

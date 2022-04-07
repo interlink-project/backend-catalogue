@@ -7,7 +7,6 @@ from app.problemprofiles.schemas import *
 from app.publicservices.schemas import *
 from app.questioncomments.schemas import *
 from app.ratings.schemas import *
-from sqlalchemy.ext.associationproxy import _AssociationList
 
 class ArtefactOutFull(ArtefactOut):
     questioncomments: List[QuestionCommentOut]

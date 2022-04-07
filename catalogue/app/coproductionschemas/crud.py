@@ -41,19 +41,6 @@ class CRUDCoproductionSchema(CRUDBase[CoproductionSchema, CoproductionSchemaCrea
     async def get_by_name(self, db: Session, name: str, locale: str) -> Optional[CoproductionSchema]:
         return db.query(CoproductionSchema).filter(CoproductionSchema.name_translations[locale] == name).first()
 
-    async def create(self, db: Session, coproductionschema: CoproductionSchemaCreate) -> CoproductionSchema:
-        db_obj = CoproductionSchema(
-            name_translations=coproductionschema.name_translations,
-            description_translations=coproductionschema.description_translations,
-            is_public=coproductionschema.is_public,
-            author=coproductionschema.author,
-            licence=coproductionschema.licence,
-        )
-        db.add(db_obj)
-        db.commit()
-        db.refresh(db_obj)
-        return db_obj
-
     # CRUD Permissions
     def can_create(self, user):
         return True

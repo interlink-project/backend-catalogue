@@ -53,25 +53,25 @@ async def instantiate_knowledgeinterlinker(
     return external_info
 
 
-@router.get("/{id}/external")
-async def read_knowledgeinterlinker_external_asset(
-    *,
-    db: Session = Depends(deps.get_db),
-    id: uuid.UUID,
-    token: str = Depends(deps.get_current_active_token),
-) -> Any:
-    """
-    Get asset of interlinker by interlinker ID.
-    """
-    interlinker = await crud.interlinker.get_knowledgeinterlinker(db=db, id=id)
-    if not interlinker:
-        raise HTTPException(status_code=404, detail="Knowledge interlinker not found")
+# @router.get("/{id}/external")
+# async def read_knowledgeinterlinker_external_asset(
+#     *,
+#     db: Session = Depends(deps.get_db),
+#     id: uuid.UUID,
+#     token: str = Depends(deps.get_current_active_token),
+# ) -> Any:
+#     """
+#     Get asset of interlinker by interlinker ID.
+#     """
+#     interlinker = await crud.interlinker.get_knowledgeinterlinker(db=db, id=id)
+#     if not interlinker:
+#         raise HTTPException(status_code=404, detail="Knowledge interlinker not found")
 
-    try:
-        return requests.get(interlinker.internal_link, headers={
-            "Authorization": "Bearer " + token
-        }).json()
-    except:
-        return requests.get(interlinker.link, headers={
-            "Authorization": "Bearer " + token
-        }).json()
+#     try:
+#         return requests.get(interlinker.internal_link, headers={
+#             "Authorization": "Bearer " + token
+#         }).json()
+#     except:
+#         return requests.get(interlinker.link, headers={
+#             "Authorization": "Bearer " + token
+#         }).json()

@@ -96,14 +96,14 @@ async def read_interlinker(
     return interlinker
 
 @router.get("/get_by_name/{name}", response_model=schemas.InterlinkerOut)
-async def read_interlinker(
+async def read_interlinker_by_name(
     *,
     db: Session = Depends(deps.get_db),
     name: str,
     locale: str = "en"
 ) -> Any:
     """
-    Get interlinker by ID.
+    Get interlinker by name.
     """
     interlinker = await crud.interlinker.get_by_name(db=db, name=name)
     if not interlinker:

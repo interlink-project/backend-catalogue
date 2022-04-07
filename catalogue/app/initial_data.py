@@ -76,6 +76,54 @@ def get_logotype(logotype_path, origin, dest):
     return dst.replace("/app", "")
 
 
+
+async def create_externalinterlinker(db, metadata_path):
+    ####################
+    # COMMON
+    ####################
+    str_metadata_path = str(metadata_path)
+    with open(str_metadata_path) as json_file:
+        data = json.load(json_file)
+
+    name = data["name_translations"]["en"]
+    print(f"\n{bcolors.OKBLUE}Processing {bcolors.ENDC}{bcolors.BOLD}{name}{bcolors.ENDC}")
+
+    if await crud.interlinker.get_by_name(db=db, name=name):
+        print(f"\t{bcolors.WARNING}Already in the database{bcolors.ENDC}")
+        return
+
+    # parent folder where metadata.json is located
+    folder = metadata_path.parents[0]
+    slug = slugify(name)
+    str_static_path = f'/app/static/{slug}'
+    data["snapshots"] = get_snapshots(folder, str_static_path)
+    data["logotype"] = get_logotype(
+        data["logotype"], folder, str_static_path) if "logotype" in data else None
+
+
+    # get instructions file contents if IS FILE PATH
+    for key, value in data["instructions_translations"].items():
+        if not "http" in value:
+            filename = path_leaf(value)
+            with open(str(folder) + "/" + filename, 'r') as f:
+                data["instructions_translations"][key] = f.read()
+
+    # set nature
+    data["nature"] = "externalinterlinker"
+    if "software" in str_metadata_path:
+        data["type"] = "software"
+    else:
+        data["type"] = "knowledge"
+    print(data["name_translations"], data["type"])
+    # create interlinker
+    interlinker = await crud.interlinker.create(
+        db=db,
+        interlinker=schemas.ExternalInterlinkerCreate(**data),
+    )
+
+    print(f"\t{bcolors.OKGREEN}Created successfully!{bcolors.ENDC}")
+
+
 async def create_softwareinterlinker(db, metadata_path):
     ####################
     # COMMON
@@ -109,21 +157,22 @@ async def create_softwareinterlinker(db, metadata_path):
         interlinker=schemas.SoftwareInterlinkerCreate(**data),
     )
 
+
+    # get instructions file contents if IS FILE PATH
+    for key, value in data["instructions_translations"].items():
+        if not "http" in value:
+            filename = path_leaf(value)
+            with open(str(folder) + "/" + filename, 'r') as f:
+                data["instructions_translations"][key] = f.read()
+
+
     if "integration" in data:
         integrationData = data["integration"]
         integrationData["softwareinterlinker_id"] = interlinker.id
-
-        if data["integration"]["type"] == "internalintegration":
-            # capabilities to root
-            integrationData = {**integrationData, **data["integration"]["capabilities"]}
-            integrationData = {**integrationData, **
-                               data["integration"]["capabilities_translations"]}
-        else:
-            if data["integration"]["result"]:
-                if result_interlinker := await crud.interlinker.get_by_name(db=db, name=data["integration"]["result"]):
-                    integrationData["result_softwareinterlinker_id"] = result_interlinker.id
-
-        print(parse_obj_as(schemas.IntegrationCreate, integrationData))
+        integrationData = {**integrationData, **data["integration"]["capabilities"]}
+        integrationData = {**integrationData, **
+                           data["integration"]["capabilities_translations"]}
+       
         await crud.integration.create(
             db=db,
             obj_in=parse_obj_as(schemas.IntegrationCreate, integrationData)
@@ -244,7 +293,7 @@ async def create_coproductionschemas(db):
         print(f"{bcolors.OKBLUE}## PROCESSING {bcolors.ENDC}{name}{bcolors.OKBLUE}")
         SCHEMA = await crud.coproductionschema.create(
             db=db,
-            coproductionschema=schemas.CoproductionSchemaCreate(
+            obj_in=schemas.CoproductionSchemaCreate(
                 **schema_data, is_public=True
             )
         )
@@ -341,6 +390,10 @@ async def init():
         await create_problemprofiles(db)
 
         await create_coproductionschemas(db)
+
+        # create external interlinkers first
+        for metadata_path in Path("/app/interlinkers-data/interlinkers").glob("external*/**/metadata.json"):
+            await create_externalinterlinker(db, metadata_path)
 
         # create software interlinkers first
         for metadata_path in Path("/app/interlinkers-data/interlinkers").glob("software/**/metadata.json"):

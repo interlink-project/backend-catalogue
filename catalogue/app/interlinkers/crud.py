@@ -3,13 +3,13 @@ from typing import Optional, List, Union
 
 from sqlalchemy.orm import Session
 
-from app.models import Interlinker, KnowledgeInterlinker, SoftwareInterlinker
-from app.schemas import InterlinkerCreate, SoftwareInterlinkerCreate, KnowledgeInterlinkerCreate, InterlinkerPatch
+from app.models import Interlinker, KnowledgeInterlinker, SoftwareInterlinker, ExternalInterlinker
+from app.schemas import InterlinkerCreate, SoftwareInterlinkerCreate, KnowledgeInterlinkerCreate, ExternalInterlinkerCreate, InterlinkerPatch
 from app.general.utils.CRUDBase import CRUDBase
 from sqlalchemy import or_, func
 from app.problemprofiles.crud import exportCrud as problems_crud
 from app.models import ProblemProfile
-from app.integrations.models import Integration, InternalIntegration
+from app.integrations.models import Integration
 from sqlalchemy import and_, or_
 import uuid
 from fastapi_pagination.ext.sqlalchemy import paginate
@@ -53,6 +53,15 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
         })
         return paginate(db.query(SoftwareInterlinker))
 
+    async def get_multi_externalinterlinkers(
+        self, db: Session
+    ) -> List[SoftwareInterlinker]:
+        await log({
+            "model": "EXTERNALINTERLINKER",
+            "action": "LIST",
+        })
+        return paginate(db.query(ExternalInterlinker))
+
     async def get_multi_internally_integrated_softwareinterlinkers(
         self, db: Session
     ) -> List[SoftwareInterlinker]:
@@ -60,14 +69,14 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
             "model": "SOFTWAREINTERLINKER",
             "action": "LIST_SHORTCUT",
         })
-        return db.query(SoftwareInterlinker).filter(Integration.softwareinterlinker_id == SoftwareInterlinker.id).filter(InternalIntegration.id == Integration.id).filter(and_(InternalIntegration.service_name != None, InternalIntegration.shortcut == True)).all()
+        return db.query(SoftwareInterlinker).filter(Integration.softwareinterlinker_id == SoftwareInterlinker.id).filter(and_(Integration.service_name != None, Integration.shortcut == True)).all()
 
     async def get_softwareinterlinker_by_service_name(self, db: Session, service_name: str) -> Optional[SoftwareInterlinker]:
         await log({
             "model": "SOFTWAREINTERLINKER",
             "action": "GET_BY_SERVICE_NAME",
         })
-        return db.query(SoftwareInterlinker).filter(SoftwareInterlinker.id == Integration.softwareinterlinker_id).filter(InternalIntegration.id == Integration.id).filter(InternalIntegration.service_name == service_name).first()
+        return db.query(SoftwareInterlinker).filter(SoftwareInterlinker.id == Integration.softwareinterlinker_id).filter(Integration.service_name == service_name).first()
 
     async def create(self, db: Session, *, interlinker: InterlinkerCreate) -> Interlinker:
         data = jsonable_encoder(interlinker)
@@ -75,16 +84,22 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
         problemprofiles = data["problemprofiles"]
         # delete before creating interlinker because it is a list of strings, not a list of problem profile objects
         del data["problemprofiles"]
-        
+
+        db_obj = None
         if type(interlinker) == SoftwareInterlinkerCreate:
             print("IS SOFTWARE")
             data["nature"] = "softwareinterlinker"
             db_obj = SoftwareInterlinker(**data)
 
-        if type(interlinker) == KnowledgeInterlinkerCreate:
+        elif type(interlinker) == KnowledgeInterlinkerCreate:
             print("IS KNOWLEDGE")
             data["nature"] = "knowledgeinterlinker"
             db_obj = KnowledgeInterlinker(**data)
+        
+        elif type(interlinker) == ExternalInterlinkerCreate:
+            print("IS EXTERNAL")
+            data["nature"] = "externalinterlinker"
+            db_obj = ExternalInterlinker(**data)
         
         for id in problemprofiles:
             print(id)

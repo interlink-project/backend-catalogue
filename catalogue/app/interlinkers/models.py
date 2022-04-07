@@ -43,7 +43,6 @@ class Interlinker(Artefact):
 
     difficulty = Column(String)
     targets = Column(ARRAY(String), default=list)
-    licence = Column(String)
     types = Column(ARRAY(String), default=list)
     administrative_scopes = Column(ARRAY(String), default=list)
     # domain = Column(String, nullable=True)
@@ -52,6 +51,12 @@ class Interlinker(Artefact):
     # discriminator
     nature = Column(String)
     
+    instructions_translations = Column(HSTORE)
+    instructions = translation_hybrid(instructions_translations)
+
+    form = Column(String, nullable=True)
+    format = Column(String, nullable=True)
+
     __mapper_args__ = {
         "polymorphic_identity": "interlinker",
         "polymorphic_on": nature,
@@ -83,12 +88,8 @@ class SoftwareInterlinker(Interlinker):
         ARRAY(Enum(Supporters, create_constraint=False, native_enum=False))
     )
 
-    deployment_manual = Column(String, nullable=True)
-    user_manual = Column(String, nullable=True)
-    developer_manual = Column(String, nullable=True)
     supports_internationalization = Column(Boolean, default=False)
     is_responsive = Column(Boolean, default=False)
-    
     integration = relationship("Integration", back_populates="softwareinterlinker", uselist=False)
     
     status = Column(String, default="off")
@@ -119,12 +120,7 @@ class KnowledgeInterlinker(Interlinker):
         primary_key=True,
         default=uuid.uuid4,
     )
-    form = Column(String)
-    format = Column(String)
-
-    instructions_translations = Column(HSTORE)
-    instructions = translation_hybrid(instructions_translations)
-
+   
     softwareinterlinker_id = Column(UUID(as_uuid=True), ForeignKey("softwareinterlinker.id", ondelete='CASCADE'))
     softwareinterlinker = relationship("SoftwareInterlinker", backref='knowledgeinterlinkers', foreign_keys=[softwareinterlinker_id])
     
@@ -152,3 +148,28 @@ class KnowledgeInterlinker(Interlinker):
         backend = self.softwareinterlinker.integration.service_name
         api_path = self.softwareinterlinker.integration.api_path
         return f"http://{backend}{api_path}/{self.genesis_asset_id}"
+
+
+class ExternalInterlinker(Interlinker):
+    """
+    Defines the external interlinker model
+    """
+    id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("interlinker.id"),
+        primary_key=True,
+        default=uuid.uuid4,
+    )
+
+    type = Column(String) # software or knowledge
+    uri_translations = Column(HSTORE)
+    uri = translation_hybrid(uri_translations)
+    asset_name_translations = Column(HSTORE)
+    asset_name = translation_hybrid(asset_name_translations)
+
+    __mapper_args__ = {
+        "polymorphic_identity": "externalinterlinker",
+    }
+
+    def __repr__(self) -> str:
+        return f"<ExternalInterlinker {self.id}>"

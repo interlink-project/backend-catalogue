@@ -26,19 +26,6 @@ class Integration(BaseModel):
     softwareinterlinker_id = Column(UUID(as_uuid=True), ForeignKey("softwareinterlinker.id"))
     softwareinterlinker = relationship("SoftwareInterlinker", back_populates="integration", foreign_keys=[softwareinterlinker_id])
 
-    __mapper_args__ = {
-        "polymorphic_identity": "integration",
-        "polymorphic_on": type,
-    }
-
-class InternalIntegration(Integration):
-    id = Column(
-        UUID(as_uuid=True),
-        ForeignKey("integration.id"),
-        primary_key=True,
-        default=uuid.uuid4,
-    )
-
     service_name = Column(String)
     domain = Column(String)
     path = Column(String)
@@ -73,23 +60,3 @@ class InternalIntegration(Integration):
     delete_text = translation_hybrid(delete_text_translations)
     download_text = translation_hybrid(download_text_translations)
     preview_text = translation_hybrid(preview_text_translations)
-
-    __mapper_args__ = {
-        "polymorphic_identity": "internalintegration",
-    }
-
-class ExternalIntegration(Integration):
-    id = Column(
-        UUID(as_uuid=True),
-        ForeignKey("integration.id"),
-        primary_key=True,
-        default=uuid.uuid4,
-    )
-
-    redirection = Column(String)
-    result_softwareinterlinker_id = Column(UUID(as_uuid=True), ForeignKey("softwareinterlinker.id"), nullable=True)
-    result_softwareinterlinker = relationship("SoftwareInterlinker", backref="enables", foreign_keys=[result_softwareinterlinker_id])
-
-    __mapper_args__ = {
-        "polymorphic_identity": "externalintegration",
-    }

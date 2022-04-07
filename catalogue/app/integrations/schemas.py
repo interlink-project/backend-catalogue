@@ -1,18 +1,13 @@
 import uuid
 from datetime import datetime
-from typing import List, Literal, Optional
+from typing import Optional
 from app.general.utils.AllOptional import AllOptional
-from pydantic import BaseModel, validator, Field
-from pydantic.typing import ForwardRef, Union
+from pydantic import BaseModel
 from pydantic_choices import choice
-from typing_extensions import Annotated
 
 AuthMethods = choice(["header", "cookie"])
 
-
-class InternalIntegrationBase(BaseModel):
-    type: Literal["internalintegration"] = "internalintegration"
-
+class IntegrationBase(BaseModel):
     softwareinterlinker_id: uuid.UUID
     auth_method: AuthMethods
 
@@ -35,7 +30,7 @@ class InternalIntegrationBase(BaseModel):
     shortcut: Optional[bool]
 
 
-class InternalIntegrationCreate(InternalIntegrationBase):
+class IntegrationCreate(IntegrationBase):
     # capabilities translations
     instantiate_text_translations: Optional[dict]
     view_text_translations: Optional[dict]
@@ -46,11 +41,11 @@ class InternalIntegrationCreate(InternalIntegrationBase):
     preview_text_translations: Optional[dict]
 
 
-class InternalIntegrationPatch(InternalIntegrationCreate, metaclass=AllOptional):
+class IntegrationPatch(IntegrationCreate, metaclass=AllOptional):
     pass
 
 
-class InternalIntegration(InternalIntegrationBase):
+class Integration(IntegrationBase):
     id: uuid.UUID
     created_at: datetime
     updated_at: Optional[datetime]
@@ -66,56 +61,6 @@ class InternalIntegration(InternalIntegrationBase):
         orm_mode = True
 
 
-class InternalIntegrationOut(InternalIntegration):
+class IntegrationOut(Integration):
     pass
 
-
-## EXTERNAL
-
-
-class ExternalIntegrationBase(BaseModel):
-    type: Literal["externalintegration"] = "externalintegration"
-    softwareinterlinker_id: uuid.UUID
-    result_softwareinterlinker_id: Optional[uuid.UUID]
-    redirection: str
-
-
-class ExternalIntegrationCreate(ExternalIntegrationBase):
-    pass
-
-
-class ExternalIntegrationPatch(ExternalIntegrationCreate, metaclass=AllOptional):
-    pass
-
-
-class ExternalIntegration(ExternalIntegrationBase):
-    id: uuid.UUID
-    created_at: datetime
-    updated_at: Optional[datetime]
-
-    pass
-
-    class Config:
-        orm_mode = True
-
-
-class ExternalIntegrationOut(ExternalIntegration):
-    pass
-
-
-IntegrationCreate = Annotated[
-    Union[InternalIntegrationCreate, ExternalIntegrationCreate],
-    Field(discriminator="type"),
-]
-
-IntegrationPatch = Annotated[
-    Union[InternalIntegrationPatch, ExternalIntegrationPatch],
-    Field(discriminator="type"),
-]
-
-
-class IntegrationOut(BaseModel):
-    __root__: Annotated[
-        Union[InternalIntegrationOut, ExternalIntegrationOut],
-        Field(discriminator="type"),
-    ]

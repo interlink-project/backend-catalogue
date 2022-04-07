@@ -51,7 +51,7 @@ async def create_coproductionschema(
     if not crud.coproductionschema.can_create(current_user):
         raise HTTPException(status_code=403, detail="Not enough permissions")
     try:
-        return await crud.coproductionschema.create(db=db, coproductionschema=coproductionschema_in)
+        return await crud.coproductionschema.create(db=db, obj_in=coproductionschema_in)
     except CrudException as e:
         raise HTTPException(status_code=400, detail=str(e))
 
