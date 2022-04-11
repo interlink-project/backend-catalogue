@@ -150,7 +150,7 @@ class KnowledgeInterlinker(Interlinker):
         return f"http://{backend}{api_path}/{self.genesis_asset_id}"
 
 
-class ExternalInterlinker(Interlinker):
+class ExternalKnowledgeInterlinker(Interlinker):
     """
     Defines the external interlinker model
     """
@@ -160,15 +160,36 @@ class ExternalInterlinker(Interlinker):
         primary_key=True,
         default=uuid.uuid4,
     )
-
-    type = Column(String) # software or knowledge
     uri_translations = Column(HSTORE)
     uri = translation_hybrid(uri_translations)
     asset_name_translations = Column(HSTORE)
     asset_name = translation_hybrid(asset_name_translations)
 
     __mapper_args__ = {
-        "polymorphic_identity": "externalinterlinker",
+        "polymorphic_identity": "externalknowledgeinterlinker",
+    }
+
+    def __repr__(self) -> str:
+        return f"<ExternalInterlinker {self.id}>"
+
+
+class ExternalSoftwareInterlinker(Interlinker):
+    """
+    Defines the external interlinker model
+    """
+    id = Column(
+        UUID(as_uuid=True),
+        ForeignKey("interlinker.id"),
+        primary_key=True,
+        default=uuid.uuid4,
+    )
+    uri_translations = Column(HSTORE)
+    uri = translation_hybrid(uri_translations)
+    asset_name_translations = Column(HSTORE)
+    asset_name = translation_hybrid(asset_name_translations)
+
+    __mapper_args__ = {
+        "polymorphic_identity": "externalsoftwareinterlinker",
     }
 
     def __repr__(self) -> str:

@@ -154,25 +154,23 @@ class KnowledgeInterlinkerOut(BasicKnowledgeInterlinker, KnowledgeBaseInterlinke
     children: List[BasicKnowledgeInterlinker]
 
 
-### ExternalInterlinker
+### ExternalSoftwareInterlinker
 
 
-class ExternalBaseInterlinkerBase(BaseInterlinkerBase):
-    nature: Literal["externalinterlinker"] = "externalinterlinker"
-    type: str
-    
+class ExternalSoftwareBaseInterlinkerBase(BaseInterlinkerBase):
+    nature: Literal["externalsoftwareinterlinker"] = "externalsoftwareinterlinker"    
 
 
-class ExternalInterlinkerCreate(BaseInterlinkerCreate, ExternalBaseInterlinkerBase):
+class ExternalSoftwareInterlinkerCreate(BaseInterlinkerCreate, ExternalSoftwareBaseInterlinkerBase):
     uri_translations: dict
     asset_name_translations: Optional[dict]
 
 
-class ExternalInterlinkerPatch(ExternalInterlinkerCreate, metaclass=AllOptional):
+class ExternalSoftwareInterlinkerPatch(ExternalSoftwareInterlinkerCreate, metaclass=AllOptional):
     pass
 
 
-class ExternalBaseInterlinkerORM(BaseInterlinkerORM, ExternalBaseInterlinkerBase):
+class ExternalSoftwareBaseInterlinkerORM(BaseInterlinkerORM, ExternalSoftwareBaseInterlinkerBase):
     id: uuid.UUID
     created_at: datetime
     updated_at: Optional[datetime]
@@ -184,27 +182,65 @@ class ExternalBaseInterlinkerORM(BaseInterlinkerORM, ExternalBaseInterlinkerBase
         orm_mode = True
 
 
-class BasicExternalInterlinker(BaseInterlinkerOut, ExternalBaseInterlinkerORM):
+class BasicExternalSoftwareInterlinker(BaseInterlinkerOut, ExternalSoftwareBaseInterlinkerORM):
     pass
 
 
-class ExternalInterlinkerOut(BasicExternalInterlinker, ExternalBaseInterlinkerORM):
+class ExternalSoftwareInterlinkerOut(BasicExternalSoftwareInterlinker, ExternalSoftwareBaseInterlinkerORM):
     pass
 
+
+
+### ExternalKnowledgeInterlinker
+
+
+class ExternalKnowledgeBaseInterlinkerBase(BaseInterlinkerBase):
+    nature: Literal["externalknowledgeinterlinker"] = "externalknowledgeinterlinker"    
+
+
+class ExternalKnowledgeInterlinkerCreate(BaseInterlinkerCreate, ExternalKnowledgeBaseInterlinkerBase):
+    uri_translations: dict
+    asset_name_translations: Optional[dict]
+
+
+class ExternalKnowledgeInterlinkerPatch(ExternalKnowledgeInterlinkerCreate, metaclass=AllOptional):
+    pass
+
+
+class ExternalKnowledgeBaseInterlinkerORM(BaseInterlinkerORM, ExternalKnowledgeBaseInterlinkerBase):
+    id: uuid.UUID
+    created_at: datetime
+    updated_at: Optional[datetime]
+
+    uri: str
+    asset_name: Optional[str]
+
+    class Config:
+        orm_mode = True
+
+
+class BasicExternalKnowledgeInterlinker(BaseInterlinkerOut, ExternalKnowledgeBaseInterlinkerORM):
+    pass
+
+
+class ExternalKnowledgeInterlinkerOut(BasicExternalKnowledgeInterlinker, ExternalKnowledgeBaseInterlinkerORM):
+    pass
+
+###
 
 InterlinkerCreate = Annotated[
-    Union[SoftwareInterlinkerCreate, KnowledgeInterlinkerCreate, ExternalInterlinkerCreate],
+    Union[SoftwareInterlinkerCreate, KnowledgeInterlinkerCreate, ExternalSoftwareInterlinkerCreate, ExternalKnowledgeInterlinkerCreate],
     Field(discriminator="nature"),
 ]
 
 InterlinkerPatch = Annotated[
-    Union[SoftwareInterlinkerPatch, KnowledgeInterlinkerPatch, ExternalInterlinkerPatch],
+    Union[SoftwareInterlinkerPatch, KnowledgeInterlinkerPatch, ExternalSoftwareInterlinkerPatch, ExternalKnowledgeInterlinkerPatch],
     Field(discriminator="nature"),
 ]
 
 
 class InterlinkerOut(BaseModel):
     __root__: Annotated[
-        Union[SoftwareInterlinkerOut, KnowledgeInterlinkerOut, ExternalInterlinkerOut],
+        Union[SoftwareInterlinkerOut, KnowledgeInterlinkerOut, ExternalSoftwareInterlinkerOut, ExternalKnowledgeInterlinkerOut],
         Field(discriminator="nature"),
     ]

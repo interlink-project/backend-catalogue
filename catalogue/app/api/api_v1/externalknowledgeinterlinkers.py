@@ -12,7 +12,7 @@ import requests
 
 router = APIRouter()
 
-@router.get("", response_model=Page[schemas.ExternalInterlinkerOut])
+@router.get("", response_model=Page[schemas.ExternalKnowledgeInterlinkerOut])
 async def list_externalinterlinkers(
     db: Session = Depends(deps.get_db),
     current_user: Optional[dict] = Depends(deps.get_current_user),
@@ -20,4 +20,4 @@ async def list_externalinterlinkers(
     """
     Retrieve external interlinkers.
     """
-    return await crud.interlinker.get_multi_externalinterlinkers(db)
+    return await crud.interlinker.get_multi_externalknowledgeinterlinkers(db)

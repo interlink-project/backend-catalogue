@@ -109,18 +109,18 @@ async def create_externalinterlinker(db, metadata_path):
                 data["instructions_translations"][key] = f.read()
 
     # set nature
-    data["nature"] = "externalinterlinker"
     if "software" in str_metadata_path:
-        data["type"] = "software"
+        data["nature"] = "externalsoftwareinterlinker"
+        interlinker = await crud.interlinker.create(
+            db=db,
+            interlinker=schemas.ExternalSoftwareInterlinkerCreate(**data),
+        )
     else:
-        data["type"] = "knowledge"
-    print(data["name_translations"], data["type"])
-    # create interlinker
-    interlinker = await crud.interlinker.create(
-        db=db,
-        interlinker=schemas.ExternalInterlinkerCreate(**data),
-    )
-
+        data["nature"] = "externalknowledgeinterlinker"
+        interlinker = await crud.interlinker.create(
+            db=db,
+            interlinker=schemas.ExternalKnowledgeInterlinkerCreate(**data),
+        )
     print(f"\t{bcolors.OKGREEN}Created successfully!{bcolors.ENDC}")
 
 

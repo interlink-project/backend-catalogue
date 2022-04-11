@@ -3,8 +3,8 @@ from typing import Optional, List, Union
 
 from sqlalchemy.orm import Session
 
-from app.models import Interlinker, KnowledgeInterlinker, SoftwareInterlinker, ExternalInterlinker
-from app.schemas import InterlinkerCreate, SoftwareInterlinkerCreate, KnowledgeInterlinkerCreate, ExternalInterlinkerCreate, InterlinkerPatch
+from app.models import Interlinker, KnowledgeInterlinker, SoftwareInterlinker, ExternalSoftwareInterlinker, ExternalKnowledgeInterlinker
+from app.schemas import InterlinkerCreate, SoftwareInterlinkerCreate, KnowledgeInterlinkerCreate, ExternalKnowledgeInterlinkerCreate, ExternalSoftwareInterlinkerCreate, InterlinkerPatch
 from app.general.utils.CRUDBase import CRUDBase
 from sqlalchemy import or_, func
 from app.problemprofiles.crud import exportCrud as problems_crud
@@ -53,14 +53,23 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
         })
         return paginate(db.query(SoftwareInterlinker))
 
-    async def get_multi_externalinterlinkers(
+    async def get_multi_externalsoftwareinterlinkers(
         self, db: Session
-    ) -> List[SoftwareInterlinker]:
+    ) -> List[ExternalSoftwareInterlinker]:
         await log({
-            "model": "EXTERNALINTERLINKER",
+            "model": "EXTERNALSOFTWAREINTERLINKER",
             "action": "LIST",
         })
-        return paginate(db.query(ExternalInterlinker))
+        return paginate(db.query(ExternalSoftwareInterlinker))
+
+    async def get_multi_externalknowledgeinterlinkers(
+        self, db: Session
+    ) -> List[ExternalKnowledgeInterlinker]:
+        await log({
+            "model": "EXTERNALKNOWLEDGEINTERLINKER",
+            "action": "LIST",
+        })
+        return paginate(db.query(ExternalKnowledgeInterlinker))
 
     async def get_multi_internally_integrated_softwareinterlinkers(
         self, db: Session
@@ -96,10 +105,14 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
             data["nature"] = "knowledgeinterlinker"
             db_obj = KnowledgeInterlinker(**data)
         
-        elif type(interlinker) == ExternalInterlinkerCreate:
-            print("IS EXTERNAL")
-            data["nature"] = "externalinterlinker"
-            db_obj = ExternalInterlinker(**data)
+        elif type(interlinker) == ExternalSoftwareInterlinkerCreate or type(interlinker) == ExternalKnowledgeInterlinkerCreate:
+            if data["nature"] == "externalsoftwareinterlinker":
+                print("IS EXTERNAL SOFTWARE")
+                db_obj = ExternalSoftwareInterlinker(**data)
+            else:
+                print("IS EXTERNAL KNOWLEDGE")
+                db_obj = ExternalKnowledgeInterlinker(**data)
+            
         
         for id in problemprofiles:
             print(id)
