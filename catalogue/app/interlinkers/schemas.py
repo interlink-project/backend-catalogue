@@ -146,6 +146,7 @@ class KnowledgeBaseInterlinkerORM(BaseInterlinkerORM, KnowledgeBaseInterlinkerBa
 
 class BasicKnowledgeInterlinker(BaseInterlinkerOut, KnowledgeBaseInterlinkerORM):
     link: str
+    internal_link: str
 
 
 class KnowledgeInterlinkerOut(BasicKnowledgeInterlinker, KnowledgeBaseInterlinkerORM):

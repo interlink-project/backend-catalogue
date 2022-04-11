@@ -52,3 +52,8 @@ testing: build solo tests down ## Builds containers, runs them, runs test contai
 seed: ## Seed data
 	docker-compose -f docker-compose.devintegrated.yml exec catalogue python /app/app/pre_start.py
 	docker-compose -f docker-compose.devintegrated.yml exec catalogue ./seed.sh
+
+.PHONY: localseed
+localseed: ## Seed data
+	docker-compose -f docker-compose.devintegrated.yml exec catalogue python /app/app/pre_start.py
+	docker-compose -f docker-compose.devintegrated.yml exec catalogue ./seed-local.sh
