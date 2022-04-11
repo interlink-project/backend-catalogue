@@ -27,6 +27,10 @@ services:
       - traefik.http.middlewares.catalogue-stripprefix.stripprefix.prefixes=/catalogue
     networks:
       - traefik-public
+    logging:
+      driver: "json-file"
+      options:
+        tag: "{{.ImageName}}|{{.Name}}|{{.ImageFullID}}|{{.FullID}}"
 
 networks:
   traefik-public:
