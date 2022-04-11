@@ -76,8 +76,8 @@ def get_logotype(logotype_path, origin, dest):
     return dst.replace("/app", "")
 
 
-
-async def create_externalinterlinker(db, metadata_path):
+async def create_interlinker(db, metadata_path, software=False, externalsoftware=False, knowledge=False, externalknowledge=False):
+    error = False
     ####################
     # COMMON
     ####################
@@ -100,7 +100,6 @@ async def create_externalinterlinker(db, metadata_path):
     data["logotype"] = get_logotype(
         data["logotype"], folder, str_static_path) if "logotype" in data else None
 
-
     # get instructions file contents if IS FILE PATH
     for key, value in data["instructions_translations"].items():
         if not "http" in value:
@@ -108,156 +107,84 @@ async def create_externalinterlinker(db, metadata_path):
             with open(str(folder) + "/" + filename, 'r') as f:
                 data["instructions_translations"][key] = f.read()
 
-    # set nature
-    if "software" in str_metadata_path:
-        data["nature"] = "externalsoftwareinterlinker"
+    if software:
+        # set nature
+        data["nature"] = "softwareinterlinker"
+        # create interlinker
         interlinker = await crud.interlinker.create(
             db=db,
-            interlinker=schemas.ExternalSoftwareInterlinkerCreate(**data),
+            interlinker=schemas.SoftwareInterlinkerCreate(**data),
         )
-    else:
+
+        if "integration" in data:
+            integrationData = data["integration"]
+            integrationData["softwareinterlinker_id"] = interlinker.id
+            integrationData = {**integrationData, **data["integration"]["capabilities"]}
+            integrationData = {**integrationData, **
+                            data["integration"]["capabilities_translations"]}
+        
+            await crud.integration.create(
+                db=db,
+                obj_in=parse_obj_as(schemas.IntegrationCreate, integrationData)
+            )
+
+    if externalknowledge:
         data["nature"] = "externalknowledgeinterlinker"
         interlinker = await crud.interlinker.create(
             db=db,
             interlinker=schemas.ExternalKnowledgeInterlinkerCreate(**data),
         )
-    print(f"\t{bcolors.OKGREEN}Created successfully!{bcolors.ENDC}")
-
-
-async def create_softwareinterlinker(db, metadata_path):
-    ####################
-    # COMMON
-    ####################
-    str_metadata_path = str(metadata_path)
-    with open(str_metadata_path) as json_file:
-        data = json.load(json_file)
-
-    name = data["name_translations"]["en"]
-    print(f"\n{bcolors.OKBLUE}Processing {bcolors.ENDC}{bcolors.BOLD}{name}{bcolors.ENDC}")
-
-    if await crud.interlinker.get_by_name(db=db, name=name):
-        print(f"\t{bcolors.WARNING}Already in the database{bcolors.ENDC}")
-        return
-
-    # parent folder where metadata.json is located
-    folder = metadata_path.parents[0]
-    slug = slugify(name)
-    str_static_path = f'/app/static/{slug}'
-    data["snapshots"] = get_snapshots(folder, str_static_path)
-    data["logotype"] = get_logotype(
-        data["logotype"], folder, str_static_path) if "logotype" in data else None
-
-    # set nature
-    data["nature"] = "softwareinterlinker"
-
-    print(data)
-    # create interlinker
-    interlinker = await crud.interlinker.create(
-        db=db,
-        interlinker=schemas.SoftwareInterlinkerCreate(**data),
-    )
-
-
-    # get instructions file contents if IS FILE PATH
-    for key, value in data["instructions_translations"].items():
-        if not "http" in value:
-            filename = path_leaf(value)
-            with open(str(folder) + "/" + filename, 'r') as f:
-                data["instructions_translations"][key] = f.read()
-
-
-    if "integration" in data:
-        integrationData = data["integration"]
-        integrationData["softwareinterlinker_id"] = interlinker.id
-        integrationData = {**integrationData, **data["integration"]["capabilities"]}
-        integrationData = {**integrationData, **
-                           data["integration"]["capabilities_translations"]}
-       
-        await crud.integration.create(
+    if externalsoftware:
+         # set nature
+        data["nature"] = "externalsoftwareinterlinker"
+        interlinker = await crud.interlinker.create(
             db=db,
-            obj_in=parse_obj_as(schemas.IntegrationCreate, integrationData)
+            interlinker=schemas.ExternalSoftwareInterlinkerCreate(**data),
         )
 
-    print(f"\t{bcolors.OKGREEN}Created successfully!{bcolors.ENDC}")
+    if knowledge:
+        # get file contents in file and send to the software interlinker
+        service = data["softwareinterlinker"]
+        softwareinterlinker = await crud.interlinker.get_softwareinterlinker_by_service_name(
+            db=db, service_name=service)
+        if not softwareinterlinker:
+            print(f"\t{bcolors.FAIL}there is no {service} softwareinterlinker")
+            return
 
+        try:
+            print(f"\tis {service} supported knowledge interlinker")
 
-async def create_knowledgeinterlinker(db, metadata_path):
-    str_metadata_path = str(metadata_path)
-    with open(str_metadata_path) as json_file:
-        knowledgeinterlinker = json.load(json_file)
+            for key, value in data["file_translations"].items():
+                filename = path_leaf(value)
+                short_filename, file_extension = os.path.splitext(filename)
 
-    name = knowledgeinterlinker["name_translations"]["en"]
-    print(f"\n{bcolors.OKBLUE}Processing {bcolors.ENDC}{bcolors.BOLD}{name}{bcolors.ENDC}")
-
-    if await crud.interlinker.get_by_name(db=db, name=name):
-        print(f"\t{bcolors.WARNING}Already in the database{bcolors.ENDC}")
-        return
-
-    error = False
-
-    knowledgeinterlinker["nature"] = "knowledgeinterlinker"
-    
-    folder = metadata_path.parents[0]
-    slug = slugify(name)
-
-    # get instructions file contents if IS FILE PATH
-    for key, value in knowledgeinterlinker["instructions_translations"].items():
-        if not "http" in value:
-            filename = path_leaf(value)
-            with open(str(folder) + "/" + filename, 'r') as f:
-                knowledgeinterlinker["instructions_translations"][key] = f.read()
-
-    # get file contents in file and send to the software interlinker
-    service = knowledgeinterlinker["softwareinterlinker"]
-    softwareinterlinker = await crud.interlinker.get_softwareinterlinker_by_service_name(
-        db=db, service_name=service)
-    if not softwareinterlinker:
-        print(f"\t{bcolors.FAIL}there is no {service} softwareinterlinker")
-        return
-
-    try:
-        print(f"\tis {service} supported knowledge interlinker")
-
-        for key, value in knowledgeinterlinker["file_translations"].items():
-            filename = path_leaf(value)
-            short_filename, file_extension = os.path.splitext(filename)
-
-            if "json" in file_extension:
-                with open(str(folder) + "/" + filename, 'r') as f:
+                if "json" in file_extension:
+                    with open(str(folder) + "/" + filename, 'r') as f:
+                        response = requests.post(
+                            f"http://{service}/assets", data=f.read()).json()
+                else:
+                    files_data = {
+                        'file': (name + file_extension, open(str(folder) + "/" + filename, "rb").read())}
                     response = requests.post(
-                        f"http://{service}/assets", data=f.read()).json()
-            else:
-                files_data = {
-                    'file': (name + file_extension, open(str(folder) + "/" + filename, "rb").read())}
-                response = requests.post(
-                    f"http://{service}/assets", files=files_data).json()
+                        f"http://{service}/assets", files=files_data).json()
 
-            print(f"ANSWER FOR {service}")
-            print(response)
-            knowledgeinterlinker["softwareinterlinker_id"] = softwareinterlinker.id
-            if not "genesis_asset_id_translations" in knowledgeinterlinker:
-                knowledgeinterlinker["genesis_asset_id_translations"] = {}
-            knowledgeinterlinker["genesis_asset_id_translations"][key] = response["id"] if "id" in response else response["_id"]
+                print(f"ANSWER FOR {service}")
+                print(response)
+                data["softwareinterlinker_id"] = softwareinterlinker.id
+                if not "genesis_asset_id_translations" in data:
+                    data["genesis_asset_id_translations"] = {}
+                data["genesis_asset_id_translations"][key] = response["id"] if "id" in response else response["_id"]
 
-        # parent folder where metadata.json is located
-        str_static_path = f'/app/static/{slug}'
-        knowledgeinterlinker["snapshots"] = get_snapshots(folder, str_static_path)
+            await crud.interlinker.create(
+                db=db,
+                interlinker=schemas.KnowledgeInterlinkerCreate(**data)
+            )
 
-        await crud.interlinker.create(
-            db=db,
-            interlinker=schemas.KnowledgeInterlinkerCreate(
-                **knowledgeinterlinker)
-        )
-        print(
-            f"\t{bcolors.HEADER}Knowledge interlinker with {service} created successfully!{bcolors.ENDC}")
-
-    except Exception as e:
-        error = True
-        print(f"\t{bcolors.FAIL}{str(e)}{bcolors.ENDC}")
-
-    if not error:
-        print(f"\t{bcolors.OKGREEN}Created successfully!{bcolors.ENDC}")
-
+        except Exception as e:
+            error = True
+            print(f"\t{bcolors.FAIL}{str(e)}{bcolors.ENDC}")
+        if not error:
+            print(f"\t{bcolors.OKGREEN}Created successfully!{bcolors.ENDC}")
 
 async def create_problemprofiles(db):
     with open("/app/interlinkers-data/problemprofiles.json") as json_file:
@@ -392,16 +319,19 @@ async def init():
         await create_coproductionschemas(db)
 
         # create external interlinkers first
-        for metadata_path in Path("/app/interlinkers-data/interlinkers").glob("external*/**/metadata.json"):
-            await create_externalinterlinker(db, metadata_path)
+        for metadata_path in Path("/app/interlinkers-data/interlinkers").glob("externalsoftware/**/metadata.json"):
+            await create_interlinker(db, metadata_path, externalsoftware=True)
+        
+        for metadata_path in Path("/app/interlinkers-data/interlinkers").glob("externalknowledge/**/metadata.json"):
+            await create_interlinker(db, metadata_path, externalknowledge=True)
 
         # create software interlinkers first
         for metadata_path in Path("/app/interlinkers-data/interlinkers").glob("software/**/metadata.json"):
-            await create_softwareinterlinker(db, metadata_path)
+            await create_interlinker(db, metadata_path, software=True)
 
         # then knowledge interlinkers
         for metadata_path in Path("/app/interlinkers-data/interlinkers").glob("knowledge/**/metadata.json"):
-            await create_knowledgeinterlinker(db, metadata_path)
+            await create_interlinker(db, metadata_path, knowledge=True)
 
     except Exception as e:
         raise e
