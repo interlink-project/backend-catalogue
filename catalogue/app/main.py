@@ -1,16 +1,30 @@
+from fastapi.staticfiles import StaticFiles
 from fastapi import FastAPI
-from fastapi.responses import RedirectResponse, HTMLResponse
+from fastapi.responses import HTMLResponse, RedirectResponse
+from fastapi_pagination import add_pagination
+from starlette.middleware import Middleware
 from starlette.middleware.cors import CORSMiddleware
+from starlette_context import context, plugins
+from starlette_context.middleware import ContextMiddleware
 
 from app.api.api_v1 import api_router
 from app.config import settings
-from app.middleware import RequestContextMiddleware
-from fastapi_pagination import add_pagination
+from app.middleware import LanguagePlugin, UserPlugin
 
+middleware = [
+    Middleware(
+        ContextMiddleware,
+        plugins=(
+            plugins.RequestIdPlugin(),
+            plugins.CorrelationIdPlugin(),
+            UserPlugin(),
+            LanguagePlugin()
+        )
+    )
+]
 app = FastAPI(
-    title=settings.PROJECT_NAME, docs_url="/docs", openapi_url=f"{settings.API_V1_STR}/openapi.json", root_path=settings.BASE_PATH
+    title=settings.PROJECT_NAME, docs_url="/docs", openapi_url=f"{settings.API_V1_STR}/openapi.json", root_path=settings.BASE_PATH, middleware=middleware
 )
-app.add_middleware(RequestContextMiddleware)
 
 # Set all CORS enabled origins
 if settings.BACKEND_CORS_ORIGINS:
@@ -25,7 +39,6 @@ if settings.BACKEND_CORS_ORIGINS:
 
 
 app.include_router(api_router, prefix=settings.API_V1_STR)
-
 
 
 @app.get("/")
@@ -43,13 +56,13 @@ def healthcheck():
 #from app.general.authentication import AuthMiddleware
 #from starlette.middleware.sessions import SessionMiddleware
 #app.add_middleware(SessionMiddleware, secret_key="some-random-string")
-#app.add_middleware(AuthMiddleware)
+# app.add_middleware(AuthMiddleware)
 
 ###################
 # Staticfiles
 ###################
 
-from fastapi.staticfiles import StaticFiles
+
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 ###################
@@ -58,7 +71,7 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # from fastapi_utils.tasks import repeat_every
 # from app.status import set_interlinkers_status
-# 
+#
 # @app.on_event("startup")
 # @repeat_every(seconds=5)
 # async def task_set_interlinkers_status() -> None:

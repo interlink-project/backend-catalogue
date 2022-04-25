@@ -5,6 +5,7 @@ from fastapi import Depends, HTTPException, Request
 from sqlalchemy.orm import Session
 
 from app.general.db.session import SessionLocal
+from starlette_context import context
 
 def get_token_in_cookie(request):
     try:
@@ -42,10 +43,8 @@ async def get_current_user(
     db: Session = Depends(get_db),
     # current_token: str = Depends(get_current_token)
 ) -> Optional[dict]:
-    from app.middleware import get_user
-
     try:
-        return get_user()
+        return context.data.get("user", None)
     except Exception as e:
         print(str(e))
         return None

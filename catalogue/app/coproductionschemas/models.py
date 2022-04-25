@@ -10,7 +10,7 @@ from sqlalchemy.dialects.postgresql import HSTORE, UUID, ARRAY
 from sqlalchemy.orm import relationship, backref
 
 from app.general.db.base_class import Base as BaseModel
-from app.middleware import translation_hybrid
+from app.locales import translation_hybrid
 from sqlalchemy.ext.associationproxy import association_proxy
 from app.artefacts.models import Artefact
 

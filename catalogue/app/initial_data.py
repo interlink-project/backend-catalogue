@@ -13,7 +13,6 @@ from slugify import slugify
 from app import crud, schemas
 from app.general.db.session import SessionLocal
 import asyncio
-from app.middleware import set_user
 from app.messages import set_logging_disabled
 
 logging.basicConfig(level=logging.INFO)

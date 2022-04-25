@@ -16,7 +16,7 @@ from sqlalchemy.orm import backref, relationship
 from app.artefacts.models import Artefact
 from app.config import settings
 from app.integrations.models import Integration
-from app.middleware import translation_hybrid
+from app.locales import translation_hybrid
 
 
 class Supporters(enum.Enum):

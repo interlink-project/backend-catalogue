@@ -35,6 +35,7 @@ uvicorn = {extras = ["standard"], version = "^0.17.0"}
 python-slugify = "^5.0.2"
 fastapi-pagination = "^0.9.1"
 aiormq = "^6.2.3" 
+starlette_context = "^0.3.3"
 
 [tool.poetry.dev-dependencies]
 mypy = "^0.770"
