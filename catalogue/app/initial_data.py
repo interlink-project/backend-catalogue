@@ -234,7 +234,7 @@ async def create_coproductionschemas(db):
                     **phase_data
                 )
             )
-            phases_resume[phase_data["reference"]] = {
+            phases_resume[phase_data["id"]] = {
                 "id": db_phase.id,
                 "prerequisites": phase_data.get("prerequisites", [])
             }
@@ -250,7 +250,7 @@ async def create_coproductionschemas(db):
                         **objective_data
                     )
                 )
-                objectives_resume[objective_data["reference"]] = {
+                objectives_resume[objective_data["id"]] = {
                     "id": db_objective.id,
                     "prerequisites": objective_data.get("prerequisites", [])
                 }
@@ -268,16 +268,16 @@ async def create_coproductionschemas(db):
                             **task_data
                         )
                     )
-                    tasks_resume[task_data["reference"]] = {
+                    tasks_resume[task_data["id"]] = {
                         "id": db_task.id,
                         "prerequisites": task_data.get("prerequisites", [])
                     }
                 # prerequisites
                 for key, task_resume in tasks_resume.items():
                     db_taskmetadata = await crud.taskmetadata.get(db=db, id=task_resume["id"])
-                    prerequisite_reference: dict
-                    for prerequisite_reference in task_resume["prerequisites"]:
-                        if (ref := prerequisite_reference.get("item", None)):
+                    prerequisite_id: dict
+                    for prerequisite_id in task_resume["prerequisites"]:
+                        if (ref := prerequisite_id.get("item", None)):
                             db_prerequisite = await crud.taskmetadata.get(
                                 db=db, id=tasks_resume[ref]["id"])
                             print(db_prerequisite, "is a prerequisite for", db_task)
@@ -286,9 +286,9 @@ async def create_coproductionschemas(db):
             for key, objective_resume in objectives_resume.items():
                 db_objectivemetadata = await crud.objectivemetadata.get(
                     db=db, id=objective_resume["id"])
-                prerequisite_reference: dict
-                for prerequisite_reference in objective_resume["prerequisites"]:
-                    if (ref := prerequisite_reference.get("item", None)):
+                prerequisite_id: dict
+                for prerequisite_id in objective_resume["prerequisites"]:
+                    if (ref := prerequisite_id.get("item", None)):
                         db_prerequisite = await crud.objectivemetadata.get(
                             db=db, id=objectives_resume[ref]["id"])
                         print(db_prerequisite, "is a prerequisite for", db_objective)
@@ -297,8 +297,8 @@ async def create_coproductionschemas(db):
         print(phases_resume)
         for key, phase_resume in phases_resume.items():
             db_phasemetadata = await crud.phasemetadata.get(db=db, id=phase_resume["id"])
-            for prerequisite_reference in phase_resume["prerequisites"]:
-                if (ref := prerequisite_reference.get("item", None)):
+            for prerequisite_id in phase_resume["prerequisites"]:
+                if (ref := prerequisite_id.get("item", None)):
                     db_prerequisite = await crud.phasemetadata.get(
                         db=db, id=phases_resume[ref]["id"])
                     print(db_prerequisite, "is a prerequisite for", db_phasemetadata)
