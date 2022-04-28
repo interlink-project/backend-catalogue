@@ -186,7 +186,7 @@ async def create_interlinker(db, metadata_path, software=False, externalsoftware
             print(f"\t{bcolors.OKGREEN}Created successfully!{bcolors.ENDC}")
 
 async def create_problemprofiles(db):
-    with open("/app/interlinkers-data/problemprofiles.json") as json_file:
+    with open("/app/interlinkers-data/problemprofiles/problemprofiles.json") as json_file:
         for problem in json.load(json_file):
             id = problem["id"]
             if not await crud.problemprofile.get(
@@ -294,7 +294,6 @@ async def create_coproductionschemas(db):
                         print(db_prerequisite, "is a prerequisite for", db_objective)
                         await crud.objectivemetadata.add_prerequisite(
                             db=db, objectivemetadata=db_objectivemetadata, prerequisite=db_prerequisite)
-        print(phases_resume)
         for key, phase_resume in phases_resume.items():
             db_phasemetadata = await crud.phasemetadata.get(db=db, id=phase_resume["id"])
             for prerequisite_id in phase_resume["prerequisites"]:
