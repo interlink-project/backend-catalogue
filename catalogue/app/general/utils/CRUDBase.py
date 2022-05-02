@@ -82,7 +82,7 @@ class CRUDBase(Generic[ModelType, CreateSchemaType, PatchSchemaType]):
         await log({
             "model": self.modelName,
             "action": "UPDATE",
-            "id": obj_in.id
+            "id": db_obj.id
         })
         db.refresh(db_obj)
         return db_obj

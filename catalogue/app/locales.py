@@ -14,8 +14,10 @@ DEFAULT_LANGUAGE = DEFAULT_LANGUAGE_ENUM.value
 SUPPORTED_LANGUAGE_CODES = [e.value for e in Locales]
 
 def get_language():
-    return context.data.get("language", DEFAULT_LANGUAGE)
-
+    try:
+        return context.data.get("language", DEFAULT_LANGUAGE)
+    except:
+        return DEFAULT_LANGUAGE
 
 translation_hybrid = TranslationHybrid(
     current_locale=get_language,

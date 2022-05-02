@@ -20,6 +20,7 @@ logger = logging.getLogger(__name__)
 
 # in start-dev.sh and start-prod.sh it is made a git clone of https://github.com/interlink-project/interlinkers-data/
 
+remove = False
 
 class bcolors:
     HEADER = "\033[95m"
@@ -87,9 +88,11 @@ async def create_interlinker(db, metadata_path, software=False, externalsoftware
     name = data["name_translations"]["en"]
     print(f"\n{bcolors.OKBLUE}Processing {bcolors.ENDC}{bcolors.BOLD}{name}{bcolors.ENDC}")
 
-    if await crud.interlinker.get_by_name(db=db, name=name):
-        print(f"\t{bcolors.WARNING}Already in the database{bcolors.ENDC}")
-        return
+    if (interlinker := await crud.interlinker.get_by_name(db=db, name=name)):
+        if not remove: 
+            print(f"\t{bcolors.WARNING}Already in the database{bcolors.ENDC}")
+            return
+        crud.interlinker.remove(db=db, id=interlinker.id)
 
     # parent folder where metadata.json is located
     folder = metadata_path.parents[0]
@@ -185,124 +188,131 @@ async def create_interlinker(db, metadata_path, software=False, externalsoftware
         if not error:
             print(f"\t{bcolors.OKGREEN}Created successfully!{bcolors.ENDC}")
 
-async def create_problemprofiles(db):
-    with open("/app/interlinkers-data/problemprofiles/problemprofiles.json") as json_file:
-        for problem in json.load(json_file):
-            id = problem["id"]
-            if not await crud.problemprofile.get(
+async def create_problemprofile(db, problem):
+    id = problem["id"]
+    if pp := await crud.problemprofile.get(
+        db=db,
+        id=id
+    ):
+        if not remove:
+            print(f"\t{bcolors.WARNING}{id} already in the database{bcolors.ENDC}")
+            await crud.problemprofile.update(
                 db=db,
-                id=id
-            ):
-                await crud.problemprofile.create(
-                    db=db,
-                    obj_in=schemas.ProblemProfileCreate(**problem)
+                db_obj=pp,
+                obj_in=schemas.ProblemProfilePatch(**problem)
+            )
+            return
+        await crud.problemprofile.remove(db=db, id=pp.id)
+    await crud.problemprofile.create(
+        db=db,
+        obj_in=schemas.ProblemProfileCreate(**problem)
+    )
+    print(f"\t{bcolors.OKGREEN}Problem profile {id} created successfully!{bcolors.ENDC}")
+
+
+async def create_coproductionschema(db, schema_data):
+    name = schema_data["name_translations"]["en"]
+    if (sc := await crud.coproductionschema.get_by_name(db=db, locale="en", name=name)):
+        if not remove:
+            print(f"\t{bcolors.WARNING}{name} already in the database{bcolors.ENDC}")
+            await crud.coproductionschema.update(
+                db=db,
+                db_obj=sc,
+                obj_in=schemas.CoproductionSchemaPatch(
+                    **schema_data, is_public=True
                 )
-                print(f"\t{bcolors.OKGREEN}Problem profile {id} successfully!{bcolors.ENDC}")
-
-
-async def create_coproductionschemas(db):
-    if (sc := await crud.coproductionschema.get_by_name(db=db, locale="en", name="Default schema")):
+            )
+            return
         await crud.coproductionschema.remove(db=db, id=sc.id)
-        print("Schema removed")
+        print(f"Schema {name} removed")
 
-    if (sc := await crud.coproductionschema.get_by_name(db=db, locale="en", name="hackathon")):
-        await crud.coproductionschema.remove(db=db, id=sc.id)
-        print("Schema removed")
-        
-    data = requests.get(
-        "https://raw.githubusercontent.com/interlink-project/interlinkers-data/master/all.json").json()
-    # with open("/app/interlinkers-data/all.json") as json_file:
-    #     data = json.load(json_file)
+    print(f"{bcolors.OKBLUE}## Processing {bcolors.ENDC}{name}{bcolors.OKBLUE}")
+    SCHEMA = await crud.coproductionschema.create(
+        db=db,
+        obj_in=schemas.CoproductionSchemaCreate(
+            **schema_data, is_public=True
+        )
+    )
+    phases_resume = {}
+    phase_data: dict
+    for phase_data in schema_data["phases"]:
+        phase_data["coproductionschema_id"] = SCHEMA.id
 
-    for schema_data in data["schemas"]:
-        name = schema_data["name_translations"]["en"]
-        print(f"{bcolors.OKBLUE}## PROCESSING {bcolors.ENDC}{name}{bcolors.OKBLUE}")
-        SCHEMA = await crud.coproductionschema.create(
+        db_phase = await crud.phasemetadata.create(
             db=db,
-            obj_in=schemas.CoproductionSchemaCreate(
-                **schema_data, is_public=True
+            phasemetadata=schemas.PhaseMetadataCreate(
+                **phase_data
             )
         )
-        phases_resume = {}
-        phase_data: dict
-        for phase_data in schema_data["phases"]:
-            phase_data["coproductionschema_id"] = SCHEMA.id
+        phases_resume[phase_data["id"]] = {
+            "id": db_phase.id,
+            "prerequisites": phase_data.get("prerequisites", [])
+        }
 
-            db_phase = await crud.phasemetadata.create(
+        objectives_resume = {}
+        objective_data: dict
+        for objective_data in phase_data["objectives"]:
+            objective_data["phasemetadata_id"] = db_phase.id
+
+            db_objective = await crud.objectivemetadata.create(
                 db=db,
-                phasemetadata=schemas.PhaseMetadataCreate(
-                    **phase_data
+                objectivemetadata=schemas.ObjectiveMetadataCreate(
+                    **objective_data
                 )
             )
-            phases_resume[phase_data["id"]] = {
-                "id": db_phase.id,
-                "prerequisites": phase_data.get("prerequisites", [])
+            objectives_resume[objective_data["id"]] = {
+                "id": db_objective.id,
+                "prerequisites": objective_data.get("prerequisites", [])
             }
 
-            objectives_resume = {}
-            objective_data: dict
-            for objective_data in phase_data["objectives"]:
-                objective_data["phasemetadata_id"] = db_phase.id
-
-                db_objective = await crud.objectivemetadata.create(
+            tasks_resume = {}
+            task_data: dict
+            for task_data in objective_data["tasks"]:
+                task_data["objectivemetadata_id"] = db_objective.id
+                sum = list(task_data["problemprofiles"]) + \
+                    list(objective_data["problemprofiles"])
+                task_data["problemprofiles"] = list(set(sum))
+                db_task = await crud.taskmetadata.create(
                     db=db,
-                    objectivemetadata=schemas.ObjectiveMetadataCreate(
-                        **objective_data
+                    taskmetadata=schemas.TaskMetadataCreate(
+                        **task_data
                     )
                 )
-                objectives_resume[objective_data["id"]] = {
-                    "id": db_objective.id,
-                    "prerequisites": objective_data.get("prerequisites", [])
+                tasks_resume[task_data["id"]] = {
+                    "id": db_task.id,
+                    "prerequisites": task_data.get("prerequisites", [])
                 }
-
-                tasks_resume = {}
-                task_data: dict
-                for task_data in objective_data["tasks"]:
-                    task_data["objectivemetadata_id"] = db_objective.id
-                    sum = list(task_data["problemprofiles"]) + \
-                        list(objective_data["problemprofiles"])
-                    task_data["problemprofiles"] = list(set(sum))
-                    db_task = await crud.taskmetadata.create(
-                        db=db,
-                        taskmetadata=schemas.TaskMetadataCreate(
-                            **task_data
-                        )
-                    )
-                    tasks_resume[task_data["id"]] = {
-                        "id": db_task.id,
-                        "prerequisites": task_data.get("prerequisites", [])
-                    }
-                # prerequisites
-                for key, task_resume in tasks_resume.items():
-                    db_taskmetadata = await crud.taskmetadata.get(db=db, id=task_resume["id"])
-                    prerequisite_id: dict
-                    for prerequisite_id in task_resume["prerequisites"]:
-                        if (ref := prerequisite_id.get("item", None)):
-                            db_prerequisite = await crud.taskmetadata.get(
-                                db=db, id=tasks_resume[ref]["id"])
-                            print(db_prerequisite, "is a prerequisite for", db_task)
-                            await crud.taskmetadata.add_prerequisite(
-                                db=db, taskmetadata=db_taskmetadata, prerequisite=db_prerequisite)
-            for key, objective_resume in objectives_resume.items():
-                db_objectivemetadata = await crud.objectivemetadata.get(
-                    db=db, id=objective_resume["id"])
+            # prerequisites
+            for key, task_resume in tasks_resume.items():
+                db_taskmetadata = await crud.taskmetadata.get(db=db, id=task_resume["id"])
                 prerequisite_id: dict
-                for prerequisite_id in objective_resume["prerequisites"]:
+                for prerequisite_id in task_resume["prerequisites"]:
                     if (ref := prerequisite_id.get("item", None)):
-                        db_prerequisite = await crud.objectivemetadata.get(
-                            db=db, id=objectives_resume[ref]["id"])
-                        print(db_prerequisite, "is a prerequisite for", db_objective)
-                        await crud.objectivemetadata.add_prerequisite(
-                            db=db, objectivemetadata=db_objectivemetadata, prerequisite=db_prerequisite)
-        for key, phase_resume in phases_resume.items():
-            db_phasemetadata = await crud.phasemetadata.get(db=db, id=phase_resume["id"])
-            for prerequisite_id in phase_resume["prerequisites"]:
+                        db_prerequisite = await crud.taskmetadata.get(
+                            db=db, id=tasks_resume[ref]["id"])
+                        print(db_prerequisite, "is a prerequisite for", db_task)
+                        await crud.taskmetadata.add_prerequisite(
+                            db=db, taskmetadata=db_taskmetadata, prerequisite=db_prerequisite)
+        for key, objective_resume in objectives_resume.items():
+            db_objectivemetadata = await crud.objectivemetadata.get(
+                db=db, id=objective_resume["id"])
+            prerequisite_id: dict
+            for prerequisite_id in objective_resume["prerequisites"]:
                 if (ref := prerequisite_id.get("item", None)):
-                    db_prerequisite = await crud.phasemetadata.get(
-                        db=db, id=phases_resume[ref]["id"])
-                    print(db_prerequisite, "is a prerequisite for", db_phasemetadata)
-                    await crud.phasemetadata.add_prerequisite(
-                        db=db, phasemetadata=db_phasemetadata, prerequisite=db_prerequisite)
+                    db_prerequisite = await crud.objectivemetadata.get(
+                        db=db, id=objectives_resume[ref]["id"])
+                    print(db_prerequisite, "is a prerequisite for", db_objective)
+                    await crud.objectivemetadata.add_prerequisite(
+                        db=db, objectivemetadata=db_objectivemetadata, prerequisite=db_prerequisite)
+    for key, phase_resume in phases_resume.items():
+        db_phasemetadata = await crud.phasemetadata.get(db=db, id=phase_resume["id"])
+        for prerequisite_id in phase_resume["prerequisites"]:
+            if (ref := prerequisite_id.get("item", None)):
+                db_prerequisite = await crud.phasemetadata.get(
+                    db=db, id=phases_resume[ref]["id"])
+                print(db_prerequisite, "is a prerequisite for", db_phasemetadata)
+                await crud.phasemetadata.add_prerequisite(
+                    db=db, phasemetadata=db_phasemetadata, prerequisite=db_prerequisite)
 
 
 async def init():
@@ -310,11 +320,15 @@ async def init():
     set_logging_disabled(True)
 
     try:
-
         # create problem profiles
-        await create_problemprofiles(db)
+        with open("/app/interlinkers-data/problemprofiles/problemprofiles.json") as json_file:
+            for problem in json.load(json_file):
+                await create_problemprofile(db, problem)
 
-        await create_coproductionschemas(db)
+        # create coproduction schemas
+        data = requests.get("https://raw.githubusercontent.com/interlink-project/interlinkers-data/master/all.json").json()
+        for schema_data in data["schemas"]:
+            await create_coproductionschema(db, schema_data)
 
         # create external interlinkers first
         for metadata_path in Path("/app/interlinkers-data/interlinkers").glob("externalsoftware/**/metadata.json"):
