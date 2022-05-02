@@ -18,6 +18,7 @@ services:
       context: .
       dockerfile: Dockerfile.catalogue
       target: dev
+    command: ["bash", "./start-prod.sh"]
     labels:
       - traefik.enable=true
       - traefik.docker.network=traefik-public

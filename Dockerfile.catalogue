@@ -16,6 +16,8 @@ WORKDIR /app/
 # Copy poetry.lock* in case it doesn't exist in the repo
 COPY ./catalogue/pyproject.toml ./catalogue/poetry.lock* /app/
 COPY ./catalogue /app
+RUN chmod +x /app/start-dev.sh
+RUN chmod +x /app/start-prod.sh
 ENV PYTHONPATH=/app
 
 FROM builder as dev
@@ -24,12 +26,8 @@ RUN poetry install --no-root
 RUN apt-get update \
   && apt-get install -y --no-install-recommends graphviz \
   && rm -rf /var/lib/apt/lists/*
-COPY ./catalogue/start-dev.sh ./start-dev.sh
-RUN chmod +x ./start-dev.sh
 CMD ["bash", "./start-dev.sh"]
 
 FROM builder as prod
 RUN poetry install --no-root --no-dev
-COPY ./catalogue/start-prod.sh ./start-prod.sh
-RUN chmod +x ./start-prod.sh
 CMD ["bash", "./start-prod.sh"]
