@@ -3,12 +3,18 @@ name: build-and-publish-docker
 on:
 
   workflow_dispatch:
-    inputs:
-      version:
-        description: 'image version'
-        default: 'latest'
-        required: true
-        type: string
+    version:
+      description: 'server'
+      required: true
+      default: 'none'
+      type: choice
+      options:
+        - none
+        - dev
+        - demo
+        - mef
+        - zgz
+        - varam
 
   push:
     branches:
@@ -18,6 +24,9 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
       - name: Checkout
         uses: actions/checkout@v2
       - name: Set up Docker Buildx
@@ -27,16 +36,26 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Build and push Docker Image
+      - name: Build and push Docker Image Latest
         id: docker_build
         uses: docker/build-push-action@v2
         with:
           context: .
           file: Dockerfile.catalogue
           push: true
-          tags: interlinkproject/backend-catalogue:${{ github.event.inputs.version || 'latest' }}
+          tags: interlinkproject/backend-catalogue:${{ github.event.inputs.version != 'none' || '' }}latest
           cache-from: type=registry,ref=interlinkproject/backend-catalogue:buildcache
           cache-to: type=registry,ref=interlinkproject/backend-catalogue:buildcache,mode=max
+      - name: Build and push Docker Image Version
+          id: docker_build
+          uses: docker/build-push-action@v2
+          with:
+            context: .
+            file: Dockerfile.catalogue
+            push: true
+            tags: interlinkproject/backend-catalogue:${{ github.event.inputs.version }}.${{ steps.date.outputs.date }}
+            cache-from: type=registry,ref=interlinkproject/backend-catalogue:buildcache
+            cache-to: type=registry,ref=interlinkproject/backend-catalogue:buildcache,mode=max
       - name: Trigger Dev Deployment
         uses: octokit/request-action@v2.x
         id: trigger_dev_deployment
