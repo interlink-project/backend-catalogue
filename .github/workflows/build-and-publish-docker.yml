@@ -2,6 +2,8 @@ name: build-and-publish-docker
 
 on:
 
+  workflow_dispatch:
+
   push:
     branches:
       - master
@@ -12,9 +14,12 @@ jobs:
     steps:
       - name: Get tag latest
         id: tag_latest
+        run: echo "::set-output name=tag_latest::$(echo $(echo ${{ github.ref_name }} | sed 's/[^a-z]*//g' | sed 's/^master//g'; echo latest) | tr " " ".")"
+      - name: Log tags
+        id: log_tags
         run: |
+          echo ${{ steps.tag_latest.outputs.tag_latest }}
           echo ${{ github.ref_name }}
-          echo "::set-output name=tag_latest::$(echo $(echo ${{ github.ref_name }} | sed 's/[^a-z]*//g' | sed 's/^master//g'; echo latest) | tr " " ".")"
       - name: Checkout
         uses: actions/checkout@v2
       - name: Set up Docker Buildx
