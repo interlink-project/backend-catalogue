@@ -3,18 +3,19 @@ name: build-and-publish-docker
 on:
 
   workflow_dispatch:
-    version:
-      description: 'version type'
-      required: true
-      default: 'none'
-      type: choice
-      options:
-        - ''
-        - 'dev'
-        - 'demo'
-        - 'mef'
-        - 'zgz'
-        - 'varam'
+    inputs:
+      version:
+        description: 'version type'
+        required: true
+        default: ''
+        type: choice
+        options:
+          - ''
+          - 'dev'
+          - 'demo'
+          - 'mef'
+          - 'zgz'
+          - 'varam'
 
   push:
     branches:
