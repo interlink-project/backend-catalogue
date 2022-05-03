@@ -2,21 +2,6 @@ name: build-and-publish-docker
 
 on:
 
-  workflow_dispatch:
-    inputs:
-      version:
-        description: 'version type'
-        required: true
-        default: ''
-        type: choice
-        options:
-          - ''
-          - 'dev'
-          - 'demo'
-          - 'mef'
-          - 'zgz'
-          - 'varam'
-
   push:
     branches:
       - master
@@ -25,9 +10,11 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
-      - name: Get current date
-        id: date
-        run: echo "::set-output name=date::$(date +'%Y%m%d')"
+      - name: Get tag latest
+        id: tag_latest
+        run: |
+          echo ${{ github.ref_name }}
+          echo "::set-output name=tag_latest::$(echo $(echo ${{ github.ref_name }} | sed 's/[^a-z]*//g' | sed 's/^master//g'; echo latest) | tr " " ".")"
       - name: Checkout
         uses: actions/checkout@v2
       - name: Set up Docker Buildx
@@ -45,8 +32,8 @@ jobs:
           file: Dockerfile.catalogue
           push: true
           tags: |
-            interlinkproject/backend-catalogue:${{ github.event.inputs.version != '' && '.' || '' }}latest
-            interlinkproject/backend-catalogue:${{ github.event.inputs.version != '' && '.' || '' }}${{ steps.date.outputs.date }}
+            interlinkproject/backend-catalogue:${{ steps.tag_latest.outputs.tag_latest }}
+            interlinkproject/backend-catalogue:${{ github.ref_name }}
           cache-from: type=registry,ref=interlinkproject/backend-catalogue:buildcache
           cache-to: type=registry,ref=interlinkproject/backend-catalogue:buildcache,mode=max
       - name: Trigger Dev Deployment
