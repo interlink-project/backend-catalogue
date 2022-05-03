@@ -34,7 +34,7 @@ jobs:
           context: .
           file: Dockerfile.catalogue
           push: true
-          tags: interlinkproject/backend-catalogue:${{ github.event.inputs.version }}
+          tags: interlinkproject/backend-catalogue:${{ github.event.inputs.version || 'latest' }}
           cache-from: type=registry,ref=interlinkproject/backend-catalogue:buildcache
           cache-to: type=registry,ref=interlinkproject/backend-catalogue:buildcache,mode=max
       - name: Trigger Dev Deployment
