@@ -4,17 +4,17 @@ on:
 
   workflow_dispatch:
     version:
-      description: 'server'
+      description: 'version type'
       required: true
       default: 'none'
       type: choice
       options:
-        -
-        - dev
-        - demo
-        - mef
-        - zgz
-        - varam
+        - ''
+        - 'dev'
+        - 'demo'
+        - 'mef'
+        - 'zgz'
+        - 'varam'
 
   push:
     branches:
