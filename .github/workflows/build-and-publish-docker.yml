@@ -44,7 +44,7 @@ jobs:
           file: Dockerfile.catalogue
           push: true
           tags: |
-            interlinkproject/backend-catalogue:${{ github.event.inputs.version != 'none' || '' }}latest
+            interlinkproject/backend-catalogue:${{ github.event.inputs.version != '' && '' || '' }}latest
             interlinkproject/backend-catalogue:${{ github.event.inputs.version != '' && '.' || '' }}${{ steps.date.outputs.date }}
           cache-from: type=registry,ref=interlinkproject/backend-catalogue:buildcache
           cache-to: type=registry,ref=interlinkproject/backend-catalogue:buildcache,mode=max
