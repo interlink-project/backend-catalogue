@@ -9,7 +9,7 @@ on:
       default: 'none'
       type: choice
       options:
-        - none
+        -
         - dev
         - demo
         - mef
@@ -45,7 +45,7 @@ jobs:
           push: true
           tags: |
             interlinkproject/backend-catalogue:${{ github.event.inputs.version != 'none' || '' }}latest
-            interlinkproject/backend-catalogue:${{ github.event.inputs.version != 'none' && '.' || '' }}${{ steps.date.outputs.date }}
+            interlinkproject/backend-catalogue:${{ github.event.inputs.version != '' && '.' || '' }}${{ steps.date.outputs.date }}
           cache-from: type=registry,ref=interlinkproject/backend-catalogue:buildcache
           cache-to: type=registry,ref=interlinkproject/backend-catalogue:buildcache,mode=max
       - name: Trigger Dev Deployment
