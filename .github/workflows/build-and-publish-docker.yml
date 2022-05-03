@@ -1,6 +1,15 @@
 name: build-and-publish-docker
 
 on:
+
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'image version'
+        default: 'latest'
+        required: true
+        type: string
+
   push:
     branches:
       - master
@@ -25,7 +34,7 @@ jobs:
           context: .
           file: Dockerfile.catalogue
           push: true
-          tags: interlinkproject/backend-catalogue:latest
+          tags: interlinkproject/backend-catalogue:${{ inputs.tag }}
           cache-from: type=registry,ref=interlinkproject/backend-catalogue:buildcache
           cache-to: type=registry,ref=interlinkproject/backend-catalogue:buildcache,mode=max
       - name: Trigger Dev Deployment
