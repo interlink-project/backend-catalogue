@@ -13,6 +13,7 @@ from app.general.utils.AllOptional import AllOptional
 from app.integrations.schemas import IntegrationOut
 
 from .models import Supporters
+from app.config import settings
 
 # Interlinker
 
@@ -33,7 +34,7 @@ Formats = choice(["pdf", "editable_source_document",
 
 
 class BaseInterlinkerBase(ArtefactBase):
-    languages: list = ["en"]
+    languages: list = [settings.DEFAULT_LANGUAGE]
     published: Optional[bool]
     difficulty: Difficulties
     targets: Optional[List[Targets]]

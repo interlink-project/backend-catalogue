@@ -8,7 +8,6 @@ services:
       - ./catalogue:/app
     env_file:
       - .env
-      - .env.integrated
     environment:
       - PROTOCOL=http://
       - SERVER_NAME=${DOMAIN?Variable not set}
@@ -18,7 +17,7 @@ services:
       context: .
       dockerfile: Dockerfile.catalogue
       target: dev
-    command: ["bash", "./start-prod.sh"]
+    command: ["bash", "./start-dev.sh"]
     labels:
       - traefik.enable=true
       - traefik.docker.network=traefik-public

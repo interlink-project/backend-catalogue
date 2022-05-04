@@ -6,8 +6,7 @@ from starlette_context.plugins import Plugin
 
 from app.general import deps
 from app.general.authentication import decode_token
-from app.locales import DEFAULT_LANGUAGE, SUPPORTED_LANGUAGE_CODES
-
+from app.config import settings
 
 class UserPlugin(Plugin):
     # The returned value will be inserted in the context with this key
@@ -31,8 +30,8 @@ class LanguagePlugin(Plugin):
     ) -> Optional[Any]:
         try:
             header_lang = request.headers.get("accept-language")
-            used_language = header_lang if header_lang in SUPPORTED_LANGUAGE_CODES else DEFAULT_LANGUAGE
+            used_language = header_lang if header_lang in settings.ALLOWED_LANGUAGES_LIST else settings.DEFAULT_LANGUAGE
         except:
-            used_language = DEFAULT_LANGUAGE
+            used_language = settings.DEFAULT_LANGUAGE
         print("LANGUAGE", used_language)
         return used_language

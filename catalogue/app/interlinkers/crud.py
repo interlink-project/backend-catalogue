@@ -16,9 +16,10 @@ from fastapi_pagination.ext.sqlalchemy import paginate
 
 from fastapi.encoders import jsonable_encoder
 from app.messages import log
+from app.config import settings
 
 class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]):
-    async def get_by_name(self, db: Session, name: str, language: str = "en") -> Optional[Interlinker]:
+    async def get_by_name(self, db: Session, name: str, language: str = settings.DEFAULT_LANGUAGE) -> Optional[Interlinker]:
         return db.query(Interlinker).filter(
             Interlinker.name_translations[language] == name
         ).first()
@@ -135,7 +136,10 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
 
         if rating:
             queries.append(Interlinker.rating >= rating)
-            
+        
+        if language:
+            queries.append(Interlinker.languages.any(language))
+
         if search:
             search = search.lower()
             queries.append(or_(
@@ -179,19 +183,24 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
         ))
 
     async def get_by_problemprofiles(
-        self, db: Session, problemprofiles: list, exclude: list = []
+        self, db: Session, problemprofiles: list, exclude: list = [], language: str = settings.DEFAULT_LANGUAGE
     ) -> List[Interlinker]:
         await log({
             "model": self.modelName,
             "action": "GET_BY_PROBLEMPROFILES",
             "problemprofiles": problemprofiles,
         })
-        return paginate(db.query(Interlinker).filter(
+        queries = [
             and_(
                 Interlinker.problemprofiles.any(ProblemProfile.id.in_(problemprofiles)),
                 Interlinker.id.not_in(exclude)
             )
-        ))
+        ]
+        
+        if language:
+            queries.append(Interlinker.languages.any(language))
+
+        return paginate(db.query(Interlinker).filter(*queries))
        
     # CRUD Permissions
     def can_create(self, user):

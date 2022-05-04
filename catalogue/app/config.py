@@ -45,7 +45,8 @@ class Settings(BaseSettings):
             path=f"/{values.get('POSTGRES_DB') or ''}",
         )
 
-    DEVSOLOMODE: bool = False if os.getenv("BASE_PATH") else True
+    DEFAULT_LANGUAGE: str
+    ALLOWED_LANGUAGES_LIST: list = os.getenv("ALLOWED_LANGUAGES", "").split(",")
 
     class Config:
         case_sensitive = True

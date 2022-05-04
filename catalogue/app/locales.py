@@ -1,25 +1,14 @@
-from contextvars import ContextVar
 from sqlalchemy_utils import TranslationHybrid
-import enum
 from starlette_context import context
-
-class Locales(enum.Enum):
-    en = "en"
-    es = "es"
-    it = "it"
-    lv = "lv"
-
-DEFAULT_LANGUAGE_ENUM = Locales.en
-DEFAULT_LANGUAGE = DEFAULT_LANGUAGE_ENUM.value
-SUPPORTED_LANGUAGE_CODES = [e.value for e in Locales]
+from app.config import settings
 
 def get_language():
     try:
-        return context.data.get("language", DEFAULT_LANGUAGE)
+        return context.data.get("language", settings.DEFAULT_LANGUAGE)
     except:
-        return DEFAULT_LANGUAGE
+        return settings.DEFAULT_LANGUAGE
 
 translation_hybrid = TranslationHybrid(
     current_locale=get_language,
-    default_locale=DEFAULT_LANGUAGE
+    default_locale=settings.DEFAULT_LANGUAGE
 )

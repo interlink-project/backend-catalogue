@@ -100,7 +100,6 @@ async def read_coproductionschema(
     *,
     db: Session = Depends(deps.get_db),
     name: str,
-    locale: str = "en"
 ) -> Any:
     """
     Get coproductionschema by ID.

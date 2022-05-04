@@ -9,6 +9,7 @@ from sqlalchemy.orm import Session
 from app import crud, models, schemas
 from app.exceptions import CrudException
 from app.general import deps
+from app.locales import get_language
 
 router = APIRouter()
 
@@ -21,11 +22,12 @@ async def list_interlinkers(
     search: Optional[str] = Query(None),
     db: Session = Depends(deps.get_db),
     current_user: Optional[dict] = Depends(deps.get_current_user),
+    language: str = Depends(get_language)
 ) -> Any:
     """
     Retrieve interlinkers.
     """
-    return await crud.interlinker.get_multi(db, search=search, rating=rating, natures=nature, creator=creator)
+    return await crud.interlinker.get_multi(db, search=search, rating=rating, natures=nature, creator=creator, language=language)
 
 
 @router.post("/by_problemprofiles", response_model=Page[schemas.InterlinkerOut])
@@ -100,7 +102,6 @@ async def read_interlinker_by_name(
     *,
     db: Session = Depends(deps.get_db),
     name: str,
-    locale: str = "en"
 ) -> Any:
     """
     Get interlinker by name.

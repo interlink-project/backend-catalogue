@@ -13,15 +13,17 @@ from app.models import (
 )
 from app.problemprofiles.crud import exportCrud as problemprofilesCrud
 from app.schemas import CoproductionSchemaCreate, CoproductionSchemaPatch, TaskMetadataCreate, TaskMetadataPatch, ObjectiveMetadataCreate, ObjectiveMetadataPatch, PhaseMetadataCreate, PhaseMetadataPatch
-
+from app.config import settings
 
 class CRUDCoproductionSchema(CRUDBase[CoproductionSchema, CoproductionSchemaCreate, CoproductionSchemaPatch]):
     async def get_multi(
-        self, db: Session, search: str = "", rating: int = 0, creator: list = [], language: str = "en"
+        self, db: Session, search: str = "", rating: int = 0, creator: list = [], language: str = settings.DEFAULT_LANGUAGE
     ) -> List[CoproductionSchema]:
         queries = []
         if rating:
             queries.append(CoproductionSchema.rating >= rating)
+        if language:
+            queries.append(CoproductionSchema.languages.any(language))
 
         if search:
             search = search.lower()
@@ -63,7 +65,7 @@ exportCrud = CRUDCoproductionSchema(CoproductionSchema)
 
 class CRUDObjectiveMetadata(CRUDBase[ObjectiveMetadata, ObjectiveMetadataCreate, ObjectiveMetadataPatch]):
 
-    async def get_by_name(self, db: Session, name: str, language: str = "en") -> Optional[ObjectiveMetadata]:
+    async def get_by_name(self, db: Session, name: str, language: str = settings.DEFAULT_LANGUAGE) -> Optional[ObjectiveMetadata]:
         return db.query(ObjectiveMetadata).filter(ObjectiveMetadata.name_translations[language] == name).first()
 
     async def create(self, db: Session, *, objectivemetadata: ObjectiveMetadataCreate) -> ObjectiveMetadata:

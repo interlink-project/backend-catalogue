@@ -102,7 +102,7 @@ class SoftwareInterlinker(Interlinker):
 
     @property
     def backend(self):
-        if not self.integration or settings.DEVSOLOMODE:
+        if not self.integration:
             return None
         integration : Integration = self.integration
         SERVER_NAME = integration.domain or settings.SERVER_NAME

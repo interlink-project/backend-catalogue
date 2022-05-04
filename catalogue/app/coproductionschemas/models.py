@@ -7,7 +7,7 @@ from sqlalchemy import (
     Table
 )
 from sqlalchemy.dialects.postgresql import HSTORE, UUID, ARRAY
-from sqlalchemy.orm import relationship, backref
+from sqlalchemy.orm import relationship
 
 from app.general.db.base_class import Base as BaseModel
 from app.locales import translation_hybrid
