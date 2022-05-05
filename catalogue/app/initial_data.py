@@ -20,8 +20,6 @@ logger = logging.getLogger(__name__)
 
 # in start-dev.sh and start-prod.sh it is made a git clone of https://github.com/interlink-project/interlinkers-data/
 
-remove = False
-
 class bcolors:
     HEADER = "\033[95m"
     OKBLUE = "\033[94m"
@@ -89,10 +87,8 @@ async def create_interlinker(db, metadata_path, software=False, externalsoftware
     print(f"\n{bcolors.OKBLUE}Processing {bcolors.ENDC}{bcolors.BOLD}{name}{bcolors.ENDC}")
 
     if (interlinker := await crud.interlinker.get_by_name(db=db, name=name)):
-        if not remove: 
-            print(f"\t{bcolors.WARNING}Already in the database{bcolors.ENDC}")
-            return
-        crud.interlinker.remove(db=db, id=interlinker.id)
+        print(f"\t{bcolors.WARNING}Already in the database{bcolors.ENDC}")
+        return
 
     # parent folder where metadata.json is located
     folder = metadata_path.parents[0]
@@ -187,15 +183,13 @@ async def create_problemprofile(db, problem):
         db=db,
         id=id
     ):
-        if not remove:
-            print(f"\t{bcolors.WARNING}{id} already in the database{bcolors.ENDC}")
-            await crud.problemprofile.update(
-                db=db,
-                db_obj=pp,
-                obj_in=schemas.ProblemProfilePatch(**problem)
-            )
-            return
-        await crud.problemprofile.remove(db=db, id=pp.id)
+        print(f"\t{bcolors.WARNING}{id} already in the database{bcolors.ENDC}")
+        await crud.problemprofile.update(
+            db=db,
+            db_obj=pp,
+            obj_in=schemas.ProblemProfilePatch(**problem)
+        )
+        return
     await crud.problemprofile.create(
         db=db,
         obj_in=schemas.ProblemProfileCreate(**problem)
@@ -206,26 +200,26 @@ async def create_problemprofile(db, problem):
 async def create_coproductionschema(db, schema_data):
     name = schema_data["name_translations"]["en"]
     if (sc := await crud.coproductionschema.get_by_name(db=db, locale="en", name=name)):
-        if not remove:
-            print(f"\t{bcolors.WARNING}{name} already in the database{bcolors.ENDC}")
-            await crud.coproductionschema.update(
-                db=db,
-                db_obj=sc,
-                obj_in=schemas.CoproductionSchemaPatch(
-                    **schema_data, is_public=True
-                )
+        print(f"\t{bcolors.WARNING}{name} already in the database{bcolors.ENDC}")
+        SCHEMA = await crud.coproductionschema.update(
+            db=db,
+            db_obj=sc,
+            obj_in=schemas.CoproductionSchemaPatch(
+                **schema_data, is_public=True
             )
-            return
-        await crud.coproductionschema.remove(db=db, id=sc.id)
-        print(f"Schema {name} removed")
-
-    print(f"{bcolors.OKBLUE}## Processing {bcolors.ENDC}{name}{bcolors.OKBLUE}")
-    SCHEMA = await crud.coproductionschema.create(
+        )
+    else:
+        SCHEMA = await crud.coproductionschema.create(
         db=db,
         obj_in=schemas.CoproductionSchemaCreate(
             **schema_data, is_public=True
         )
     )
+
+    print(f"{bcolors.OKBLUE}## Processing {bcolors.ENDC}{name}{bcolors.OKBLUE}")     
+    for i in SCHEMA.phasemetadatas:
+        await crud.phasemetadata.remove(db=db, id=i.id)
+    
     phases_resume = {}
     phase_data: dict
     for phase_data in schema_data["phases"]:
@@ -319,9 +313,11 @@ async def init():
                 await create_problemprofile(db, problem)
 
         # create coproduction schemas
-        data = requests.get("https://raw.githubusercontent.com/interlink-project/interlinkers-data/master/all.json").json()
-        for schema_data in data["schemas"]:
-            await create_coproductionschema(db, schema_data)
+        # data = requests.get("https://raw.githubusercontent.com/interlink-project/interlinkers-data/master/all.json").json()
+        with open("/app/interlinkers-data/all.json") as json_file:
+            data = json.load(json_file)
+            for schema_data in data["schemas"]:
+                await create_coproductionschema(db, schema_data)
 
         # create external interlinkers first
         for metadata_path in Path("/app/interlinkers-data/interlinkers").glob("externalsoftware/**/metadata.json"):

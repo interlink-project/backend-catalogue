@@ -33,7 +33,6 @@ Formats = choice(["pdf", "editable_source_document",
 
 
 class BaseInterlinkerBase(ArtefactBase):
-    languages: list = [settings.DEFAULT_LANGUAGE]
     published: Optional[bool]
     difficulty: Difficulties
     targets: Optional[List[Targets]]

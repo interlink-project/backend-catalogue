@@ -4,12 +4,14 @@ from typing import Dict, List, Optional
 
 from pydantic import BaseModel as PydanticBaseModel, validator
 from pydantic_choices import choice
+from app.config import settings
 
 Licences = choice(["public_domain", "permissive", "copyleft",
                   "non_commercial", "propietary"])
 
 
 class ArtefactBase(PydanticBaseModel):
+    languages: list = [settings.DEFAULT_LANGUAGE]
     is_public: bool = True
     licence: Licences
 

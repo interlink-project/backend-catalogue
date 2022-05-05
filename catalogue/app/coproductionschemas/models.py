@@ -17,27 +17,27 @@ from app.artefacts.models import Artefact
 phases_prerequisites_metadata = Table(
     'phases_metadata_prerequisites', BaseModel.metadata,
     Column('phasemetadata_a_id', ForeignKey('phasemetadata.id'), primary_key=True),
-    Column('phasemetadata_b_id', ForeignKey('phasemetadata.id'), primary_key=True)
+    Column('phasemetadata_b_id', ForeignKey('phasemetadata.id', ondelete="CASCADE"), primary_key=True)
 )
 
 
 objectives_prerequisites_metadata = Table(
     'objective_metadata_prerequisites', BaseModel.metadata,
     Column('objectivemetadata_a_id', ForeignKey('objectivemetadata.id'), primary_key=True),
-    Column('objectivemetadata_b_id', ForeignKey('objectivemetadata.id'), primary_key=True)
+    Column('objectivemetadata_b_id', ForeignKey('objectivemetadata.id', ondelete="CASCADE"), primary_key=True)
 )
 
 
 tasks_prerequisites_metadata = Table(
     'tasks_metadata_prerequisites', BaseModel.metadata,
     Column('taskmetadata_a_id', ForeignKey('taskmetadata.id'), primary_key=True),
-    Column('taskmetadata_b_id', ForeignKey('taskmetadata.id'), primary_key=True)
+    Column('taskmetadata_b_id', ForeignKey('taskmetadata.id', ondelete="CASCADE"), primary_key=True)
 )
 
 tasks_problemprofiles_association = Table(
     'tasks_problemprofiles_association', BaseModel.metadata,
     Column('taskmetadata_a_id', ForeignKey('taskmetadata.id'), primary_key=True),
-    Column('problemprofile_id', ForeignKey('problemprofile.id'), primary_key=True)
+    Column('problemprofile_id', ForeignKey('problemprofile.id', ondelete="CASCADE"), primary_key=True)
 )
 
 

@@ -15,6 +15,15 @@ from app.problemprofiles.crud import exportCrud as problemprofilesCrud
 from app.schemas import CoproductionSchemaCreate, CoproductionSchemaPatch, TaskMetadataCreate, TaskMetadataPatch, ObjectiveMetadataCreate, ObjectiveMetadataPatch, PhaseMetadataCreate, PhaseMetadataPatch
 from app.config import settings
 
+
+def recursive_check(id, obj):
+    if hasattr(obj, "prerequisites"):
+        for pre in obj.prerequisites:
+            if id == pre.id:
+                raise Exception("Circular prerequisite")
+            return recursive_check(id, pre)
+    return
+
 class CRUDCoproductionSchema(CRUDBase[CoproductionSchema, CoproductionSchemaCreate, CoproductionSchemaPatch]):
     async def get_multi(
         self, db: Session, search: str = "", rating: int = 0, creator: list = [], language: str = settings.DEFAULT_LANGUAGE
@@ -83,6 +92,8 @@ class CRUDObjectiveMetadata(CRUDBase[ObjectiveMetadata, ObjectiveMetadataCreate,
     async def add_prerequisite(self, db: Session, objectivemetadata: ObjectiveMetadata, prerequisite: ObjectiveMetadata) -> ObjectiveMetadata:
         if objectivemetadata.id == prerequisite.id:
             raise Exception("Same object")
+
+        recursive_check(objectivemetadata.id, prerequisite)
         objectivemetadata.prerequisites.append(prerequisite)
         db.commit()
         db.refresh(objectivemetadata)
@@ -127,6 +138,8 @@ class CRUDPhaseMetadata(CRUDBase[PhaseMetadata, PhaseMetadataCreate, PhaseMetada
     async def add_prerequisite(self, db: Session, phasemetadata: PhaseMetadata, prerequisite: PhaseMetadata) -> PhaseMetadata:
         if phasemetadata.id == prerequisite.id:
             raise Exception("Same object")
+            
+        recursive_check(phasemetadata.id, prerequisite)
         phasemetadata.prerequisites.append(prerequisite)
         db.commit()
         db.refresh(phasemetadata)
@@ -160,6 +173,8 @@ class CRUDTaskMetadata(CRUDBase[TaskMetadata, TaskMetadataCreate, TaskMetadataPa
     async def add_prerequisite(self, db: Session, taskmetadata: TaskMetadata, prerequisite: TaskMetadata) -> TaskMetadata:
         if taskmetadata.id == prerequisite.id:
             raise Exception("Same object")
+
+        recursive_check(taskmetadata.id, prerequisite)
         taskmetadata.prerequisites.append(prerequisite)
         db.commit()
         db.refresh(taskmetadata)

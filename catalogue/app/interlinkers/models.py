@@ -34,7 +34,6 @@ class Interlinker(Artefact):
         default=uuid.uuid4,
     )
     nature = Column(String)
-    languages = Column(ARRAY(String), default=list)
 
     published = Column(Boolean, default=False)
     logotype = Column(String, nullable=True)
