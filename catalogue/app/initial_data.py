@@ -86,9 +86,9 @@ async def create_interlinker(db, metadata_path, software=False, externalsoftware
     name = data["name_translations"]["en"]
     print(f"\n{bcolors.OKBLUE}Processing {bcolors.ENDC}{bcolors.BOLD}{name}{bcolors.ENDC}")
 
-    if (interlinker := await crud.interlinker.get_by_name(db=db, name=name)):
-        print(f"\t{bcolors.WARNING}Already in the database{bcolors.ENDC}")
-        return
+    existing_interlinker = await crud.interlinker.get_by_name(db=db, name=name)
+    if (existing_interlinker):
+        print(f"\t{bcolors.WARNING}Already in the database{bcolors.ENDC}. UPDATING")
 
     # parent folder where metadata.json is located
     folder = metadata_path.parents[0]
@@ -114,24 +114,50 @@ async def create_interlinker(db, metadata_path, software=False, externalsoftware
         del data["integration"]
 
         # create interlinker
-        interlinker = await crud.interlinker.create(
-            db=db,
-            interlinker=schemas.SoftwareInterlinkerCreate(**data),
-        )
+        if existing_interlinker:
+            interlinker = await crud.interlinker.update(
+                db=db,
+                db_obj=existing_interlinker,
+                obj_in=schemas.SoftwareInterlinkerPatch(**data),
+            )
+        else:
+            interlinker = await crud.interlinker.create(
+                db=db,
+                interlinker=schemas.SoftwareInterlinkerCreate(**data),
+            )
+
 
     if externalknowledge:
         data["nature"] = "externalknowledgeinterlinker"
-        interlinker = await crud.interlinker.create(
+
+        if existing_interlinker:
+            interlinker = await crud.interlinker.update(
+                db=db,
+                db_obj=existing_interlinker,
+                obj_in=schemas.ExternalKnowledgeInterlinkerPatch(**data),
+            )
+        else:
+            interlinker = await crud.interlinker.create(
             db=db,
             interlinker=schemas.ExternalKnowledgeInterlinkerCreate(**data),
         )
+
+        
     if externalsoftware:
          # set nature
         data["nature"] = "externalsoftwareinterlinker"
-        interlinker = await crud.interlinker.create(
-            db=db,
-            interlinker=schemas.ExternalSoftwareInterlinkerCreate(**data),
-        )
+
+        if existing_interlinker:
+            interlinker = await crud.interlinker.update(
+                db=db,
+                db_obj=existing_interlinker,
+                obj_in=schemas.ExternalSoftwareInterlinkerPatch(**data),
+            )
+        else:
+            interlinker = await crud.interlinker.create(
+                db=db,
+                interlinker=schemas.ExternalSoftwareInterlinkerCreate(**data),
+            )
 
     if knowledge:
         # get file contents in file and send to the software interlinker
@@ -166,10 +192,17 @@ async def create_interlinker(db, metadata_path, software=False, externalsoftware
                     data["genesis_asset_id_translations"] = {}
                 data["genesis_asset_id_translations"][key] = response["id"] if "id" in response else response["_id"]
 
-            await crud.interlinker.create(
-                db=db,
-                interlinker=schemas.KnowledgeInterlinkerCreate(**data)
-            )
+            if existing_interlinker:
+                interlinker = await crud.interlinker.update(
+                    db=db,
+                    db_obj=existing_interlinker,
+                    obj_in=schemas.KnowledgeInterlinkerPatch(**data),
+                )
+            else:
+                interlinker = await crud.interlinker.create(
+                    db=db,
+                    interlinker=schemas.KnowledgeInterlinkerCreate(**data),
+                )
 
         except Exception as e:
             error = True
@@ -183,7 +216,7 @@ async def create_problemprofile(db, problem):
         db=db,
         id=id
     ):
-        print(f"\t{bcolors.WARNING}{id} already in the database{bcolors.ENDC}")
+        print(f"\t{bcolors.WARNING}{id} already in the database{bcolors.ENDC}. UPDATING")
         await crud.problemprofile.update(
             db=db,
             db_obj=pp,
@@ -200,7 +233,7 @@ async def create_problemprofile(db, problem):
 async def create_coproductionschema(db, schema_data):
     name = schema_data["name_translations"]["en"]
     if (sc := await crud.coproductionschema.get_by_name(db=db, locale="en", name=name)):
-        print(f"\t{bcolors.WARNING}{name} already in the database{bcolors.ENDC}")
+        print(f"\t{bcolors.WARNING}{name} already in the database{bcolors.ENDC}. UPDATING")
         SCHEMA = await crud.coproductionschema.update(
             db=db,
             db_obj=sc,
