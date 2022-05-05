@@ -10,7 +10,6 @@ from typing_extensions import Annotated
 from app.artefacts.schemas import ArtefactBase, ArtefactCreate, ArtefactORM, ArtefactOut
 from app.config import settings
 from app.general.utils.AllOptional import AllOptional
-from app.integrations.schemas import IntegrationOut
 
 from .models import Supporters
 from app.config import settings
@@ -75,17 +74,42 @@ class BaseInterlinkerOut(ArtefactOut, BaseInterlinkerORM):
 
 ###
 
+AuthMethods = choice(["header", "cookie"])
 
 class SoftwareBaseInterlinkerBase(BaseInterlinkerBase):
     nature: Literal["softwareinterlinker"] = "softwareinterlinker"
     supported_by: List[Supporters]
-    supports_internationalization: bool
     is_responsive: bool
-    # GUI is responsive
+    auth_method: AuthMethods
+
+    # endpoint
+    service_name: str
+    domain: str
+    path: str
+    is_subdomain: bool
+    api_path: str
+
+    # capabilities
+    instantiate: Optional[bool]
+    clone: Optional[bool]
+    view: Optional[bool]
+    edit: Optional[bool]
+    delete: Optional[bool]
+    download: Optional[bool]
+    preview: Optional[bool]
+    open_in_modal: Optional[bool]
+    shortcut: Optional[bool]
 
 
 class SoftwareInterlinkerCreate(BaseInterlinkerCreate, SoftwareBaseInterlinkerBase):
-    pass
+    # capabilities translations
+    instantiate_text_translations: Optional[dict]
+    view_text_translations: Optional[dict]
+    edit_text_translations: Optional[dict]
+    delete_text_translations: Optional[dict]
+    clone_text_translations: Optional[dict]
+    download_text_translations: Optional[dict]
+    preview_text_translations: Optional[dict]
 
 
 class SoftwareInterlinkerPatch(SoftwareInterlinkerCreate, metaclass=AllOptional):
@@ -97,13 +121,19 @@ class SoftwareBaseInterlinkerORM(BaseInterlinkerORM, SoftwareBaseInterlinkerBase
     created_at: datetime
     updated_at: Optional[datetime]
 
+    instantiate_text: Optional[str]
+    view_text: Optional[str]
+    clone_text: Optional[str]
+    edit_text: Optional[str]
+    delete_text: Optional[str]
+    preview_text: Optional[str]
+
     class Config:
         orm_mode = True
 
 
 class SoftwareInterlinkerOut(BaseInterlinkerOut, SoftwareBaseInterlinkerORM):
     backend: Optional[str]
-    integration: Optional[IntegrationOut]
 
 # class BasicSoftwareInterlinkerOut(PydanticBaseModel):
 #     id: uuid.UUID

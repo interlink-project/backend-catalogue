@@ -15,7 +15,6 @@ from sqlalchemy.orm import backref, relationship
 
 from app.artefacts.models import Artefact
 from app.config import settings
-from app.integrations.models import Integration
 from app.locales import translation_hybrid
 
 
@@ -87,10 +86,42 @@ class SoftwareInterlinker(Interlinker):
     supported_by = Column(
         ARRAY(Enum(Supporters, create_constraint=False, native_enum=False))
     )
+    service_name = Column(String)
+    domain = Column(String)
+    path = Column(String)
+    is_subdomain = Column(Boolean, default=False)
+    api_path = Column(String)
+    auth_method = Column(String)
 
+    # capabilities
+    instantiate = Column(Boolean, default=False)
+    view = Column(Boolean, default=False)
+    edit = Column(Boolean, default=False)
+    clone = Column(Boolean, default=False)
+    delete = Column(Boolean, default=False)
+    download = Column(Boolean, default=False)
+    preview = Column(Boolean, default=False)
+    open_in_modal = Column(Boolean, default=False)
+    shortcut = Column(Boolean, default=False)
     supports_internationalization = Column(Boolean, default=False)
     is_responsive = Column(Boolean, default=False)
-    integration = relationship("Integration", back_populates="softwareinterlinker", uselist=False)
+    
+    # capabilities translations
+    instantiate_text_translations = Column(HSTORE)
+    view_text_translations = Column(HSTORE)
+    edit_text_translations = Column(HSTORE)
+    delete_text_translations = Column(HSTORE)
+    clone_text_translations = Column(HSTORE)
+    download_text_translations = Column(HSTORE)
+    preview_text_translations = Column(HSTORE)
+
+    instantiate_text = translation_hybrid(instantiate_text_translations)
+    view_text = translation_hybrid(view_text_translations)
+    clone_text = translation_hybrid(clone_text_translations)
+    edit_text = translation_hybrid(edit_text_translations)
+    delete_text = translation_hybrid(delete_text_translations)
+    download_text = translation_hybrid(download_text_translations)
+    preview_text = translation_hybrid(preview_text_translations)
     
     status = Column(String, default="off")
     __mapper_args__ = {
@@ -102,13 +133,10 @@ class SoftwareInterlinker(Interlinker):
 
     @property
     def backend(self):
-        if not self.integration:
-            return None
-        integration : Integration = self.integration
-        SERVER_NAME = integration.domain or settings.SERVER_NAME
-        if integration.is_subdomain:
-            return f"{settings.PROTOCOL}{integration.path}.{SERVER_NAME}{integration.api_path}"
-        return f"{settings.PROTOCOL}{SERVER_NAME}/{integration.path}{integration.api_path}"
+        SERVER_NAME = self.domain or settings.SERVER_NAME
+        if self.is_subdomain:
+            return f"{settings.PROTOCOL}{self.path}.{SERVER_NAME}{self.api_path}"
+        return f"{settings.PROTOCOL}{SERVER_NAME}/{self.path}{self.api_path}"
 
 class KnowledgeInterlinker(Interlinker):
     """
@@ -145,8 +173,8 @@ class KnowledgeInterlinker(Interlinker):
     # not exposed in out schema
     @property
     def internal_link(self):
-        backend = self.softwareinterlinker.integration.service_name
-        api_path = self.softwareinterlinker.integration.api_path
+        backend = self.softwareinterlinker.service_name
+        api_path = self.softwareinterlinker.api_path
         return f"http://{backend}{api_path}/{self.genesis_asset_id}"
 
 

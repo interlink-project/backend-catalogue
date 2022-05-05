@@ -112,23 +112,16 @@ async def create_interlinker(db, metadata_path, software=False, externalsoftware
     if software:
         # set nature
         data["nature"] = "softwareinterlinker"
+        data = {**data, **data["integration"]}
+        data = {**data, **data["integration"]["capabilities"]}
+        data = {**data, **data["integration"]["capabilities_translations"]}
+        del data["integration"]
+
         # create interlinker
         interlinker = await crud.interlinker.create(
             db=db,
             interlinker=schemas.SoftwareInterlinkerCreate(**data),
         )
-
-        if "integration" in data:
-            integrationData = data["integration"]
-            integrationData["softwareinterlinker_id"] = interlinker.id
-            integrationData = {**integrationData, **data["integration"]["capabilities"]}
-            integrationData = {**integrationData, **
-                            data["integration"]["capabilities_translations"]}
-        
-            await crud.integration.create(
-                db=db,
-                obj_in=parse_obj_as(schemas.IntegrationCreate, integrationData)
-            )
 
     if externalknowledge:
         data["nature"] = "externalknowledgeinterlinker"

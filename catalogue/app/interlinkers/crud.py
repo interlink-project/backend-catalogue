@@ -9,7 +9,6 @@ from app.general.utils.CRUDBase import CRUDBase
 from sqlalchemy import or_, func
 from app.problemprofiles.crud import exportCrud as problems_crud
 from app.models import ProblemProfile
-from app.integrations.models import Integration
 from sqlalchemy import and_, or_
 import uuid
 from fastapi_pagination.ext.sqlalchemy import paginate
@@ -79,14 +78,14 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
             "model": "SOFTWAREINTERLINKER",
             "action": "LIST_SHORTCUT",
         })
-        return db.query(SoftwareInterlinker).filter(Integration.softwareinterlinker_id == SoftwareInterlinker.id).filter(and_(Integration.service_name != None, Integration.shortcut == True)).all()
+        return db.query(SoftwareInterlinker).filter(and_(SoftwareInterlinker.service_name != None, SoftwareInterlinker.shortcut == True)).all()
 
     async def get_softwareinterlinker_by_service_name(self, db: Session, service_name: str) -> Optional[SoftwareInterlinker]:
         await log({
             "model": "SOFTWAREINTERLINKER",
             "action": "GET_BY_SERVICE_NAME",
         })
-        return db.query(SoftwareInterlinker).filter(SoftwareInterlinker.id == Integration.softwareinterlinker_id).filter(Integration.service_name == service_name).first()
+        return db.query(SoftwareInterlinker).filter(SoftwareInterlinker.service_name == service_name).first()
 
     async def create(self, db: Session, *, interlinker: InterlinkerCreate) -> Interlinker:
         data = jsonable_encoder(interlinker)

@@ -1,7 +1,6 @@
 from typing import Any, List, Optional, Union
 
 from app.coproductionschemas.schemas import *
-from app.integrations.schemas import *
 from app.interlinkers.schemas import *
 from app.problemprofiles.schemas import *
 from app.publicservices.schemas import *
