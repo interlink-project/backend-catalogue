@@ -10,7 +10,7 @@ python /app/app/pre_start.py
 
 # Run and apply migrations
 # https://blog.jerrycodes.com/multiple-heads-in-alembic-migrations/
-alembic revision --autogenerate -m "First for catalogue"
+alembic revision --autogenerate
 alembic upgrade head
 echo MIGRATIONS DONE
 
