@@ -9,7 +9,9 @@ LOG_LEVEL=${LOG_LEVEL:-info}
 python /app/app/pre_start.py
 
 # Create models in DB automatically without migrations
-python /app/app/create_models.py
+# python /app/app/create_models.py
+
+# NOW CHANGES IN DATAMODEL SHOULD BE MANAGED BY ALEMBIC. CHECK MAKEFILE make migrations message="message"
 
 # Start Uvicorn with live reload
 exec uvicorn --reload --host $HOST --port $PORT --log-level $LOG_LEVEL "app.main:app"

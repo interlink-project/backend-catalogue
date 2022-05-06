@@ -10,7 +10,7 @@ clean: ## Cleans
 
 .PHONY: down
 down: ## Stops all containers and removes volumes
-	docker-compose -f docker-compose.devintegrated.yml down --volumes --remove-orphans
+	docker-compose -f docker-compose.devintegrated.yml down --remove-orphans
 	
 #######################
 ## BUILD IMAGES
@@ -42,8 +42,16 @@ tests: ## Starts test container
 testing: build solo tests down ## Builds containers, runs them, runs test container and deletes all containers
 
 #######################
-## DATABASE SEEDING
+## DATABASE 
 #######################
+.PHONY: migrations
+migrations: ## Seed data
+	@[ "${message}" ] || ( echo ">> message not specified (make migrations message='your message'"; exit 1 )
+	docker-compose -f docker-compose.devintegrated.yml exec catalogue alembic revision --autogenerate -m $(message)
+
+.PHONY: applymigrations
+applymigrations: ## Seed data
+	docker-compose -f docker-compose.devintegrated.yml exec catalogue alembic upgrade head
 
 .PHONY: seed
 seed: ## Seed data

@@ -8,11 +8,5 @@ LOG_LEVEL=${LOG_LEVEL:-info}
 # Let the DB start
 python /app/app/pre_start.py
 
-# Run and apply migrations
-# https://blog.jerrycodes.com/multiple-heads-in-alembic-migrations/
-alembic revision --autogenerate
-alembic upgrade head
-echo MIGRATIONS DONE
-
 # Start Fastapi app
 exec gunicorn -k "uvicorn.workers.UvicornWorker" -c "gunicorn_conf.py" "app.main:app"
