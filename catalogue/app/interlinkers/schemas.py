@@ -7,7 +7,7 @@ from pydantic import BaseModel, Field, validator
 from pydantic_choices import choice
 from typing_extensions import Annotated
 
-from app.artefacts.schemas import ArtefactBase, ArtefactCreate, ArtefactORM, ArtefactOut
+from app.artefacts.schemas import ArtefactBase, ArtefactCreate, ArtefactPatch, ArtefactORM, ArtefactOut
 from app.config import settings
 from app.general.utils.AllOptional import AllOptional
 
@@ -51,9 +51,22 @@ class BaseInterlinkerCreate(ArtefactCreate, BaseInterlinkerBase):
     snapshots: Optional[List[str]]
     instructions_translations: dict
 
-class BaseInterlinkerPatch(BaseInterlinkerCreate, metaclass=AllOptional):
-    pass
+class BaseInterlinkerPatch(ArtefactPatch):
+    published: Optional[bool]
+    difficulty: Optional[Difficulties]
+    targets: Optional[List[Targets]]
+    
+    types: Optional[List[InterlinkerTypes]]
+    administrative_scopes: Optional[List[AdministrativeScopes]]
+    # domain: Optional[str]
+    process: Optional[str]
 
+    form: Optional[FormTypes]
+    format: Optional[Formats]
+
+    logotype: Optional[str]
+    snapshots: Optional[List[str]]
+    instructions_translations: Optional[dict]
 
 class BaseInterlinkerORM(ArtefactORM, BaseInterlinkerBase):
     id: uuid.UUID
@@ -111,8 +124,34 @@ class SoftwareInterlinkerCreate(BaseInterlinkerCreate, SoftwareBaseInterlinkerBa
     preview_text_translations: Optional[dict]
 
 
-class SoftwareInterlinkerPatch(SoftwareInterlinkerCreate, metaclass=AllOptional):
-    pass
+class SoftwareInterlinkerPatch(BaseInterlinkerPatch):
+    is_responsive:  Optional[bool]
+    auth_method: Optional[AuthMethods]
+
+    # endpoint
+    service_name: Optional[str]
+    domain: Optional[str]
+    path: Optional[str]
+    is_subdomain: Optional[bool]
+    api_path: Optional[str]
+
+    # capabilities
+    instantiate: Optional[bool]
+    clone: Optional[bool]
+    view: Optional[bool]
+    edit: Optional[bool]
+    delete: Optional[bool]
+    download: Optional[bool]
+    preview: Optional[bool]
+    open_in_modal: Optional[bool]
+    shortcut: Optional[bool]
+    instantiate_text_translations: Optional[dict]
+    view_text_translations: Optional[dict]
+    edit_text_translations: Optional[dict]
+    delete_text_translations: Optional[dict]
+    clone_text_translations: Optional[dict]
+    download_text_translations: Optional[dict]
+    preview_text_translations: Optional[dict]
 
 
 class SoftwareBaseInterlinkerORM(BaseInterlinkerORM, SoftwareBaseInterlinkerBase):
@@ -159,8 +198,8 @@ class KnowledgeInterlinkerCreate(BaseInterlinkerCreate, KnowledgeBaseInterlinker
     instructions_translations: dict
 
 
-class KnowledgeInterlinkerPatch(KnowledgeInterlinkerCreate, metaclass=AllOptional):
-    pass
+class KnowledgeInterlinkerPatch(BaseInterlinkerPatch):
+    instructions_translations: Optional[dict]
 
 
 class KnowledgeBaseInterlinkerORM(BaseInterlinkerORM, KnowledgeBaseInterlinkerBase):
@@ -196,8 +235,9 @@ class ExternalSoftwareInterlinkerCreate(BaseInterlinkerCreate, ExternalSoftwareB
     asset_name_translations: Optional[dict]
 
 
-class ExternalSoftwareInterlinkerPatch(ExternalSoftwareInterlinkerCreate, metaclass=AllOptional):
-    pass
+class ExternalSoftwareInterlinkerPatch(BaseInterlinkerPatch):
+    uri_translations: Optional[dict]
+    asset_name_translations: Optional[dict]
 
 
 class ExternalSoftwareBaseInterlinkerORM(BaseInterlinkerORM, ExternalSoftwareBaseInterlinkerBase):
@@ -233,8 +273,9 @@ class ExternalKnowledgeInterlinkerCreate(BaseInterlinkerCreate, ExternalKnowledg
     asset_name_translations: Optional[dict]
 
 
-class ExternalKnowledgeInterlinkerPatch(ExternalKnowledgeInterlinkerCreate, metaclass=AllOptional):
-    pass
+class ExternalKnowledgeInterlinkerPatch(BaseInterlinkerPatch):
+    uri_translations: Optional[dict]
+    asset_name_translations: Optional[dict]
 
 
 class ExternalKnowledgeBaseInterlinkerORM(BaseInterlinkerORM, ExternalKnowledgeBaseInterlinkerBase):
