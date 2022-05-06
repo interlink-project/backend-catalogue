@@ -32,6 +32,25 @@ class ArtefactCreate(ArtefactBase):
         return v
 
 
+class ArtefactPatch(PydanticBaseModel):
+    languages: Optional[list]
+    is_public: Optional[bool]
+    licence: Optional[Licences]
+
+    problemprofiles: Optional[List[str]]
+    name_translations: Optional[Dict[str, str]]
+    description_translations: Optional[Dict[str, str]]
+    constraints_and_limitations_translations: Optional[Dict[str, str]]
+    regulations_and_standards_translations: Optional[Dict[str, str]]
+    tags_translations: Optional[Dict[str, str]]
+    # creator_id: Optional[uuid.UUID]
+
+    @validator('tags_translations', pre=True)
+    def swith_array_to_str(cls, v):
+        if v:
+            return {key: ";".join(value) for key, value in v.items()}
+        return v
+
 class ArtefactORM(ArtefactBase):
     id: uuid.UUID
     created_at: datetime
