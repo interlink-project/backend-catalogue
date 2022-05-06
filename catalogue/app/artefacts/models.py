@@ -30,7 +30,7 @@ from app.ratings.models import Rating
 class Artefact(BaseModel):
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     artefact_type = Column(String(70))
-    languages = Column(ARRAY(String), nullable=False, default=dict)
+    languages = Column(ARRAY(String), server_default='{}')
     is_public = Column(Boolean, default=False)
     licence = Column(String, nullable=True)
 

@@ -37,12 +37,12 @@ class Interlinker(Artefact):
 
     published = Column(Boolean, default=False)
     logotype = Column(String, nullable=True)
-    snapshots = Column(ARRAY(String), default=dict)
+    snapshots = Column(ARRAY(String), server_default='{}')
 
     difficulty = Column(String)
-    targets = Column(ARRAY(String), default=dict)
-    types = Column(ARRAY(String), default=dict)
-    administrative_scopes = Column(ARRAY(String), default=dict)
+    targets = Column(ARRAY(String), server_default='{}')
+    types = Column(ARRAY(String), server_default='{}')
+    administrative_scopes = Column(ARRAY(String), server_default='{}')
     # domain = Column(String, nullable=True)
     process = Column(String, nullable=True)
 
