@@ -199,6 +199,7 @@ class KnowledgeInterlinkerCreate(BaseInterlinkerCreate, KnowledgeBaseInterlinker
 
 
 class KnowledgeInterlinkerPatch(BaseInterlinkerPatch):
+    genesis_asset_id_translations: Optional[dict]
     instructions_translations: Optional[dict]
 
 
@@ -207,6 +208,8 @@ class KnowledgeBaseInterlinkerORM(BaseInterlinkerORM, KnowledgeBaseInterlinkerBa
     created_at: datetime
     updated_at: Optional[datetime]
 
+    name_translations: dict
+    genesis_asset_id_translations: dict
     genesis_asset_id: str
     
     class Config:

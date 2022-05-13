@@ -1,21 +1,32 @@
-from sys import implementation
-from typing import Optional, List, Union
-
-from sqlalchemy.orm import Session
-
-from app.models import Interlinker, KnowledgeInterlinker, SoftwareInterlinker, ExternalSoftwareInterlinker, ExternalKnowledgeInterlinker
-from app.schemas import InterlinkerCreate, SoftwareInterlinkerCreate, KnowledgeInterlinkerCreate, ExternalKnowledgeInterlinkerCreate, ExternalSoftwareInterlinkerCreate, InterlinkerPatch
-from app.general.utils.CRUDBase import CRUDBase
-from sqlalchemy import or_, func
-from app.problemprofiles.crud import exportCrud as problems_crud
-from app.models import ProblemProfile
-from sqlalchemy import and_, or_
 import uuid
-from fastapi_pagination.ext.sqlalchemy import paginate
+from typing import List, Optional, Union
 
 from fastapi.encoders import jsonable_encoder
-from app.messages import log
+from fastapi_pagination.ext.sqlalchemy import paginate
+from sqlalchemy import and_, func, or_
+from sqlalchemy.orm import Session
+
 from app.config import settings
+from app.general.utils.CRUDBase import CRUDBase
+from app.messages import log
+from app.models import (
+    ExternalKnowledgeInterlinker,
+    ExternalSoftwareInterlinker,
+    Interlinker,
+    KnowledgeInterlinker,
+    ProblemProfile,
+    SoftwareInterlinker,
+)
+from app.problemprofiles.crud import exportCrud as problems_crud
+from app.schemas import (
+    ExternalKnowledgeInterlinkerCreate,
+    ExternalSoftwareInterlinkerCreate,
+    InterlinkerCreate,
+    InterlinkerPatch,
+    KnowledgeInterlinkerCreate,
+    SoftwareInterlinkerCreate,
+)
+
 
 class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]):
     async def get_by_name(self, db: Session, name: str, language: str = settings.DEFAULT_LANGUAGE) -> Optional[Interlinker]:
@@ -71,15 +82,6 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
         })
         return paginate(db.query(ExternalKnowledgeInterlinker))
 
-    async def get_multi_internally_integrated_softwareinterlinkers(
-        self, db: Session
-    ) -> List[SoftwareInterlinker]:
-        await log({
-            "model": "SOFTWAREINTERLINKER",
-            "action": "LIST_SHORTCUT",
-        })
-        return db.query(SoftwareInterlinker).filter(and_(SoftwareInterlinker.service_name != None, SoftwareInterlinker.shortcut == True)).all()
-
     async def get_softwareinterlinker_by_service_name(self, db: Session, service_name: str) -> Optional[SoftwareInterlinker]:
         await log({
             "model": "SOFTWAREINTERLINKER",
@@ -105,7 +107,7 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
             data["nature"] = "knowledgeinterlinker"
             db_obj = KnowledgeInterlinker(**data)
         
-        elif type(interlinker) == ExternalSoftwareInterlinkerCreate or type(interlinker) == ExternalKnowledgeInterlinkerCreate:
+        elif type(interlinker) in [ExternalSoftwareInterlinkerCreate, ExternalKnowledgeInterlinkerCreate]:
             if data["nature"] == "externalsoftwareinterlinker":
                 print("IS EXTERNAL SOFTWARE")
                 db_obj = ExternalSoftwareInterlinker(**data)

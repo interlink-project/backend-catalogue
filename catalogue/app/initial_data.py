@@ -7,10 +7,9 @@ from distutils.dir_util import copy_tree
 from pathlib import Path
 
 import requests
-from pydantic import BaseModel, parse_obj_as
 from slugify import slugify
 
-from app import crud, schemas
+from app import crud, schemas, models
 from app.general.db.session import SessionLocal
 import asyncio
 from app.messages import set_logging_disabled
@@ -162,15 +161,16 @@ async def create_interlinker(db, metadata_path, software=False, externalsoftware
     if knowledge:
         # get file contents in file and send to the software interlinker
         service = data["softwareinterlinker"]
-        softwareinterlinker = await crud.interlinker.get_softwareinterlinker_by_service_name(
-            db=db, service_name=service)
+        softwareinterlinker = await crud.interlinker.get_softwareinterlinker_by_service_name(db=db, service_name=service)
         if not softwareinterlinker:
-            print(f"\t{bcolors.FAIL}there is no {service} softwareinterlinker")
+            print(f"\t{bcolors.FAIL}there is no {service} softwareinterlinker{bcolors.ENDC}")
             return
 
         try:
             print(f"\tis {service} supported knowledge interlinker")
 
+            #TODO: if softwareinterlinker != existing_interlinker.softwareinterlinker => delete asset
+            genesis_asset_id_translations = {}
             for key, value in data["file_translations"].items():
                 filename = path_leaf(value)
                 short_filename, file_extension = os.path.splitext(filename)
@@ -180,26 +180,29 @@ async def create_interlinker(db, metadata_path, software=False, externalsoftware
                         response = requests.post(
                             f"http://{service}/assets", data=f.read()).json()
                 else:
+                    filedata = open(str(folder) + "/" + filename, "rb").read()
+                    # TODO: hash filedata and check if already exists
                     files_data = {
-                        'file': (name + file_extension, open(str(folder) + "/" + filename, "rb").read())}
+                        'file': (name + file_extension, filedata)}
                     response = requests.post(
                         f"http://{service}/assets", files=files_data).json()
 
-                print(f"ANSWER FOR {service}")
+                print(f"{key} ANSWER FOR {service}")
                 print(response)
                 data["softwareinterlinker_id"] = softwareinterlinker.id
-                if not "genesis_asset_id_translations" in data:
-                    data["genesis_asset_id_translations"] = {}
-                data["genesis_asset_id_translations"][key] = response["id"] if "id" in response else response["_id"]
-
+                genesis_asset_id_translations[key] = response["id"] if "id" in response else response["_id"]
+            
+            print(genesis_asset_id_translations)
+            data["genesis_asset_id_translations"] = genesis_asset_id_translations
             if existing_interlinker:
-                interlinker = await crud.interlinker.update(
+                interlinker : models.KnowledgeInterlinker = await crud.interlinker.update(
                     db=db,
                     db_obj=existing_interlinker,
                     obj_in=schemas.KnowledgeInterlinkerPatch(**data),
                 )
+                print(interlinker.genesis_asset_id_translations)
             else:
-                interlinker = await crud.interlinker.create(
+                interlinker : models.KnowledgeInterlinker = await crud.interlinker.create(
                     db=db,
                     interlinker=schemas.KnowledgeInterlinkerCreate(**data),
                 )
@@ -208,7 +211,8 @@ async def create_interlinker(db, metadata_path, software=False, externalsoftware
             error = True
             print(f"\t{bcolors.FAIL}{str(e)}{bcolors.ENDC}")
         if not error:
-            print(f"\t{bcolors.OKGREEN}Created successfully!{bcolors.ENDC}")
+            verb = "Created" if not existing_interlinker else "Updated"
+            print(f"\t{bcolors.OKGREEN}{verb} successfully!{bcolors.ENDC}")
 
 async def create_problemprofile(db, problem):
     id = problem["id"]

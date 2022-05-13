@@ -1,0 +1,5 @@
+NEW
+• All genesis asset ids in out schema
+
+IMPROVED
+• Genesis asset ids loop in initial data

@@ -39,7 +39,7 @@ async def log(data: dict):
         data["user_id"] = context.data.get("user", {}).get("sub", None)
     except:
         data["user_id"] = None
-    data["service"] = "coproduction"
+    data["service"] = "catalogue"
 
     request = b64encode(json.dumps(data,cls=UUIDEncoder).encode())
     
