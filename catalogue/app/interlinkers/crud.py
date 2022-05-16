@@ -131,7 +131,7 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
         return db_obj
 
     async def get_multi(
-        self, db: Session, search: str = "", natures: list = [], rating: int = 0, creator: list = [], language: str = "en"
+        self, db: Session, search: str = "", problemprofiles: list = [], natures: list = [], rating: int = 0, creator: list = [], language: str = "en"
     ) -> List[Interlinker]:
         queries = []
 
@@ -140,7 +140,10 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
         
         if language:
             queries.append(Interlinker.languages.any(language))
-
+        
+        if problemprofiles:
+            queries.append(Interlinker.problemprofiles.any(ProblemProfile.id.in_(problemprofiles)))
+            
         if search:
             search = search.lower()
             queries.append(or_(

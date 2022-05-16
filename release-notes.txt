@@ -1,5 +1,9 @@
+VERSION: v1.1.5
+
 NEW
 • All genesis asset ids in out schema
 
 IMPROVED
-• Genesis asset ids loop in initial data
+• Different genesis assets created on initial data
+• Problem profiles filtering merged into list endpoint
+• Print message removed when a message is sent through rabbitmq

@@ -16,6 +16,7 @@ router = APIRouter()
 
 @router.get("", response_model=Page[schemas.InterlinkerOut])
 async def list_interlinkers(
+    problemprofiles: Optional[List[str]] = Query(None),
     nature: Optional[List[str]] = Query(None),
     rating: Optional[int] = Query(None),
     creator: Optional[List[str]] = Query(None),
@@ -27,20 +28,7 @@ async def list_interlinkers(
     """
     Retrieve interlinkers.
     """
-    return await crud.interlinker.get_multi(db, search=search, rating=rating, natures=nature, creator=creator, language=language)
-
-
-@router.post("/by_problemprofiles", response_model=Page[schemas.InterlinkerOut])
-async def list_interlinkers_by_problemprofiles(
-    problemprofiles: List[str],
-    db: Session = Depends(deps.get_db),
-    current_user: Optional[dict] = Depends(deps.get_current_user),
-) -> Any:
-    """
-    Retrieve interlinkers.
-    """
-    return await crud.interlinker.get_by_problemprofiles(db, problemprofiles=problemprofiles)
-
+    return await crud.interlinker.get_multi(db, search=search, problemprofiles=problemprofiles, rating=rating, natures=nature, creator=creator, language=language)
 
 @router.post("", response_model=schemas.InterlinkerOut)
 async def create_interlinker(
