@@ -7,7 +7,7 @@ from sqlalchemy import (
     Table
 )
 from sqlalchemy.dialects.postgresql import HSTORE, UUID, ARRAY
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, backref
 
 from app.general.db.base_class import Base as BaseModel
 from app.locales import translation_hybrid
@@ -16,27 +16,26 @@ from app.artefacts.models import Artefact
 
 phases_prerequisites_metadata = Table(
     'phases_metadata_prerequisites', BaseModel.metadata,
-    Column('phasemetadata_a_id', ForeignKey('phasemetadata.id'), primary_key=True),
+    Column('phasemetadata_a_id', ForeignKey('phasemetadata.id', ondelete="CASCADE"), primary_key=True),
     Column('phasemetadata_b_id', ForeignKey('phasemetadata.id', ondelete="CASCADE"), primary_key=True)
 )
 
 
 objectives_prerequisites_metadata = Table(
     'objective_metadata_prerequisites', BaseModel.metadata,
-    Column('objectivemetadata_a_id', ForeignKey('objectivemetadata.id'), primary_key=True),
+    Column('objectivemetadata_a_id', ForeignKey('objectivemetadata.id', ondelete="CASCADE"), primary_key=True),
     Column('objectivemetadata_b_id', ForeignKey('objectivemetadata.id', ondelete="CASCADE"), primary_key=True)
 )
 
-
 tasks_prerequisites_metadata = Table(
     'tasks_metadata_prerequisites', BaseModel.metadata,
-    Column('taskmetadata_a_id', ForeignKey('taskmetadata.id'), primary_key=True),
+    Column('taskmetadata_a_id', ForeignKey('taskmetadata.id', ondelete="CASCADE"), primary_key=True),
     Column('taskmetadata_b_id', ForeignKey('taskmetadata.id', ondelete="CASCADE"), primary_key=True)
 )
 
 tasks_problemprofiles_association = Table(
     'tasks_problemprofiles_association', BaseModel.metadata,
-    Column('taskmetadata_a_id', ForeignKey('taskmetadata.id'), primary_key=True),
+    Column('taskmetadata_a_id', ForeignKey('taskmetadata.id', ondelete="CASCADE"), primary_key=True),
     Column('problemprofile_id', ForeignKey('problemprofile.id', ondelete="CASCADE"), primary_key=True)
 )
 
@@ -48,12 +47,10 @@ class CoproductionSchema(Artefact):
     """
     id = Column(
         UUID(as_uuid=True),
-        ForeignKey("artefact.id"),
+        ForeignKey("artefact.id", ondelete="CASCADE"),
         primary_key=True,
         default=uuid.uuid4,
     )
-
-    phasemetadatas = relationship("PhaseMetadata", back_populates="coproductionschema")
 
     __mapper_args__ = {
         "polymorphic_identity": "coproductionschema",
@@ -84,10 +81,8 @@ class PhaseMetadata(BaseModel):
         UUID(as_uuid=True), ForeignKey("coproductionschema.id", ondelete='CASCADE')
     )
     coproductionschema = relationship(
-        "CoproductionSchema", back_populates="phasemetadatas")
+        "CoproductionSchema", backref=backref('phasemetadatas', passive_deletes=True))
 
-    objectivemetadatas = relationship(
-        "ObjectiveMetadata", back_populates="phasemetadata")
 
     def __repr__(self):
         return "<PhaseMetadata %r>" % self.name_translations["en"]
@@ -104,7 +99,7 @@ class ObjectiveMetadata(BaseModel):
     phasemetadata_id = Column(
         UUID(as_uuid=True), ForeignKey("phasemetadata.id", ondelete='CASCADE')
     )
-    phasemetadata = relationship("PhaseMetadata", back_populates="objectivemetadatas")
+    phasemetadata = relationship("PhaseMetadata", backref=backref('objectivemetadatas', passive_deletes=True))
 
     # prerequisites
     prerequisites = relationship("ObjectiveMetadata", secondary=objectives_prerequisites_metadata,
@@ -112,8 +107,6 @@ class ObjectiveMetadata(BaseModel):
                                  secondaryjoin=id == objectives_prerequisites_metadata.c.objectivemetadata_b_id,
                                  )
     prerequisites_ids = association_proxy('prerequisites', 'id')
-
-    taskmetadatas = relationship("TaskMetadata", back_populates="objectivemetadata")
 
     def __repr__(self):
         return "<ObjectiveMetadata %r>" % self.name_translations["en"]
@@ -131,7 +124,7 @@ class TaskMetadata(BaseModel):
     objectivemetadata_id = Column(
         UUID(as_uuid=True), ForeignKey("objectivemetadata.id", ondelete='CASCADE')
     )
-    objectivemetadata = relationship("ObjectiveMetadata", back_populates="taskmetadatas")
+    objectivemetadata = relationship("ObjectiveMetadata", backref=backref('taskmetadatas', passive_deletes=True))
 
     problemprofiles = relationship(
         "ProblemProfile",

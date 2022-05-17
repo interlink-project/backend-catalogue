@@ -3,8 +3,6 @@ from datetime import datetime
 from typing import List, Optional
 from app.general.utils.AllOptional import AllOptional
 from pydantic import BaseModel, validator, root_validator
-from pydantic.typing import ForwardRef
-from app.questioncomments.schemas import QuestionCommentOut
 import requests
 from app.config import settings
 

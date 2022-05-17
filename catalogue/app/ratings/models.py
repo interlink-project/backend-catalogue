@@ -1,5 +1,4 @@
 import uuid
-from datetime import datetime
 
 from app.general.db.base_class import Base as BaseModel
 from sqlalchemy import (
@@ -14,15 +13,15 @@ from sqlalchemy import (
     Text,
 )
 from sqlalchemy.dialects.postgresql import UUID
-from sqlalchemy.orm import relationship
+from sqlalchemy.orm import relationship, backref
 
 
 class Rating(BaseModel):
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     user_id = Column(String)
     
-    artefact_id = Column(UUID(as_uuid=True), ForeignKey("artefact.id"))
-    artefact = relationship("Artefact", back_populates="ratings")
+    artefact_id = Column(UUID(as_uuid=True), ForeignKey("artefact.id", ondelete="CASCADE"))
+    artefact = relationship("Artefact", backref=backref('ratings', passive_deletes=True))
     
     title = Column(String, nullable=True)
     text = Column(Text)

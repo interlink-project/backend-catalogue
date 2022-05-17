@@ -61,9 +61,6 @@ class Artefact(BaseModel):
     def ratings_count(self):
         return func.count('1')
 
-    ratings = relationship("Rating", back_populates="artefact")
-    questioncomments = relationship("QuestionComment", back_populates="artefact")
-
     # TODO: creator type: team or user
     creator_id = Column(UUID(as_uuid=True), nullable=True)
 

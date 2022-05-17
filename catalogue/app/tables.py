@@ -4,6 +4,6 @@ from sqlalchemy import Table, ForeignKey, Column
 artefact_problem_association_table = Table(
     "artefact_problem",
     BaseModel.metadata,
-    Column("artefact_id", ForeignKey("artefact.id")),
-    Column("problemprofile_id", ForeignKey("problemprofile.id")),
+    Column("artefact_id", ForeignKey("artefact.id", ondelete='CASCADE')),
+    Column("problemprofile_id", ForeignKey("problemprofile.id", ondelete='CASCADE')),
 )

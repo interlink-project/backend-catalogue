@@ -29,7 +29,7 @@ class Interlinker(Artefact):
     """
     id = Column(
         UUID(as_uuid=True),
-        ForeignKey("artefact.id"),
+        ForeignKey("artefact.id", ondelete="CASCADE"),
         primary_key=True,
         default=uuid.uuid4,
     )
@@ -77,7 +77,7 @@ class SoftwareInterlinker(Interlinker):
     """
     id = Column(
         UUID(as_uuid=True),
-        ForeignKey("interlinker.id"),
+        ForeignKey("interlinker.id", ondelete="CASCADE"),
         primary_key=True,
         default=uuid.uuid4,
     )
@@ -143,13 +143,13 @@ class KnowledgeInterlinker(Interlinker):
     """
     id = Column(
         UUID(as_uuid=True),
-        ForeignKey("interlinker.id"),
+        ForeignKey("interlinker.id", ondelete="CASCADE"),
         primary_key=True,
         default=uuid.uuid4,
     )
    
     softwareinterlinker_id = Column(UUID(as_uuid=True), ForeignKey("softwareinterlinker.id", ondelete='CASCADE'))
-    softwareinterlinker = relationship("SoftwareInterlinker", backref='knowledgeinterlinkers', foreign_keys=[softwareinterlinker_id])
+    softwareinterlinker = relationship("SoftwareInterlinker", backref=backref('knowledgeinterlinkers', passive_deletes=True), foreign_keys=[softwareinterlinker_id])
     
     genesis_asset_id_translations = Column(HSTORE)
     genesis_asset_id = translation_hybrid(genesis_asset_id_translations)
@@ -183,7 +183,7 @@ class ExternalKnowledgeInterlinker(Interlinker):
     """
     id = Column(
         UUID(as_uuid=True),
-        ForeignKey("interlinker.id"),
+        ForeignKey("interlinker.id", ondelete="CASCADE"),
         primary_key=True,
         default=uuid.uuid4,
     )
@@ -206,7 +206,7 @@ class ExternalSoftwareInterlinker(Interlinker):
     """
     id = Column(
         UUID(as_uuid=True),
-        ForeignKey("interlinker.id"),
+        ForeignKey("interlinker.id", ondelete="CASCADE"),
         primary_key=True,
         default=uuid.uuid4,
     )
