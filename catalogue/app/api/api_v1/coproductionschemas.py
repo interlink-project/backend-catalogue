@@ -13,7 +13,7 @@ from app.general import deps
 router = APIRouter()
 
 
-@router.get("", response_model=Page[schemas.CoproductionSchemaOut])
+@router.get("", response_model=Page[schemas.CoproductionSchemaOutFull])
 async def list_coproductionschemas(
     rating: Optional[int] = Query(None),
     creator: Optional[List[str]] = Query(None),
