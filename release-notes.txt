@@ -7,3 +7,4 @@ IMPROVED
 • Different genesis assets created on initial data
 • Problem profiles filtering merged into list endpoint
 • Print message removed when a message is sent through rabbitmq
+• Pre start script waits for rabbit and catalogue
