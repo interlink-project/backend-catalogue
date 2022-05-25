@@ -132,4 +132,4 @@ async def related_interlinkers(
         raise HTTPException(status_code=404, detail="Interlinker not found")
     if not crud.interlinker.can_read(current_user, interlinker):
         raise HTTPException(status_code=403, detail="Not enough permissions")
-    return await crud.interlinker.get_by_problemprofiles(db=db, exclude=[interlinker.id], problemprofiles=[pr.id for pr in interlinker.problemprofiles])
+    return await crud.interlinker.get_multi(db=db, exclude=[interlinker.id], problemprofiles=[pr.id for pr in interlinker.problemprofiles])

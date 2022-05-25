@@ -131,7 +131,7 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
         return db_obj
 
     async def get_multi(
-        self, db: Session, search: str = "", problemprofiles: list = [], natures: list = [], rating: int = 0, creator: list = [], language: str = "en"
+        self, db: Session, exclude: list = [], search: str = "", problemprofiles: list = [], natures: list = [], rating: int = 0, creator: list = [], language: str = "en"
     ) -> List[Interlinker]:
         queries = []
 
@@ -170,7 +170,7 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
             "rating": rating,
             "natures": natures
         })
-        return paginate(db.query(Interlinker).filter(*queries))
+        return paginate(db.query(Interlinker).filter(*queries, Interlinker.id.not_in(exclude)))
     
     async def get_related(
         self, db: Session, interlinker: Interlinker
@@ -186,26 +186,6 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
             )
         ))
 
-    async def get_by_problemprofiles(
-        self, db: Session, problemprofiles: list, exclude: list = [], language: str = settings.DEFAULT_LANGUAGE
-    ) -> List[Interlinker]:
-        await log({
-            "model": self.modelName,
-            "action": "GET_BY_PROBLEMPROFILES",
-            "problemprofiles": problemprofiles,
-        })
-        queries = [
-            and_(
-                Interlinker.problemprofiles.any(ProblemProfile.id.in_(problemprofiles)),
-                Interlinker.id.not_in(exclude)
-            )
-        ]
-        
-        if language:
-            queries.append(Interlinker.languages.any(language))
-
-        return paginate(db.query(Interlinker).filter(*queries))
-       
     # CRUD Permissions
     def can_create(self, user):
         return True

@@ -1,10 +1,6 @@
-VERSION: v1.1.5
+VERSION: v1.1.6
 
 NEW
-• All genesis asset ids in out schema
 
 IMPROVED
-• Different genesis assets created on initial data
-• Problem profiles filtering merged into list endpoint
-• Print message removed when a message is sent through rabbitmq
-• Pre start script waits for rabbit and catalogue
+• Merged get_by_problemprofiles and get list endpoints
