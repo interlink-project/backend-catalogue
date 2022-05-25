@@ -1,5 +1,5 @@
 import uuid
-from typing import List, Optional, Union
+from typing import Any, Dict, List, Optional, Union
 
 from fastapi.encoders import jsonable_encoder
 from fastapi_pagination.ext.sqlalchemy import paginate
@@ -21,10 +21,14 @@ from app.problemprofiles.crud import exportCrud as problems_crud
 from app.schemas import (
     ExternalKnowledgeInterlinkerCreate,
     ExternalSoftwareInterlinkerCreate,
-    InterlinkerCreate,
-    InterlinkerPatch,
     KnowledgeInterlinkerCreate,
     SoftwareInterlinkerCreate,
+    ExternalKnowledgeInterlinkerPatch,
+    ExternalSoftwareInterlinkerPatch,
+    KnowledgeInterlinkerPatch,
+    SoftwareInterlinkerPatch,
+    InterlinkerCreate,
+    InterlinkerPatch,
 )
 
 
@@ -147,7 +151,8 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
         if search:
             search = search.lower()
             queries.append(or_(
-                    # Interlinker.tags.any(search),
+                    func.lower(Interlinker.tags_translations[language]).contains(
+                        search),
                     func.lower(Interlinker.name_translations[language]).contains(
                         search),
                     func.lower(
@@ -185,6 +190,38 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
                 Interlinker.problemprofiles.any(ProblemProfile.id.in_(interlinker.problemprofiles)),
             )
         ))
+
+    async def update(
+        self,
+        db: Session,
+        *,
+        db_obj: Union[ExternalKnowledgeInterlinker, ExternalSoftwareInterlinker, SoftwareInterlinker, KnowledgeInterlinker],
+        obj_in: Union[ExternalKnowledgeInterlinkerPatch, ExternalSoftwareInterlinkerPatch, SoftwareInterlinkerPatch, KnowledgeInterlinkerPatch, Dict[str, Any]]
+    ) -> Interlinker:
+        obj_data = jsonable_encoder(db_obj)
+        if isinstance(obj_in, dict):
+            update_data = obj_in
+        else:
+            update_data = obj_in.dict(exclude_unset=True)
+
+        for id in update_data.get("problemprofiles", []):
+            if problem := await problems_crud.get(db=db, id=id):
+                db_obj.problemprofiles.append(problem)
+        del update_data["problemprofiles"]
+        
+        for field, value in update_data.items():
+            if hasattr(db_obj, field) and value != getattr(db_obj, field):
+                print("Updating", field)
+                setattr(db_obj, field, value)
+        db.add(db_obj)
+        db.commit()
+        await log({
+            "model": self.modelName,
+            "action": "UPDATE",
+            "id": db_obj.id
+        })
+        db.refresh(db_obj)
+        return db_obj
 
     # CRUD Permissions
     def can_create(self, user):

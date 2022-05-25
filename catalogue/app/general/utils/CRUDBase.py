@@ -74,9 +74,10 @@ class CRUDBase(Generic[ModelType, CreateSchemaType, PatchSchemaType]):
             update_data = obj_in
         else:
             update_data = obj_in.dict(exclude_unset=True)
-        for field in obj_data:
-            if field in update_data:
-                setattr(db_obj, field, update_data[field])
+        for field, value in update_data.items():
+            if hasattr(db_obj, field) and value != getattr(db_obj, field):
+                print("Updating", field)
+                setattr(db_obj, field, value)
         db.add(db_obj)
         db.commit()
         await log({

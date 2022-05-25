@@ -194,7 +194,7 @@ class KnowledgeBaseInterlinkerBase(BaseInterlinkerBase):
 
 
 class KnowledgeInterlinkerCreate(BaseInterlinkerCreate, KnowledgeBaseInterlinkerBase):
-    genesis_asset_id_translations: Optional[dict]
+    genesis_asset_id_translations: dict
     instructions_translations: dict
 
 

@@ -1,6 +1,10 @@
-VERSION: v1.1.6
+VERSION: v1.1.7
 
 NEW
+• Py file for development stuff
 
 IMPROVED
-• Merged get_by_problemprofiles and get list endpoints
+• Initial data file names depending on the language
+
+FIXED
+• CRUD Base update fixed

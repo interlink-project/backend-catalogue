@@ -182,8 +182,9 @@ async def create_interlinker(db, metadata_path, software=False, externalsoftware
                 else:
                     filedata = open(str(folder) + "/" + filename, "rb").read()
                     # TODO: hash filedata and check if already exists
+                    name_for_file = data["name_translations"][key]
                     files_data = {
-                        'file': (name + file_extension, filedata)}
+                        'file': (name_for_file + file_extension, filedata)}
                     response = requests.post(
                         f"http://{service}/assets", files=files_data).json()
 
@@ -192,7 +193,6 @@ async def create_interlinker(db, metadata_path, software=False, externalsoftware
                 data["softwareinterlinker_id"] = softwareinterlinker.id
                 genesis_asset_id_translations[key] = response["id"] if "id" in response else response["_id"]
             
-            print(genesis_asset_id_translations)
             data["genesis_asset_id_translations"] = genesis_asset_id_translations
             if existing_interlinker:
                 interlinker : models.KnowledgeInterlinker = await crud.interlinker.update(
@@ -200,7 +200,8 @@ async def create_interlinker(db, metadata_path, software=False, externalsoftware
                     db_obj=existing_interlinker,
                     obj_in=schemas.KnowledgeInterlinkerPatch(**data),
                 )
-                print(interlinker.genesis_asset_id_translations)
+                if interlinker.genesis_asset_id_translations != genesis_asset_id_translations:
+                    raise Exception(f"{interlinker.genesis_asset_id_translations} no es igual a {genesis_asset_id_translations}")
             else:
                 interlinker : models.KnowledgeInterlinker = await crud.interlinker.create(
                     db=db,
@@ -339,9 +340,23 @@ async def create_coproductionschema(db, schema_data):
                     db=db, phasemetadata=db_phasemetadata, prerequisite=db_prerequisite)
 
 
+from sqlalchemy import MetaData
+from sqlalchemy_schemadisplay import create_schema_graph
+from app.config import settings
+
 async def init():
     db = SessionLocal()
     set_logging_disabled(True)
+
+    graph = create_schema_graph(
+        metadata=MetaData(settings.SQLALCHEMY_DATABASE_URI),
+        show_datatypes=False,  # The image would get nasty big if we'd show the datatypes
+        show_indexes=False,  # ditto for indexes
+        # From left to right (instead of top to bottom)
+        rankdir="LR",
+        concentrate=True,  # Don't try to join the relation lines together
+    )
+    graph.write_png("dbschema.png")  # write out the file
 
     try:
         # create problem profiles
