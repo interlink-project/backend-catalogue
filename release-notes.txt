@@ -1,10 +1,7 @@
-VERSION: v1.1.7
+VERSION: v1.1.8
 
 NEW
-• Py file for development stuff
 
 IMPROVED
-• Initial data file names depending on the language
 
 FIXED
-• CRUD Base update fixed
