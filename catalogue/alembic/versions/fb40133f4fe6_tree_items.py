@@ -1,8 +1,8 @@
-"""first
+"""tree-items
 
-Revision ID: 6a215f234d09
+Revision ID: fb40133f4fe6
 Revises: 
-Create Date: 2022-05-06 11:48:27.093092
+Create Date: 2022-05-26 12:47:29.505782
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 from sqlalchemy.dialects import postgresql
 
 # revision identifiers, used by Alembic.
-revision = '6a215f234d09'
+revision = 'fb40133f4fe6'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -48,12 +48,12 @@ def upgrade():
     op.create_table('artefact_problem',
     sa.Column('artefact_id', postgresql.UUID(as_uuid=True), nullable=True),
     sa.Column('problemprofile_id', sa.String(), nullable=True),
-    sa.ForeignKeyConstraint(['artefact_id'], ['artefact.id'], ),
-    sa.ForeignKeyConstraint(['problemprofile_id'], ['problemprofile.id'], )
+    sa.ForeignKeyConstraint(['artefact_id'], ['artefact.id'], ondelete='CASCADE'),
+    sa.ForeignKeyConstraint(['problemprofile_id'], ['problemprofile.id'], ondelete='CASCADE')
     )
     op.create_table('coproductionschema',
     sa.Column('id', postgresql.UUID(as_uuid=True), nullable=False),
-    sa.ForeignKeyConstraint(['id'], ['artefact.id'], ),
+    sa.ForeignKeyConstraint(['id'], ['artefact.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('interlinker',
@@ -70,7 +70,7 @@ def upgrade():
     sa.Column('instructions_translations', postgresql.HSTORE(text_type=sa.Text()), nullable=True),
     sa.Column('form', sa.String(), nullable=True),
     sa.Column('format', sa.String(), nullable=True),
-    sa.ForeignKeyConstraint(['id'], ['artefact.id'], ),
+    sa.ForeignKeyConstraint(['id'], ['artefact.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('publicservice',
@@ -85,19 +85,6 @@ def upgrade():
     sa.ForeignKeyConstraint(['id'], ['artefact.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-    op.create_table('questioncomment',
-    sa.Column('id', postgresql.UUID(as_uuid=True), nullable=False),
-    sa.Column('user_id', sa.String(), nullable=True),
-    sa.Column('artefact_id', postgresql.UUID(as_uuid=True), nullable=True),
-    sa.Column('title', sa.String(), nullable=True),
-    sa.Column('text', sa.Text(), nullable=True),
-    sa.Column('parent_id', postgresql.UUID(as_uuid=True), nullable=True),
-    sa.Column('created_at', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
-    sa.Column('updated_at', sa.DateTime(), nullable=True),
-    sa.ForeignKeyConstraint(['artefact_id'], ['artefact.id'], ),
-    sa.ForeignKeyConstraint(['parent_id'], ['questioncomment.id'], ),
-    sa.PrimaryKeyConstraint('id')
-    )
     op.create_table('rating',
     sa.Column('id', postgresql.UUID(as_uuid=True), nullable=False),
     sa.Column('user_id', sa.String(), nullable=True),
@@ -107,31 +94,21 @@ def upgrade():
     sa.Column('value', sa.Integer(), nullable=True),
     sa.Column('created_at', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
     sa.Column('updated_at', sa.DateTime(), nullable=True),
-    sa.ForeignKeyConstraint(['artefact_id'], ['artefact.id'], ),
+    sa.ForeignKeyConstraint(['artefact_id'], ['artefact.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('externalknowledgeinterlinker',
     sa.Column('id', postgresql.UUID(as_uuid=True), nullable=False),
     sa.Column('uri_translations', postgresql.HSTORE(text_type=sa.Text()), nullable=True),
     sa.Column('asset_name_translations', postgresql.HSTORE(text_type=sa.Text()), nullable=True),
-    sa.ForeignKeyConstraint(['id'], ['interlinker.id'], ),
+    sa.ForeignKeyConstraint(['id'], ['interlinker.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('externalsoftwareinterlinker',
     sa.Column('id', postgresql.UUID(as_uuid=True), nullable=False),
     sa.Column('uri_translations', postgresql.HSTORE(text_type=sa.Text()), nullable=True),
     sa.Column('asset_name_translations', postgresql.HSTORE(text_type=sa.Text()), nullable=True),
-    sa.ForeignKeyConstraint(['id'], ['interlinker.id'], ),
-    sa.PrimaryKeyConstraint('id')
-    )
-    op.create_table('phasemetadata',
-    sa.Column('id', postgresql.UUID(as_uuid=True), nullable=False),
-    sa.Column('name_translations', postgresql.HSTORE(text_type=sa.Text()), nullable=True),
-    sa.Column('description_translations', postgresql.HSTORE(text_type=sa.Text()), nullable=True),
-    sa.Column('coproductionschema_id', postgresql.UUID(as_uuid=True), nullable=True),
-    sa.Column('created_at', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
-    sa.Column('updated_at', sa.DateTime(), nullable=True),
-    sa.ForeignKeyConstraint(['coproductionschema_id'], ['coproductionschema.id'], ondelete='CASCADE'),
+    sa.ForeignKeyConstraint(['id'], ['interlinker.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('softwareinterlinker',
@@ -162,7 +139,20 @@ def upgrade():
     sa.Column('download_text_translations', postgresql.HSTORE(text_type=sa.Text()), nullable=True),
     sa.Column('preview_text_translations', postgresql.HSTORE(text_type=sa.Text()), nullable=True),
     sa.Column('status', sa.String(), nullable=True),
-    sa.ForeignKeyConstraint(['id'], ['interlinker.id'], ),
+    sa.ForeignKeyConstraint(['id'], ['interlinker.id'], ondelete='CASCADE'),
+    sa.PrimaryKeyConstraint('id')
+    )
+    op.create_table('treeitemmetadata',
+    sa.Column('id', postgresql.UUID(as_uuid=True), nullable=False),
+    sa.Column('name_translations', postgresql.HSTORE(text_type=sa.Text()), nullable=True),
+    sa.Column('description_translations', postgresql.HSTORE(text_type=sa.Text()), nullable=True),
+    sa.Column('type', sa.Enum('treeitem', 'objective', 'phase', name='types', native_enum=False), nullable=True),
+    sa.Column('parent_id', postgresql.UUID(as_uuid=True), nullable=True),
+    sa.Column('coproductionschema_id', postgresql.UUID(as_uuid=True), nullable=True),
+    sa.Column('created_at', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
+    sa.Column('updated_at', sa.DateTime(), nullable=True),
+    sa.ForeignKeyConstraint(['coproductionschema_id'], ['coproductionschema.id'], ondelete='CASCADE'),
+    sa.ForeignKeyConstraint(['parent_id'], ['treeitemmetadata.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('knowledgeinterlinker',
@@ -170,77 +160,38 @@ def upgrade():
     sa.Column('softwareinterlinker_id', postgresql.UUID(as_uuid=True), nullable=True),
     sa.Column('genesis_asset_id_translations', postgresql.HSTORE(text_type=sa.Text()), nullable=True),
     sa.Column('parent_id', postgresql.UUID(as_uuid=True), nullable=True),
-    sa.ForeignKeyConstraint(['id'], ['interlinker.id'], ),
+    sa.ForeignKeyConstraint(['id'], ['interlinker.id'], ondelete='CASCADE'),
     sa.ForeignKeyConstraint(['parent_id'], ['knowledgeinterlinker.id'], ),
     sa.ForeignKeyConstraint(['softwareinterlinker_id'], ['softwareinterlinker.id'], ondelete='CASCADE'),
     sa.PrimaryKeyConstraint('id')
     )
-    op.create_table('objectivemetadata',
-    sa.Column('id', postgresql.UUID(as_uuid=True), nullable=False),
-    sa.Column('name_translations', postgresql.HSTORE(text_type=sa.Text()), nullable=True),
-    sa.Column('description_translations', postgresql.HSTORE(text_type=sa.Text()), nullable=True),
-    sa.Column('phasemetadata_id', postgresql.UUID(as_uuid=True), nullable=True),
-    sa.Column('created_at', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
-    sa.Column('updated_at', sa.DateTime(), nullable=True),
-    sa.ForeignKeyConstraint(['phasemetadata_id'], ['phasemetadata.id'], ondelete='CASCADE'),
-    sa.PrimaryKeyConstraint('id')
+    op.create_table('treeitemmetadata_prerequisites',
+    sa.Column('treeitemmetadata_a_id', postgresql.UUID(as_uuid=True), nullable=False),
+    sa.Column('treeitemmetadata_b_id', postgresql.UUID(as_uuid=True), nullable=False),
+    sa.ForeignKeyConstraint(['treeitemmetadata_a_id'], ['treeitemmetadata.id'], ondelete='CASCADE'),
+    sa.ForeignKeyConstraint(['treeitemmetadata_b_id'], ['treeitemmetadata.id'], ondelete='CASCADE'),
+    sa.PrimaryKeyConstraint('treeitemmetadata_a_id', 'treeitemmetadata_b_id')
     )
-    op.create_table('phases_metadata_prerequisites',
-    sa.Column('phasemetadata_a_id', postgresql.UUID(as_uuid=True), nullable=False),
-    sa.Column('phasemetadata_b_id', postgresql.UUID(as_uuid=True), nullable=False),
-    sa.ForeignKeyConstraint(['phasemetadata_a_id'], ['phasemetadata.id'], ),
-    sa.ForeignKeyConstraint(['phasemetadata_b_id'], ['phasemetadata.id'], ondelete='CASCADE'),
-    sa.PrimaryKeyConstraint('phasemetadata_a_id', 'phasemetadata_b_id')
-    )
-    op.create_table('objective_metadata_prerequisites',
-    sa.Column('objectivemetadata_a_id', postgresql.UUID(as_uuid=True), nullable=False),
-    sa.Column('objectivemetadata_b_id', postgresql.UUID(as_uuid=True), nullable=False),
-    sa.ForeignKeyConstraint(['objectivemetadata_a_id'], ['objectivemetadata.id'], ),
-    sa.ForeignKeyConstraint(['objectivemetadata_b_id'], ['objectivemetadata.id'], ondelete='CASCADE'),
-    sa.PrimaryKeyConstraint('objectivemetadata_a_id', 'objectivemetadata_b_id')
-    )
-    op.create_table('taskmetadata',
-    sa.Column('id', postgresql.UUID(as_uuid=True), nullable=False),
-    sa.Column('name_translations', postgresql.HSTORE(text_type=sa.Text()), nullable=True),
-    sa.Column('description_translations', postgresql.HSTORE(text_type=sa.Text()), nullable=True),
-    sa.Column('objectivemetadata_id', postgresql.UUID(as_uuid=True), nullable=True),
-    sa.Column('created_at', sa.DateTime(), server_default=sa.text('now()'), nullable=True),
-    sa.Column('updated_at', sa.DateTime(), nullable=True),
-    sa.ForeignKeyConstraint(['objectivemetadata_id'], ['objectivemetadata.id'], ondelete='CASCADE'),
-    sa.PrimaryKeyConstraint('id')
-    )
-    op.create_table('tasks_metadata_prerequisites',
-    sa.Column('taskmetadata_a_id', postgresql.UUID(as_uuid=True), nullable=False),
-    sa.Column('taskmetadata_b_id', postgresql.UUID(as_uuid=True), nullable=False),
-    sa.ForeignKeyConstraint(['taskmetadata_a_id'], ['taskmetadata.id'], ),
-    sa.ForeignKeyConstraint(['taskmetadata_b_id'], ['taskmetadata.id'], ondelete='CASCADE'),
-    sa.PrimaryKeyConstraint('taskmetadata_a_id', 'taskmetadata_b_id')
-    )
-    op.create_table('tasks_problemprofiles_association',
-    sa.Column('taskmetadata_a_id', postgresql.UUID(as_uuid=True), nullable=False),
+    op.create_table('treeitemmetadata_problemprofiles_association',
+    sa.Column('treeitemmetadata_a_id', postgresql.UUID(as_uuid=True), nullable=False),
     sa.Column('problemprofile_id', sa.String(), nullable=False),
     sa.ForeignKeyConstraint(['problemprofile_id'], ['problemprofile.id'], ondelete='CASCADE'),
-    sa.ForeignKeyConstraint(['taskmetadata_a_id'], ['taskmetadata.id'], ),
-    sa.PrimaryKeyConstraint('taskmetadata_a_id', 'problemprofile_id')
+    sa.ForeignKeyConstraint(['treeitemmetadata_a_id'], ['treeitemmetadata.id'], ondelete='CASCADE'),
+    sa.PrimaryKeyConstraint('treeitemmetadata_a_id', 'problemprofile_id')
     )
     # ### end Alembic commands ###
 
 
 def downgrade():
     # ### commands auto generated by Alembic - please adjust! ###
-    op.drop_table('tasks_problemprofiles_association')
-    op.drop_table('tasks_metadata_prerequisites')
-    op.drop_table('taskmetadata')
-    op.drop_table('objective_metadata_prerequisites')
-    op.drop_table('phases_metadata_prerequisites')
-    op.drop_table('objectivemetadata')
+    op.drop_table('treeitemmetadata_problemprofiles_association')
+    op.drop_table('treeitemmetadata_prerequisites')
     op.drop_table('knowledgeinterlinker')
+    op.drop_table('treeitemmetadata')
     op.drop_table('softwareinterlinker')
-    op.drop_table('phasemetadata')
     op.drop_table('externalsoftwareinterlinker')
     op.drop_table('externalknowledgeinterlinker')
     op.drop_table('rating')
-    op.drop_table('questioncomment')
     op.drop_table('publicservice')
     op.drop_table('interlinker')
     op.drop_table('coproductionschema')

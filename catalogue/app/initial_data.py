@@ -1,3 +1,4 @@
+import asyncio
 import json
 import logging
 import ntpath
@@ -8,10 +9,12 @@ from pathlib import Path
 
 import requests
 from slugify import slugify
+from sqlalchemy import MetaData
+from sqlalchemy_schemadisplay import create_schema_graph
 
-from app import crud, schemas, models
+from app import crud, models, schemas
+from app.config import settings
 from app.general.db.session import SessionLocal
-import asyncio
 from app.messages import set_logging_disabled
 
 logging.basicConfig(level=logging.INFO)
@@ -255,94 +258,69 @@ async def create_coproductionschema(db, schema_data):
     )
 
     print(f"{bcolors.OKBLUE}## Processing {bcolors.ENDC}{name}{bcolors.OKBLUE}")     
-    for i in SCHEMA.phasemetadatas:
-        await crud.phasemetadata.remove(db=db, id=i.id)
+    for i in SCHEMA.treeitems:
+        await crud.treeitems.remove(db=db, id=i.id)
     
-    phases_resume = {}
+    items_resume = {}
     phase_data: dict
     for phase_data in schema_data["phases"]:
-        phase_data["coproductionschema_id"] = SCHEMA.id
-
-        db_phase = await crud.phasemetadata.create(
+        db_phase = await crud.treeitems.create(
             db=db,
-            phasemetadata=schemas.PhaseMetadataCreate(
-                **phase_data
+            obj_in=schemas.TreeItemCreate(
+                **phase_data,
+                coproductionschema_id=SCHEMA.id,
+                type=models.TreeItemTypes.phase
             )
         )
-        phases_resume[phase_data["id"]] = {
-            "id": db_phase.id,
+        items_resume[phase_data["id"]] = {
+            "db_id": db_phase.id,
             "prerequisites": phase_data.get("prerequisites", [])
         }
 
-        objectives_resume = {}
         objective_data: dict
         for objective_data in phase_data["objectives"]:
-            objective_data["phasemetadata_id"] = db_phase.id
-
-            db_objective = await crud.objectivemetadata.create(
+            db_objective = await crud.treeitems.create(
                 db=db,
-                objectivemetadata=schemas.ObjectiveMetadataCreate(
-                    **objective_data
+                obj_in=schemas.TreeItemCreate(
+                    **objective_data,
+                    parent_id=db_phase.id,
+                    type=models.TreeItemTypes.objective
                 )
             )
-            objectives_resume[objective_data["id"]] = {
-                "id": db_objective.id,
+            items_resume[objective_data["id"]] = {
+                "db_id": db_objective.id,
                 "prerequisites": objective_data.get("prerequisites", [])
             }
 
-            tasks_resume = {}
             task_data: dict
             for task_data in objective_data["tasks"]:
-                task_data["objectivemetadata_id"] = db_objective.id
                 sum = list(task_data["problemprofiles"]) + \
                     list(objective_data["problemprofiles"])
-                task_data["problemprofiles"] = list(set(sum))
-                db_task = await crud.taskmetadata.create(
+                del task_data["problemprofiles"]
+                db_task = await crud.treeitems.create(
                     db=db,
-                    taskmetadata=schemas.TaskMetadataCreate(
-                        **task_data
+                    obj_in=schemas.TreeItemCreate(
+                        **task_data,
+                        parent_id=db_objective.id,
+                        type=models.TreeItemTypes.task,
+                        problemprofiles=list(set(sum))
                     )
                 )
-                tasks_resume[task_data["id"]] = {
-                    "id": db_task.id,
+                items_resume[task_data["id"]] = {
+                    "db_id": db_task.id,
                     "prerequisites": task_data.get("prerequisites", [])
                 }
-            # prerequisites
-            for key, task_resume in tasks_resume.items():
-                db_taskmetadata = await crud.taskmetadata.get(db=db, id=task_resume["id"])
-                prerequisite_id: dict
-                for prerequisite_id in task_resume["prerequisites"]:
-                    if (ref := prerequisite_id.get("item", None)):
-                        db_prerequisite = await crud.taskmetadata.get(
-                            db=db, id=tasks_resume[ref]["id"])
-                        print(db_prerequisite, "is a prerequisite for", db_task)
-                        await crud.taskmetadata.add_prerequisite(
-                            db=db, taskmetadata=db_taskmetadata, prerequisite=db_prerequisite)
-        for key, objective_resume in objectives_resume.items():
-            db_objectivemetadata = await crud.objectivemetadata.get(
-                db=db, id=objective_resume["id"])
-            prerequisite_id: dict
-            for prerequisite_id in objective_resume["prerequisites"]:
-                if (ref := prerequisite_id.get("item", None)):
-                    db_prerequisite = await crud.objectivemetadata.get(
-                        db=db, id=objectives_resume[ref]["id"])
-                    print(db_prerequisite, "is a prerequisite for", db_objective)
-                    await crud.objectivemetadata.add_prerequisite(
-                        db=db, objectivemetadata=db_objectivemetadata, prerequisite=db_prerequisite)
-    for key, phase_resume in phases_resume.items():
-        db_phasemetadata = await crud.phasemetadata.get(db=db, id=phase_resume["id"])
-        for prerequisite_id in phase_resume["prerequisites"]:
+
+    for key, resume in items_resume.items():
+        db_treeitem = await crud.treeitems.get(db=db, id=resume["db_id"])
+        for prerequisite_id in resume["prerequisites"]:
             if (ref := prerequisite_id.get("item", None)):
-                db_prerequisite = await crud.phasemetadata.get(
-                    db=db, id=phases_resume[ref]["id"])
-                print(db_prerequisite, "is a prerequisite for", db_phasemetadata)
-                await crud.phasemetadata.add_prerequisite(
-                    db=db, phasemetadata=db_phasemetadata, prerequisite=db_prerequisite)
+                db_prerequisite = await crud.treeitems.get(
+                    db=db, id=items_resume[ref]["db_id"])
 
+                print(db_prerequisite, "is a prerequisite for", db_treeitem)
+                await crud.treeitems.add_prerequisite(db=db, treeitem=db_treeitem, prerequisite=db_prerequisite)
 
-from sqlalchemy import MetaData
-from sqlalchemy_schemadisplay import create_schema_graph
-from app.config import settings
 
 async def init():
     db = SessionLocal()
