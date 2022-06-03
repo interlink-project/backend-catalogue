@@ -339,24 +339,9 @@ async def create_coproductionschema(db, schema_data):
                 await crud.phasemetadata.add_prerequisite(
                     db=db, phasemetadata=db_phasemetadata, prerequisite=db_prerequisite)
 
-
-from sqlalchemy import MetaData
-from sqlalchemy_schemadisplay import create_schema_graph
-from app.config import settings
-
 async def init():
     db = SessionLocal()
     set_logging_disabled(True)
-
-    graph = create_schema_graph(
-        metadata=MetaData(settings.SQLALCHEMY_DATABASE_URI),
-        show_datatypes=False,  # The image would get nasty big if we'd show the datatypes
-        show_indexes=False,  # ditto for indexes
-        # From left to right (instead of top to bottom)
-        rankdir="LR",
-        concentrate=True,  # Don't try to join the relation lines together
-    )
-    graph.write_png("dbschema.png")  # write out the file
 
     try:
         # create problem profiles
