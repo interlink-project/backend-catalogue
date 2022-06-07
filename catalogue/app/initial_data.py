@@ -10,7 +10,6 @@ from pathlib import Path
 import requests
 from slugify import slugify
 from sqlalchemy import MetaData
-from sqlalchemy_schemadisplay import create_schema_graph
 
 from app import crud, models, schemas
 from app.config import settings
