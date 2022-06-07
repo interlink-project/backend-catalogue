@@ -5,6 +5,7 @@ from app.interlinkers.schemas import *
 from app.problemprofiles.schemas import *
 from app.publicservices.schemas import *
 from app.ratings.schemas import *
+from app.treeitems.schemas import *
 
 class ArtefactOutFull(ArtefactOut):
     pass
@@ -20,29 +21,11 @@ class RatingOutFull(RatingOut):
     pass
 
 
-class TaskMetadataOutFull(TaskMetadataOut):
+class TreeItemOutFull(TreeItemOut):
     problemprofiles: List[ProblemProfileOut]
-    prerequisites_ids: List[uuid.UUID]
+    children: List["TreeItemOutFull"]
 
-    @validator('prerequisites_ids', pre=True)
-    def prerequisites_ids_to_list(cls, v):
-        return list(v)
-
-class ObjectiveMetadataOutFull(ObjectiveMetadataOut):
-    taskmetadatas: List[TaskMetadataOutFull] = []
-    prerequisites_ids: List[uuid.UUID]
-
-    @validator('prerequisites_ids', pre=True)
-    def prerequisites_ids_to_list(cls, v):
-        return list(v)
-
-class PhaseMetadataOutFull(PhaseMetadataOut):
-    objectivemetadatas: List[ObjectiveMetadataOutFull] = []
-    prerequisites_ids: List[uuid.UUID]
-
-    @validator('prerequisites_ids', pre=True)
-    def prerequisites_ids_to_list(cls, v):
-        return list(v)
+TreeItemOutFull.update_forward_refs()
 
 class CoproductionSchemaOutFull(CoproductionSchemaOut):
-    phasemetadatas: List[PhaseMetadataOutFull] = []
+    children: List[TreeItemOutFull] = []
