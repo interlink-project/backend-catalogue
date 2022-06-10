@@ -79,3 +79,6 @@ class TreeItemMetadata(BaseModel):
         secondary=treeitems_problemprofiles_association,
         backref="treeitemmetadatas")
     problemprofiles_ids = association_proxy('problemprofiles', 'id')
+
+    # in case of being a phase
+    is_part_of_codelivery = Column(Boolean, default=False)

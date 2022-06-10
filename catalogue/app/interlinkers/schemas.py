@@ -44,13 +44,13 @@ class BaseInterlinkerBase(ArtefactBase):
 
     form: Optional[FormTypes]
     format: Optional[Formats]
-
+    is_sustainability_related: bool
 
 class BaseInterlinkerCreate(ArtefactCreate, BaseInterlinkerBase):
     logotype: Optional[str]
     snapshots: Optional[List[str]]
     instructions_translations: dict
-
+    
 class BaseInterlinkerPatch(ArtefactPatch):
     published: Optional[bool]
     difficulty: Optional[Difficulties]
@@ -67,7 +67,8 @@ class BaseInterlinkerPatch(ArtefactPatch):
     logotype: Optional[str]
     snapshots: Optional[List[str]]
     instructions_translations: Optional[dict]
-
+    is_sustainability_related: Optional[bool]
+    
 class BaseInterlinkerORM(ArtefactORM, BaseInterlinkerBase):
     id: uuid.UUID
     created_at: datetime

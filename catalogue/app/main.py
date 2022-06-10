@@ -10,6 +10,7 @@ from starlette_context.middleware import ContextMiddleware
 from app.api.api_v1 import api_router
 from app.config import settings
 from app.middleware import LanguagePlugin, UserPlugin
+from app.kpis import init
 
 middleware = [
     Middleware(
@@ -38,17 +39,19 @@ if settings.BACKEND_CORS_ORIGINS:
     )
 
 
-app.include_router(api_router, prefix=settings.API_V1_STR)
-
-
 @app.get("/")
 def main():
     return RedirectResponse(url=f"{settings.BASE_PATH}/docs")
 
+@app.get("/kpis")
+async def kpis():
+    return await init()
 
 @app.get("/healthcheck")
 def healthcheck():
     return True
+
+app.include_router(api_router, prefix=settings.API_V1_STR)
 
 ###################
 # we need this to save temporary code & state in session (authentication)

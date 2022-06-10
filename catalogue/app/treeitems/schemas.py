@@ -11,16 +11,15 @@ class TreeItemBase(BaseModel):
     description_translations: dict
     coproductionschema_id: Optional[uuid.UUID]
     parent_id: Optional[uuid.UUID]
-    type: TreeItemTypes
-    problemprofiles: Optional[list]
+    is_part_of_codelivery: Optional[bool]
 
 class TreeItemCreate(TreeItemBase):
-    pass    
+    type: TreeItemTypes    
 
 class TreeItemPatch(TreeItemBase):
     pass
 
-class TreeItem(TreeItemBase):
+class TreeItem(TreeItemCreate):
     id: uuid.UUID
     created_at: datetime
     updated_at: Optional[datetime]
@@ -35,6 +34,12 @@ class TreeItem(TreeItemBase):
 class TreeItemOut(TreeItem):
     children_ids: List[uuid.UUID]
     prerequisites_ids: List[uuid.UUID]
+    problemprofiles_ids: List[str]
+    problemprofiles: Optional[list]
+
+    @validator('problemprofiles_ids', pre=True)
+    def problemprofiles_ids_to_list(cls, v):
+        return list(v)
 
     @validator('prerequisites_ids', pre=True)
     def prerequisites_ids_to_list(cls, v):

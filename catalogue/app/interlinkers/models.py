@@ -34,6 +34,7 @@ class Interlinker(Artefact):
         default=uuid.uuid4,
     )
     nature = Column(String)
+    is_sustainability_related = Column(Boolean, default=False)
 
     published = Column(Boolean, default=False)
     logotype = Column(String, nullable=True)

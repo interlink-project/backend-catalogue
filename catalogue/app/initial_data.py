@@ -256,62 +256,95 @@ async def create_coproductionschema(db, schema_data):
         )
     )
 
-    print(f"{bcolors.OKBLUE}## Processing {bcolors.ENDC}{name}{bcolors.OKBLUE}")     
-    for i in SCHEMA.children:
-        await crud.treeitems.remove(db=db, id=i.id)
-    
+    print(f"{bcolors.OKBLUE}## Processing {bcolors.ENDC}{name}")
     items_resume = {}
+    
     phase_data: dict
+    touched_phases = []
     for phase_data in schema_data["phases"]:
-        db_phase = await crud.treeitems.create(
-            db=db,
-            obj_in=schemas.TreeItemCreate(
-                **phase_data,
-                coproductionschema_id=SCHEMA.id,
-                type=models.TreeItemTypes.phase
+        if phase_in_db := await crud.treeitems.get_by_names(db=db, name_translations=phase_data["name_translations"], coproductionschema_id=SCHEMA.id):
+            print(f"{bcolors.WARNING}Updating existing phase {phase_in_db.name}{bcolors.ENDC}")
+            db_phase = await crud.treeitems.update(db=db, db_obj=phase_in_db, obj_in=schemas.TreeItemPatch(**phase_data))
+        else:
+            phase_name = phase_data.get("name_translations", {}).get("en", "undefined")
+            print(f"{bcolors.OKGREEN}Creating {phase_name}{bcolors.ENDC}")
+            db_phase = await crud.treeitems.create(
+                db=db,
+                obj_in=schemas.TreeItemCreate(
+                    **phase_data,
+                    coproductionschema_id=SCHEMA.id,
+                    type=models.TreeItemTypes.phase
+                )
             )
-        )
+        touched_phases.append(db_phase)
         items_resume[phase_data["id"]] = {
             "db_id": db_phase.id,
             "prerequisites": phase_data.get("prerequisites", [])
         }
 
         objective_data: dict
+        touched_objectives = []
         for objective_data in phase_data["objectives"]:
-            db_objective = await crud.treeitems.create(
-                db=db,
-                obj_in=schemas.TreeItemCreate(
-                    **objective_data,
-                    parent_id=db_phase.id,
-                    type=models.TreeItemTypes.objective
+            if objective_in_db := await crud.treeitems.get_by_names(db=db, name_translations=objective_data["name_translations"], parent_id=db_phase.id):
+                print(f"{bcolors.WARNING}Updating existing objective {objective_in_db.name}{bcolors.ENDC}")
+                db_objective = await crud.treeitems.update(db=db, db_obj=objective_in_db, obj_in=schemas.TreeItemPatch(**objective_data))
+            else:
+                objective_name = objective_data.get("name_translations", {}).get("en", "undefined")
+                print(f"{bcolors.OKGREEN}Creating {phase_name} - {objective_name}{bcolors.ENDC}")
+                db_objective = await crud.treeitems.create(
+                    db=db,
+                    obj_in=schemas.TreeItemCreate(
+                        **objective_data,
+                        parent_id=db_phase.id,
+                        type=models.TreeItemTypes.objective
+                    )
                 )
-            )
+            touched_objectives.append(db_objective)
             items_resume[objective_data["id"]] = {
                 "db_id": db_objective.id,
                 "prerequisites": objective_data.get("prerequisites", [])
             }
 
             task_data: dict
+            touched_tasks = []
             for task_data in objective_data["tasks"]:
-                sum = list(task_data["problemprofiles"]) + \
-                    list(objective_data["problemprofiles"])
-                del task_data["problemprofiles"]
-                db_task = await crud.treeitems.create(
-                    db=db,
-                    obj_in=schemas.TreeItemCreate(
-                        **task_data,
-                        parent_id=db_objective.id,
-                        type=models.TreeItemTypes.task,
-                        problemprofiles=list(set(sum))
+                if task_in_db := await crud.treeitems.get_by_names(db=db, name_translations=task_data["name_translations"], parent_id=db_objective.id):
+                    print(f"{bcolors.WARNING}Updating existing task {task_in_db.name}{bcolors.ENDC}")
+                    db_task = await crud.treeitems.update(db=db, db_obj=task_in_db, obj_in=schemas.TreeItemPatch(**task_data))
+                else:
+                    task_name = task_data.get("name_translations", {}).get("en", "undefined")
+                    print(f"{bcolors.OKGREEN}Creating {phase_name} - {objective_name} - {task_name}{bcolors.ENDC}")
+                    db_task = await crud.treeitems.create(
+                        db=db,
+                        obj_in=schemas.TreeItemCreate(
+                            **task_data,
+                            parent_id=db_objective.id,
+                            type=models.TreeItemTypes.task,
+                        )
                     )
-                )
+                touched_tasks.append(db_task)
+
+                sum = list(task_data["problemprofiles"]) + list(objective_data["problemprofiles"])
+                await crud.treeitems.sync_problemprofiles(db=db, treeitem=db_task, problemprofiles=sum, commit=False)
+
                 items_resume[task_data["id"]] = {
                     "db_id": db_task.id,
                     "prerequisites": task_data.get("prerequisites", [])
                 }
+            
+            for child in db_objective.children:
+                if child not in touched_tasks:
+                    print(f"{bcolors.FAIL}Removing task {child.name}{bcolors.ENDC}")
+                    await crud.treeitems.remove(db=db, id=child.id)
+
+        for child in db_phase.children:
+            if child not in touched_objectives:
+                print(f"{bcolors.FAIL}Removing objective {child.name}{bcolors.ENDC}")
+                await crud.treeitems.remove(db=db, id=child.id)
 
     for key, resume in items_resume.items():
         db_treeitem = await crud.treeitems.get(db=db, id=resume["db_id"])
+        await crud.treeitems.clear_prerequisites(db=db, treeitem=db_treeitem, commit=False)
         for prerequisite_id in resume["prerequisites"]:
             if (ref := prerequisite_id.get("item", None)):
                 db_prerequisite = await crud.treeitems.get(
@@ -320,6 +353,10 @@ async def create_coproductionschema(db, schema_data):
                 print(db_prerequisite, "is a prerequisite for", db_treeitem)
                 await crud.treeitems.add_prerequisite(db=db, treeitem=db_treeitem, prerequisite=db_prerequisite)
 
+    for child in SCHEMA.children:
+        if child not in touched_phases:
+            print(f"{bcolors.FAIL}Removing phase {child.name}{bcolors.ENDC}")
+            await crud.treeitems.remove(db=db, id=child.id)
 
 async def init():
     db = SessionLocal()

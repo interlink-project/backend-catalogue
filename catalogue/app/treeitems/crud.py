@@ -1,13 +1,13 @@
+from typing import List, Optional
 from sqlalchemy.orm import Session
-
-from app import models
+from sqlalchemy import or_, and_
 from app.general.utils.CRUDBase import CRUDBase
-from app.problemprofiles.crud import exportCrud as problemprofilesCrud
 
-from .models import TreeItemMetadata, TreeItemTypes
+from .models import TreeItemMetadata
 from .schemas import TreeItemCreate, TreeItemPatch
-from app.messages import log
-from fastapi.encoders import jsonable_encoder
+import uuid
+from app.problemprofiles.crud import exportCrud as problemProfilesCrud
+
 
 def recursive_check(id, obj):
     if hasattr(obj, "prerequisites"):
@@ -17,62 +17,93 @@ def recursive_check(id, obj):
             return recursive_check(id, pre)
     return
 
+
 class CRUDTreeItemMetadata(CRUDBase[TreeItemMetadata, TreeItemCreate, TreeItemPatch]):
-    async def create(self, db: Session, *, obj_in: TreeItemCreate, commit : bool = True) -> TreeItemMetadata:
-        data = obj_in.dict()
-        problemprofiles_string_list = data.get("problemprofiles", []) or []
-        del data["problemprofiles"]
-        
-        db_obj = TreeItemMetadata(**data)
-        db.add(db_obj)
+    async def get_by_names(self, db: Session, name_translations: str, parent_id: uuid.UUID = None, coproductionschema_id: uuid.UUID = None) -> Optional[TreeItemMetadata]:
+        queries = []
+        if coproductionschema_id:
+            queries.append(TreeItemMetadata.coproductionschema_id == coproductionschema_id)
+        if parent_id:
+            queries.append(TreeItemMetadata.parent_id == parent_id)
+        return db.query(TreeItemMetadata).filter(
+            and_(
+                or_(
+                    TreeItemMetadata.name_translations["en"] == name_translations["en"],
+                    TreeItemMetadata.name_translations["es"] == name_translations["es"],
+                    TreeItemMetadata.name_translations["it"] == name_translations["it"],
+                    TreeItemMetadata.name_translations["lv"] == name_translations["lv"],
+                ),
+                *queries
+            )
+        ).first()
+
+    async def sync_prerequisites(self, db: Session, treeitem: TreeItemMetadata, prerequisites: list = [], commit: bool = True) -> TreeItemMetadata:
+        # Gets a list of prerequisite ids and creates / removes the relations
+        prs = [await self.get(db=db, id=id) for id in prerequisites]
+        for pr in treeitem.prerequisites:
+            if pr not in prs:
+                treeitem.prerequisites.remove(pr)
+        for pr in prs:
+            if pr not in treeitem.prerequisites:
+                treeitem.prerequisites.append(pr)
         if commit:
             db.commit()
-            db.refresh(db_obj)
-        
-        for id in problemprofiles_string_list:
-            if pp := await problemprofilesCrud.get(db=db, id=id):
-                db_obj.problemprofiles.append(pp)
+            db.refresh(treeitem)
+        return treeitem
 
-        return db_obj
+    async def clear_prerequisites(self, db: Session, treeitem: TreeItemMetadata, commit: bool = True) -> TreeItemMetadata:
+        for pr in treeitem.prerequisites:
+            treeitem.prerequisites.remove(pr)
+        if commit:
+            db.commit()
+            db.refresh(treeitem)
+        return treeitem
 
-    async def update(
-        self,
-        db: Session,
-        *,
-        db_obj: TreeItemMetadata,
-        obj_in: TreeItemPatch
-    ) -> TreeItemMetadata:
-        obj_data = jsonable_encoder(db_obj)
-        if isinstance(obj_in, dict):
-            update_data = obj_in
-        else:
-            update_data = obj_in.dict(exclude_unset=True)
+    async def delete_prerequisite(self, db: Session, treeitem: TreeItemMetadata, prerequisite: TreeItemMetadata, commit: bool = True) -> TreeItemMetadata:
+        treeitem.prerequisites.remove(prerequisite)
+        if commit:
+            db.commit()
+            db.refresh(treeitem)
+        return treeitem
 
-        for id in update_data.get("problemprofiles", []):
-            if problem := await problemprofilesCrud.get(db=db, id=id):
-                db_obj.problemprofiles.append(problem)
-        del update_data["problemprofiles"]
-        
-        for field, value in update_data.items():
-            if hasattr(db_obj, field) and value != getattr(db_obj, field):
-                print("Updating", field)
-                setattr(db_obj, field, value)
-        db.add(db_obj)
-        db.commit()
-        await log({
-            "model": self.modelName,
-            "action": "UPDATE",
-            "id": db_obj.id
-        })
-        db.refresh(db_obj)
-        return db_obj
-
-    async def add_prerequisite(self, db: Session, treeitem: TreeItemMetadata, prerequisite: TreeItemMetadata, commit : bool = True) -> TreeItemMetadata:
+    async def add_prerequisite(self, db: Session, treeitem: TreeItemMetadata, prerequisite: TreeItemMetadata, commit: bool = True) -> TreeItemMetadata:
         if treeitem == prerequisite:
             raise Exception("Same object")
 
         recursive_check(treeitem.id, prerequisite)
         treeitem.prerequisites.append(prerequisite)
+        if commit:
+            db.commit()
+            db.refresh(treeitem)
+        return treeitem
+
+    # PROBLEMPROFILES
+
+    async def sync_problemprofiles(self, db: Session, treeitem: TreeItemMetadata, problemprofiles: list = [], commit: bool = True) -> TreeItemMetadata:
+        # Gets a list of problemprofile ids and creates / removes the relations
+        pps = [await problemProfilesCrud.get(db=db, id=id) for id in problemprofiles]
+        for pp in treeitem.problemprofiles:
+            if pp not in problemprofiles:
+                treeitem.problemprofiles.remove(pp)
+        for pp in pps:
+            if pp not in treeitem.problemprofiles:
+                treeitem.problemprofiles.append(pp)
+        if commit:
+            db.commit()
+            db.refresh(treeitem)
+        return treeitem
+
+    async def delete_problemprofile(self, db: Session, treeitem: TreeItemMetadata, problemprofile: TreeItemMetadata, commit: bool = True) -> TreeItemMetadata:
+        treeitem.problemprofiles.remove(problemprofile)
+        if commit:
+            db.commit()
+            db.refresh(treeitem)
+        return treeitem
+
+    async def add_problemprofile(self, db: Session, treeitem: TreeItemMetadata, problemprofile: TreeItemMetadata, commit: bool = True) -> TreeItemMetadata:
+        if treeitem == problemprofile:
+            raise Exception("Same object")
+        treeitem.problemprofiles.append(problemprofile)
         if commit:
             db.commit()
             db.refresh(treeitem)
@@ -93,5 +124,6 @@ class CRUDTreeItemMetadata(CRUDBase[TreeItemMetadata, TreeItemCreate, TreeItemPa
 
     def can_remove(self, user, object):
         return True
+
 
 exportCrud = CRUDTreeItemMetadata(TreeItemMetadata)
