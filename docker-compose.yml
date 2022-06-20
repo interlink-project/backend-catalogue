@@ -15,7 +15,6 @@ services:
       - BASE_PATH=/catalogue
     build:
       context: .
-      dockerfile: Dockerfile.catalogue
       target: dev
     command: ["bash", "./start-dev.sh"]
     labels:
