@@ -35,22 +35,10 @@ def wait_for_database() -> None:
     before=before_log(logger, logging.INFO),
     after=after_log(logger, logging.WARN),
 )
-async def wait_for_rabbit() -> None:
-    try:
-        await log({
-            "service": "coproduction",
-            "user_id": "internal",
-            "action": "PRE_START"
-        })
-    except Exception as e:
-        logger.error(e)
-        raise e
-
 
 async def main() -> None:
     logger.info("Initializing service")
     wait_for_database()
-    await wait_for_rabbit()
     logger.info("Services finished initializing")
 
 
