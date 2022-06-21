@@ -34,4 +34,4 @@ class CRUDRating(CRUDBase[Rating, RatingCreate, RatingPatch]):
         return db_obj
 
 
-exportCrud = CRUDRating(Rating)
+exportCrud = CRUDRating(Rating, logByDefault=True)

@@ -60,5 +60,5 @@ class CRUDCoproductionSchema(CRUDBase[CoproductionSchema, CoproductionSchemaCrea
         return True
 
 
-exportCrud = CRUDCoproductionSchema(CoproductionSchema)
+exportCrud = CRUDCoproductionSchema(CoproductionSchema, logByDefault=True)
 

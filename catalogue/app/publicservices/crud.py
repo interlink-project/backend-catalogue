@@ -58,4 +58,4 @@ class CRUDPublicService(CRUDBase[PublicService, PublicServiceCreate, PublicServi
     def can_remove(self, user, object):
         return True
 
-exportCrud = CRUDPublicService(PublicService)
+exportCrud = CRUDPublicService(PublicService, logByDefault=True)

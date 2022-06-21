@@ -28,4 +28,4 @@ class CRUDProblemProfile(CRUDBase[ProblemProfile, ProblemProfileCreate, ProblemP
     def can_remove(self, user, object):
         return True
 
-exportCrud = CRUDProblemProfile(ProblemProfile)
+exportCrud = CRUDProblemProfile(ProblemProfile, logByDefault=True)

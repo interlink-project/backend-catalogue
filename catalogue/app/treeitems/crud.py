@@ -126,4 +126,4 @@ class CRUDTreeItemMetadata(CRUDBase[TreeItemMetadata, TreeItemCreate, TreeItemPa
         return True
 
 
-exportCrud = CRUDTreeItemMetadata(TreeItemMetadata)
+exportCrud = CRUDTreeItemMetadata(TreeItemMetadata, logByDefault=True)

@@ -42,55 +42,30 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
         ki = db.query(KnowledgeInterlinker).filter(
             KnowledgeInterlinker.id == id,
         ).first()
-        if ki:
-            await log({
-                "model": "KNOWLEDGEINTERLINKER",
-                "action": "GET",
-                "id": id
-            })
+        await self.log_on_get(obj=ki)
         return ki
 
     async def get_multi_knowledgeinterlinkers(
         self, db: Session
     ) -> List[KnowledgeInterlinker]:
-        await log({
-                "model": "KNOWLEDGEINTERLINKER",
-                "action": "LIST",
-            })
         return paginate(db.query(KnowledgeInterlinker))
 
     async def get_multi_softwareinterlinkers(
         self, db: Session
     ) -> List[SoftwareInterlinker]:
-        await log({
-            "model": "SOFTWAREINTERLINKER",
-            "action": "LIST",
-        })
         return paginate(db.query(SoftwareInterlinker))
 
     async def get_multi_externalsoftwareinterlinkers(
         self, db: Session
     ) -> List[ExternalSoftwareInterlinker]:
-        await log({
-            "model": "EXTERNALSOFTWAREINTERLINKER",
-            "action": "LIST",
-        })
         return paginate(db.query(ExternalSoftwareInterlinker))
 
     async def get_multi_externalknowledgeinterlinkers(
         self, db: Session
     ) -> List[ExternalKnowledgeInterlinker]:
-        await log({
-            "model": "EXTERNALKNOWLEDGEINTERLINKER",
-            "action": "LIST",
-        })
         return paginate(db.query(ExternalKnowledgeInterlinker))
 
     async def get_softwareinterlinker_by_service_name(self, db: Session, service_name: str) -> Optional[SoftwareInterlinker]:
-        await log({
-            "model": "SOFTWAREINTERLINKER",
-            "action": "GET_BY_SERVICE_NAME",
-        })
         return db.query(SoftwareInterlinker).filter(SoftwareInterlinker.service_name == service_name).first()
 
     async def create(self, db: Session, *, interlinker: InterlinkerCreate) -> Interlinker:
@@ -127,10 +102,7 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
         
         db.add(db_obj)
         db.commit()
-        await log({
-            "model": db_obj.__class__.__name__.upper(),
-            "action": "CREATE",
-        })
+        await self.log_on_create(obj=db_obj)
         db.refresh(db_obj)
         return db_obj
 
@@ -168,23 +140,11 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
         #     queries.append(
         #         Interlinker.creator_id != None
         #     )
-        await log({
-            "model": self.modelName,
-            "action": "GET_MULTI",
-            "search": search,
-            "rating": rating,
-            "natures": natures
-        })
         return paginate(db.query(Interlinker).filter(*queries, Interlinker.id.not_in(exclude)))
     
     async def get_related(
         self, db: Session, interlinker: Interlinker
     ) -> List[Interlinker]:
-        await log({
-            "model": self.modelName,
-            "action": "GET_RELATED",
-            "interlinker_id": interlinker.id
-        })
         return paginate(db.query(Interlinker).filter(
             or_(
                 Interlinker.problemprofiles.any(ProblemProfile.id.in_(interlinker.problemprofiles)),
@@ -215,11 +175,7 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
                 setattr(db_obj, field, value)
         db.add(db_obj)
         db.commit()
-        await log({
-            "model": self.modelName,
-            "action": "UPDATE",
-            "id": db_obj.id
-        })
+        await self.log_on_update(obj=db_obj)
         db.refresh(db_obj)
         return db_obj
 
@@ -240,4 +196,4 @@ class CRUDInterlinker(CRUDBase[Interlinker, InterlinkerCreate, InterlinkerPatch]
         return True
 
 
-exportCrud = CRUDInterlinker(Interlinker)
+exportCrud = CRUDInterlinker(Interlinker, logByDefault=True)

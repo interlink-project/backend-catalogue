@@ -54,17 +54,8 @@ def healthcheck():
 app.include_router(api_router, prefix=settings.API_V1_STR)
 
 ###################
-# we need this to save temporary code & state in session (authentication)
-###################
-#from app.general.authentication import AuthMiddleware
-#from starlette.middleware.sessions import SessionMiddleware
-#app.add_middleware(SessionMiddleware, secret_key="some-random-string")
-# app.add_middleware(AuthMiddleware)
-
-###################
 # Staticfiles
 ###################
-
 
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
