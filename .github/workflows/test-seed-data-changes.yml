@@ -1,18 +1,8 @@
-name: On seed data changes
+name: Test seed data changes
 
 on:
-  push:
-    branches:    
-      - master
-      - seed_data
-    paths:
-      - catalogue/seed/**
-  pull_request:
-    branches:    
-      - master
-      - seed_data
-    paths:
-      - catalogue/seed/**
+  repository_dispatch:
+    types: [test-seed-data-changes]
   workflow_dispatch:
 
 jobs:
@@ -48,7 +38,7 @@ jobs:
         with:
           commit_message: Auto changes
 
-      - name: Trigger Docker image rectreation
+      - name: Trigger Docker image recreation
         uses: octokit/request-action@v2.x
         id: trigger_docker_image_recreation
         if: steps.generation.outputs.triggered == 'true'
