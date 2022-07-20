@@ -1,0 +1,113 @@
+name: Main
+
+on:
+
+  workflow_dispatch:
+  push:
+    tags:
+      - '*'
+    branches:
+      - master
+      - seed_data
+  pull_request:
+    branches:
+      - master
+      - seed_data
+
+jobs:
+  # If seed data changed, test it before creating the docker image
+  check_files:
+    runs-on: ubuntu-latest
+    outputs:
+      seed_data_changed: ${{ steps.verify-changed-files.outputs.files_changed }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Verify Changed files
+        uses: tj-actions/verify-changed-files@v10
+        id: verify-changed-files
+        with:
+          files: |
+            catalogue/seed/**
+
+  test_seed_changes:
+    runs-on: ubuntu-latest
+    needs: [ check_files ]
+    if: needs.conditional_job_check_files.outputs.seed_data_changed == 'true'
+    steps:
+      - name: checkout repo content
+        uses: actions/checkout@v2 # checkout the repository content to github runner.
+        
+      - name: setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8 #install the python needed
+
+      - name: Install dependencies and run input script if pull request from weblate
+        if: github.event_name == 'pull_request'
+        run: |
+          cd catalogue/seed
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          python input.py
+
+      - name: Install dependencies, run test script and generate weblate files if push to master
+        if: github.event_name == 'push'
+        id: generation
+        run: |
+          cd catalogue/seed
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          python test.py && python generate.py
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Auto changes
+
+  docker:
+    runs-on: ubuntu-latest
+    needs: [ test_seed_changes ]
+    if: github.event_name == 'push'
+    steps:
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y%m%d')"
+
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push Docker Image
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          file: Dockerfile
+          push: true
+          tags: |
+            interlinkproject/backend-catalogue:${{ github.ref_name }}
+            interlinkproject/backend-catalogue:${{ github.ref_name }}.${{ steps.date.outputs.date }}
+          cache-from: type=registry,ref=interlinkproject/backend-catalogue:buildcache
+          cache-to: type=registry,ref=interlinkproject/backend-catalogue:buildcache,mode=max
+
+      - name: Trigger Dev Deployment
+        uses: octokit/request-action@v2.x
+        id: trigger_dev_deployment
+        with:
+          route: POST /repos/{owner}/{repo}/dispatches
+          owner: interlink-project
+          repo: interlink-project
+          event_type: update-dev-environment
+        env:
+          GITHUB_TOKEN: ${{ secrets.INTERLINK_PROJECT_GITHUB_TOKEN }}
+
+    
