@@ -1,0 +1,67 @@
+{
+    "administrative_scopes": [
+        "eu",
+        "national",
+        "local"
+    ],
+    "asset_name_translations": {
+        "en": "W3C Markup language validator"
+    },
+    "constraints_and_limitations_translations": {
+        "en": "None"
+    },
+    "description_translations": {
+        "en": "<p>This validator checks the markup validity of Web documents in HTML, XHTML, SMIL, MathML, etc.</p>",
+        "es": "<p>Este validador comprueba la validez del marcado de los documentos web en HTML, XHTML, SMIL, MathML, etc.</p>",
+        "it": "<p>Questo validatore verifica la validit\u00e0 del markup dei documenti Web in HTML, XHTML, SMIL, MathML, ecc.</p>",
+        "lv": "<p>\u0160is validators p\u0101rbauda t\u012bmek\u013ca dokumentu HTML, XHTML, SMIL, MathML u.c. iez\u012bm\u0113\u0161anas (markup) valodas der\u012bgumu.</p>"
+    },
+    "difficulty": "easy",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "id": "markup-validation-service",
+    "instructions_translations": {
+        "en": "./interlinkers/externalsoftware/w3c-markup-language-validator/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "propietary",
+    "name_translations": {
+        "en": "Markup Validation Service",
+        "es": "Servicio de validaci\u00f3n de marcas",
+        "it": "Markup Validation Service",
+        "lv": "Iez\u012bm\u0113\u0161anas (markup) valodas valid\u0113\u0161anas pakalpojums"
+    },
+    "problemprofiles": [
+        "BUILD_PROBLEM_2"
+    ],
+    "regulations_and_standards_translations": {
+        "en": "None"
+    },
+    "tags_translations": {
+        "en": [
+            "HTML",
+            "XHTML",
+            "SMIL",
+            "MathML"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "software",
+    "types": [
+        "enabling_services"
+    ],
+    "uri_translations": {
+        "en": "https://validator.w3.org/about.html"
+    }
+}

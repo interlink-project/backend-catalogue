@@ -1,0 +1,66 @@
+{
+    "administrative_scopes": [
+        "eu"
+    ],
+    "constraints_and_limitations_translations": {
+        "en": "No special constraints apply"
+    },
+    "description_translations": {
+        "en": "This template should be used by an expert tester to double check that the requirements expected by end-users are fully met, and, hence, a new release of the Collaborative Environment produced.",
+        "es": "Esta plantilla debe ser utilizada por un probador experto para comprobar que los requisitos esperados por los usuarios finales se cumplen plenamente y, por tanto, se produce una nueva versi\u00f3n del entorno de colaboraci\u00f3n",
+        "it": "Questo modello dovrebbe essere usato da un tester esperto per controllare due volte che i requisiti attesi dagli utenti finali siano pienamente soddisfatti e, quindi, una nuova release dell'ambiente collaborativo prodotta.",
+        "lv": "\u0160\u012b veidne j\u0101izmanto ekspertam test\u0113t\u0101jam, lai v\u0113lreiz p\u0101rbaud\u012btu, vai galalietot\u0101ju sagaid\u0101m\u0101s pras\u012bbas ir piln\u012bb\u0101 izpild\u012btas, un t\u0101d\u0113j\u0101di tiktu sagatavota jauna sadarb\u012bbas vides versija."
+    },
+    "difficulty": "easy",
+    "domain": "",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "file_translations": {
+        "en": "./interlinkers/knowledge/User-Acceptance-Test-Template/resource.xlsx"
+    },
+    "form": "document_template",
+    "format": "editable_source_document",
+    "id": "user-acceptance-testing-template",
+    "instructions_translations": {
+        "en": "./interlinkers/knowledge/User-Acceptance-Test-Template/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "public_domain",
+    "name_translations": {
+        "en": "User Acceptance Testing Template",
+        "es": "Plantilla de pruebas de aceptaci\u00f3n del usuario",
+        "it": "Modello di test di accettazione dell'utente",
+        "lv": "Lietot\u0101ja akcept\u0113\u0161anas test\u0113\u0161anas veidne"
+    },
+    "problemprofiles": [
+        "VAL_PROBLEM_4"
+    ],
+    "process": "",
+    "regulations_and_standards_translations": {
+        "en": ""
+    },
+    "softwareinterlinker": "googledrive",
+    "tags_translations": {
+        "en": [
+            "model",
+            "template",
+            "testing"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enhancing_services"
+    ]
+}

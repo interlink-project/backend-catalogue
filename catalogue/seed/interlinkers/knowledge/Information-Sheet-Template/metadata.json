@@ -1,0 +1,68 @@
+{
+    "administrative_scopes": [
+        "eu"
+    ],
+    "constraints_and_limitations_translations": {
+        "en": "No special constraints apply"
+    },
+    "description_translations": {
+        "en": "<p>Template to guide the preparation of an information sheet to be distributed to participants to project activities. It provides background on research objectives.</p>",
+        "es": "<p>Plantilla para orientar la preparaci\u00f3n de una hoja informativa que se distribuir\u00e1 a los participantes en las actividades del proyecto. Proporciona antecedentes sobre los objetivos de la investigaci\u00f3n.</p>",
+        "it": "<p>Modello per guidare la preparazione di una scheda informativa da distribuire ai partecipanti alle attivit\u00e0 del progetto. Fornisce informazioni sugli obiettivi di ricerca.</p>",
+        "lv": "<p>Veidlapa inform\u0101cijas lapas projekta aktivit\u0101\u0161u dal\u012bbniekiem sagatavo\u0161anai. T\u0101 sniedz pamatinform\u0101ciju par p\u0113tniec\u012bbas aktivit\u0101t\u0113m.</p>"
+    },
+    "difficulty": "very_easy",
+    "domain": "",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "file_translations": {
+        "en": "./interlinkers/knowledge/Information-Sheet-Template/resource.docx",
+        "it": "./interlinkers/knowledge/Information-Sheet-Template/italian.docx"
+    },
+    "form": "document_template",
+    "format": "editable_source_document",
+    "id": "information-sheet-template",
+    "instructions_translations": {
+        "en": "./interlinkers/knowledge/Information-Sheet-Template/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "public_domain",
+    "name_translations": {
+        "en": "Information Sheet Template",
+        "es": "Plantilla de la hoja de informaci\u00f3n",
+        "it": "Modello di foglio informativo",
+        "lv": "Inform\u0101cijas lapas veidlapa"
+    },
+    "problemprofiles": [
+        "ORG_PROBLEM_14"
+    ],
+    "process": "",
+    "regulations_and_standards_translations": {
+        "en": "The information sheet is compliant to GDPR norms."
+    },
+    "softwareinterlinker": "googledrive",
+    "tags_translations": {
+        "en": [
+            "privacy management",
+            "research activities",
+            "co-production project participants",
+            "INTERLINK"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enhancing_services"
+    ]
+}

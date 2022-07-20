@@ -1,0 +1,81 @@
+{
+    "administrative_scopes": [
+        "eu",
+        "national",
+        "local"
+    ],
+    "constraints_and_limitations_translations": {
+        "en": "None",
+        "es": ""
+    },
+    "description_translations": {
+        "en": "<p>Event Co-designer (ECO) is an open source plugin for the popular WordPress (WP) content management system which allows co-designing and organising new public events. It is especially designed from the needs of the ZGZ use case and can be integrated directly to the existing Etopia WP website. ECO provides an easy-to-use and feature-rich calendar view to schedule new events and make requests for resources, facilities and services needed to organise the event. In addition, ECO includes collaborative tools for documenting, discussing  and co-evaluating the event proposal.</p>",
+        "es": "<p>El codise\u00f1ador de eventos (ECO) es un plugin de c\u00f3digo abierto para el popular sistema de gesti\u00f3n de contenidos WordPress (WP) que permite codise\u00f1ar y organizar nuevos eventos p\u00fablicos. Est\u00e1 especialmente dise\u00f1ado a partir de las necesidades del caso de uso de ZGZ y puede integrarse directamente en el sitio web existente de Etopia WP. ECO ofrece una vista de calendario f\u00e1cil de usar y con muchas funciones para programar nuevos eventos y hacer solicitudes de recursos, instalaciones y servicios necesarios para organizar el evento. Adem\u00e1s, ECO incluye herramientas de colaboraci\u00f3n para documentar, discutir y coevaluar la propuesta del evento.</p>",
+        "it": "<p>Event Co-designer (ECO) \u00e8 un plug-in open source per il popolare sistema di gestione dei contenuti WordPress (WP) che consente la co-progettazione e l'organizzazione di nuovi eventi pubblici. \u00c8 appositamente progettato in base alle esigenze del caso d'uso ZGZ e pu\u00f2 essere integrato direttamente nel sito Web Etopia WP esistente. ECO fornisce una visualizzazione calendario facile da usare e ricca di funzionalit\u00e0 per programmare nuovi eventi ed effettuare richieste di risorse, strutture e servizi necessari per organizzare l'evento. Inoltre, ECO include strumenti collaborativi per la documentazione, la discussione e la co-valutazione della proposta dell'evento.</p>",
+        "lv": "<p>Pas\u0101kumu kopdizaineris (ECO) ir atv\u0113rt\u0101 koda spraudnis popul\u0101rajai WordPress (WP) satura vad\u012bbas sist\u0113mai, kas \u013cauj kop\u012bgi veidot un organiz\u0113t publiskos pas\u0101kumus. Tas ir specifiski veidots Saragosas gad\u012bjumam, un to ir iesp\u0113jams tie\u0161i integr\u0113t eso\u0161aj\u0101 Etopia WP m\u0101jaslap\u0101. ECO pied\u0101v\u0101 viegli lietojamu un ar funkcionalit\u0101t\u0113m piepild\u012btu kalend\u0101ra skatu jaunu pas\u0101kumu pl\u0101no\u0161anai, k\u0101 ar\u012b pied\u0101va veidot piepras\u012bjumus resursiem, telp\u0101m un pas\u0101kumam nepiecie\u0161amajiem pakalpojumiem. Papildus tam ECO ietverti ar\u012b dokumentu veido\u0161anas, diskusiju un pas\u0101kumu pieteikumu kop\u012bg\u0101s v\u0113rt\u0113\u0161anas sadarb\u012bbas r\u012bki.</p>"
+    },
+    "difficulty": "medium",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "id": "event-co-designer",
+    "instructions_translations": {
+        "en": "./interlinkers/externalsoftware/event-codesigner/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "public_domain",
+    "logotype": "./interlinkers/externalsoftware/event-codesigner/logo.png",
+    "name_translations": {
+        "en": "Event Co-designer",
+        "es": "Codise\u00f1ador de eventos",
+        "it": "Event Co-Designer",
+        "lv": "Pas\u0101kumu kopdizaineris"
+    },
+    "overview_text": {
+        "en": "Web application for co-designing public events and co-evaluating event proposals",
+        "es": ""
+    },
+    "problemprofiles": [
+        "ORG_PROBLEM_1",
+        "ORG_PROBLEM_2",
+        "ORG_PROBLEM_4",
+        "ORG_PROBLEM_6.1",
+        "ORG_PROBLEM_6.3",
+        "UND_PROBLEM_1",
+        "UND_PROBLEM_5",
+        "DEF_PROBLEM_2",
+        "DEF_PROBLEM_5",
+        "VAL_PROBLEM_2",
+        "HACKATHON_PROBLEM_1"
+    ],
+    "regulations_and_standards_translations": {
+        "en": "None",
+        "es": ""
+    },
+    "tags_translations": {
+        "en": [
+            "project management",
+            "team working",
+            "survey"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "software",
+    "types": [
+        "enabling_services",
+        "enhancing_services"
+    ],
+    "uri_translations": {
+        "en": ""
+    }
+}

@@ -1,0 +1,177 @@
+{
+    "id": "phase-engage",
+    "prerequisites": [],
+    "name_translations": {
+        "en": "Engage",
+        "es": "Comprometer",
+        "it": "Coinvolgimento",
+        "lv": "Iesaistiet"
+    },
+    "description_translations": {
+        "en": "Which stakeholders should be involved in your co-production process? How to communicate with them about your project goals and the benefits of participation?\r\nLearn about the value of involving stakeholders. Use the available knowledge tools to understand who are the stakeholders to involve in your project and the role they can have. \r\nExploit communication templates to raise awareness, invite stakeholders, and create a lively network of motivated contributors. Define partnership agreements and make sure shared information is protected. Plan together the next steps and create working groups. ",
+        "es": "\u00bfQu\u00e9 partes interesadas deben participar en su proceso de coproducci\u00f3n? \u00bfC\u00f3mo comunicarles los objetivos del proyecto y los beneficios de la participaci\u00f3n?\nConozca el valor de la participaci\u00f3n de las partes interesadas. Utilice las herramientas de conocimiento disponibles para comprender qui\u00e9nes son las partes interesadas que deben participar en su proyecto y el papel que pueden tener. \nAproveche las plantillas de comunicaci\u00f3n para sensibilizar, invitar a las partes interesadas y crear una red viva de colaboradores motivados. Defina los acuerdos de colaboraci\u00f3n y aseg\u00farese de que la informaci\u00f3n compartida est\u00e1 protegida. Planificar juntos los pr\u00f3ximos pasos y crear grupos de trabajo. ",
+        "it": "Quali attori dovrebbero essere coinvolti nel processo di realizzazione? Come comunicare loro gli obiettivi del progetto e i benefici della loro eventuale partecipazione?\nE' necessario che tu comprenda il valore insito nel coinvolgimento degli attori. Utilizza gli strumenti messi a disposizione per comprendere chi sono questi attori da coinvolgere nel progetto e il ruolo che possono avere.\nSfrutta gli strumenti di comunicazione per attivare la consapevolezza, invitare gli attori individuati e creare una rete attiva di persone che possano contribuire al progetto. Definisci degli accordi di partenariato e assicura la tutela delle informazioni condivise. Pianifica in modo collaborativo i prossimi passi e crea dei sottogruppi di lavoro. ",
+        "lv": "Kuras ieinteres\u0113t\u0101s puses b\u016btu j\u0101iesaista j\u016bsu koprades proces\u0101? K\u0101 komunic\u0113t vi\u0146iem j\u016bsu projekta m\u0113r\u0137us un dal\u012bbas priek\u0161roc\u012bbas?\nUzziniet, k\u0101da v\u0113rt\u012bba ir ieinteres\u0113to pu\u0161u iesaistei. Izmantojiet pieejamos zin\u0101\u0161anu r\u012bkus, lai saprastu, kuras ir ieinteres\u0113t\u0101s puses, kuras j\u0101iesaista j\u016bsu projekt\u0101, un k\u0101du lomu t\u0101s var ie\u0146emt.\nIzmantojiet sazi\u0146as veidnes, lai palielin\u0101tu izpratni, uzaicin\u0101tu ieinteres\u0113t\u0101s puses un izveidotu dz\u012bv\u012bgu un motiv\u0113tu l\u012bdzstr\u0101dnieku t\u012bklu. Defin\u0113jiet partner\u012bbas l\u012bgumus un p\u0101rliecinieties, ka kop\u012bgot\u0101 inform\u0101cija ir aizsarg\u0101ta. Kop\u012bgi pl\u0101nojiet n\u0101kamos so\u013cus un izveidojiet darba grupas. "
+    },
+    "objectives": [
+        {
+            "name_translations": {
+                "en": "Identify stakeholders",
+                "es": "Identificar stakeholders",
+                "it": "Identifica gli attori da coinvolgere",
+                "lv": "Identific\u0113jiet ieinteres\u0113t\u0101s puses"
+            },
+            "description_translations": {
+                "en": "The identification of key actors  is the first step to start your  process of co-production. According to the type of project, the goals and the level of citizen involvement, different questions are to be answered.\r\nWhat different  types of stakeholders enter into play in the initiative to be co-produced? What are their motivations and skills to participate in the project? What is their position in the network? How to contact them?\r\nFollow the specific tasks to get the complete picture.",
+                "es": "La identificaci\u00f3n de los actores clave es el primer paso para iniciar su proceso de coproducci\u00f3n. Seg\u00fan el tipo de proyecto, los objetivos y el nivel de implicaci\u00f3n de los ciudadanos, hay que responder a diferentes preguntas.\n\u00bfQu\u00e9 tipos de actores entran en juego en la iniciativa a coproducir? \u00bfCu\u00e1les son sus motivaciones y aptitudes para participar en el proyecto? \u00bfCu\u00e1l es su posici\u00f3n en la red? \u00bfC\u00f3mo contactar con ellos?\nSiga las tareas espec\u00edficas para obtener la imagen completa.",
+                "it": "L'identificazione degli attori rilevanti \u00e8 il primo passo per avviare il processo di realizzazione congiunta. A seconda del tipo di progetto, degli obiettivi e del livello di coinvolgimento dei cittadini, \u00e8 necessario rispondere a diverse domande.\nQuali diversi portarori di interesse entrano in gioco nell'iniziativa da progettare collaborativamente? Quali sono le loro motivazioni? Hanno le competenze per partecipare al progetto? Qual \u00e8 la loro posizione nella rete degli altri attori coinvolti? Come contattarli?\nSegui le attivit\u00e0 specifiche per ottenere il quadro completo.",
+                "lv": "Atsl\u0113gas dal\u012bbnieku apzin\u0101\u0161ana ir pirmais solis, lai s\u0101ktu koprades procesu. Atbilsto\u0161i projekta veidam, m\u0113r\u0137iem un iedz\u012bvot\u0101ju iesaistes l\u012bmenim ir j\u0101atbild uz da\u017e\u0101diem jaut\u0101jumiem.\nK\u0101di da\u017e\u0101di ieinteres\u0113to pu\u0161u veidi iesaist\u012bsies koprades iniciat\u012bv\u0101? K\u0101da ir vi\u0146u motiv\u0101cija un prasmes piedal\u012bties projekt\u0101? K\u0101da ir vi\u0146u poz\u012bcija t\u012bkl\u0101? K\u0101 ar vi\u0146iem sazin\u0101ties?\nIzpildiet konkr\u0113tos uzdevumus, lai ieg\u016btu piln\u012bgu priek\u0161statu."
+            },
+            "problemprofiles": [],
+            "tasks": [
+                {
+                    "name_translations": {
+                        "en": "Understand the different types of stakeholders",
+                        "es": "Entender los diferentes tipos de stakeholders y sus motivaciones",
+                        "it": "Comprendi le diverse tipologie di attori da coinvolgere",
+                        "lv": "Izpratne par da\u017e\u0101diem ieinteres\u0113to personu veidiem"
+                    },
+                    "description_translations": {
+                        "en": "Usually different actors are engaged in co-production to create a new service or customizing an already existing service: public bodies, private companies, SMEs, citizens. Each actor brings specific needs and competences in relation to the service and has different motivations to participate in a project. Learn about the different types of stakeholders and which of them can add value to your co-production process. In this case, for service descriptions refinement, consider contributing public servants but also potentially citizens, i.e. consumers of those services.",
+                        "es": "Por lo general, en la coproducci\u00f3n participan diferentes actores para crear un nuevo servicio o personalizar un servicio ya existente: organismos p\u00fablicos, empresas privadas, PYMES, ciudadanos. Cada actor aporta necesidades y competencias espec\u00edficas en relaci\u00f3n con el servicio y tiene diferentes motivaciones para participar en un proyecto. Conozca los diferentes tipos de actores y cu\u00e1l de ellos puede aportar valor a su proceso de coproducci\u00f3n. En este caso, para el perfeccionamiento de las descripciones de los servicios, considere la posibilidad de aportar a los funcionarios p\u00fablicos, pero tambi\u00e9n a los ciudadanos, es decir, a los consumidores de esos servicios.",
+                        "it": "Diversi attori sono impegnati nei processi di co-produzione per creare nuovi servizi o per personalizzare servizi gi\u00e0 esistenti: enti pubblici, aziende private, PMI, cittadini. Ogni attore porta bisogni e competenze specifiche in relazione al servizio e ha motivazioni diverse per partecipare a un progetto. Scopri i diversi tipi di attori da coinvolgere e quali di essi possono aggiungere valore al tuo processo di co-produzione.",
+                        "lv": "Lai izveidotu jaunu pakalpojumu vai piel\u0101gotu jau eso\u0161u pakalpojumu, koprades proces\u0101 parasti tiek iesaist\u012bti da\u017e\u0101di dal\u012bbnieki: valsts iest\u0101des, priv\u0101tie uz\u0146\u0113mumi, mazie un vid\u0113jie uz\u0146\u0113mumi un iedz\u012bvot\u0101ji. Katrs dal\u012bbnieks sniedz \u012bpa\u0161as vajadz\u012bbas un kompetences saist\u012bb\u0101 ar pakalpojumu, un katram ir at\u0161\u0137ir\u012bga motiv\u0101cija piedal\u012bties projekt\u0101. Uzziniet par da\u017e\u0101da veida ieinteres\u0113taj\u0101m person\u0101m un to, kuras no t\u0101m var sniegt pievienoto v\u0113rt\u012bbu koprades procesam. \u0160aj\u0101 gad\u012bjum\u0101, lai uzlabotu pakalpojumu aprakstus, apsveriet iesp\u0113ju sa\u0146emt ieguld\u012bjumu gan no valsts ier\u0113d\u0146iem, gan potenci\u0101l no pilso\u0146iem, t.i., \u0161o pakalpojumu pat\u0113r\u0113t\u0101jiem."
+                    },
+                    "problemprofiles": [
+                        "UND_PROBLEM_2"
+                    ],
+                    "prerequisites": [],
+                    "id": "task-understand-the-different-types-of-stakeholders"
+                },
+                {
+                    "name_translations": {
+                        "en": "Create a contact list of potential network participants",
+                        "es": "Crear una lista de contactos de posibles participantes de la red",
+                        "it": "Crea un elenco di contatti di potenziali partecipanti",
+                        "lv": "Izveidojiet potenci\u0101l\u0101 t\u012bkla dal\u012bbnieku kontaktu sarakstu"
+                    },
+                    "description_translations": {
+                        "en": "Write down the list of participants, aside the co-production team, who may be interested in observing the progress of the co-production project and have the opportunity to emit opinions and take part in some decision processes. ",
+                        "es": "Anote la lista de participantes, aparte del equipo de coproducci\u00f3n, que pueden estar interesados en observar el progreso del proyecto de coproducci\u00f3n y tener la oportunidad de emitir opiniones y participar en algunos procesos de decisi\u00f3n. ",
+                        "it": "Crea un elenco dei partecipanti che, in aggiunta al gruppo di lavoro, potrebbero essere interessati ad osservare l'andamento del progetto, che potrebbero esprimere opinioni, suggerimenti e prendere parte ad alcuni dei processi decisionali. ",
+                        "lv": "Pierakstiet dal\u012bbnieku sarakstu, iz\u0146emot koprades komandu, kuri var\u0113tu b\u016bt ieinteres\u0113ti koprades projekta gaitas nov\u0113ro\u0161an\u0101 un kuriem ir iesp\u0113ja izteikt viedok\u013cus un piedal\u012bties atsevi\u0161\u0137os l\u0113mumu pie\u0146em\u0161anas procesos. "
+                    },
+                    "problemprofiles": [
+                        "ORG_PROBLEM_4"
+                    ],
+                    "prerequisites": [
+                        {
+                            "item": "task-understand-the-different-types-of-stakeholders",
+                            "type": "previous"
+                        }
+                    ],
+                    "id": "task-create-a-contact-list-of-potential-network-participants"
+                }
+            ],
+            "id": "objective-identify-stakeholders",
+            "prerequisites": []
+        },
+        {
+            "name_translations": {
+                "en": "Engage stakeholders",
+                "es": "Involucrar a las partes interesadas",
+                "it": "Coinvolgi gli attori individuati",
+                "lv": "Iesaistiet ieinteres\u0113t\u0101s personas"
+            },
+            "description_translations": {
+                "en": "Stakeholder engagement is about figuring out how to effectively communicate, collaborate, and interact with key people who have positive or negative influence, and may impact the success of your project.\r\nTo reach this objective you should carefully prepare an engagement plan, create awareness and communication material tailored to your audience, understand how to communicate benefit for stakeholders and, whenever this is forseen in your project, understand how to engage citizens in the co-production process. ",
+                "es": "La implicaci\u00f3n de las partes interesadas consiste en averiguar c\u00f3mo comunicar, colaborar e interactuar eficazmente con las personas clave que tienen una influencia positiva o negativa y pueden influir en el \u00e9xito de su proyecto.\nPara alcanzar este objetivo debe preparar cuidadosamente un plan de compromiso, crear material de concienciaci\u00f3n y comunicaci\u00f3n adaptado a su p\u00fablico, entender c\u00f3mo comunicar el beneficio para las partes interesadas y, siempre que est\u00e9 previsto en su proyecto, entender c\u00f3mo involucrar a los ciudadanos en el proceso de coproducci\u00f3n. ",
+                "it": "Il coinvolgimento inizia con una fase di analisi su come comunicare, collaborare ed interagire efficacemente con gli attori chiave che possono avere una influenza positiva o negativa sul successo del progetto.\nPrepara attentamente un piano di coinvolgimento, crea consapevolezza sul percorso da intraprendere insieme e sui suoi benefici a partire da materiale di comunicazione creato esclusivamente per ogni singolo target individuato. Prova a immaginare come comunicare, con quali obiettivi e con quali strumenti, con i potenziali beneficiari e, se previsto dal progetto, anche come coinvolgere tutti i cittadini in generale nel processo. ",
+                "lv": "Ieinteres\u0113to pu\u0161u iesaiste ir par efekt\u012bvu sazi\u0146u, sadarb\u012bbu un mijiedarb\u012bbu ar atsl\u0113gas cilv\u0113kiem, kuriem ir pozit\u012bva vai negat\u012bva ietekme un kuri var ietekm\u0113t j\u016bsu projekta pan\u0101kumus.\nLai sasniegtu \u0161o m\u0113r\u0137i, jums r\u016bp\u012bgi j\u0101sagatavo iesaistes pl\u0101ns, j\u0101izveido izpratnes veido\u0161anas un komunik\u0101cijas materi\u0101li, kas piel\u0101goti j\u016bsu auditorijai, j\u0101saprot, k\u0101 inform\u0113t ieinteres\u0113t\u0101s puses, un, kad vien tas ir paredz\u0113ts j\u016bsu projekt\u0101, j\u0101saprot, k\u0101 iesaist\u012bt iedz\u012bvot\u0101jus koprades proces\u0101. "
+            },
+            "problemprofiles": [
+                "ORG_PROBLEM_12",
+                "ORG_PROBLEM_13",
+                "ORG_PROBLEM_14"
+            ],
+            "tasks": [
+                {
+                    "name_translations": {
+                        "en": "Prepare an engagement plan",
+                        "es": "Preparar un plan de compromiso",
+                        "it": "Disegna una strategia di coinvolgimento",
+                        "lv": "Izveidojiet iesaist\u012b\u0161an\u0101s pl\u0101nu"
+                    },
+                    "description_translations": {
+                        "en": "Create an effective engagement plan which allows you to reach to the types and numbers of stakeholders sufficient to ensure that the co-produced service is well targeted. \r\nAn engagement plan is usually composed of three parts: the identification of your project\u2019s stakeholders; the planning of effective means for interacting with each stakeholder, and protocols for accurately documenting your work for the sake of transparency, accountability and evaluation of the process.",
+                        "es": "Cree un plan de compromiso eficaz que le permita llegar a los tipos y n\u00fameros de partes interesadas suficientes para garantizar que el servicio coproducido est\u00e9 bien orientado. \nUn plan de participaci\u00f3n suele constar de tres partes: la identificaci\u00f3n de las partes interesadas de su proyecto; la planificaci\u00f3n de medios eficaces para interactuar con cada parte interesada, y los protocolos para documentar con precisi\u00f3n su trabajo en aras de la transparencia, la responsabilidad y la evaluaci\u00f3n del proceso.",
+                        "it": "Crea un piano di coinvolgimento efficace per raggiungere le tipologie e il numero di attori sufficienti per garantire che il servizio risponda ai bisogni individuati.\nUn piano di coinvolgimento \u00e8 solitamente composto da tre parti: l'identificazione degli attori del progetto; la pianificazione dei mezzi per interagire con loro in modo efficace e i protocolli per documentare il lavoro, ai fini di garantire trasparenza del percorso, i titolari delle responsabilit\u00e0 ed effettuare una valutazione complessiva.",
+                        "lv": "Izveidojiet efekt\u012bvu iesaistes pl\u0101nu, kas \u013cauj sasniegt pietiekamu skaitu un veidu ieinteres\u0113t\u0101s puses, lai nodro\u0161in\u0101tu kop\u0113ji rad\u012bt\u0101 pakalpojuma auditorijas iesaisti.\nIesaist\u012b\u0161an\u0101s pl\u0101ns parasti sast\u0101v no trim da\u013c\u0101m: j\u016bsu projekt\u0101 ieinteres\u0113to pu\u0161u noteik\u0161ana, efekt\u012bvu komunik\u0101cijas l\u012bdzek\u013cu pl\u0101no\u0161ana katrai ieinteres\u0113tajai pusei un protokoli, lai prec\u012bzi dokument\u0113tu savu darbu un nodro\u0161in\u0101tu procesa caursp\u012bd\u012bgumu, atbild\u012bbu un nov\u0113rt\u0113\u0161anu."
+                    },
+                    "problemprofiles": [
+                        "ORG_PROBLEM_5"
+                    ],
+                    "id": "task-prepare-an-engagement-plan",
+                    "prerequisites": []
+                },
+                {
+                    "name_translations": {
+                        "en": "Communicate benefit for stakeholders",
+                        "es": "Comunicar el beneficio para las partes interesadas",
+                        "it": "Comunica i vantaggi e le opportunit\u00e0 agli attori coinvolti",
+                        "lv": "Pazi\u0146ojiet par ieguvumiem ieinteres\u0113taj\u0101m pus\u0113m"
+                    },
+                    "description_translations": {
+                        "en": "Clearly communicate the benefits of service co-production to your network of stakeholders and citizens.\r\nParticipants need to understand why their participation matters, what they can gain individually and as a group.",
+                        "es": "Comunique claramente las ventajas de la coproducci\u00f3n de servicios a su red de interesados y ciudadanos.\nLos participantes tienen que entender por qu\u00e9 es importante su participaci\u00f3n, qu\u00e9 pueden ganar individualmente y como grupo.",
+                        "it": "Comunica con chiarezza quali sono i vantaggi di realizzare congiuntamente i servizi alla tua rete di attori individuati e ai cittadini.\nI partecipanti devono capire perch\u00e9 il loro coinvolgimento \u00e8 importante, cosa possono ottenere sia individualmente sia come gruppo.",
+                        "lv": "Skaidri pazi\u0146ojiet savam ieinteres\u0113to pu\u0161u un iedz\u012bvot\u0101ju t\u012bklam pakalpojumu koprades priek\u0161roc\u012bbas.\nDal\u012bbniekiem ir j\u0101saprot, k\u0101p\u0113c vi\u0146u l\u012bdzdal\u012bba ir svar\u012bga, ko vi\u0146i var ieg\u016bt individu\u0101li un k\u0101 grupa."
+                    },
+                    "problemprofiles": [
+                        "ORG_PROBLEM_4"
+                    ],
+                    "prerequisites": [
+                        {
+                            "item": "task-prepare-an-engagement-plan",
+                            "type": "previous"
+                        }
+                    ],
+                    "id": "task-communicate-benefit-for-stakeholders"
+                },
+                {
+                    "name_translations": {
+                        "en": "Engage citizens in the co-refinement process",
+                        "es": "Involucrar a los ciudadanos en el proceso de co-refinamiento",
+                        "it": "Coinvolgi i cittadini nel processo di definizione",
+                        "lv": "Iesaistiet iedz\u012bvot\u0101jus kop\u0113j\u0101s uzlabo\u0161anas proces\u0101"
+                    },
+                    "description_translations": {
+                        "en": "Provide members of the public with the information they need to understand the project, the decision process, and also how public input can influence decisions, the refinement of public service descriptions and the way it is delivered. ",
+                        "es": "Proporcionar a los miembros del p\u00fablico la informaci\u00f3n que necesitan para entender el proyecto, el proceso de decisi\u00f3n y tambi\u00e9n c\u00f3mo las aportaciones del p\u00fablico pueden influir en las decisiones, en el perfeccionamiento de las descripciones del servicio p\u00fablico y en la forma de prestarlo. ",
+                        "it": "Fornisci ai membri della societ\u00e0 civile le informazioni di cui hanno bisogno per comprendere il progetto, il processo decisionale e anche come il loro input pu\u00f2 influenzare le decisioni, la progettazione del servizio e il modo in cui viene erogato. ",
+                        "lv": "Sniedziet sabiedr\u012bbas locek\u013ciem inform\u0101ciju, kas vi\u0146iem nepiecie\u0161ama, lai izprastu projektu, l\u0113mumu pie\u0146em\u0161anas procesu, k\u0101 ar\u012b to, k\u0101 sabiedr\u012bbas ieguld\u012bjums var ietekm\u0113t l\u0113mumus, sabiedrisko pakalpojumu aprakstu pilnveido\u0161anu un veidu, k\u0101d\u0101 tas tiek sniegts. "
+                    },
+                    "problemprofiles": [
+                        "ORG_PROBLEM_10",
+                        "ORG_PROBLEM_11"
+                    ],
+                    "prerequisites": [
+                        {
+                            "item": "task-communicate-benefit-for-stakeholders",
+                            "type": "previous"
+                        }
+                    ],
+                    "id": "task-engage-citizens-in-the-co-refinement-process"
+                }
+            ],
+            "prerequisites": [
+                {
+                    "item": "objective-identify-stakeholders",
+                    "type": "previous"
+                }
+            ],
+            "id": "objective-engage-stakeholders"
+        }
+    ],
+    "is_part_of_codelivery": false
+}

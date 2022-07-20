@@ -1,0 +1,64 @@
+{
+    "administrative_scopes": [
+        "eu"
+    ],
+    "constraints_and_limitations_translations": {
+        "en": "No special constraints apply"
+    },
+    "description_translations": {
+        "en": "<p>This resource describes the guidelines for the designing of a service in the public administration</p>",
+        "es": "<p>Este recurso describe las directrices para el desarrollo de software seguro en la administraci\u00f3n p\u00fablica</p>",
+        "it": "<p>Questa risorsa descrive le linee guida per la progettazione di un servizio nella pubblica amministrazione</p>",
+        "lv": "<p>\u0160aj\u0101 resurs\u0101 raksturotas vadl\u012bnijas dro\u0161as programmat\u016bras izstr\u0101dei valsts p\u0101rvald\u0113</p>"
+    },
+    "difficulty": "easy",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "file_translations": {
+        "en": "./interlinkers/knowledge/it-workshop-service-design/resource.pptx"
+    },
+    "form": "guidelines",
+    "format": "structured_format",
+    "id": "guidelines-for-co-design-of-service",
+    "instructions_translations": {
+        "en": "./interlinkers/knowledge/it-workshop-service-design/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "permissive",
+    "name_translations": {
+        "en": "Guidelines for co-design of service",
+        "es": "Directrices para el codise\u00f1o del servicio",
+        "it": "Linee guida per la co-progettazione del servizio",
+        "lv": "Pakalpojuma kopdizain\u0113\u0161anas vadl\u012bnijas"
+    },
+    "problemprofiles": [
+        "UND_PROBLEM_1",
+        "DEF_PROBLEM_1",
+        "DEF_PROBLEM_5"
+    ],
+    "regulations_and_standards_translations": {
+        "en": ""
+    },
+    "softwareinterlinker": "googledrive",
+    "tags_translations": {
+        "en": [
+            "services"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enabling_services"
+    ]
+}

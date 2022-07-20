@@ -19,8 +19,6 @@ from app.messages import set_logging_disabled
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# in start-dev.sh and start-prod.sh it is made a git clone of https://github.com/interlink-project/interlinkers-data/
-
 class bcolors:
     HEADER = "\033[95m"
     OKBLUE = "\033[94m"
@@ -160,6 +158,7 @@ async def create_interlinker(db, metadata_path, software=False, externalsoftware
                 interlinker=schemas.ExternalSoftwareInterlinkerCreate(**data),
             )
 
+    # TODO: update files and remove old ones 
     if knowledge:
         # get file contents in file and send to the software interlinker
         service = data["softwareinterlinker"]
@@ -183,7 +182,6 @@ async def create_interlinker(db, metadata_path, software=False, externalsoftware
                             f"http://{service}/assets", data=f.read()).json()
                 else:
                     filedata = open(str(folder) + "/" + filename, "rb").read()
-                    # TODO: hash filedata and check if already exists
                     name_for_file = data["name_translations"][key]
                     files_data = {
                         'file': (name_for_file + file_extension, filedata)}
@@ -364,30 +362,29 @@ async def init():
 
     try:
         # create problem profiles
-        with open("/app/interlinkers-data/problemprofiles/problemprofiles.json") as json_file:
+        with open("/app/seed/problemprofiles/problemprofiles.json") as json_file:
             for problem in json.load(json_file):
                 await create_problemprofile(db, problem)
 
         # create coproduction schemas
-        # data = requests.get("https://raw.githubusercontent.com/interlink-project/interlinkers-data/master/all.json").json()
-        with open("/app/interlinkers-data/all.json") as json_file:
+        with open("/app/seed/all.json") as json_file:
             data = json.load(json_file)
             for schema_data in data["schemas"]:
                 await create_coproductionschema(db, schema_data)
 
         # create external interlinkers first
-        for metadata_path in Path("/app/interlinkers-data/interlinkers").glob("externalsoftware/**/metadata.json"):
+        for metadata_path in Path("/app/seed/interlinkers").glob("externalsoftware/**/metadata.json"):
             await create_interlinker(db, metadata_path, externalsoftware=True)
         
-        for metadata_path in Path("/app/interlinkers-data/interlinkers").glob("externalknowledge/**/metadata.json"):
+        for metadata_path in Path("/app/seed/interlinkers").glob("externalknowledge/**/metadata.json"):
             await create_interlinker(db, metadata_path, externalknowledge=True)
 
         # create software interlinkers first
-        for metadata_path in Path("/app/interlinkers-data/interlinkers").glob("software/**/metadata.json"):
+        for metadata_path in Path("/app/seed/interlinkers").glob("software/**/metadata.json"):
             await create_interlinker(db, metadata_path, software=True)
 
         # then knowledge interlinkers
-        for metadata_path in Path("/app/interlinkers-data/interlinkers").glob("knowledge/**/metadata.json"):
+        for metadata_path in Path("/app/seed/interlinkers").glob("knowledge/**/metadata.json"):
             await create_interlinker(db, metadata_path, knowledge=True)
 
     except Exception as e:

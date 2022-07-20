@@ -1,0 +1,179 @@
+{
+    "id": "phase-design",
+    "prerequisites": [
+        {
+            "item": "phase-engage",
+            "status": "finished"
+        }
+    ],
+    "name_translations": {
+        "en": "Design",
+        "es": "Dise\u00f1o",
+        "it": "Progettazione",
+        "lv": "Projekt\u0113\u0161ana"
+    },
+    "description_translations": {
+        "en": "Follow the guidelines to discuss together, in a balanced and inclusive way, issues, beneficiaries, and priorities for the service to be designed. Find useful resources to conduct interviews, surveys and focus groups for a deeper understanding of stakeholders\u2019 and citizens\u2019 needs and requirements. Use the proposed material to organize service design workshops and develop mockups. Stop and reflect on the process so far with the co-evaluation checklists.",
+        "es": "Siga las directrices para debatir juntos, de forma equilibrada e inclusiva, los problemas, los beneficiarios y las prioridades del servicio que se va a dise\u00f1ar. Encuentre recursos \u00fatiles para realizar entrevistas, encuestas y grupos de discusi\u00f3n para comprender mejor las necesidades y requisitos de las partes interesadas y los ciudadanos. Utilizar el material propuesto para organizar talleres de dise\u00f1o de servicios y desarrollar maquetas. Det\u00e9ngase y reflexione sobre el proceso hasta el momento con las listas de comprobaci\u00f3n de la coevaluaci\u00f3n.",
+        "it": "Segui le linee guida per discutere in modo equilibrato e inclusivo temi, beneficiari e priorit\u00e0 per il servizio da progettare. Trova le risorse per condurre interviste, sondaggi e focus group utili a comprendere meglio i bisogni e le esigenze degli attori coinvolti e dei cittadini. Utilizza il materiale proposto per organizzare sessioni di progettazione e sviluppare mockup. Fermati e rifletti sul processo finora svolto con le checklist di valutazione.",
+        "lv": "Iev\u0113rojiet vadl\u012bnijas, lai l\u012bdzsvarot\u0101 un iek\u013caujo\u0161\u0101 veid\u0101 kop\u012bgi apspriestu probl\u0113mas, labuma guv\u0113jus un priorit\u0101tes izstr\u0101d\u0101jamajam pakalpojumam. Atrodiet noder\u012bgus resursus, lai veiktu intervijas, aptaujas un fokusgrupas, lai dzi\u013c\u0101k izprastu ieinteres\u0113to pu\u0161u un iedz\u012bvot\u0101ju vajadz\u012bbas un pras\u012bbas. Izmantojiet pied\u0101v\u0101to materi\u0101lu, lai organiz\u0113tu pakalpojumu dizaina darbn\u012bcas un izstr\u0101d\u0101tu maketus. Apst\u0101jieties un p\u0101rdom\u0101jiet l\u012bdz\u0161in\u0113jo procesu, izmantojot kop\u0113j\u0101 nov\u0113rt\u0113juma kontrolsarakstus."
+    },
+    "objectives": [
+        {
+            "name_translations": {
+                "en": "Focus the service description enhancement problem collaboratively",
+                "es": "Enfocar el problema de la mejora de la descripci\u00f3n del servicio de forma colaborativa",
+                "it": "Focalizza in modo collaborativo come migliorare le descrizioni del servizio",
+                "lv": "Kop\u012bgi koncentr\u0113jieties uz pakalpojuma apraksta uzlabo\u0161anas probl\u0113mu"
+            },
+            "description_translations": {
+                "en": "Clearly define the problem to be addresses by the co-production team and agree on it. This  is an important step towards creating an effective and efficient solution. Different resources can be useful to this end: tips on how to create and share a common language among team members, resources to guide collaborative discussions, tools for ideas collection.",
+                "es": "Defina claramente el problema que debe abordar el equipo de coproducci\u00f3n y p\u00f3ngase de acuerdo sobre \u00e9l. Este es un paso importante para crear una soluci\u00f3n eficaz y eficiente. Para ello pueden ser \u00fatiles diferentes recursos: consejos sobre c\u00f3mo crear y compartir un lenguaje com\u00fan entre los miembros del equipo, recursos para guiar los debates colaborativos, herramientas para la recopilaci\u00f3n de ideas.",
+                "it": "Definisci e condividi con chiarezza il problema che deve essere affrontato dal gruppo di lavoro. E' un passo importante per poi realizzare una soluzione efficace ed efficiente. Diverse risorse possono essere utili: risorse su come adottare un linguaggio comune tra i membri del gruppo, risorse per guidare discussioni collaborative, risorse per la raccolta di idee.",
+                "lv": "Skaidri defin\u0113jiet probl\u0113mu, kas j\u0101risina koprades komandai, un vienojieties par to. Tas ir svar\u012bgs solis efekt\u012bva un iedarb\u012bga risin\u0101juma rad\u012b\u0161anai. \u0160im nol\u016bkam var b\u016bt noder\u012bgi da\u017e\u0101di resursi: padomi, k\u0101 izveidot kop\u012bgu terminolo\u0123iju un dal\u012bties taj\u0101 starp komandas locek\u013ciem, resursi, lai vad\u012btu sadarb\u012bbas diskusijas, r\u012bki ideju apkopo\u0161anai."
+            },
+            "problemprofiles": [
+                "UND_PROBLEM_1",
+                "UND_PROBLEM_5",
+                "DEF_PROBLEM_2"
+            ],
+            "tasks": [
+                {
+                    "name_translations": {
+                        "en": "Collaboratively problem refinement",
+                        "es": "Perfeccionamiento de problemas en colaboraci\u00f3n",
+                        "it": "Definisci in modo collaborativo il problema",
+                        "lv": "Sadarb\u012bbas probl\u0113mu preciz\u0113\u0161ana"
+                    },
+                    "description_translations": {
+                        "en": "Refine with the collaboration of the stakeholders network the problem to be addressed. Service design is a problem-solving activity and it is important to clearly understand which is the challenge that the team addresses and how more information can be collected to understand how the service should be designed. Organize focus groups to discuss initial ideas and assumptions, refine them through structured methods and become aware about the missing information that still needs to be collected.",
+                        "es": "Afinar con la colaboraci\u00f3n de la red de partes interesadas el problema a tratar. El dise\u00f1o de servicios es una actividad de resoluci\u00f3n de problemas y es importante entender claramente cu\u00e1l es el reto que aborda el equipo y c\u00f3mo se puede recopilar m\u00e1s informaci\u00f3n para entender c\u00f3mo debe dise\u00f1arse el servicio. Organice grupos de discusi\u00f3n para debatir las ideas y suposiciones iniciales, perfeccionarlas mediante m\u00e9todos estructurados y tomar conciencia de la informaci\u00f3n que falta por recopilar.",
+                        "it": "Circoscrivi il problema e i suoi confini grazie alla collaborazione della rete di tutti gli attori coinvolti. La progettazione del servizio \u00e8 un'attivit\u00e0 di problem solving ed \u00e8 importante capire con chiarezza qual \u00e8 la sfida che il gruppo di lavoro deve affrontare, come raccogliere le informazioni necessarie alla progettazione del servizio. Organizza focus group per discutere idee e ipotesi, perfezionali attraverso metodi strutturati e identifica le informazioni mancanti che devono ancora essere raccolte.",
+                        "lv": "Sadarbojoties ar ieinteres\u0113to personu t\u012bklu, uzlabojiet risin\u0101m\u0101s probl\u0113mas defin\u012bciju. Pakalpojuma izstr\u0101de ir probl\u0113mu risin\u0101\u0161anas darb\u012bba, un ir svar\u012bgi skaidri saprast, kur\u0161 ir izaicin\u0101jums, kuru komanda risina, un k\u0101 var sav\u0101kt vair\u0101k inform\u0101cijas, lai saprastu, k\u0101 pakalpojums ir j\u0101izstr\u0101d\u0101. Organiz\u0113jiet fokusgrupas, lai apspriestu s\u0101kotn\u0113j\u0101s idejas un pie\u0146\u0113mumus, pilnveidotu tos, izmantojot struktur\u0113tas metodes, un uzzin\u0101tu par tr\u016bksto\u0161o inform\u0101ciju, kas v\u0113l ir j\u0101iev\u0101c."
+                    },
+                    "problemprofiles": [],
+                    "prerequisites": [],
+                    "id": "task-collaboratively-problem-refinement"
+                },
+                {
+                    "name_translations": {
+                        "en": "Define requirements and constraints for the public service description enhancement",
+                        "es": "Definir los requisitos y restricciones para la mejora de la descripci\u00f3n del servicio p\u00fablico",
+                        "it": "Definisci i requisiti e i vincoli del servizio",
+                        "lv": "Defin\u0113jiet pras\u012bbas un ierobe\u017eojumus sabiedrisko pakalpojumu apraksta uzlabo\u0161anai"
+                    },
+                    "description_translations": {
+                        "en": "The ideas and service design concepts need to be translated into formal requirements to proceed with the implementation of the service. Follow the guidelines on how to collect, structure and communicate requirements and all the service specifications that clarify the objective of the service and how it should be developed. Use stardard representation formalism for requirements descriptions, as for example the Volere Requirements Specification template.",
+                        "es": "Las ideas y los conceptos de dise\u00f1o del servicio deben traducirse en requisitos formales para proceder a la implantaci\u00f3n del servicio. Siga las directrices sobre c\u00f3mo recoger, estructurar y comunicar los requisitos y todas las especificaciones del servicio que aclaren el objetivo del servicio y c\u00f3mo debe desarrollarse. Utilice un formalismo de representaci\u00f3n est\u00e1ndar para las descripciones de requisitos, como por ejemplo la plantilla de especificaci\u00f3n de requisitos de Volere.",
+                        "it": "Le idee relative alla progettazione del servizio devono essere tradotte in requisiti formali per procedere alla loro implementazione. Segui le linee guida su come raccogliere, strutturare e comunicare i requisiti e tutte le specifiche del servizio che ne definiscono l'obiettivo e come dovrebbe essere sviluppato. Utilizza termini standard per le descrizioni dei requisiti, come ad esempio il modello di specifica Volere Requirements.",
+                        "lv": "Idejas un pakalpojuma dizaina koncepcijas ir j\u0101p\u0101rv\u0113r\u0161 form\u0101l\u0101s pras\u012bb\u0101s, lai var\u0113tu turpin\u0101t ar pakalpojuma ievie\u0161anu. Iev\u0113rojiet vadl\u012bnijas par to, k\u0101 apkopot, struktur\u0113t un pazi\u0146ot pras\u012bbas un visas pakalpojumu specifik\u0101cijas, kas preciz\u0113 pakalpojuma m\u0113r\u0137i un to, k\u0101 tas j\u0101izstr\u0101d\u0101. Izmantojiet standarta att\u0113lojuma form\u0101lismu pras\u012bbu aprakstiem, piem\u0113ram, Volere pras\u012bbu specifik\u0101cijas veidni."
+                    },
+                    "problemprofiles": [],
+                    "prerequisites": [
+                        {
+                            "item": "task-collaboratively-problem-refinement",
+                            "type": "previous"
+                        }
+                    ],
+                    "id": "task-define-requirements-and-constraints-for-the-public-service-description-enhancement"
+                }
+            ],
+            "id": "objective-focus-the-service-description-enhancement-problem-collaboratively",
+            "prerequisites": []
+        },
+        {
+            "name_translations": {
+                "en": "Service description refinement process specification",
+                "es": "Especificaci\u00f3n del proceso de refinamiento de la descripci\u00f3n del servicio",
+                "it": "Specifica il processo di definizione della descrizione di un servizio",
+                "lv": "Pakalpojuma apraksta uzlabo\u0161anas procesa specifik\u0101cija"
+            },
+            "description_translations": {
+                "en": "Based on the description augmenter INTERLINKER create a new service description enhancement process.",
+                "es": "Bas\u00e1ndose en el aumentador de descripci\u00f3n INTERLINKER crea un nuevo proceso de mejora de la descripci\u00f3n del servicio.",
+                "it": "Sulla base dell'INTERLINKER Description Augmenter crea un nuovo processo per definire la descrizione di un servizio.",
+                "lv": "Pamatojoties uz Pakalpojumu apraksta INTERLINKERu, izveidojiet jaunu pakalpojuma apraksta uzlabo\u0161anas procesu."
+            },
+            "problemprofiles": [
+                "UND_PROBLEM_1",
+                "DEF_PROBLEM_1",
+                "DEF_PROBLEM_2",
+                "DEF_PROBLEM_5",
+                "BUILD_PROBLEM_1",
+                "BUILD_PROBLEM_9"
+            ],
+            "tasks": [
+                {
+                    "name_translations": {
+                        "en": "Launch Description Augmenter",
+                        "es": "Lanzar Description Augmenter",
+                        "it": "Lancia il Description Augmenter",
+                        "lv": "Palaist apraksta papla\u0161in\u0101t\u0101ju"
+                    },
+                    "description_translations": {
+                        "en": "Use the Initiate Procedure to launch Description Augmenter or simply select Description Augmenter recommended INTERLINKER",
+                        "es": "Utilice el Procedimiento de Inicio para lanzar el Service Augmenter o simplemente seleccione el INTERLINKER Service Augmenter",
+                        "it": "Usa il bottone \"Inizia Procedura\" per lanciare il Description Augmenter o semplicemente seleziona il Description Augmenter dalla lista degli INTERLINKER raccomandati",
+                        "lv": "Izmantojiet inici\u0113\u0161anas proced\u016bru, lai palaistu apraksta papla\u0161in\u0101t\u0101ju, vai vienk\u0101r\u0161i atlasiet Apraksta Papla\u0161in\u0101t\u0101ja ieteikto INTERLINKER"
+                    },
+                    "problemprofiles": [
+                        "BUILD_PROBLEM_9"
+                    ],
+                    "prerequisites": [],
+                    "id": "task-launch-description-augmenter"
+                }
+            ],
+            "prerequisites": [
+                {
+                    "item": "objective-focus-the-service-description-enhancement-problem-collaboratively",
+                    "type": "previous"
+                }
+            ],
+            "id": "objective-service-description-refinement-process-specification"
+        },
+        {
+            "name_translations": {
+                "en": "Sustainability",
+                "es": "Sostenibilidad",
+                "it": "Sostenibilit\u00e0 economica",
+                "lv": "Ilgtsp\u0113j\u012bba"
+            },
+            "description_translations": {
+                "en": "Before further going deep into the launch of the enhancement process. Stop and reflect about the design results obtained so far and about the actual feasibility and sustainability of what you are about to implement.",
+                "es": "Antes de seguir profundizando en el lanzamiento del proceso de mejora det\u00e9ngase y reflexione sobre los resultados de dise\u00f1o obtenidos hasta el momento y sobre la viabilidad y sostenibilidad reales de lo que va a implementar.",
+                "it": "Prima di addentrarti nel lancio effettivo del processo di definizione delle descrizioni dei servizi, fermati a riflettere sui risultati di progettazione ottenuti sino ad ora e sulla effettiva fattibilit\u00e0 e sostenibilit\u00e0 di quello che stai per implementare.",
+                "lv": "Pirms turpin\u0101t ar apraksta uzlabo\u0161anas procesa uzs\u0101k\u0161anu, apst\u0101jieties un p\u0101rdom\u0101jiet l\u012bdz \u0161im ieg\u016btos projekt\u0113\u0161anas rezult\u0101tus un to re\u0101lo \u012bsteno\u0161anas iesp\u0113jam\u012bbu un ilgtsp\u0113j\u012bbu."
+            },
+            "problemprofiles": [
+                "UND_PROBLEM_3"
+            ],
+            "tasks": [
+                {
+                    "name_translations": {
+                        "en": "Understand motivations and incentives",
+                        "es": "Comprender las motivaciones y los incentivos",
+                        "it": "Comprendi le motivazioni e come incentivarle",
+                        "lv": "Izprotiet motiv\u0101ciju un stimulus"
+                    },
+                    "description_translations": {
+                        "en": "What are the incentives for those who can provide support / funding and for those developing / maintaining them?\r\nStop and reflect on how stakeholders collaboration in co-creation went so far. Follow the proposed checklist to understand whether further incentives and supportive measures are needed to ensure productive development and co-delivery phases.",
+                        "es": "\u00bfCu\u00e1les son los incentivos para los que pueden proporcionar apoyo / financiaci\u00f3n y para los que los desarrollan / mantienen?\nDet\u00e9ngase y reflexione sobre c\u00f3mo ha ido la colaboraci\u00f3n de las partes interesadas en la cocreaci\u00f3n hasta ahora. Siga la lista de comprobaci\u00f3n propuesta para comprender si se necesitan m\u00e1s incentivos y medidas de apoyo para garantizar un desarrollo productivo y fases de cocreaci\u00f3n.",
+                        "it": "Quali sono gli incentivi per coloro che forniscono supporto e/o finanziamenti al servizio e per coloro che lo sviluppano, mantengono in vita?\nProva a riflettere su come ha funzionato fino ad ora la collaborazione fra gli attori. Segui la check-list per capire se sono necessari ulteriori incentivi, misure di supporto per assicurare l'implementazione e l'erogazione del servizio.",
+                        "lv": "K\u0101di ir stimuli tiem, kas var sniegt atbalstu/finans\u0113jumu, un tiem, kas izstr\u0101d\u0101/uztur pakalpojumu?\nApst\u0101jies un apdom\u0101jiet, k\u0101 l\u012bdz \u0161im norisin\u0101j\u0101s ieinteres\u0113to pu\u0161u sadarb\u012bba koprades proces\u0101. Izskatiet pied\u0101v\u0101to kontrolsarakstu, lai saprastu, vai ir nepiecie\u0161ami papildu stimuli un atbalsta pas\u0101kumi, lai nodro\u0161in\u0101tu produkt\u012bvu izstr\u0101des un koppieg\u0101des posmu."
+                    },
+                    "problemprofiles": [],
+                    "prerequisites": [],
+                    "id": "task-understand-motivations-and-incentives"
+                }
+            ],
+            "prerequisites": [
+                {
+                    "item": "objective-service-description-refinement-process-specification",
+                    "type": "previous"
+                }
+            ],
+            "id": "objective-sustainability"
+        }
+    ],
+    "is_part_of_codelivery": false
+}

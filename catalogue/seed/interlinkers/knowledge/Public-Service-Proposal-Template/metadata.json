@@ -1,0 +1,67 @@
+{
+    "administrative_scopes": [
+        "eu"
+    ],
+    "constraints_and_limitations_translations": {
+        "en": "No special constraints apply"
+    },
+    "description_translations": {
+        "en": "<p>Document with template for co-design of Public Service Proposal</p>",
+        "es": "<p>Documento con la plantilla para el codise\u00f1o de la Propuesta de Servicio P\u00fablico</p>",
+        "it": "<p>Documento con template per la co-progettazione della Proposta di Servizio Pubblico</p>",
+        "lv": "<p>Publisk\u0101 pakalpojuma priek\u0161likuma kopdizaina parauga dokuments</p>"
+    },
+    "difficulty": "very_easy",
+    "domain": "",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "file_translations": {
+        "en": "./interlinkers/knowledge/Public-Service-Proposal-Template/resource.docx"
+    },
+    "form": "document_template",
+    "format": "editable_source_document",
+    "id": "public-service-proposal-template-for-interlink-project",
+    "instructions_translations": {
+        "en": "./interlinkers/knowledge/Public-Service-Proposal-Template/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "public_domain",
+    "name_translations": {
+        "en": "Public Service Proposal Template for INTERLINK project",
+        "es": "Plantilla de propuesta de servicio p\u00fablico para el proyecto INTERLINK",
+        "it": "Modello di proposta di servizio pubblico per il progetto INTERLINK",
+        "lv": "Publisk\u0101 pakalpojuma priek\u0161likuma veidlapa INTERLINK projektam"
+    },
+    "problemprofiles": [
+        "HACKATHON_PROBLEM_1"
+    ],
+    "process": "",
+    "regulations_and_standards_translations": {
+        "en": "Public Service Proposal Template is compliant to GDPR norms."
+    },
+    "softwareinterlinker": "googledrive",
+    "tags_translations": {
+        "en": [
+            "public service",
+            "proposal",
+            "co-production project participants",
+            "INTERLINK"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enhancing_services"
+    ]
+}

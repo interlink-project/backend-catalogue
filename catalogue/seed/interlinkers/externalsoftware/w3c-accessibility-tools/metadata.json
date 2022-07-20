@@ -1,0 +1,66 @@
+{
+    "administrative_scopes": [
+        "eu",
+        "national",
+        "local"
+    ],
+    "asset_name_translations": {
+        "en": "W3C accessibility tools"
+    },
+    "constraints_and_limitations_translations": {
+        "en": "None"
+    },
+    "description_translations": {
+        "en": "<p>Web accessibility evaluation tools are software programs or online services that help you determine if web content meets accessibility guidelines. This page provides a list of evaluation tools that you can filter to find ones that match your particular needs.</p>",
+        "es": "<p>Las herramientas de evaluaci\u00f3n de la accesibilidad web son programas de software o servicios en l\u00ednea que ayudan a determinar si el contenido de la web cumple con las directrices de accesibilidad. Esta p\u00e1gina ofrece una lista de herramientas de evaluaci\u00f3n que puedes filtrar para encontrar las que se ajusten a tus necesidades particulares.</p>",
+        "it": "<p>Gli strumenti di valutazione dell'accessibilit\u00e0 del Web sono programmi software o servizi online che consentono di determinare se i contenuti Web soddisfano le linee guida sull'accessibilit\u00e0. Questa pagina fornisce un elenco di strumenti di valutazione che puoi filtrare per trovare quelli che soddisfano le tue esigenze particolari.</p>",
+        "lv": "<p>T\u012bmek\u013ca pieejam\u012bbas nov\u0113rt\u0113\u0161anas r\u012bki ir programmat\u016bra vai tie\u0161saistes pakalpojums, ar kura pal\u012bdz\u012bbu ir iesp\u0113jams noteikt, vai tie\u0161saistes saturs atbilst pieejam\u012bbas vadl\u012bnij\u0101m. \u0160\u012b lapa pied\u0101v\u0101 sarakstu ar nov\u0113rt\u0113\u0161anas r\u012bkiem, kurus ir iesp\u0113jams filtr\u0113t, lai atrastu atbilsto\u0161\u0101kos konkr\u0113taj\u0101m vajadz\u012bb\u0101m.</p>"
+    },
+    "difficulty": "easy",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "id": "accessibility-tools",
+    "instructions_translations": {
+        "en": "./interlinkers/externalsoftware/w3c-accessibility-tools/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "propietary",
+    "name_translations": {
+        "en": "Accessibility Tools",
+        "es": "Herramientas de accesibilidad",
+        "it": "Strumenti per l'accessibit\u00e0",
+        "lv": "Pieejam\u012bbas r\u012bki"
+    },
+    "problemprofiles": [
+        "BUILD_PROBLEM_2"
+    ],
+    "regulations_and_standards_translations": {
+        "en": "None"
+    },
+    "tags_translations": {
+        "en": [
+            "ACCESSIBILITY",
+            "HTML5",
+            "CSS"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "software",
+    "types": [
+        "enabling_services"
+    ],
+    "uri_translations": {
+        "en": "https://www.w3.org/WAI/ER/tools/"
+    }
+}

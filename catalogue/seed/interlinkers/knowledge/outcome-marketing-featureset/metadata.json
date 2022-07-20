@@ -1,0 +1,68 @@
+{
+    "administrative_scopes": [
+        "eu"
+    ],
+    "constraints_and_limitations_translations": {
+        "en": "No special constraints apply"
+    },
+    "description_translations": {
+        "en": "<p>This resource suggests a model to define the features of a co-produced service. It guides the description of the problem(s) that the product will solve in the long run, the vision for the user experience as well as the user interface, the vision for how the product will generate a return of investment</p>",
+        "es": "<p>Este recurso sugiere un modelo para definir las caracter\u00edsticas de un servicio coproducido. Orienta la descripci\u00f3n del (los) problema(s) que el producto resolver\u00e1 a largo plazo, la visi\u00f3n de la experiencia del usuario as\u00ed como de la interfaz de usuario, la visi\u00f3n de c\u00f3mo el producto generar\u00e1 un retorno de la inversi\u00f3n</p>",
+        "it": "<p>Questa risorsa suggerisce un modello per definire le caratteristiche di un servizio coprodotto. Guida nella descrizione del problema o dei problemi che il prodotto risolver\u00e0 a lungo termine, la visione dell'esperienza utente cos\u00ec come l'interfaccia utente, la visione di come il prodotto generer\u00e0 un ritorno sull'investimento</p>",
+        "lv": "<p>\u0160is resurss pied\u0101v\u0101 koprad\u012bta pakalpojuma funkciju defin\u0113\u0161anas modeli. Tas vada ilgtermi\u0146a risin\u0101m\u0101s probl\u0113mas defin\u0113\u0161anas procesu, lietot\u0101ja pieredzes un lietot\u0101ja saskarnes v\u012bziju un redz\u0113jumu par produkta invest\u012bciju atdevi (ROI)t</p>"
+    },
+    "difficulty": "easy",
+    "domain": "",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "file_translations": {
+        "en": "./interlinkers/knowledge/outcome-marketing-featureset/resource.docx"
+    },
+    "form": "guidelines",
+    "format": "editable_source_document",
+    "id": "outcome-marketing-featureset",
+    "instructions_translations": {
+        "en": "./interlinkers/knowledge/outcome-marketing-featureset/instructions.md"
+    },
+    "is_sustainability_related": true,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "public_domain",
+    "name_translations": {
+        "en": "Outcome marketing featureset",
+        "es": "Conjunto de caracter\u00edsticas de marketing de resultados",
+        "it": "Set di funzionalit\u00e0 per la commercializzazione dei risultati",
+        "lv": "M\u0101rketinga rezult\u0101tu komplekts"
+    },
+    "problemprofiles": [
+        "ORG_PROBLEM_6.2",
+        "VAL_PROBLEM_1",
+        "VAL_PROBLEM_5"
+    ],
+    "process": "",
+    "regulations_and_standards_translations": {
+        "en": ""
+    },
+    "softwareinterlinker": "googledrive",
+    "tags_translations": {
+        "en": [
+            "product specification",
+            "template",
+            "understand"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enhancing_services"
+    ]
+}

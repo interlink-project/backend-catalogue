@@ -1,0 +1,69 @@
+{
+    "administrative_scopes": [
+        "eu",
+        "national",
+        "local"
+    ],
+    "asset_name_translations": {
+        "en": "W3C Accessibility Standards Overview"
+    },
+    "constraints_and_limitations_translations": {
+        "en": "Web applications"
+    },
+    "description_translations": {
+        "en": "<p>Web Content Accessibility Guidelines (WCAG) aims at explaining how to make the Web content more accessible to the people with disabilities. It generally applies to the public services delivered as Web applications, and refers to the information in a web page of the applciation, including both the content (text, images, sounds, ...) and structure (markup, presentation, styles).</p><br><ul><li>defines a set of guidelines with corresponding testable success criteria across different levels</li><li>based on the accessibility principles: perceivable, operable, understandable, robust.</li></ul>",
+        "es": "<p>Web Content Accessibility Guidelines (WCAG) aims at explaining how to make the Web content more accessible to the people with disabilities. It generally applies to the public services delivered as Web applications, and refers to the information in a web page of the applciation, including both the content (text, images, sounds, ...) and structure (markup, presentation, styles).</p><br><ul><li>defines a set of guidelines with corresponding testable success criteria across different levels</li><li>based on the accessibility principles: perceivable, operable, understandable, robust.</li></ul>",
+        "it": "<p>Le Linee guida per l'accessibilit\u00e0 dei contenuti Web (WCAG) mirano a spiegare come rendere i contenuti Web pi\u00f9 accessibili alle persone con disabilit\u00e0. Si applica generalmente ai servizi pubblici forniti come applicazioni Web e si riferisce alle informazioni in una pagina Web dell'applicazione, inclusi sia il contenuto (testo, immagini, suoni, ...) che la struttura (markup, presentazione, stili). </p><br><ul><li>definisce una serie di linee guida con corrispondenti criteri di successo verificabili a diversi livelli</li><li>basati sui principi di accessibilit\u00e0: percepibile, utilizzabile, comprensibile, robusto.</li ></ul>",
+        "lv": "<p>Tie\u0161saistes satura pieejam\u012bbas vadl\u012bnijas (WCAG) cen\u0161as izskaidrot, k\u0101 veidot pieejam\u0101ku tie\u0161saistes saturu person\u0101m ar invalidit\u0101ti. T\u0101s kopum\u0101 attiecas uz tie\u0161saist\u0113 pieejamiem publiskajiem pakalpojumiem saist\u012bb\u0101 ar inform\u0101ciju m\u0101jaslap\u0101, iek\u013caujot gan saturu (teksts, att\u0113li, ska\u0146as u.c.), gan strukt\u016bru (iez\u012bm\u0113\u0161anas valoda, prezent\u0101cija, stils).</p><br><ul><li>defin\u0113 vadl\u012bniju kopumu kop\u0101 ar attiec\u012bgiem test\u0113jamiem pan\u0101kumu krit\u0113rijiem da\u017e\u0101dos l\u012bme\u0146os</li><li>balstoties uz pieejam\u012bbas principiem: uztveram\u012bbu, darboties sp\u0113ju, saproatam\u012bbu, iztur\u012bbu.</li></ul>"
+    },
+    "difficulty": "medium",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "form": "guidelines",
+    "format": "structured_format",
+    "id": "w3c-web-content-accessibility-guidelines",
+    "instructions_translations": {
+        "en": "./interlinkers/externalknowledge/w3c_web_content_accessibility_guidelines/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "permissive",
+    "name_translations": {
+        "en": "W3C Web Content Accessibility Guidelines",
+        "es": "Directrices de Accesibilidad al Contenido en la Web del W3C",
+        "it": "Linee guida W3C per contenuto Web accessibile",
+        "lv": "W3C Tie\u0161saistes satura pieejam\u012bbas vadl\u012bnijas"
+    },
+    "problemprofiles": [
+        "BUILD_PROBLEM_2",
+        "BUILD_PROBLEM_1"
+    ],
+    "regulations_and_standards_translations": {
+        "en": "EU Directive 2016/2102 on the accessibility of the websites and mobile applications of public sector bodies"
+    },
+    "tags_translations": {
+        "en": [
+            "accessibility",
+            "Web",
+            "UI"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enabling_services;implementing_software_and_artifacts"
+    ],
+    "uri_translations": {
+        "en": "https://www.w3.org/WAI/standards-guidelines/"
+    }
+}

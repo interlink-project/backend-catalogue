@@ -1,0 +1,69 @@
+{
+    "administrative_scopes": [
+        "eu",
+        "national",
+        "local"
+    ],
+    "asset_name_translations": {
+        "en": "Open API specification"
+    },
+    "constraints_and_limitations_translations": {
+        "en": "No special constraints apply"
+    },
+    "description_translations": {
+        "en": "<p>A RFC document which specifyes the open API.</p>",
+        "es": "<p>Un documento RFC que especifica la API abierta.</p>",
+        "it": "<p>Un documento RFC che specifica l'open API .</p>",
+        "lv": "<p>RFC (piepras\u012bjums p\u0113c koment\u0101riem) dokuments, kas raksturo atv\u0113rto API (lietojumprogrammas saskarni).</p>"
+    },
+    "difficulty": "medium",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "form": "guidelines",
+    "format": "structured_format",
+    "id": "open-api-specification",
+    "instructions_translations": {
+        "en": "./interlinkers/externalknowledge/it-pa-minimum-security-measures/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "public_domain",
+    "name_translations": {
+        "en": "Open API specification",
+        "es": "Especificaci\u00f3n de la API abierta",
+        "it": "Specifiche di Open API",
+        "lv": "Atv\u0113rt\u0101s API (lietojumprogrammas saskarnes) specifik\u0101cija"
+    },
+    "problemprofiles": [
+        "BUILD_PROBLEM_2"
+    ],
+    "regulations_and_standards_translations": {
+        "en": ""
+    },
+    "tags_translations": {
+        "en": [
+            "OPEN API",
+            "SERVICE"
+        ]
+    },
+    "targets": [
+        "all;pas",
+        "all;businesses",
+        "all;research_organizations"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enabling_services"
+    ],
+    "uri_translations": {
+        "en": "https://spec.openapis.org/oas/latest.html"
+    }
+}

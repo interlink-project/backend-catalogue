@@ -1,0 +1,76 @@
+{
+    "administrative_scopes": [
+        "eu",
+        "national",
+        "local"
+    ],
+    "constraints_and_limitations_translations": {
+        "en": "None",
+        "es": ""
+    },
+    "description_translations": {
+        "en": "<p> AAC is an Open Source platform for identity management, authentication, and authorization. Based on standard security protocols, such as OAuth2.0, OpenID Connect, SAML, SCIM, the tool allows for protecting the APIs and applciations, manage users, authenticate using external Identity Providers performing also Single Sign-On and Single Logout functionality. The tool is compatible with the eID providers and allow for integration of nation-level or cross-country authentication solutions.</p><p>More specifically, the tool allows for, but not limited to<ul><li>Multi-tenant management of users, applications, and personal data management in an extensible manner with the custom user attributes (claims) and attribute extraction;</li><li>User management with email/password based user registration or even passwordless authentication (based on WebAuthn standard)</li> <li>Authentication federation with external providers, and in particular, with eIDAS-compliant solutions, using SAML, OpenId Connect, and OAuth2.0 protocols;</li> <li>Perform OAuth2.0-based authorization and access control with customizable and extensible model of scopes, services, and applications;</li><li>Perform role-based and attribute-based access control policy implementation for end-users and applications accessing protected APIs.</li></ul></p>",
+        "es": "<p> AAC is an Open Source platform for identity management, authentication, and authorization. Based on standard security protocols, such as OAuth2.0, OpenID Connect, SAML, SCIM, the tool allows for protecting the APIs and applciations, manage users, authenticate using external Identity Providers performing also Single Sign-On and Single Logout functionality. The tool is compatible with the eID providers and allow for integration of nation-level or cross-country authentication solutions. </p><p>More specifically, the tool allows for, but not limited to<ul><li>Multi-tenant management of users, applications, and personal data management in an extensible manner with the custom user attributes (claims) and attribute extraction; </li><li>User management with email/password based user registration or even passwordless authentication (based on WebAuthn standard)</li> <li>Authentication federation with external providers, and in particular, with eIDAS-compliant solutions, using SAML, OpenId Connect, and OAuth2. 0 protocols;</li> <li>Perform OAuth2.0-based authorization and access control with customizable and extensible model of scopes, services, and applications;</li><li>Perform role-based and attribute-based access control policy implementation for end-users and applications accessing protected APIs.</li></ul></p>",
+        "it": "<p> AAC \u00e8 una piattaforma Open Source per la gestione delle identit\u00e0, l'autenticazione e l'autorizzazione. Basato su protocolli di sicurezza standard, come OAuth2.0, OpenID Connect, SAML, SCIM, lo strumento consente di proteggere le API e le applicazioni, gestire gli utenti, autenticarsi utilizzando provider di identit\u00e0 esterni eseguendo anche funzionalit\u00e0 di Single Sign-On e Single Logout. Lo strumento \u00e8 compatibile con i fornitori di eID e consente l'integrazione di soluzioni di autenticazione a livello nazionale o cross-country.</p><p>In particolare, lo strumento consente, ma non solo,<ul><li>Multi- gestione tenant di utenti, applicazioni e gestione dei dati personali in modo estensibile con gli attributi utente personalizzati (claims) e l'estrazione degli attributi;</li><li>Gestione degli utenti con registrazione utente basata su e-mail/password o anche autenticazione senza password (basata su Standard WebAuthn)</li> <li>Federazione di autenticazione con provider esterni e, in particolare, con soluzioni conformi a eIDAS, utilizzando i protocolli SAML, OpenId Connect e OAuth2.0;</li> <li>Esegui OAuth2.0- autorizzazione e controllo degli accessi basati su modelli personalizzabili ed estensibili di ambiti, servizi e applicazioni;</li><li>Esegui l'implementazione di criteri di controllo degli accessi basati su ruoli e attributi per utenti finali e applicazioni che accedono ad API protette.</li ></ul></p>",
+        "lv": "<p> AAC ir atv\u0113rt\u0101 koda platforma identit\u0101tes kontrolei, autentifik\u0101cijai un autoriz\u0101cijai. T\u0101 ir balst\u012bta uz standarta dro\u0161\u012bbas protokoliem, piem\u0113ram, OAuth2.0, OpenID Connect, SAML, SCIM, un t\u0101 \u013cauj aizsarg\u0101t API un aplik\u0101cijas, kontrol\u0113t lietot\u0101jus, veikt autentifik\u0101ciju, izmantojot \u0101r\u0113jos identit\u0101tes pakalpojuma sniedz\u0113jus un veicot vienotas pierakst\u012b\u0161an\u0101s un izrakst\u012b\u0161an\u0101s funkcionalit\u0101tes. R\u012bks ir savietojams ar eID pakalpojumu sniedz\u0113jiem un \u013cauj integr\u0113t nacion\u0101l\u0101 l\u012bme\u0146a un p\u0101rrobe\u017eu autentifik\u0101cijas risin\u0101jumus.</p><p> R\u012bks tostarp \u013cauj<ul><li>vair\u0101ku profilu lietot\u0101ju, aplik\u0101ciju un personas datu papla\u0161in\u0101tu kontroli ar piel\u0101gotiem lietot\u0101ju atrib\u016btiem un atrib\u016btu izg\u016b\u0161anu;</li><li> Lietot\u0101ju kontroli ar e-past\u0101/parol\u0113 balst\u012btu re\u0123istr\u0101ciju vai autentifik\u0101ciju pat bez paroles (balst\u012bta uz WebAuthn standartu);</li> <li>Autentifik\u0101cijas feder\u0101ciju \u0101r\u0113jiem pakalpojuma sniedz\u0113jiem, jo \u012bpa\u0161i ar eIDAS sal\u0101gojamiem risin\u0101jumiem, izmantojot SAML, OpenId Connect un OAuth2.0 protokolus;</li> <li>Veikt OAuth2.0 balst\u012btu autoriz\u0101ciju un piek\u013cuves kontroli ar piel\u0101gojamiem un papla\u0161in\u0101tiem tv\u0113rumu, pakalpojumu un aplik\u0101ciju mode\u013ciem;</li><li>Veikt uz lom\u0101m atrib\u016btiem balst\u012btu piek\u013cuves kontroles politikas ievie\u0161anu gala lietot\u0101jiem un aplik\u0101cij\u0101m, kuras piek\u013c\u016bst aizsarg\u0101t\u0101m API.</li></ul></p>"
+    },
+    "difficulty": "difficult",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "id": "aac-authentication-and-authorization-controller",
+    "instructions_translations": {
+        "en": "./interlinkers/externalsoftware/aac/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "permissive",
+    "logotype": "./interlinkers/externalsoftware/aac/logo.png",
+    "name_translations": {
+        "en": "AAC - Authentication and Authorization Controller",
+        "es": "AAC - Controlador de Autenticaci\u00f3n y Autorizaci\u00f3n",
+        "it": "AAC - Controller per autenticazione ed autorizzazione",
+        "lv": "AAC - Autentifik\u0101cijas un autoriz\u0101cijas p\u0101rzinis"
+    },
+    "overview_text": {
+        "en": "Open source standard-based platform for identity and authorization management",
+        "es": ""
+    },
+    "problemprofiles": [
+        "ORG_PROBLEM_3",
+        "BUILD_PROBLEM_4",
+        "BUILD_PROBLEM_5",
+        "BUILD_PROBLEM_8"
+    ],
+    "regulations_and_standards_translations": {
+        "en": "None",
+        "es": ""
+    },
+    "tags_translations": {
+        "en": [
+            "authentication",
+            "authorization",
+            "user management",
+            "oauth2.0",
+            "openid",
+            "security"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "software",
+    "types": [
+        "enabling_services;operation_services"
+    ],
+    "uri_translations": {
+        "en": "https://scc-digitalhub.github.io/AAC"
+    }
+}

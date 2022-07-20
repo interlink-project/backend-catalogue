@@ -1,0 +1,67 @@
+{
+    "administrative_scopes": [
+        "eu"
+    ],
+    "constraints_and_limitations_translations": {
+        "en": "No special constraints apply"
+    },
+    "description_translations": {
+        "en": "<p>This resource will support you to refine the problem to be addresses by the co-production team as an important step to creating an effective and efficient solution.</p>",
+        "es": "<p>Este recurso le ayudar\u00e1 a afinar el problema que abordar\u00e1 el equipo de coproducci\u00f3n como un paso importante para crear una soluci\u00f3n eficaz y eficiente.</p>",
+        "it": "<p>Questa risorsa ti aiuter\u00e0 a perfezionare il problema in modo che venga affrontato dal team di co-produzione come passaggio importante per creare una soluzione efficace ed efficiente.</p>",
+        "lv": "<p>\u0160is resurss jums pal\u012bdz\u0113s preciz\u0113t uzdevumu, ko risin\u0101t koprades komandai, lai izveidotu efekt\u012bvu risin\u0101jumu.</p>"
+    },
+    "difficulty": "medium",
+    "domain": "",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "file_translations": {
+        "en": "./interlinkers/knowledge/Collaborative-Problem-Refinement/resource.pptx"
+    },
+    "form": "document_template",
+    "format": "editable_source_document",
+    "id": "collaborative-problem-refinement",
+    "instructions_translations": {
+        "en": "./interlinkers/knowledge/Collaborative-Problem-Refinement/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "public_domain",
+    "name_translations": {
+        "en": "Collaborative problem refinement",
+        "es": "Perfeccionamiento de problemas en colaboraci\u00f3n",
+        "it": "Raffinamento collaborativo del problema",
+        "lv": "Uz sadarb\u012bbu v\u0113rsta uzdevuma preciz\u0113\u0161ana"
+    },
+    "problemprofiles": [
+        "UND_PROBLEM_3",
+        "UND_PROBLEM_1",
+        "VAL_PROBLEM_2"
+    ],
+    "process": "",
+    "regulations_and_standards_translations": {
+        "en": ""
+    },
+    "softwareinterlinker": "googledrive",
+    "tags_translations": {
+        "en": [
+            "problem",
+            "refinements"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enhancing_services"
+    ]
+}

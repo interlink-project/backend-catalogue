@@ -1,0 +1,68 @@
+{
+    "administrative_scopes": [
+        "eu"
+    ],
+    "constraints_and_limitations_translations": {
+        "en": "No special constraints apply"
+    },
+    "description_translations": {
+        "en": "<p>Form to collect consent from participants engaged in INTERLINK research activities about the use of their personal data</p>",
+        "es": "<p>Formulario para recoger el consentimiento de los participantes en las actividades de investigaci\u00f3n de INTERLINK sobre el uso de sus datos personales</p>",
+        "it": "<p>Modulo per raccogliere il consenso dei partecipanti impegnati in attivit\u00e0 di ricerca INTERLINK sull'utilizzo dei propri dati personali</p>",
+        "lv": "<p> INTERLINK p\u0113tniecisko aktivit\u0101\u0161u dal\u012bbnieku person\u012bgo datu izmanto\u0161anas piekri\u0161anas forma</p>"
+    },
+    "difficulty": "very_easy",
+    "domain": "",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "file_translations": {
+        "en": "./interlinkers/knowledge/Consent-Form-INTERLINK/resource.docx",
+        "it": "./interlinkers/knowledge/Consent-Form-INTERLINK/italian.docx"
+    },
+    "form": "document_template",
+    "format": "editable_source_document",
+    "id": "consent-form-for-interlink-project",
+    "instructions_translations": {
+        "en": "./interlinkers/knowledge/Consent-Form-INTERLINK/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "public_domain",
+    "name_translations": {
+        "en": "Consent Form for INTERLINK project",
+        "es": "Formulario de consentimiento para el proyecto INTERLINK",
+        "it": "Modulo di consenso per il progetto INTERLINK",
+        "lv": "INTERLINK projekta piekri\u0161anas forma"
+    },
+    "problemprofiles": [
+        "ORG_PROBLEM_14"
+    ],
+    "process": "",
+    "regulations_and_standards_translations": {
+        "en": "The consent form is compliant to GDPR norms."
+    },
+    "softwareinterlinker": "googledrive",
+    "tags_translations": {
+        "en": [
+            "privacy management",
+            "research activities",
+            "co-production project participants",
+            "INTERLINK"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enhancing_services"
+    ]
+}

@@ -1,0 +1,61 @@
+name: On changes
+
+on:
+  push:
+    branches:    
+      - master
+      - seed_data
+    paths:
+      - catalogue/seed/**
+  pull_request:
+    branches:    
+      - master
+      - seed_data
+    paths:
+      - catalogue/seed/**
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo content
+        uses: actions/checkout@v2 # checkout the repository content to github runner.
+        
+      - name: setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8 #install the python needed
+
+      - name: Install dependencies and run input script if pull request from weblate
+        if: github.event_name == 'pull_request'
+        run: |
+          cd catalogue/seed
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          python input.py
+
+      - name: Install dependencies, run test script and generate weblate files if push to master
+        if: github.event_name == 'push'
+        id: generation
+        run: |
+          cd catalogue/seed
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          python test.py && python generate.py
+
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Auto changes
+
+      - name: Trigger Dev Deployment
+        uses: octokit/request-action@v2.x
+        id: trigger_dev_deployment
+        if: steps.generation.outputs.triggered == 'true'
+        with:
+          route: POST /repos/{owner}/{repo}/dispatches
+          owner: interlink-project
+          repo: interlink-project
+          event_type: update-dev-environment
+        env:
+          GITHUB_TOKEN: ${{ secrets.INTERLINK_PROJECT_GITHUB_TOKEN }}

@@ -1,0 +1,67 @@
+{
+    "administrative_scopes": [
+        "eu"
+    ],
+    "constraints_and_limitations_translations": {
+        "en": "No special constraints apply"
+    },
+    "description_translations": {
+        "en": "<p>Instructions on how to set up a research activity based on interviews, for a co-production project. </p>",
+        "es": "<p>Instrucciones sobre c\u00f3mo montar una actividad de investigaci\u00f3n basada en entrevistas, para un proyecto de coproducci\u00f3n. </p>",
+        "it": "<p>Istruzioni su come impostare un'attivit\u00e0 di ricerca basata su interviste, per un progetto di coproduzione. </p>",
+        "lv": "<p>Pam\u0101c\u012bba p\u0113tniec\u012bbas aktivit\u0101\u0161u veik\u0161anai koprades projekt\u0101, izmantojot fokusgrupas.</p>"
+    },
+    "difficulty": "easy",
+    "domain": "",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "file_translations": {
+        "en": "./interlinkers/knowledge/Guidelines-for-interviews/resource.docx"
+    },
+    "form": "document_template",
+    "format": "editable_source_document",
+    "id": "guidelines-for-interviews",
+    "instructions_translations": {
+        "en": "./interlinkers/knowledge/Guidelines-for-interviews/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "public_domain",
+    "name_translations": {
+        "en": "Guidelines for interviews",
+        "es": "Directrices para entrevistas",
+        "it": "Linee guida per interviste",
+        "lv": "Interviju vadl\u012bnijas"
+    },
+    "problemprofiles": [
+        "ORG_PROBLEM_14",
+        "UND_PROBLEM_3"
+    ],
+    "process": "",
+    "regulations_and_standards_translations": {
+        "en": ""
+    },
+    "softwareinterlinker": "googledrive",
+    "tags_translations": {
+        "en": [
+            "focus group",
+            "template",
+            "understand"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enhancing_services"
+    ]
+}

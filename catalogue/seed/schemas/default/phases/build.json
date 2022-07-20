@@ -1,0 +1,208 @@
+{
+    "id": "phase-build",
+    "prerequisites": [
+        {
+            "item": "phase-design",
+            "status": "finished"
+        }
+    ],
+    "name_translations": {
+        "en": "Build",
+        "es": "Construir",
+        "it": "Implementazione",
+        "lv": "Izveide"
+    },
+    "description_translations": {
+        "en": "Browse the catalogue of INTERLINKERs to find reusable building blocks for the implementation of your service. Monitor development advancement in the project workplan. Stop and reflect on the process so far with the co-evaluation checklists that help verify compliance with standards and regulations. Use incentives and reward tools made available by the INTERLINK platform to sustain stakeholders\u2019 and citizens\u2019 contribution to service delivery. Monitor quality of service and citizens\u2019 satisfaction with carefully prepared surveys. Stop and reflect on how co-delivery is going with the co-evaluation checklists.",
+        "es": "Examine el cat\u00e1logo de INTERLINKERs para encontrar bloques de construcci\u00f3n reutilizables para la implementaci\u00f3n de su servicio. Supervise el avance del desarrollo en el plan de trabajo del proyecto. Det\u00e9ngase y reflexione sobre el proceso hasta el momento con las listas de comprobaci\u00f3n de coevaluaci\u00f3n que ayudan a verificar el cumplimiento de las normas y los reglamentos. Utilizar los incentivos y las herramientas de recompensa que pone a disposici\u00f3n la plataforma INTERLINK para mantener la contribuci\u00f3n de las partes interesadas y los ciudadanos a la prestaci\u00f3n del servicio. Controlar la calidad del servicio y la satisfacci\u00f3n de los ciudadanos con encuestas cuidadosamente preparadas. Detenerse y reflexionar sobre c\u00f3mo va la co-prestaci\u00f3n de servicios con las listas de comprobaci\u00f3n de la co-evaluaci\u00f3n.",
+        "it": "Sfoglia il catalogo degli INTERLINKERs per trovare gli strumenti digitali che puoi riutilizzare per la realizzazione del servizio. Monitora l'avanzamento del progetto nel piano di lavoro. Verifica la conformit\u00e0 a standard e regolamenti, l'andamento dell'erogazione grazie alle checklist di co-valutazione. Utilizza gli incentivi e le ricompense per supportare e contribuire all'erogazione dei servizi. Monitora la qualit\u00e0 del servizio e la soddisfazione dei cittadini con sondaggi accuratamente preparati.",
+        "lv": "Lai atrastu atk\u0101rtoti izmantojamus r\u012bkus j\u016bsu pakalpojuma ievie\u0161anai, p\u0101rl\u016bkojiet INTERLINKERu katalogu. P\u0101rraugiet projekta att\u012bst\u012bbu projekta darba pl\u0101n\u0101. P\u0101rtrauciet un p\u0101rdom\u0101jiet procesu, izmantojot kop\u0113j\u0101s nov\u0113rt\u0113\u0161anas kontrolsarakstus, kas pal\u012bdz p\u0101rbaud\u012bt atbilst\u012bbu standartiem un noteikumiem. Lai atbalst\u012btu ieinteres\u0113to pu\u0161u un iedz\u012bvot\u0101ju ieguld\u012bjumu pakalpojumu snieg\u0161an\u0101, izmantotjiet INTERLINK platform\u0101 pieejamos stimulus un apbalvo\u0161anas r\u012bkus. Uzraugiet pakalpojumu kvalit\u0101ti un iedz\u012bvot\u0101ju apmierin\u0101t\u012bbu ar r\u016bp\u012bgi sagatavot\u0101m aptauj\u0101m. P\u0101rtrauciet un nov\u0113rt\u0113jiet, k\u0101 koppieg\u0101de norit kontekst\u0101 ar kop\u0113j\u0101 nov\u0113rt\u0113juma kontrolsarakstiem."
+    },
+    "objectives": [
+        {
+            "name_translations": {
+                "en": "Technical implementation",
+                "es": "Implementaci\u00f3n t\u00e9cnica",
+                "it": "Implementa con soluzioni tecniche",
+                "lv": "Tehnisk\u0101 \u012bsteno\u0161ana"
+            },
+            "description_translations": {
+                "en": "Service implementation is not possible if an environment for its depoyment and maintenance is not thought in advance. Independently on whether your envisioned co-produced service will be a piece of software or a bundle of digital resources, identify, select and make ready the development and deployment environments for your solution. Important to clearly specify and test the technical constraints within which the delivered service will be hosted.",
+                "es": "La implantaci\u00f3n de un servicio no es posible si no se piensa de antemano en un entorno para su despliegue y mantenimiento. Independientemente de si el servicio coproducido previsto ser\u00e1 una pieza de software o un conjunto de recursos digitales, hay que identificar, seleccionar y preparar los entornos de desarrollo y despliegue de la soluci\u00f3n. Es importante especificar claramente y probar las limitaciones t\u00e9cnicas dentro de las cuales se alojar\u00e1 el servicio entregado.",
+                "it": "L'implementazione del servizio non \u00e8 possibile se non predisponi in anticipo le condizioni per l'erogazione e la manutenzione. Indipendentemente dal fatto che il servizio sar\u00e0 uno specifico software o un insieme di risorse digitali, identifica, seleziona e prepara le condizioni di sviluppo e distribuzione. E' importante specificare e testare chiaramente i vincoli tecnici entro con i quali il servizio erogato dovr\u00e0 confrontarsi.",
+                "lv": "Pakalpojuma ievie\u0161ana nav iesp\u0113jama, ja iepriek\u0161 nav p\u0101rdom\u0101ta vide t\u0101 izvieto\u0161anai un uztur\u0113\u0161anai. Neatkar\u012bgi no t\u0101, vai j\u016bsu iecer\u0113tais kop\u0113ji rad\u012btais pakalpojums b\u016bs programmat\u016bra vai digit\u0101lo resursu kopums, identific\u0113jiet, atlasiet un sagatavojiet j\u016bsu risin\u0101juma izstr\u0101des un izvieto\u0161anas vidi. Svar\u012bgi ir skaidri nor\u0101d\u012bt un p\u0101rbaud\u012bt tehniskos ierobe\u017eojumus, kuri ietekm\u0113s sniegt\u0101 pakalpojuma izmitin\u0101\u0161anu."
+            },
+            "problemprofiles": [],
+            "tasks": [
+                {
+                    "name_translations": {
+                        "en": "Technical implementation",
+                        "es": "Implementaci\u00f3n t\u00e9cnica",
+                        "it": "Implementa con soluzioni tecniche",
+                        "lv": "Tehnisk\u0101 \u012bsteno\u0161ana"
+                    },
+                    "description_translations": {
+                        "en": "Identify the dependencies and environment needed for the service co-production and co-delivery. Configure and deploy (if not already available) the dependencies and environment. Document the progress towards realizing the technical aspects associated to the co-produced service. ",
+                        "es": "Identificar las dependencias y el entorno necesarios para la coproducci\u00f3n y la codistribuci\u00f3n de servicios. Configurar y desplegar (si no est\u00e1n ya disponibles) las dependencias y el entorno. Documentar el progreso hacia la realizaci\u00f3n de los aspectos t\u00e9cnicos asociados al servicio coproducido. ",
+                        "it": "Identifica le dipendenze e l'ambiente di sviluppo necessario per la realizzazione e l'erogazione del servizio. Configura e rilascia (se non sono gi\u00e0 disponibili) le dipendenze e l'ambiente di sviluppo. Documenta i progressi relativi all'implementazione degli aspetti tecnici associati al servizio. ",
+                        "lv": "Identific\u0113jiet pakalpojuma kopradei un koppieg\u0101dei nepiecie\u0161amo vidi un atkar\u012bbu no \u0101r\u0113jiem komponentiem. Konfigur\u0113jiet un izvietojiet (ja v\u0113l nav pieejami) \u0101r\u0113jo komponentu atkar\u012bbas un vidi. Dokument\u0113jiet progresu, lai \u012bstenotu ar koprades pakalpojumu saist\u012btos tehniskos aspektus. "
+                    },
+                    "problemprofiles": [
+                        "BUILD_PROBLEM_2",
+                        "BUILD_PROBLEM_3",
+                        "BUILD_PROBLEM_4",
+                        "BUILD_PROBLEM_5",
+                        "BUILD_PROBLEM_6",
+                        "BUILD_PROBLEM_7",
+                        "BUILD_PROBLEM_8"
+                    ],
+                    "id": "task-technical-implementation",
+                    "prerequisites": []
+                }
+            ],
+            "id": "objective-technical-implementation",
+            "prerequisites": []
+        },
+        {
+            "name_translations": {
+                "en": "Service implementation",
+                "es": "Implementaci\u00f3n del servicio",
+                "it": "Implementa il servizio",
+                "lv": "Pakalpojuma ievie\u0161ana"
+            },
+            "description_translations": {
+                "en": "Depending on the nature of the co-produced service, you main adopt different tools and mechanisms to realize a given co-produced service. Realizing a co-produced service might entail programming, using graphical design tools, 3D modelling and fabrication and so on. Register progress achieved during the realization of the implementation of the co-produced service, upload progress reports, cross-link with repositories where progress is being realized, document the co-produced service API or the kit and/or resources generated to realize the service. Acknowledge and trace the contributions of different co-production team members or external contributors. Reuse existing INTERLINKERs (software and knowledge) and add on top of them, browse through them in the Catalogue, do not reinvent the wheel!",
+                "es": "Dependiendo de la naturaleza del servicio coproducido, se pueden adoptar diferentes herramientas y mecanismos para realizar un determinado servicio coproducido. La realizaci\u00f3n de un servicio coproducido puede implicar la programaci\u00f3n, el uso de herramientas de dise\u00f1o gr\u00e1fico, el modelado y la fabricaci\u00f3n en 3D, etc. Registre los avances logrados durante la realizaci\u00f3n de la implementaci\u00f3n del servicio coproducido, suba informes de progreso, cruce con los repositorios donde se est\u00e1n realizando los avances, documente la API del servicio coproducido o el kit y/o los recursos generados para realizar el servicio. Reconocer y rastrear las contribuciones de los diferentes miembros del equipo de coproducci\u00f3n o de los colaboradores externos. Reutilizar los INTERLINKERs existentes (software y conocimiento) y a\u00f1adir sobre ellos, navegar a trav\u00e9s de ellos en el Cat\u00e1logo, \u00a1no reinventar la rueda!",
+                "it": "A seconda della natura del servizio da realizzare adotta strumenti e meccanismi diversi: la programmazione, la progettazione grafica, la modellazione e la stampa 3D e cos\u00ec via. Registra i progressi raggiunti durante l'implementazione del servizio, crea e condividi report sullo stato di avanzamento, crea collegamenti incrociati con i repository, documenta l'API del servizio coprodotto o il kit e/o le risorse generate per realizzare il servizio. Riconosci e traccia i contributi dei diversi membri del team o esterni. Riutilizza gli INTERLINKERs esistenti (software e conoscenza) che trovi nel Catalogo... non creare una cosa se gi\u00e0 esiste!",
+                "lv": "Atkar\u012bb\u0101 no kopra\u017eojuma pakalpojuma veida, j\u016bs galvenok\u0101rt lietojat da\u017e\u0101dus r\u012bkus un meh\u0101nismus, lai realiz\u0113tu attiec\u012bgo kopra\u017eojuma pakalpojumu. Kopra\u017eojuma pakalpojuma realiz\u0113\u0161ana var b\u016bt saist\u012bta ar programm\u0113\u0161anu, grafisk\u0101 dizaina r\u012bku izmanto\u0161anu, 3D model\u0113\u0161anu un izgstr\u0101di utt. Re\u0123istr\u0113jiet progresu, kas sasniegts, \u012bstenojot kop\u012bgi sagatavotu pakalpojumu, aug\u0161upiel\u0101d\u0113t progresa zi\u0146ojumus, savstarp\u0113ji saistiet ar repozitorijiem, kuros tiek realiz\u0113ts progress, dokument\u0113jiet kop\u012bgi sagatavotu pakalpojuma API vai komplektu un/vai resursus, kas izveidoti, lai realiz\u0113tu pakalpojumu. Aplieciniet un sekojiet l\u012bdzi da\u017e\u0101du kopra\u017eo\u0161anas grupas dal\u012bbnieku vai \u0101r\u0113jo l\u012bdzstr\u0101dnieku ieguld\u012bjumam. Atk\u0101rtoti izmantojiet eso\u0161o INTERLINKER (programmat\u016bru un zin\u0101\u0161anas) un papildiniet to, p\u0101rl\u016bkojiet katalogu, neizgudrojiet riteni no jauna!"
+            },
+            "problemprofiles": [
+                "ORG_PROBLEM_13",
+                "ORG_PROBLEM_14"
+            ],
+            "tasks": [
+                {
+                    "name_translations": {
+                        "en": "Service implementation",
+                        "es": "Implementaci\u00f3n del servicio",
+                        "it": "Implementa il servizio",
+                        "lv": "Pakalpojuma ievie\u0161ana"
+                    },
+                    "description_translations": {
+                        "en": "Departing from the service design specification generated in DESIGN phase, implement or build the service functionality. Provide an accessible and inclusive mechanism to aid future consumption of the service. ",
+                        "es": "Partiendo de la especificaci\u00f3n del dise\u00f1o del servicio generada en la fase de DISE\u00d1O, implementar o construir la funcionalidad del servicio. Proporcionar un mecanismo accesible e inclusivo para ayudar al consumo futuro del servicio. ",
+                        "it": "A partire dalle specifiche del servizio generate nella fase di PROGETTAZIONE, implementa o crea nuove funzionalit\u00e0. Predisponi meccanismi accessibili e inclusivi per favorire la futura fruizione del servizio. ",
+                        "lv": "Atk\u0101pjoties no pakalpojuma dizaina specifik\u0101cijas, kas \u0123ener\u0113ta PROJEKT\u0112\u0160ANAS f\u0101z\u0113, ieviesiet vai izveidojiet pakalpojuma funkcionalit\u0101ti. Nodro\u0161iniet pieejamu un iek\u013caujo\u0161u meh\u0101nismu, lai pal\u012bdz\u0113tu turpm\u0101k izmantot pakalpojumu. "
+                    },
+                    "problemprofiles": [
+                        "BUILD_PROBLEM_2",
+                        "BUILD_PROBLEM_3",
+                        "BUILD_PROBLEM_4",
+                        "BUILD_PROBLEM_5",
+                        "BUILD_PROBLEM_6",
+                        "BUILD_PROBLEM_7",
+                        "BUILD_PROBLEM_9"
+                    ],
+                    "id": "task-service-implementation",
+                    "prerequisites": []
+                }
+            ],
+            "prerequisites": [
+                {
+                    "item": "objective-technical-implementation",
+                    "type": "previous"
+                }
+            ],
+            "id": "objective-service-implementation"
+        },
+        {
+            "name_translations": {
+                "en": "Service codelivery",
+                "es": "Servicio de entrega de c\u00f3digo",
+                "it": "Erogazione congiunta del servizio",
+                "lv": "Pakalpojuma koda pieg\u0101de"
+            },
+            "description_translations": {
+                "en": "Release the co-produced service. Ensure that is operational in a 24x7 basis.  Provide support to accomodate enhancements or fixes. Establish fluid mechanisms between service co-deliverers and consumers. Monitor fulfilment of obligations and responsabilities of distinct codeliverers.",
+                "es": "Liberar el servicio coproducido. Garantizar que est\u00e9 operativo en r\u00e9gimen de 24x7. Proporcionar soporte para acomodar mejoras o correcciones. Establecer mecanismos fluidos entre los codirectores del servicio y los consumidores. Supervisar el cumplimiento de las obligaciones y responsabilidades de los distintos codistribuidores.",
+                "it": "Eroga il servizio realizzato collaborativamente. Assicurati che sia operativo 24 ore al giorno per 7 giorni. Fornisci supporto per integrare eventuali miglioramenti o correzioni. Crea un canale di comunicazione fluido tra tutti i fornitori del servizio e i consumatori. Monitora l'adempimento degli obblighi e delle responsabilit\u00e0 degli altri fornitori.",
+                "lv": "Palaidiet kopra\u017eojuma pakalpojumu. P\u0101rliecinieties, ka tas darbojas visu diennakti. Sniedziet atbalstu uzlabojumiem vai labojumiem. Izveidojiet pl\u016bsto\u0161us meh\u0101nismus starp pakalpojumu pieg\u0101d\u0101t\u0101jiem un pat\u0113r\u0113t\u0101jiem.  Uzraugiet pien\u0101kumu izpildi un katra pieg\u0101d\u0101t\u0101ja atbild\u012bbu."
+            },
+            "problemprofiles": [
+                "ORG_PROBLEM_12",
+                "UND_PROBLEM_6"
+            ],
+            "tasks": [
+                {
+                    "name_translations": {
+                        "en": "Identify all the actors engaged in the codelivery their role and responsability",
+                        "es": "Identificar a todos los actores que participan en la entrega del c\u00f3digo, su papel y su responsabilidad",
+                        "it": "Identifica tutti gli attori coinvolti nell'erogazione del servizio, il loro ruolo e responsabilit\u00e0",
+                        "lv": "Identific\u0113jiet visus dal\u012bbniekus, kas iesaist\u012bti koppieg\u0101di, vi\u0146u lomas un atbild\u012bbu"
+                    },
+                    "description_translations": {
+                        "en": "Create a map of actors taking responsability for the service continous delivery: release, maintenance, support and exploitation. Assign roles and responsabilities to the different actors. Valorize co-delivery activities so that codelivery contributions can be traced and assessed. Define a service delivery model canvas. ",
+                        "es": "Crear un mapa de actores que se responsabilicen de la prestaci\u00f3n continua del servicio: liberaci\u00f3n, mantenimiento, soporte y explotaci\u00f3n. Asignar funciones y responsabilidades a los diferentes actores. Valorar las actividades de co-entrega para poder rastrear y evaluar las contribuciones de la co-entrega. Definir un lienzo de modelo de prestaci\u00f3n de servicios. ",
+                        "it": "Crea una mappa degli attori responsabili delle varie fasi dell'erogazione del servizio: rilascio, manutenzione, supporto e sfruttamento. Assegna ruoli e responsabilit\u00e0 ai diversi attori. Valorizza le attivit\u00e0 di erogazione congiunta in modo che i contributi di ciascuno possano essere tracciati e valutati. Utilizza un canvas per progettare il erogazione del servizio. ",
+                        "lv": "Izveidojiet par pakalpojuma past\u0101v\u012bgu snieg\u0161anu (pakalpojuma palai\u0161anu, uztur\u0113\u0161anu, atbalstu un ekspluat\u0101ciju) atbild\u012bgo pu\u0161u karti. Pie\u0161\u0137iriet lomas un atbild\u012bbu da\u017e\u0101diem dal\u012bbniekiem. Valoriz\u0113jiet koppieg\u0101des darb\u012bbas, lai var\u0113tu izsekot un nov\u0113rt\u0113t koppieg\u0101des ieguld\u012bjumus. Defin\u0113jiet pakalpojuma snieg\u0161anas modeli. "
+                    },
+                    "problemprofiles": [],
+                    "id": "task-identify-all-the-actors-engaged-in-the-codelivery-their-role-and-responsability",
+                    "prerequisites": []
+                },
+                {
+                    "name_translations": {
+                        "en": "Coordinate the actors involved in the codelivery of the service",
+                        "es": "Coordinar a los actores que intervienen en la codistribuci\u00f3n del servicio",
+                        "it": "Coordina gli attori coinvolti nella erogazione congiunta del servizio",
+                        "lv": "Koordin\u0113jiet pakalpojuma koppieg\u0101d\u0113 iesaist\u012btos dal\u012bbniekus"
+                    },
+                    "description_translations": {
+                        "en": "Organize activities among co-deliverers according to their roles and responsabilities. Ensure quality of service is maintained in the cooperative activities involved in service codelivery. Launch satisfaction and quality of service assessement surveys.",
+                        "es": "Organizar las actividades entre los codirectores seg\u00fan sus funciones y responsabilidades. Garantizar el mantenimiento de la calidad del servicio en las actividades cooperativas de prestaci\u00f3n de servicios. Poner en marcha encuestas de evaluaci\u00f3n de la satisfacci\u00f3n y la calidad del servicio.",
+                        "it": "Organizza le attivit\u00e0 tra i co-erogatori del servzio in base ai loro ruoli e responsabilit\u00e0. Garantisci che la qualit\u00e0 del servizio sia mantenuta nelle attivit\u00e0 coinvolte nell'erogazione del servizio. Avvia sondaggi per valutare il grado di soddisfazione e la qualit\u00e0 percepita del servizio.",
+                        "lv": "Organiz\u0113jiet sadarb\u012bbas dal\u012bbnieku darb\u012bbas atbilsto\u0161i vi\u0146u pien\u0101kumiem un lom\u0101m. Nodro\u0161iniet pakalpojumu kvalit\u0101tes uztur\u0113\u0161anu kooperat\u012bvajos pas\u0101kumos, kas saist\u012bti ar pakalpojumu pieg\u0101di. Uzs\u0101ktat apmierin\u0101t\u012bbas un pakalpojumu kvalit\u0101tes nov\u0113rt\u0113juma aptaujas."
+                    },
+                    "problemprofiles": [],
+                    "prerequisites": [
+                        {
+                            "item": "task-identify-all-the-actors-engaged-in-the-codelivery-their-role-and-responsability",
+                            "type": "previous"
+                        }
+                    ],
+                    "id": "task-coordinate-the-actors-involved-in-the-codelivery-of-the-service"
+                },
+                {
+                    "name_translations": {
+                        "en": "Guarantee transparent communication about the service codelivered",
+                        "es": "Garantizar una comunicaci\u00f3n transparente sobre el servicio prestado",
+                        "it": "Fai in modo che la comunicazione sul servizio erogato congiuntamente sia trasparente",
+                        "lv": "Garant\u0113jiet p\u0101rredzamu sazi\u0146u par sniegto pakalpojumu koppieg\u0101di"
+                    },
+                    "description_translations": {
+                        "en": "Ensure fluid and responsive communication among co-deliverers team and more importantly among those consuming and reusing the delivered service and the co-delivery team. Establish a web-based communication mechanism which allows to trace the communication with all actors. ",
+                        "es": "Garantizar una comunicaci\u00f3n fluida y receptiva entre el equipo de codirectores y, lo que es m\u00e1s importante, entre quienes consumen y reutilizan el servicio prestado y el equipo de codirectores. Establecer un mecanismo de comunicaci\u00f3n basado en la web que permita rastrear la comunicaci\u00f3n con todos los actores. ",
+                        "it": "Crea un flusso di comunicazione proattivo tra i componenti del gruppo di lavoro, soprattutto, tra coloro che consumano e riutilizzano il servizio fornito e il gruppo responsabile dell'erogazione. Stabilisci un meccanismo di comunicazione digitale, che utilizzi il web in modo da tenere una traccia degli scambi tra tutti gli attori coinvolti. ",
+                        "lv": "Nodro\u0161in\u0101t intens\u012bvu un atsauc\u012bgu sazi\u0146u starp koppieg\u0101des komandu un, kas v\u0113l svar\u012bg\u0101k, starp tiem, kas lieto un atk\u0101rtoti izmanto sniegto pakalpojumu, un koppieg\u0101des komandu. Izveidot t\u012bmekl\u012b b\u0101z\u0113tu sazi\u0146as meh\u0101nismu, kas nodro\u0161ina sazi\u0146u ar visiem dal\u012bbniekiem. "
+                    },
+                    "problemprofiles": [],
+                    "prerequisites": [
+                        {
+                            "item": "task-coordinate-the-actors-involved-in-the-codelivery-of-the-service",
+                            "type": "previous"
+                        }
+                    ],
+                    "id": "task-guarantee-transparent-communication-about-the-service-codelivered"
+                }
+            ],
+            "prerequisites": [
+                {
+                    "item": "objective-service-implementation",
+                    "type": "previous"
+                }
+            ],
+            "id": "objective-service-codelivery"
+        }
+    ],
+    "is_part_of_codelivery": true
+}

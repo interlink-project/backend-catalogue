@@ -1,0 +1,67 @@
+{
+    "administrative_scopes": [
+        "eu"
+    ],
+    "constraints_and_limitations_translations": {
+        "en": "No special constraints apply"
+    },
+    "description_translations": {
+        "en": "<p>Template to prepare a form to collect consent from participants engaged in research activities about the use of their personal data</p>",
+        "es": "<p>Plantilla para preparar un formulario para recoger el consentimiento de los participantes en actividades de investigaci\u00f3n sobre el uso de sus datos personales</p>",
+        "it": "<p>Modello per preparare un modulo per raccogliere il consenso dei partecipanti impegnati in attivit\u00e0 di ricerca sull'uso dei loro dati personali</p>",
+        "lv": "<p>Veidlapa p\u0113tnieciskaj\u0101s aktivit\u0101t\u0113s iesaist\u012bto dal\u012bbnieku piekri\u0161anas formas person\u012bgo datu izmanto\u0161anai sagatavo\u0161anai</p>"
+    },
+    "difficulty": "very_easy",
+    "domain": "",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "file_translations": {
+        "en": "./interlinkers/knowledge/Consent-Form-Template/resource.docx"
+    },
+    "form": "document_template",
+    "format": "editable_source_document",
+    "id": "consent-form-template",
+    "instructions_translations": {
+        "en": "./interlinkers/knowledge/Consent-Form-Template/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "public_domain",
+    "name_translations": {
+        "en": "Consent Form Template",
+        "es": "Modelo de formulario de consentimiento",
+        "it": "Modello di modulo di consenso",
+        "lv": "Piekri\u0161anas formas veidlapa"
+    },
+    "problemprofiles": [
+        "ORG_PROBLEM_14"
+    ],
+    "process": "",
+    "regulations_and_standards_translations": {
+        "en": "The consent form is compliant to GDPR norms."
+    },
+    "softwareinterlinker": "googledrive",
+    "tags_translations": {
+        "en": [
+            "privacy management",
+            "research activities",
+            "co-production project participants",
+            "INTERLINK"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enhancing_services"
+    ]
+}

@@ -1,0 +1,272 @@
+{
+    "title": "Schema",
+    "type": "object",
+    "properties": {
+        "problemprofiles": {
+            "title": "Problemprofiles",
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "is_sustainability_related": {
+            "title": "Is Sustainability Related",
+            "type": "boolean"
+        },
+        "name_translations": {
+            "title": "Name Translations",
+            "type": "object"
+        },
+        "description_translations": {
+            "title": "Description Translations",
+            "type": "object"
+        },
+        "constraints_and_limitations_translations": {
+            "title": "Constraints And Limitations Translations",
+            "type": "object"
+        },
+        "regulations_and_standards_translations": {
+            "title": "Regulations And Standards Translations",
+            "type": "object"
+        },
+        "tags_translations": {
+            "title": "Tags Translations",
+            "type": "object",
+            "additionalProperties": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "minItems": 1
+            }
+        },
+        "difficulty": {
+            "$ref": "#/definitions/Difficulties"
+        },
+        "targets": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/Targets"
+            }
+        },
+        "licence": {
+            "$ref": "#/definitions/Licences"
+        },
+        "types": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/InterlinkerTypes"
+            }
+        },
+        "administrative_scopes": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/AdministrativeScopes"
+            }
+        },
+        "domain": {
+            "title": "Domain",
+            "type": "string"
+        },
+        "process": {
+            "title": "Process",
+            "type": "string"
+        },
+        "overview_text": {
+            "title": "Overview Text",
+            "type": "object"
+        },
+        "form": {
+            "$ref": "#/definitions/FormTypes"
+        },
+        "format": {
+            "$ref": "#/definitions/Formats"
+        },
+        "instructions_translations": {
+            "title": "Instructions Translations",
+            "type": "object",
+            "additionalProperties": {
+                "anyOf": [
+                    {
+                        "type": "string",
+                        "minLength": 1,
+                        "maxLength": 2083,
+                        "format": "uri"
+                    },
+                    {
+                        "type": "string",
+                        "format": "file-path"
+                    }
+                ]
+            }
+        },
+        "id": {
+            "title": "Id",
+            "type": "string"
+        },
+        "type": {
+            "title": "Type",
+            "type": "string"
+        },
+        "languages": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/Languages"
+            }
+        },
+        "environments": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/Environments"
+            }
+        },
+        "softwareinterlinker": {
+            "$ref": "#/definitions/SoftwareInterlinkers"
+        },
+        "file_translations": {
+            "title": "File Translations",
+            "type": "object",
+            "additionalProperties": {
+                "type": "string",
+                "format": "file-path"
+            }
+        }
+    },
+    "required": [
+        "problemprofiles",
+        "is_sustainability_related",
+        "name_translations",
+        "description_translations",
+        "constraints_and_limitations_translations",
+        "tags_translations",
+        "difficulty",
+        "licence",
+        "instructions_translations",
+        "softwareinterlinker",
+        "file_translations"
+    ],
+    "additionalProperties": false,
+    "definitions": {
+        "Difficulties": {
+            "title": "Difficulties",
+            "description": "An enumeration.",
+            "enum": [
+                "very_easy",
+                "easy",
+                "medium",
+                "difficult",
+                "very_difficult"
+            ]
+        },
+        "Targets": {
+            "title": "Targets",
+            "description": "An enumeration.",
+            "enum": [
+                "all",
+                "all;pas",
+                "all;pas;public_servants",
+                "all;pas;politicians",
+                "all;businesses",
+                "all;businesses;smes",
+                "all;businesses;freelancers",
+                "all;businesses;large_companies",
+                "all;businesses;private_non_profit",
+                "all;citizens",
+                "all;citizens;potential_end_users",
+                "all;citizens;expert_citizens",
+                "all;research_organizations",
+                "all;research_organizations;universities",
+                "all;research_organizations;other_research_entities"
+            ]
+        },
+        "Licences": {
+            "title": "Licences",
+            "description": "An enumeration.",
+            "enum": [
+                "public_domain",
+                "permissive",
+                "copyleft",
+                "non_commercial",
+                "propietary"
+            ]
+        },
+        "InterlinkerTypes": {
+            "title": "InterlinkerTypes",
+            "description": "An enumeration.",
+            "enum": [
+                "enabling_services",
+                "enabling_services;implementing_software_and_artifacts",
+                "enabling_services;operation_services",
+                "enhancing_services",
+                "enhancing_services;onboarding_services",
+                "enhancing_services;followup_services",
+                "enhancing_services:external_experts"
+            ]
+        },
+        "AdministrativeScopes": {
+            "title": "AdministrativeScopes",
+            "description": "An enumeration.",
+            "enum": [
+                "eu",
+                "national",
+                "local"
+            ]
+        },
+        "FormTypes": {
+            "title": "FormTypes",
+            "description": "An enumeration.",
+            "enum": [
+                "software",
+                "visual_template",
+                "document_template",
+                "canvas",
+                "best_practices",
+                "guidelines",
+                "checklist",
+                "survey_template",
+                "legal_agreement_template",
+                "other"
+            ]
+        },
+        "Formats": {
+            "title": "Formats",
+            "description": "An enumeration.",
+            "enum": [
+                "pdf",
+                "editable_source_document",
+                "open_document",
+                "structured_format",
+                "sofware"
+            ]
+        },
+        "Languages": {
+            "title": "Languages",
+            "description": "An enumeration.",
+            "enum": [
+                "en",
+                "es",
+                "lv",
+                "it"
+            ]
+        },
+        "Environments": {
+            "title": "Environments",
+            "description": "An enumeration.",
+            "enum": [
+                "varam",
+                "mef",
+                "zgz"
+            ]
+        },
+        "SoftwareInterlinkers": {
+            "title": "SoftwareInterlinkers",
+            "description": "An enumeration.",
+            "enum": [
+                "googledrive",
+                "surveyeditor",
+                "ceditor",
+                "externalresourcemanager"
+            ]
+        }
+    }
+}

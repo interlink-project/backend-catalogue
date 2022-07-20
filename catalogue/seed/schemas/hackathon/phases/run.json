@@ -1,0 +1,265 @@
+{
+    "id": "phase-run",
+    "prerequisites": [
+        {
+            "item": "phase-design",
+            "status": "finished"
+        }
+    ],
+    "name_translations": {
+        "en": "Run",
+        "es": "Ejecutar",
+        "it": "Esegui",
+        "lv": "Palaist"
+    },
+    "description_translations": {
+        "en": "Browse the catalogue of INTERLINKERs to find reusable building blocks for the implementation of your service. Monitor development advancement in the project workplan. Stop and reflect on the process so far with the co-evaluation checklists that help verify compliance with standards and regulations. Use incentives and reward tools made available by the INTERLINK platform to sustain stakeholders\u2019 and citizens\u2019 contribution to service delivery. Monitor quality of service and citizens\u2019 satisfaction with carefully prepared surveys. Stop and reflect on how co-delivery is going with the co-evaluation checklists.",
+        "es": "Examine el cat\u00e1logo de INTERLINKERs para encontrar bloques de construcci\u00f3n reutilizables para la implementaci\u00f3n de su servicio. Supervise el avance del desarrollo en el plan de trabajo del proyecto. Det\u00e9ngase y reflexione sobre el proceso hasta el momento con las listas de comprobaci\u00f3n de coevaluaci\u00f3n que ayudan a verificar el cumplimiento de las normas y los reglamentos. Utilizar los incentivos y las herramientas de recompensa que ofrece la plataforma INTERLINK para mantener la contribuci\u00f3n de las partes interesadas y de los ciudadanos a la prestaci\u00f3n del servicio. Controlar la calidad del servicio y la satisfacci\u00f3n de los ciudadanos con encuestas cuidadosamente preparadas. Detenerse y reflexionar sobre c\u00f3mo va la co-prestaci\u00f3n de servicios con las listas de comprobaci\u00f3n de la co-evaluaci\u00f3n.",
+        "it": "Sfoglia il catalogo degli INTERLINKERs per trovare gli strumenti digitali che puoi riutilizzare per la realizzazione del servizio. Monitora l'avanzamento del progetto nel piano di lavoro. Verifica la conformit\u00e0 a standard e regolamenti, l'andamento dell'erogazione grazie alle checklist di co-valutazione. Utilizza gli incentivi e le ricompense per supportare e contribuire all'erogazione dei servizi. Monitora la qualit\u00e0 del servizio e la soddisfazione dei cittadini con sondaggi accuratamente preparati.",
+        "lv": "P\u0101rl\u016bkojiet INTERLINKERu katalogu, lai atrastu atk\u0101rtoti lietojamus komponentus sava pakalpojuma ievie\u0161anai. P\u0101rraugiet att\u012bst\u012bbas virz\u012bbu projekta darba pl\u0101n\u0101. Apst\u0101jies un p\u0101rdom\u0101jiet l\u012bdz\u0161in\u0113jo procesu, izmantojot kop\u0113j\u0101 nov\u0113rt\u0113juma kontrolsarakstus, kas pal\u012bdz p\u0101rbaud\u012bt atbilst\u012bbu standartiem un noteikumiem. Izmantojiet INTERLINK platformas pied\u0101v\u0101tos stimulus un atl\u012bdz\u012bbas r\u012bkus, lai atbalst\u012btu ieinteres\u0113to pu\u0161u un iedz\u012bvot\u0101ju ieguld\u012bjumu pakalpojumu snieg\u0161an\u0101. P\u0101rraugiet pakalpojumu kvalit\u0101ti un iedz\u012bvot\u0101ju apmierin\u0101t\u012bbu ar r\u016bp\u012bgi sagatavot\u0101m aptauj\u0101m. Apst\u0101jaties un p\u0101rdom\u0101jiet, k\u0101 notiek koppieg\u0101de, izmantojot kop\u0113j\u0101 nov\u0113rt\u0113juma kontrolsarakstus."
+    },
+    "objectives": [
+        {
+            "name_translations": {
+                "en": "Launch Hackathon website",
+                "es": "Lanzamiento del sitio web del Hackathon",
+                "it": "Lancia il sito web per l'hackathon",
+                "lv": "Palaidiet hakatona t\u012bmek\u013cvietni"
+            },
+            "description_translations": {
+                "en": "Service implementation is not possible if an environment for its depoyment and maintenance is not thought in advance. Independently on whether your envisioned co-produced service will be a piece of software or a bundle of digital resources, identify, select and make ready the development and deployment environments for your solution. Important to clearly specify and test the technical constraints within which the delivered service will be hosted.",
+                "es": "La implantaci\u00f3n de un servicio no es posible si no se piensa de antemano en un entorno para su despliegue y mantenimiento. Independientemente de si el servicio coproducido previsto ser\u00e1 una pieza de software o un conjunto de recursos digitales, hay que identificar, seleccionar y preparar los entornos de desarrollo y despliegue de la soluci\u00f3n. Es importante especificar claramente y probar las limitaciones t\u00e9cnicas dentro de las cuales se alojar\u00e1 el servicio entregado.",
+                "it": "L'implementazione del servizio non \u00e8 possibile se non predisponi in anticipo le condizioni per l'erogazione e la manutenzione. Indipendentemente dal fatto che il servizio sar\u00e0 uno specifico software o un insieme di risorse digitali, identifica, seleziona e prepara le condizioni di sviluppo e distribuzione. E' importante specificare e testare chiaramente i vincoli tecnici entro con i quali il servizio erogato dovr\u00e0 confrontarsi.",
+                "lv": "Pakalpojuma ievie\u0161ana nav iesp\u0113jama, ja nav iepriek\u0161 p\u0101rdom\u0101ta vide t\u0101 izstr\u0101dei un uztur\u0113\u0161anai. Neatkar\u012bgi no t\u0101, vai j\u016bsu iecer\u0113tais koprades pakalpojums b\u016bs programmat\u016bra vai digit\u0101lo resursu kopums, identific\u0113jiet, atlasiet un sagatavojiet sava risin\u0101juma izstr\u0101des un izvieto\u0161anas vides. Ir svar\u012bgi skaidri nor\u0101d\u012bt un p\u0101rbaud\u012bt tehniskos ierobe\u017eojumus, kuru ietvaros tiks mitin\u0101ts sniegtais pakalpojums."
+            },
+            "problemprofiles": [
+                "DEF_PROBLEM_5"
+            ],
+            "tasks": [
+                {
+                    "name_translations": {
+                        "en": "Technical implementation and deployment",
+                        "es": "Implementaci\u00f3n y despliegue t\u00e9cnico",
+                        "it": "Implementazione tecnica ed erogazione",
+                        "lv": "Tehnisk\u0101 \u012bsteno\u0161ana un ievie\u0161ana"
+                    },
+                    "description_translations": {
+                        "en": "Identify the dependencies and environment needed for the service co-production and co-delivery. Configure and deploy (if not already available) the dependencies and environment. Document the progress towards realizing the technical aspects associated to the co-produced service. ",
+                        "es": "Identificar las dependencias y el entorno necesarios para la coproducci\u00f3n y la codistribuci\u00f3n de servicios. Configurar y desplegar (si no est\u00e1n ya disponibles) las dependencias y el entorno. Documentar el progreso hacia la realizaci\u00f3n de los aspectos t\u00e9cnicos asociados al servicio coproducido. ",
+                        "it": "Identifica le dipendenze e l'ambiente di sviluppo necessario per la realizzazione e l'erogazione del servizio. Configura e rilascia (se non sono gi\u00e0 disponibili) le dipendenze e l'ambiente di sviluppo. Documenta i progressi relativi all'implementazione degli aspetti tecnici associati al servizio. ",
+                        "lv": "Identific\u0113jiet pakalpojuma kopradei un koppieg\u0101dei nepiecie\u0161amos \u0101r\u0113jos r\u012bkus un vidi. Konfigur\u0113jiet un izvietojiet \u0101r\u0113jos r\u012bkus un vidi (ja tas v\u0113l nav pieejams). Dokument\u0113jiet progresu, lai \u012bstenotu ar kop\u0113ji rad\u012bto pakalpojumu saist\u012btos tehniskos aspektus. "
+                    },
+                    "problemprofiles": [
+                        "BUILD_PROBLEM_2",
+                        "BUILD_PROBLEM_3",
+                        "BUILD_PROBLEM_4",
+                        "BUILD_PROBLEM_5",
+                        "BUILD_PROBLEM_6",
+                        "BUILD_PROBLEM_7",
+                        "BUILD_PROBLEM_8"
+                    ],
+                    "id": "task-technical-implementation-and-deployment",
+                    "prerequisites": []
+                }
+            ],
+            "id": "objective-launch-hackathon-website",
+            "prerequisites": []
+        },
+        {
+            "name_translations": {
+                "en": "Service implementation",
+                "es": "Implementaci\u00f3n del servicio",
+                "it": "Implementa il servizio",
+                "lv": "Pakalpojuma ievie\u0161ana"
+            },
+            "description_translations": {
+                "en": "Depending on the nature of the co-produced service, you main adopt different tools and mechanisms to realize a given co-produced service. Realizing a co-produced service might entail programming, using graphical design tools, 3D modelling and fabrication and so on. Register progress achieved during the realization of the implementation of the co-produced service, upload progress reports, cross-link with repositories where progress is being realized, document the co-produced service API or the kit and/or resources generated to realize the service. Acknowledge and trace the contributions of different co-production team members or external contributors. Reuse existing INTERLINKERs (software and knowledge) and add on top of them, browse through them in the Catalogue, do not reinvent the wheel!",
+                "es": "Dependiendo de la naturaleza del servicio coproducido, se pueden adoptar diferentes herramientas y mecanismos para realizar un determinado servicio coproducido. La realizaci\u00f3n de un servicio coproducido puede implicar la programaci\u00f3n, el uso de herramientas de dise\u00f1o gr\u00e1fico, el modelado y la fabricaci\u00f3n en 3D, etc. Registre los avances logrados durante la realizaci\u00f3n de la implementaci\u00f3n del servicio coproducido, suba informes de progreso, cruce con los repositorios donde se est\u00e1n realizando los avances, documente la API del servicio coproducido o el kit y/o los recursos generados para realizar el servicio. Reconocer y trazar las contribuciones de los diferentes miembros del equipo de coproducci\u00f3n o de los colaboradores externos. Reutilizar los INTERLINKERs existentes (software y conocimiento) y a\u00f1adir sobre ellos, navegar a trav\u00e9s de ellos en el Cat\u00e1logo, \u00a1no reinventar la rueda!",
+                "it": "A seconda della natura del servizio da realizzare adotta strumenti e meccanismi diversi: la programmazione, la progettazione grafica, la modellazione e la stampa 3D e cos\u00ec via. Registra i progressi raggiunti durante l'implementazione del servizio, crea e condividi report sullo stato di avanzamento, crea collegamenti incrociati con i repository, documenta l'API del servizio coprodotto o il kit e/o le risorse generate per realizzare il servizio. Riconosci e traccia i contributi dei diversi membri del team o esterni. Riutilizza gli INTERLINKERs esistenti (software e conoscenza) che trovi nel Catalogo... non creare una cosa se gi\u00e0 esiste!",
+                "lv": "Atkar\u012bb\u0101 no koprades pakalpojuma veida j\u016bs varat izmantot da\u017e\u0101dus r\u012bkus un meh\u0101nismus, lai izveidotu noteiktu koprades pakalpojumu. Koprades pakalpojuma \u012bsteno\u0161ana var b\u016bt saist\u012bta ar programm\u0113\u0161anu, grafisk\u0101 dizaina r\u012bku izmanto\u0161anu, 3D model\u0113\u0161anu un izgatavo\u0161anu utt. Re\u0123istr\u0113jiet koprades pakalpojuma ievie\u0161anas laik\u0101 sasniegto progresu, aug\u0161upiel\u0101d\u0113jiet progresa atskaites, izveidojiet saikni ar kr\u0101tuv\u0113m, kur\u0101s tiek dokument\u0113ta izstr\u0101de, dokument\u0113jiet koprades pakalpojuma API vai komplektu un/vai resursus, kas rad\u012bti pakalpojuma veik\u0161anai. Atz\u012bstiet un sekojiet l\u012bdzi da\u017e\u0101du koprades komandas locek\u013cu vai \u0101r\u0113jo l\u012bdzstr\u0101dnieku ieguld\u012bjumam. Atk\u0101rtoti izmantojiet eso\u0161os INTERLINKERus (programmat\u016bru un zin\u0101\u0161anas) un papildiniet tos, p\u0101rl\u016bkojiet tos katalog\u0101, neizgudrojiet riteni no jauna!"
+            },
+            "problemprofiles": [
+                "ORG_PROBLEM_13",
+                "ORG_PROBLEM_14",
+                "DEF_PROBLEM_5"
+            ],
+            "tasks": [
+                {
+                    "name_translations": {
+                        "en": "Launch engagement campaign",
+                        "es": "Lanzar una campa\u00f1a de compromiso",
+                        "it": "Lancia iniziative per coinvolgere i cittadini",
+                        "lv": "Uzs\u0101ciet iesaistes kampa\u0146u"
+                    },
+                    "description_translations": {
+                        "en": "Organize activities among those candidate to participate in the Hackathon, based on previously undertaken stakeholder analysis.",
+                        "es": "Organizar actividades entre los candidatos a participar en el Hackathon, bas\u00e1ndose en el an\u00e1lisis de las partes interesadas realizado previamente.",
+                        "it": "Organizza le attivit\u00e0 con i partecipanti dell'hackathon in base ai risultati dell'analisi degli attori effettuata in precedenza.",
+                        "lv": "Balstoties uz iepriek\u0161 veikto ieinteres\u0113to pu\u0161u anal\u012bzi, organiz\u0113jiet aktivit\u0101tes to kandid\u0101tu vid\u016b, kas v\u0113las piedal\u012bties hakaton\u0101."
+                    },
+                    "problemprofiles": [
+                        "BUILD_PROBLEM_2",
+                        "BUILD_PROBLEM_3",
+                        "BUILD_PROBLEM_4",
+                        "BUILD_PROBLEM_5",
+                        "BUILD_PROBLEM_6",
+                        "BUILD_PROBLEM_7",
+                        "BUILD_PROBLEM_9"
+                    ],
+                    "id": "task-launch-engagement-campaign",
+                    "prerequisites": []
+                },
+                {
+                    "name_translations": {
+                        "en": "Open submissions",
+                        "es": "Entregas abiertas",
+                        "it": "Apri le iscrizioni",
+                        "lv": "Atv\u0113rtie iesniegumi"
+                    },
+                    "description_translations": {
+                        "en": "Allow for submission of ideas by teams willing to take part in the hackathon.",
+                        "es": "Permitir la presentaci\u00f3n de ideas por parte de los equipos que deseen participar en el hackathon.",
+                        "it": "Consenti la proposta di idee da parte dei gruppi che intendono prendere parte all'hackathon.",
+                        "lv": "At\u013caujiet idejas iesniegt komand\u0101m, kuras v\u0113las piedal\u012bties hakaton\u0101."
+                    },
+                    "problemprofiles": [
+                        "HACKATHON_PROBLEM_1"
+                    ],
+                    "prerequisites": [
+                        {
+                            "item": "task-launch-engagement-campaign",
+                            "type": "previous"
+                        }
+                    ],
+                    "id": "task-open-submissions"
+                },
+                {
+                    "name_translations": {
+                        "en": "Monitor submissions",
+                        "es": "Supervisar las entregas",
+                        "it": "Monitora le iscrizioni",
+                        "lv": "P\u0101rraugiet iesniegumus"
+                    },
+                    "description_translations": {
+                        "en": "Monitor how the submissions are going before the deadline for submissions reaches. React organizaing further activities if needed.",
+                        "es": "Supervisar c\u00f3mo van las presentaciones antes de que llegue la fecha l\u00edmite de entrega. Reaccione organizando m\u00e1s actividades si es necesario.",
+                        "it": "Monitora l'andamento delle iscrizioni prima della scadenza stabilita. Organizza ulteriori attivit\u00e0 di reclutamento, se necessarie.",
+                        "lv": "P\u0101rraugiet, k\u0101 notiek iesnieg\u0161ana, pirms ir pien\u0101cis iesnieg\u0161anas termi\u0146\u0161. Ja nepiecie\u0161ams, rea\u0123\u0113jiet, organiz\u0113jot papildu aktivit\u0101tes."
+                    },
+                    "problemprofiles": [
+                        "BUILD_PROBLEM_2",
+                        "BUILD_PROBLEM_3",
+                        "BUILD_PROBLEM_4",
+                        "BUILD_PROBLEM_5",
+                        "BUILD_PROBLEM_6",
+                        "BUILD_PROBLEM_7",
+                        "BUILD_PROBLEM_9"
+                    ],
+                    "prerequisites": [
+                        {
+                            "item": "task-open-submissions",
+                            "type": "previous"
+                        }
+                    ],
+                    "id": "task-monitor-submissions"
+                }
+            ],
+            "prerequisites": [
+                {
+                    "item": "objective-launch-hackathon-website",
+                    "type": "previous"
+                }
+            ],
+            "id": "objective-service-implementation"
+        },
+        {
+            "name_translations": {
+                "en": "Hackathon celebration",
+                "es": "Celebraci\u00f3n del Hackathon",
+                "it": "Celebra l'hackathon",
+                "lv": "Hakatona svin\u012bbas"
+            },
+            "description_translations": {
+                "en": "Release the co-produced service. Ensure that is operational in a 24x7 basis.  Provide support to accomodate enhancements or fixes. Establish fluid mechanisms between service co-deliverers and consumers. Monitor fulfilment of obligations and responsabilities of distinct codeliverers.",
+                "es": "Liberar el servicio coproducido. Garantizar que est\u00e9 operativo en r\u00e9gimen de 24x7.  Proporcionar soporte para acomodar mejoras o correcciones. Establecer mecanismos fluidos entre los codistribuidores de servicios y los consumidores. Supervisar el cumplimiento de las obligaciones y responsabilidades de los distintos codistribuidores.",
+                "it": "Eroga il servizio realizzato collaborativamente. Assicurati che sia operativo 24 ore al giorno per 7 giorni. Fornisci supporto per integrare eventuali miglioramenti o correzioni. Crea un canale di comunicazione fluido tra tutti i fornitori del servizio e i consumatori. Monitora l'adempimento degli obblighi e delle responsabilit\u00e0 degli altri fornitori.",
+                "lv": "Izlaidiet kop\u0113ji rad\u012bto pakalpojumu. P\u0101rliecinieties, ka tas darbojas visu diennakti. Sniedziet atbalstu, lai veiktu uzlabojumus. Izveidojiet elast\u012bgus meh\u0101nismus starp pakalpojumu koppieg\u0101d\u0101t\u0101jiem un pat\u0113r\u0113t\u0101jiem. Uzraugiet pien\u0101kumu izpildi un atsevi\u0161\u0137u pieg\u0101d\u0101t\u0101ju atbild\u012bbu."
+            },
+            "problemprofiles": [
+                "ORG_PROBLEM_12",
+                "UND_PROBLEM_6"
+            ],
+            "tasks": [
+                {
+                    "name_translations": {
+                        "en": "Coordinate the actors involved in the codelivery of the Hackathon (organizers, evaluators, participants)",
+                        "es": "Coordinar a los actores implicados en la codificaci\u00f3n del Hackathon (organizadores, evaluadores, participantes)",
+                        "it": "Coordina gli attori coinvolti nella co-esecuzione dell'hackathon (organizzatori, valutatori, partecipanti)",
+                        "lv": "Koordin\u0113jiet hakatona koppieg\u0101d\u0113 iesaist\u012btos dal\u012bbniekus (organizatorus, v\u0113rt\u0113t\u0101jus, dal\u012bbniekus)"
+                    },
+                    "description_translations": {
+                        "en": "Organize activities among co-deliverers according to their roles and responsabilities. Ensure quality of service is maintained in the cooperative activities involved in service codelivery. Launch satisfaction and quality of service assessement surveys. ",
+                        "es": "Organizar las actividades entre los codirectores seg\u00fan sus funciones y responsabilidades. Garantizar el mantenimiento de la calidad del servicio en las actividades cooperativas de prestaci\u00f3n de servicios. Poner en marcha encuestas de evaluaci\u00f3n de la satisfacci\u00f3n y la calidad del servicio. ",
+                        "it": "Organizza le attivit\u00e0 tra i fornitori che dovranno erogare il servizio in base ai loro ruoli e responsabilit\u00e0. Garantisci che la qualit\u00e0 del servizio sia mantenuta e implementata. Avvia sondaggi di valutazione della soddisfazione e della qualit\u00e0 del servizio. ",
+                        "lv": "Organiz\u0113jiet aktivit\u0101tes starp dal\u012bbniekiem atbilsto\u0161i vi\u0146u lom\u0101m un pien\u0101kumiem. Nodro\u0161iniet pakalpojumu kvalit\u0101tes uztur\u0113\u0161anu kooperat\u012bvaj\u0101s aktivit\u0101t\u0113s, kas saist\u012btas ar pakalpojumu koppieg\u0101di. Uzs\u0101kiet apmierin\u0101t\u012bbas un pakalpojumu kvalit\u0101tes nov\u0113rt\u0113juma aptaujas. "
+                    },
+                    "problemprofiles": [],
+                    "id": "task-coordinate-the-actors-involved-in-the-codelivery-of-the-hackathon-organizers-evaluators-participants",
+                    "prerequisites": []
+                },
+                {
+                    "name_translations": {
+                        "en": "Guarantee transparent communication with participants in the Hackathon",
+                        "es": "Garantizar una comunicaci\u00f3n transparente con los participantes en el Hackathon",
+                        "it": "Garantisci comunicazioni trasparenti con i partecipanti dell'hackathon",
+                        "lv": "Nodro\u0161iniet caursp\u012bd\u012bgu komunik\u0101ciju ar hakatona dal\u012bbniekiem"
+                    },
+                    "description_translations": {
+                        "en": "Ensure fluid and responsive communication among co-deliverers team and more importantly among those consuming and reusing the delivered service and the co-delivery team. Establish a web-based communication mechanism which allows to trace the communication with all actors. ",
+                        "es": "Garantizar una comunicaci\u00f3n fluida y receptiva entre el equipo de codirectores y, lo que es m\u00e1s importante, entre quienes consumen y reutilizan el servicio entregado y el equipo de codirectores. Establecer un mecanismo de comunicaci\u00f3n basado en la web que permita rastrear la comunicaci\u00f3n con todos los actores. ",
+                        "it": "Crea un flusso di comunicazione proattivo tra i componenti del gruppo di lavoro, soprattutto, tra coloro che consumano e riutilizzano il servizio fornito e il gruppo responsabile dell'erogazione. Stabilisci un meccanismo di comunicazione digitale, che utilizzi il web in modo da tenere una traccia degli scambi tra tutti gli attori coinvolti. ",
+                        "lv": "Nodro\u0161iniet vienm\u0113r\u012bgu un atsauc\u012bgu sazi\u0146u koppieg\u0101des komand\u0101 un jo \u012bpa\u0161i starp tiem, kas pat\u0113r\u0113 un atk\u0101rtoti izmanto sniegto pakalpojumu, un koppieg\u0101des komandu. Izveidojiet t\u012bmekl\u012b b\u0101z\u0113tu sazi\u0146as meh\u0101nismu, kas \u013cauj izsekot sazi\u0146ai ar visiem dal\u012bbniekiem. "
+                    },
+                    "problemprofiles": [],
+                    "prerequisites": [
+                        {
+                            "item": "task-coordinate-the-actors-involved-in-the-codelivery-of-the-hackathon-organizers-evaluators-participants",
+                            "type": "previous"
+                        }
+                    ],
+                    "id": "task-guarantee-transparent-communication-with-participants-in-the-hackathon"
+                },
+                {
+                    "name_translations": {
+                        "en": "Winner selection and announcement",
+                        "es": "Selecci\u00f3n y anuncio del ganador",
+                        "it": "Selezione dei vincitori e annuncio",
+                        "lv": "Uzvar\u0113t\u0101ju atlase un pazi\u0146o\u0161ana"
+                    },
+                    "description_translations": {
+                        "en": "Based on the criteria established at DESIGN phase, evaluators assess the projects submitted, produce ranking and organizers announce winners.",
+                        "es": "Bas\u00e1ndose en los criterios establecidos en la fase de DISE\u00d1O, los evaluadores valoran los proyectos presentados, elaboran una clasificaci\u00f3n y los organizadores anuncian los ganadores.",
+                        "it": "In base ai criteri stabiliti durante la fase di progettazione, i giudici valutano i progetti proposti, stilano una classifica e gli organizzatori annunciano i vincitori.",
+                        "lv": "Pamatojoties uz krit\u0113rijiem, kas noteikti PROJEKT\u0112\u0160ANAS posm\u0101, v\u0113rt\u0113t\u0101ji nov\u0113rt\u0113 iesniegtos projektus, sagatavo sarakstus un r\u012bkot\u0101ji pazi\u0146o uzvar\u0113t\u0101jus."
+                    },
+                    "problemprofiles": [],
+                    "prerequisites": [
+                        {
+                            "item": "task-guarantee-transparent-communication-with-participants-in-the-hackathon",
+                            "type": "previous"
+                        }
+                    ],
+                    "id": "task-winner-selection-and-announcement"
+                }
+            ],
+            "prerequisites": [
+                {
+                    "item": "objective-service-implementation",
+                    "type": "previous"
+                }
+            ],
+            "id": "objective-hackathon-celebration"
+        }
+    ],
+    "is_part_of_codelivery": true
+}

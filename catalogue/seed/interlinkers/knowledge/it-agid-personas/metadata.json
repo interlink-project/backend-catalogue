@@ -1,0 +1,65 @@
+{
+    "administrative_scopes": [
+        "national",
+        "local"
+    ],
+    "constraints_and_limitations_translations": {
+        "en": "No special constraints apply"
+    },
+    "description_translations": {
+        "en": "<p>This resource provides a model for persona outlined by AGID and Team Digitale (in Italian).</p>",
+        "es": "<p>Este recurso proporciona un modelo de persona esbozado por AGID y Team Digitale (en italiano).</p>",
+        "it": "<p>Questa risorsa fornisce un modello per persona delineato da AGID e da Team Digitale (in italiano).</p>",
+        "lv": "<p>\u0160is resurss sniedz personas (lietot\u0101ja tipa) modeli, ko izmanto It\u0101lijas Digit\u0101l\u0101 a\u0123ent\u016bra un Digit\u0101l\u0101s transform\u0101cijas komanda (it\u0101\u013cu valod\u0101).</p>"
+    },
+    "difficulty": "easy",
+    "domain": "",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "file_translations": {
+        "en": "./interlinkers/knowledge/it-agid-personas/resource.pptx"
+    },
+    "form": "document_template",
+    "format": "editable_source_document",
+    "id": "model-for-personas-in-italian",
+    "instructions_translations": {
+        "en": "./interlinkers/knowledge/it-agid-personas/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "public_domain",
+    "name_translations": {
+        "en": "Model for Personas (in italian)",
+        "es": "Modelo de Personas",
+        "it": "Modello per Personas (in italiano)",
+        "lv": "Personas (lietot\u0101ju tipa) modelis (it\u0101\u013cu valod\u0101)"
+    },
+    "problemprofiles": [
+        "VAL_PROBLEM_2"
+    ],
+    "process": "",
+    "regulations_and_standards_translations": {
+        "en": ""
+    },
+    "softwareinterlinker": "googledrive",
+    "tags_translations": {
+        "en": [
+            "services"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enhancing_services"
+    ]
+}

@@ -1,0 +1,67 @@
+{
+    "administrative_scopes": [
+        "eu"
+    ],
+    "constraints_and_limitations_translations": {
+        "en": "No special constraints apply"
+    },
+    "description_translations": {
+        "en": "<p>Document to design the engagement plan for those co-producing and/or using the resulting co-produced product</p>",
+        "es": "<p>Documento para dise\u00f1ar el plan de compromiso para quienes coproducen y/o utilizan el producto coproducido resultante</p>",
+        "it": "<p>Documento per progettare il piano di coinvolgimento per coloro che coproducono e/o utilizzano il prodotto risultante in coproduzione</p>",
+        "lv": "<p> Koprades un/vai koprades proces\u0101 rad\u012bta produkta lietot\u0101ju iesaistes pl\u0101na izveides dokuments</p>"
+    },
+    "difficulty": "very_easy",
+    "domain": "",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "file_translations": {
+        "en": "./interlinkers/knowledge/Stakeholder-Engagement-Plan-Template/resource.docx"
+    },
+    "form": "document_template",
+    "format": "editable_source_document",
+    "id": "stakeholder-engagement-plan-for-interlink-project",
+    "instructions_translations": {
+        "en": "./interlinkers/knowledge/Stakeholder-Engagement-Plan-Template/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "public_domain",
+    "name_translations": {
+        "en": "Stakeholder Engagement Plan for INTERLINK project",
+        "es": "Plan de participaci\u00f3n de las partes interesadas en el proyecto INTERLINK",
+        "it": "Piano di coinvolgimento degli stakeholder per il progetto INTERLINK",
+        "lv": "Ieinteres\u0113to pu\u0161u iesaistes pl\u0101ns INTERLINK projektam"
+    },
+    "problemprofiles": [
+        "ORG_PROBLEM_5"
+    ],
+    "process": "",
+    "regulations_and_standards_translations": {
+        "en": "Stakeholder Engagement Plan is compliant to GDPR norms."
+    },
+    "softwareinterlinker": "googledrive",
+    "tags_translations": {
+        "en": [
+            "stakeholder engagement",
+            "planning",
+            "co-production project participants",
+            "INTERLINK"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enhancing_services"
+    ]
+}

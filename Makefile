@@ -57,8 +57,3 @@ applymigrations: ## Seed data
 seed: ## Seed data
 	docker-compose exec catalogue python /app/app/pre_start.py
 	docker-compose exec catalogue ./seed.sh
-
-.PHONY: localseed
-localseed: ## Seed data
-	docker-compose exec catalogue python /app/app/pre_start.py
-	docker-compose exec catalogue ./seed-local.sh
