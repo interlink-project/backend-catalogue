@@ -1,4 +1,4 @@
-name: On changes
+name: On seed data changes
 
 on:
   push:
@@ -48,14 +48,14 @@ jobs:
         with:
           commit_message: Auto changes
 
-      - name: Trigger Dev Deployment
+      - name: Trigger Docker image rectreation
         uses: octokit/request-action@v2.x
-        id: trigger_dev_deployment
+        id: trigger_docker_image_recreation
         if: steps.generation.outputs.triggered == 'true'
         with:
           route: POST /repos/{owner}/{repo}/dispatches
           owner: interlink-project
-          repo: interlink-project
-          event_type: update-dev-environment
+          repo: backend-catalogue
+          event_type: build-and-publish-docker
         env:
           GITHUB_TOKEN: ${{ secrets.INTERLINK_PROJECT_GITHUB_TOKEN }}
