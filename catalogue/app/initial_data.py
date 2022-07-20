@@ -367,9 +367,9 @@ async def init():
                 await create_problemprofile(db, problem)
 
         # create coproduction schemas
-        with open("/app/seed/all.json") as json_file:
-            data = json.load(json_file)
-            for schema_data in data["schemas"]:
+        with open("/app/seed/schemas_DO_NOT_MODIFY.json") as json_file:
+            schemas = json.load(json_file)
+            for schema_data in schemas:
                 await create_coproductionschema(db, schema_data)
 
         # create external interlinkers first

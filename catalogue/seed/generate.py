@@ -29,21 +29,13 @@ def add_to_weblate(key: str, obj: dict, data: dict):
                 value = data[translatable_element].get(lang_code, "")
                 
                 obj[lang_code][key2] = value
-dicts = {
-    "problemprofiles": [],
-    "schemas": [],
-    "interlinkers": {
-        "software": [],
-        "knowledge": [],
-        "external": []
-    }
-}
+
+all_schemas = []
 
 ### PROBLEMPROFILES
 
 with open("./problemprofiles/problemprofiles.json") as json_file:
     problemprofiles = json.load(json_file)
-    dicts["problemprofiles"] = problemprofiles
     for pp in problemprofiles:
         add_to_weblate("problemprofile", weblate_problemprofiles, pp)
 
@@ -108,7 +100,7 @@ for schema_metadata_path in Path("./schemas").glob("**/metadata.json"):
             with open(path, "w") as json_file:
                 json.dump(phase, json_file, indent=4) # important to not sort keys
         
-        dicts["schemas"].append(schema_metadata)
+        all_schemas.append(schema_metadata)
         add_to_weblate("", weblate_schemas, schema_metadata)
 
     with open(str_schema_metadata_path, "w") as json_file:
@@ -130,32 +122,27 @@ for interlinker_metadata_path in Path("./interlinkers").glob("**/metadata.json")
         if parent_folder == "knowledge":
             add_to_weblate("knowledgeinterlinker", weblate_interlinkers, interlinker_metadata)
             interlinker_metadata["type"] = "knowledge"
-            dicts["interlinkers"]["knowledge"].append(interlinker_metadata)
         
         elif parent_folder == "software":
             add_to_weblate("softwareinterlinker", weblate_interlinkers, interlinker_metadata)
             interlinker_metadata["type"] = "software"
-            dicts["interlinkers"]["software"].append(interlinker_metadata)
         
         elif parent_folder == "externalsoftware":
             interlinker_metadata["type"] = "software"
             add_to_weblate("externalsoftware", weblate_interlinkers, interlinker_metadata)
-            dicts["interlinkers"]["external"].append(interlinker_metadata)
         
         elif parent_folder == "externalknowledge":
             interlinker_metadata["type"] = "knowledge"
             add_to_weblate("externalknowledge", weblate_interlinkers, interlinker_metadata)
-            dicts["interlinkers"]["external"].append(interlinker_metadata)
     
     with open(str(interlinker_metadata_path), "w") as json_file:
         json.dump(interlinker_metadata, json_file, indent=4, sort_keys=True)
 
-
 ### DUMP ALL.JSON
 
-with open(f"all.json", "w") as f:
-    json.dump(dicts, f, indent=4, sort_keys=True)
-
+with open(f"schemas_DO_NOT_MODIFY.json", "w") as f:
+    json.dump(all_schemas, f, indent=4, sort_keys=True)
+    
 ### DUMP WEBLATE JSONS
 
 def export(obj, file):
