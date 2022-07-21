@@ -1,0 +1,63 @@
+{
+    "administrative_scopes": [
+        "eu"
+    ],
+    "constraints_and_limitations_translations": {
+        "en": "No special constraints apply"
+    },
+    "description_translations": {
+        "en": "<p>Template for preparing a user journey. </p>",
+        "es": "<p>Plantilla para preparar un viaje de usuario. </p>",
+        "it": "<p>Modello per la preparazione di un percorso utente. </p>",
+        "lv": "<p>Lietot\u0101ja ce\u013ca (user journey) sagatavo\u0161anas veidlapa.</p>"
+    },
+    "difficulty": "easy",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "file_translations": {
+        "en": "./interlinkers/knowledge/it-user-journey/resource.xlsx"
+    },
+    "form": "document_template",
+    "format": "editable_source_document",
+    "id": "template-for-user-journey",
+    "instructions_translations": {
+        "en": "./interlinkers/knowledge/it-user-journey/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "permissive",
+    "name_translations": {
+        "en": "Template for user journey",
+        "es": "Plantilla del recorrido del usuario",
+        "it": "Modello schematico per il percorso dell'utente",
+        "lv": "Lietot\u0101ja ce\u013ca (user journey) veidlapa"
+    },
+    "problemprofiles": [
+        "ORG_PROBLEM_1",
+        "UND_PROBLEM_2"
+    ],
+    "regulations_and_standards_translations": {
+        "en": ""
+    },
+    "softwareinterlinker": "googledrive",
+    "tags_translations": {
+        "en": [
+            "services"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enabling_services"
+    ]
+}

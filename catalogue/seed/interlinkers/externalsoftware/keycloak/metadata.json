@@ -1,0 +1,71 @@
+{
+    "administrative_scopes": [
+        "eu",
+        "national",
+        "local"
+    ],
+    "asset_name_translations": {
+        "en": "Keycloak"
+    },
+    "constraints_and_limitations_translations": {
+        "en": "None"
+    },
+    "description_translations": {
+        "en": "<p>Keycloak provides user federation, strong authentication, user management, fine-grained authorization</p>",
+        "es": "<p>Keycloak proporciona federaci\u00f3n de usuarios, autenticaci\u00f3n fuerte, gesti\u00f3n de usuarios, autorizaci\u00f3n de grano fino</p>",
+        "it": "<p>Keycloak fornisce federazione di utenti, autenticazione avanzata, gestione degli utenti e autorizzazione dettagliata</p>",
+        "lv": "<p>Keycloak nodro\u0161ina lietot\u0101ju feder\u0101ciju, sp\u0113c\u012bgu autentifik\u0101ciju, lietot\u0101ju kontroli un prec\u012bzu autoriz\u0101ciju</p>"
+    },
+    "difficulty": "difficult",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "id": "keycloak",
+    "instructions_translations": {
+        "en": "./interlinkers/externalsoftware/keycloak/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "permissive",
+    "logotype": "./interlinkers/externalsoftware/keycloak/logo.png",
+    "name_translations": {
+        "en": "Keycloak",
+        "es": "Keycloak",
+        "it": "Keycloak",
+        "lv": "Keycloak"
+    },
+    "problemprofiles": [
+        "ORG_PROBLEM_3"
+    ],
+    "regulations_and_standards_translations": {
+        "en": "None"
+    },
+    "tags_translations": {
+        "en": [
+            "authentication",
+            "ssl",
+            "openid",
+            "security"
+        ]
+    },
+    "targets": [
+        "all;pas",
+        "all;research_organizations",
+        "all;businesses"
+    ],
+    "type": "software",
+    "types": [
+        "enabling_services",
+        "enhancing_services"
+    ],
+    "uri_translations": {
+        "en": "https://www.keycloak.org/"
+    }
+}

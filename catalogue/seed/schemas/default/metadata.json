@@ -1,0 +1,34 @@
+{
+    "author": "",
+    "description_translations": {
+        "en": "The INTERLINK project has defined a generic co-production process which can accommodate any co-production endeavour. It is composed of two main phases to be followed by co-producers: a) Co-design phase. It concerns activities that incorporate 'the experience of users and their communities' into the creation, planning, or arrangements of public services. In it, the co-production team is created and starts working together to define the service to be co-produced. This phase entails two sub-phases: Engagement and Design; and b) Co-delivery phase. It is a joint effort by public authorities and stakeholders to provide and improve public services where the service is implemented and delivered in a sustainable manner. The co-delivery phase entails two sub-phases: Build and Sustain.",
+        "es": "El proyecto INTERLINK ha definido un proceso de coproducci\u00f3n gen\u00e9rico que puede dar cabida a cualquier esfuerzo de coproducci\u00f3n. Se compone de dos fases principales que deben seguir los coproductores: a) Fase de codise\u00f1o. Se refiere a las actividades que incorporan \"la experiencia de los usuarios y de sus comunidades\" en la creaci\u00f3n, planificaci\u00f3n o disposici\u00f3n de los servicios p\u00fablicos. En ella, se crea el equipo de coproducci\u00f3n y se empieza a trabajar conjuntamente para definir el servicio que se va a coproducir. Esta fase conlleva dos subfases: involucraci\u00f3n y dise\u00f1o; y b) Fase de coproducci\u00f3n. Se trata de un esfuerzo conjunto de las autoridades p\u00fablicas y las partes interesadas para proporcionar y mejorar los servicios p\u00fablicos en los que el servicio se aplica y se presta de forma sostenible. La fase de co-prestaci\u00f3n conlleva dos subfases: Construir y Sostener.",
+        "it": "Il progetto INTERLINK ha elaborato un processo predefinito o schema che pu\u00f2 essere utilizzato da Pubbliche Amministrazioni e cittadini per realizzare collaborativamente un servizio publico. Il processo si compone di due fasi principali:\n1) Fase di co-progettazione. Si tratta di una serie di attivit\u00e0 che incorporano \"l'esperienza degli utenti e delle loro comunit\u00e0\" nella creazione, pianificazione o organizzazione di servizi pubblici. In questa fase si definisce il gruppo di lavoro. Si divide in due sottofasi: 1.1) Coinvolgimento e 1.2) Progettazione vera e propria.\n2) Fase di erogazione congiunta. Si tratta di una serie di attivit\u00e0 per realizzare il servizio progettato e programmare la sua sostenibilit\u00e0 anche economica, implementando l'efficacia anche di altri servizi. Si divide in due sottofasi: 2.1) Realizzazione e 2.2) Sostenibilit\u00e0 economica.",
+        "lv": "INTERLINK projekt\u0101 ir defin\u0113ts visp\u0101r\u0113js l\u012bdzra\u017eo\u0161anas process, kas var ietvert jebk\u0101dus kopra\u017eo\u0161anas m\u0113\u0123in\u0101jumus. Tas sast\u0101v no div\u0101m galvenaj\u0101m f\u0101z\u0113m, kas j\u0101iev\u0113ro l\u012bdzra\u017eot\u0101jiem: a) l\u012bdzprojekt\u0113\u0161anas f\u0101ze. Tas attiecas uz darb\u012bb\u0101m, kur\u0101s \u201clietot\u0101ju un vi\u0146u kopienu pieredze\u201d tiek iek\u013cauta sabiedrisko pakalpojumu rad\u012b\u0161an\u0101, pl\u0101no\u0161an\u0101 vai organiz\u0113\u0161an\u0101. Taj\u0101 kopra\u017eojuma komanda ir izveidota un s\u0101k str\u0101d\u0101t kop\u0101, lai defin\u0113tu kopra\u017eojuma pakalpojumu. \u0160is posms ietver divas apak\u0161f\u0101zes: iesaiste un projekt\u0113\u0161ana; un b) l\u012bdzpieg\u0101des f\u0101ze. Tas ir valsts iest\u0101\u017eu un ieinteres\u0113to personu kop\u012bgs darbs, lai nodro\u0161in\u0101tu un uzlabotu publiskos pakalpojumus, kuros pakalpojums tiek \u012bstenots un sniegts ilgtsp\u0113j\u012bg\u0101 veid\u0101. Koppieg\u0101des posms ietver divas apak\u0161f\u0101zes: veidot un uztur\u0113t."
+    },
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "id": "default",
+    "languages": [
+        "en",
+        "es",
+        "it",
+        "lv"
+    ],
+    "licence": "permissive",
+    "name_translations": {
+        "en": "Default schema",
+        "es": "Esquema por defecto",
+        "it": "Processo predefinito o schema",
+        "lv": "Noklus\u0113juma sh\u0113ma"
+    },
+    "tags_translations": {
+        "en": [
+            "default",
+            "coproduction"
+        ]
+    }
+}

@@ -1,0 +1,68 @@
+{
+    "administrative_scopes": [
+        "eu"
+    ],
+    "constraints_and_limitations_translations": {
+        "en": "No special constraints apply"
+    },
+    "description_translations": {
+        "en": "This is a model of End Users' Perceptions Questionnaire. It aims to measure end-users' perceptions on user-based quality, value-based quality, trust and acceptance. This questionnaire is thought to be answered by users of traditional e-services and also those who co-produced them through INTERLINK.",
+        "es": "Se trata de un modelo de Cuestionario de Percepci\u00f3n de los Usuarios Finales. Su objetivo es medir las percepciones de los usuarios finales sobre la calidad basada en el usuario, la calidad basada en el valor, la confianza y la aceptaci\u00f3n. Este cuestionario est\u00e1 pensado para que lo contesten los usuarios de los servicios electr\u00f3nicos tradicionales y tambi\u00e9n los que los coproducen a trav\u00e9s de INTERLINK.",
+        "it": "Questo \u00e8 un modello di questionario sulla percezione degli utenti finali. Mira a misurare le percezioni degli utenti finali sulla qualit\u00e0 basata sull'utente, sulla qualit\u00e0 basata sul valore, sulla fiducia e sull'accettazione. Il questionario \u00e8 pensato per ricevere risposta dagli utenti dei servizi tradizionali e anche da coloro che li hanno co-prodotti tramite INTERLINK.",
+        "lv": "\u0160is ir gala lietot\u0101ju uztveres aptaujas modelis. T\u0101s m\u0113r\u0137is ir izm\u0113r\u012bt gala lietot\u0101ju uztveri un uz lietot\u0101ju balst\u012bto kvalit\u0101ti, uz v\u0113rt\u012bb\u0101m balst\u012bto kvalit\u0101ti, uzticam\u012bbu un pie\u0146em\u0161anu. \u0160\u012b aptauja paredz\u0113ta tipisko e-pakalpojumu lietot\u0101jiem, k\u0101 ar\u012b tiem lietot\u0101jiem, kuri kop\u012bgi tos veidoju\u0161i INTERLINK platform\u0101."
+    },
+    "difficulty": "easy",
+    "domain": "",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "file_translations": {
+        "en": "./interlinkers/knowledge/Final-End-Users-Questionnaire-QoS/resource.pdf"
+    },
+    "form": "survey_template",
+    "format": "pdf",
+    "id": "final-end-user-s-questionnaire-quality-of-service",
+    "instructions_translations": {
+        "en": "./interlinkers/knowledge/Final-End-Users-Questionnaire-QoS/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "public_domain",
+    "name_translations": {
+        "en": "Final end user's questionnaire- Quality of Service",
+        "es": "Cuestionario final del usuario final - Calidad del servicio",
+        "it": "Questionario per l'utente finale - Qualit\u00e0 del servizio",
+        "lv": "Gala lietot\u0101ju nosl\u0113guma aptauja - pakalpojuma kvalit\u0101te"
+    },
+    "problemprofiles": [
+        "UND_PROBLEM_3",
+        "VAL_PROBLEM_3",
+        "VAL_PROBLEM_5",
+        "ORG_PROBLEM_6.2"
+    ],
+    "process": "",
+    "regulations_and_standards_translations": {
+        "en": ""
+    },
+    "softwareinterlinker": "googledrive",
+    "tags_translations": {
+        "en": [
+            "quality of service",
+            "questionnaire"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enhancing_services;followup_services"
+    ]
+}

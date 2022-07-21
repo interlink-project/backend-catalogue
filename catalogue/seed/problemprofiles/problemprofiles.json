@@ -1,0 +1,857 @@
+[
+    {
+        "description_translations": {
+            "en": "This problem refers to the need to support the initiators of a co-production project to describe the main aim and expected benefit of establishing a collaborative network of stakeholders and engaging them in the co-production process",
+            "es": "Este problema se refiere a la necesidad de apoyar a los iniciadores de un proyecto de coproducci\u00f3n para que describan el objetivo principal y el beneficio esperado de establecer una red de colaboraci\u00f3n de las partes interesadas y hacerlas participar en el proceso de coproducci\u00f3n",
+            "it": "Questo problema si riferisce alla necessit\u00e0 di supportare gli iniziatori di un progetto di co-produzione nella descrizione dell'obiettivo principale e dei benefici che si attendono dalla creazione di una rete collaborativa di stakeholders e dal loro coinvolgimento nel processo di co-produzione.",
+            "lv": "\u0160\u012b probl\u0113ma attiecas uz nepiecie\u0161am\u012bbu atbalst\u012bt kopra\u017eo\u0161anas projekta iniciatorus, lai aprakst\u012btu galveno m\u0113r\u0137i un paredzamo ieguvumu, izveidojot ieinteres\u0113to personu sadarb\u012bbas t\u012bklu un iesaistot t\u0101s kopra\u017eo\u0161anas proces\u0101."
+        },
+        "functionality_translations": {
+            "en": "To solve this problem, the following knowledge enablers would be helpful:\n- a template to guide the preparation of the problem description, a tentative list of possible stakeholders, and (brief) draft scenarios. Possible template fields are for example:\nTitle for the co-production initiative\nContext and description\nActual organization of the service\nLimits/challenges of the actual service / initiatives\nFuture/desired scenario\nKey Actors and roles\nRelated initiatives and projects\nAvailable resources and links to other relevant documents\n- examples of template filing  for inspiration",
+            "es": ""
+        },
+        "id": "ORG_PROBLEM_1",
+        "name_translations": {
+            "en": "Project aim description",
+            "es": "Descripci\u00f3n del objetivo del proyecto",
+            "it": "Descrizione degli obiettivi di progetto",
+            "lv": "Projekta m\u0113r\u0137a apraksts"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "This item refers to the problem of preparing a workplan that summarizes the coproduction steps, the timeline and the milestones for the collaborative project. The workplan needs to be sharable with the other members of the collaborative network and updatable as the project progresses.",
+            "es": "Este punto se refiere al problema de preparar un plan de trabajo que resuma los pasos de la coproducci\u00f3n, el calendario y los hitos del proyecto de colaboraci\u00f3n. El plan de trabajo debe poder compartirse con los dem\u00e1s miembros de la red de colaboraci\u00f3n y actualizarse a medida que avanza el proyecto.",
+            "it": "Questo problema si riferisce all'utilit\u00e0 di preparare un piano di lavoro che riassuma le fasi di co-produzione, lo sviluppo temporale e le tappe salienti di un progetto collaborativo. Il piano di lavoro deve poter essere condiviso con gli altri membri della rete collaborativa e deve essere aggiornabile man mano che il progetto progredisce.",
+            "lv": "\u0160is punkts attiecas uz probl\u0113mu, kas saist\u012bta ar darba pl\u0101na sagatavo\u0161anu, kur\u0101 apkopoti kopra\u017eo\u0161anas so\u013ci, laika grafiks un sadarb\u012bbas projekta starpposma m\u0113r\u0137i. Darba pl\u0101nam j\u0101b\u016bt sam\u0113rojamam ar citiem sadarb\u012bbas t\u012bkla dal\u012bbniekiem un atjaunin\u0101mam projekta gait\u0101."
+        },
+        "functionality_translations": {
+            "en": "Knowledge resources to support the preparation of the workplan should include:\n- a visual template that highlights the (possibly iterative) stages of a co-production process, based on the knowledge distilled in WP2\n- examples of instantiated project workplans for inspiration.\nDifferent workplan templates should be made available to fit different governance models and different application domains. \n\nFor co-production processes of large dimensions and complexity, desired functionalities include software tools that support a dynamic update of the workplan, with the additional management of milestones, tasks status, assignment of activities to people, with functionalities like:\nGantt and milestones representation\ntask management (creation, distribution and monitor)\ntime tracking\nissues management",
+            "es": ""
+        },
+        "id": "ORG_PROBLEM_2",
+        "name_translations": {
+            "en": "Workplan and project management",
+            "es": "Plan de trabajo y gesti\u00f3n de proyectos",
+            "it": "Piano di lavoro e gestione del progetto",
+            "lv": "Darba pl\u0101ns un projektu vad\u012bba"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "This problem refers to the need to ensure authentication to applications and secure services.",
+            "es": "Este problema se refiere a la necesidad de garantizar la autenticaci\u00f3n de las aplicaciones y los servicios seguros.",
+            "it": "Questo problema si riferisce alla necessit\u00e0 di garantire autenticazione e accesso sicuro ai servizi.",
+            "lv": "\u0160\u012b probl\u0113ma attiecas uz nepiecie\u0161am\u012bbu nodro\u0161in\u0101t autentifik\u0101ciju lietojumprogramm\u0101m un dro\u0161iem pakalpojumiem."
+        },
+        "functionality_translations": {
+            "en": "The INTERLINKERs solving this problem  need to satisfy eID compliance and GDPR compliance. The following functionalities are envisaged:\nAuthentication\nAuthentication based on OAuth2.0/ OpenID Connect protocol and identity management using external Identity Providers (social, national, eID)\nUser Information\nInformation about the currently authenticated user as of OpenID Connect APIs\nAuthorization/Role management\nCreate  user groups\nAdd user to a group with the specified roles\nChange roles of the user within the group",
+            "es": ""
+        },
+        "id": "ORG_PROBLEM_3",
+        "name_translations": {
+            "en": "Registration and authentication",
+            "es": "Registro y autentificaci\u00f3n",
+            "it": "Registrazione e autenticazione",
+            "lv": "Re\u0123istr\u0101cija un autentifik\u0101cija"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "This problem item addresses the need to develop appropriate strategies for communicating the initiative, to actually contact stakeholders and schedule meetings",
+            "es": "Este punto del problema aborda la necesidad de desarrollar estrategias adecuadas para comunicar la iniciativa, para contactar realmente con las partes interesadas y programar reuniones",
+            "it": "Questo problema si riferisce alla necessit\u00e0 di sviluppare appropriate strategie per comunicare l'iniziativa, contattare gli stakeholder e pianificare gli incontri.",
+            "lv": "\u0160aj\u0101 problem\u0101tiskaj\u0101 jaut\u0101jum\u0101 ir piev\u0113rsta uzman\u012bba nepiecie\u0161am\u012bbai izstr\u0101d\u0101t atbilsto\u0161as strat\u0113\u0123ijas, lai inform\u0113tu par iniciat\u012bvu, faktiski sazin\u0101tos ar ieinteres\u0113taj\u0101m person\u0101m un pl\u0101notu san\u0101ksmes"
+        },
+        "functionality_translations": {
+            "en": "To solve this problem the following resources should be made available: \n-   guidelines for a communication plan and contact strategy\n- software tools that support the easy preparation and distribution of communication material within the network, and the scheduling of meetings. Useful functionalities for team communication are:\n- email automation for personalization\n- pre-designed templates for newsletters\n- rich text and embedded forms\n- reports on opens and clicks\nUseful functionalities for meeting scheduling are:\n- calendar presentation\n- meeting organization and scheduling\n- meeting participants invitation management\n- share participants time slot availability",
+            "es": ""
+        },
+        "id": "ORG_PROBLEM_4",
+        "name_translations": {
+            "en": "Team communication for co-production",
+            "es": "Comunicaci\u00f3n en equipo para la coproducci\u00f3n",
+            "it": "Comunicazione per il team di co-produzione",
+            "lv": "Komandas komunik\u0101cija, lai rad\u012btu kopra\u017eojumu"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "This problem refers to the need to support the initiators of a co-production project to plan the active involvement of relevant actors in the co-production team. This problem is related to UND_PROBLEM_2 \u201cStakeholder mapping\u201d that provides knowledge on how effective and balanced co-production teams can be created, which are the different types of stakeholders, their motivations and potential role in the project.",
+            "es": "Este problema se refiere a la necesidad de apoyar a los iniciadores de un proyecto de coproducci\u00f3n para planificar la participaci\u00f3n activa de los actores relevantes en el equipo de coproducci\u00f3n. Este problema est\u00e1 relacionado con el UND_PROBLEM_2 \"Mapeo de las partes interesadas\" que proporciona conocimientos sobre c\u00f3mo se pueden crear equipos de coproducci\u00f3n eficaces y equilibrados, cu\u00e1les son los diferentes tipos de partes interesadas, sus motivaciones y su papel potencial en el proyecto.",
+            "it": "Questo problema si riferisce alla necessit\u00e0 di supportare gli iniziatori di un progetto di co-produzione nel pianificare il coinvolgimento attivo di potenziali portatori di interesse all'interno del team di co-produzione. Questo problema \u00e8 collegato alla \"Mappatura degli Stakeholder\" il cui obiettivo \u00e8 fornire conoscenza su come creare un team di co-produzione efficace e bilanciato, su quali siano i diversi tipi rilevanti di stakeholder, le loro motivazioni e ruolo potenziale nel progetto.",
+            "lv": "\u0160\u012b probl\u0113ma attiecas uz nepiecie\u0161am\u012bbu atbalst\u012bt kopra\u017eojuma projekta iniciatorus, lai pl\u0101notu attiec\u012bgo dal\u012bbnieku akt\u012bvu iesaist\u012b\u0161anos kopra\u017eojuma komand\u0101. \u0160\u012b probl\u0113ma ir saist\u012bta ar UND_PROBLEM_2 \u201cIeinteres\u0113to personu kart\u0113\u0161ana\u201d, kas sniedz inform\u0101ciju par to, k\u0101 var izveidot efekt\u012bvas un l\u012bdzsvarotas kopra\u017eojuma grupas, kas ir da\u017e\u0101du veidu ieinteres\u0113t\u0101s personas, to motiv\u0101cija un iesp\u0113jam\u0101 loma projekt\u0101."
+        },
+        "functionality_translations": {
+            "en": "To solve this problem, the following knowledge enablers would be helpful:\n- Digital template (excel file) to describe for the potential stakeholders identified during the \"Stakeholders mapping\" (UND_PROBLEM_2):\n1. the desired or expected level of involvement\n2. potential issues related to their engagement\n3. motivations and barriers that can support finding the best strategy to engage them in the co-production process. \n4. responsible person\n5. timing of engagement during the different stages of the co-production process\n- Example of template filled  for inspiration\nResearch activities in progress within tasks T5.2 and T5.4  will contribute findings that will help further detail methods for stakeholders engagement, as will be documented in Deliverable D5.1 (M12).",
+            "es": ""
+        },
+        "id": "ORG_PROBLEM_5",
+        "name_translations": {
+            "en": "Stakeholders engagement plan",
+            "es": "Plan de participaci\u00f3n de las partes interesadas",
+            "it": "Piano di coinvolgimento degli stakeholder",
+            "lv": "Ieinteres\u0113to personu iesaist\u012b\u0161an\u0101s pl\u0101ns"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "This problem addresses the need that might emerge at different stages of a coproduction initiative to collaboratively produce and share documents. Tasks may include the need to organize and manage documents among the coproduction team members, share documents among stakeholders, and help multiple people in the team work together on files to achieve a single final version.",
+            "es": "Este problema aborda la necesidad que puede surgir en diferentes etapas de una iniciativa de coproducci\u00f3n para producir y compartir documentos de forma colaborativa. Las tareas pueden incluir la necesidad de organizar y gestionar los documentos entre los miembros del equipo de coproducci\u00f3n, compartir documentos entre las partes interesadas y ayudar a varias personas del equipo a trabajar juntas en los archivos para lograr una \u00fanica versi\u00f3n final.",
+            "it": "Questo problema si riferisce alla necessit\u00e0 che pu\u00f2 emergere in diverse fasi di una iniziativa di co-produzione di produrre documenti in modo collaborativo e condividerli. Le attivit\u00e0 possono includere l'organizzazione e gestione di documenti visibili da pi\u00f9 persone, la condivisione con altri stakeholder, il supporto al lavoro collaborativo di pi\u00f9 persone sullo stesso file per raggiungere un'unica versione finale.",
+            "lv": "\u0160\u012b probl\u0113ma attiecas uz vajadz\u012bbu, kas var\u0113tu rasties da\u017e\u0101dos kopra\u017eo\u0161anas iniciat\u012bvas posmos, lai kop\u012bgi sagatavotu un dal\u012btos ar dokumentiem. Uzdevumi var ietvert nepiecie\u0161am\u012bbu organiz\u0113t un p\u0101rvald\u012bt dokumentus kopra\u017eo\u0161anas grupas dal\u012bbnieku vid\u016b, koplietot dokumentus starp ieinteres\u0113taj\u0101m person\u0101m un pal\u012bdz\u0113t vair\u0101kiem grupas darbiniekiem str\u0101d\u0101t kop\u0101 ar failiem, lai ieg\u016btu vienu gal\u012bgo versiju."
+        },
+        "functionality_translations": {
+            "en": "To solve this problem, software tools are required to support functionalities like: \n- authentication and authorization\n- document creation and editing, track changes\n- document storage (retrieve content, document versioning)\n- management of dedicated repositories for each service co-creation project \n- management of access rights granted only to members of the working group\n- support for different document formats",
+            "es": ""
+        },
+        "id": "ORG_PROBLEM_6.1",
+        "name_translations": {
+            "en": "Document collaboration",
+            "es": "Colaboraci\u00f3n documental",
+            "it": "Collaborazione su documenti",
+            "lv": "Sadarb\u012bbas dokumenti"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "This problem refers to the need of using maps or charts to help the co-production team understand different measurable aspects for a public service, like for example: variables describing the context of the service, KPIs, evaluation variables like usability, acceptance, easy to use, quality of service",
+            "es": "Este problema se refiere a la necesidad de utilizar mapas o gr\u00e1ficos para ayudar al equipo de coproducci\u00f3n a entender diferentes aspectos medibles para un servicio p\u00fablico, como por ejemplo: variables que describen el contexto del servicio, KPIs, variables de evaluaci\u00f3n como usabilidad, aceptaci\u00f3n, facilidad de uso, calidad del servicio",
+            "it": "Questo problema si riferisce alla necessit\u00e0 di usare delle mappe o dei grafici per aiutare il team di co-produzione a comprendere diversi aspetti misurabili relativi ad un servizio pubblico, come ad esempio: variabili che descrivono il contesto del servizio, indicatori di performance, dimensioni di valutazione come usabilit\u00e0, accettabilit\u00e0, facilit\u00e0 d'uso, qualit\u00e0 del servizio.",
+            "lv": "\u0160\u012b probl\u0113ma attiecas uz kar\u0161u vai diagrammu izmanto\u0161anu, lai pal\u012bdz\u0113tu kopra\u017eo\u0161anas grupai izprast da\u017e\u0101dus m\u0113r\u0101mus aspektus sabiedriskajiem pakalpojumiem, piem\u0113ram: main\u012bgie lielumi, kas raksturo pakalpojuma kontekstu, KPI, v\u0113rt\u0113\u0161anas main\u012bgie, piem\u0113ram, izmantojam\u012bba, akcept\u0113\u0161ana, \u0113rta lieto\u0161ana, pakalpojuma kvalit\u0101te"
+        },
+        "functionality_translations": {
+            "en": "To support the team in visualizing data, software tools are required to;\nupload large sets of  data \nhandle and manage geographic information\noutput different chart, graph and map types\npossible output in form of report\nvisualize interactive on-line maps/charts\ncreate dashboards",
+            "es": ""
+        },
+        "id": "ORG_PROBLEM_6.2",
+        "name_translations": {
+            "en": "Data visualization",
+            "es": "Visualizaci\u00f3n de datos",
+            "it": "Visualizzazione di dati",
+            "lv": "Datu vizualiz\u0101cija"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "This problem relates to the need to support open discussion among the coproduction team members. E.g. Discussion forum where the co-creation team can discuss ideas, service features, plan actions.",
+            "es": "Este problema est\u00e1 relacionado con la necesidad de apoyar el debate abierto entre los miembros del equipo de coproducci\u00f3n. Por ejemplo, un foro de debate en el que el equipo de cocreaci\u00f3n pueda discutir ideas, caracter\u00edsticas del servicio y planificar acciones.",
+            "it": "Questo problema si riferisce alla necessit\u00e0 di supportare discussioni aperte all'interno del gruppo di lavoro sulla co-produzione. Ad esempio, forum di discussione dove i membri del team possano scambiare idee, requisiti o funzionalit\u00e0 del servizio, piani di attivit\u00e0.",
+            "lv": "\u0160\u012b probl\u0113ma ir saist\u012bta ar nepiecie\u0161am\u012bbu atbalst\u012bt atkl\u0101t\u0101s diskusijas starp koopra\u017eo\u0161anas grupas dal\u012bbniekiem. Piem\u0113ram, Diskusiju forums, kur\u0101 koprades komanda var apspriest idejas, pakalpojuma funkcijas, pl\u0101not darb\u012bbas."
+        },
+        "functionality_translations": {
+            "en": "To support the team in online discussions, software tools are required to;\nsupport conversation on threads\nprovide notification of discussions\nmoderate contents\nprovide administrative dashboards\nmanage discussion groups\nsupport polls for decision making",
+            "es": ""
+        },
+        "id": "ORG_PROBLEM_6.3",
+        "name_translations": {
+            "en": "Discussion board",
+            "es": "Tablero de discusi\u00f3n",
+            "it": "Spazio di discussione",
+            "lv": "Diskusiju platforma"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "This problem item addresses the need to support the co-production team in defining an agreement for not disclosing confidential information that they need to share with each other as a necessary part of co-producing a service together.",
+            "es": "Este punto del problema aborda la necesidad de apoyar al equipo de coproducci\u00f3n en la definici\u00f3n de un acuerdo para no revelar la informaci\u00f3n confidencial que necesitan compartir entre s\u00ed como parte necesaria de la coproducci\u00f3n de un servicio conjunto.",
+            "it": "Questo problema si riferisce alla necessit\u00e0 di supportare il team di co-produzione nella definizione di un accordo di riservatezza relativo all'informazione condivisa all'interno del gruppo di lavoro durante le fasi di co-produzione collaborativa di un servizio.",
+            "lv": "\u0160aj\u0101 problemjaut\u0101jum\u0101 ir piev\u0113rsta uzman\u012bba nepiecie\u0161am\u012bbai atbalst\u012bt kopra\u017eojuma komandu, vienojoties par konfidenci\u0101las inform\u0101cijas neizpau\u0161anu, kas t\u0101m ir j\u0101izplata viena otrai k\u0101 nepiecie\u0161ama da\u013ca no kop\u012bga pakalpojuma."
+        },
+        "functionality_translations": {
+            "en": "Knowledge enablers solving this problem should  contain descriptive text that explains the rationale and the benefit of preparing and signing a NDA, as well as, templates for guiding the preparation of the agreement, and examples of NDA agreements for the co-production of services.\nThe baseline agreement template should cover:\n- Overall aim and domain of the NDA  agreement\n- Type of agreement: mutual vs non-mutual\n- List of parties involved\n- Definition of what is deemed to be confidential\n- The scope of the confidentiality obligation by the receiving party\n- The exclusions from confidential treatment\n- The term of the agreement\n- Obligations\n- Duration of the agreement",
+            "es": ""
+        },
+        "id": "ORG_PROBLEM_7",
+        "name_translations": {
+            "en": "Non-Disclosure Agreement Definition (NDA)",
+            "es": "Definici\u00f3n de acuerdo de confidencialidad (NDA)",
+            "it": "Definizione di accordi di riservatezza",
+            "lv": "Neizpau\u0161anas l\u012bguma defin\u012bcija (NDA)"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "This problem item addresses the need for information about good practices, templates and examples for preparing documents that define in a formal way agreements for a collaborative network of stakeholders. This need may emerge during the initial engagement of the stakeholders to write\ndown the terms and general plan for the collaboration. When co-evaluation takes\nplace on the outcome of the collaboration with respect to what was specified in the\npartnership agreement, possible revisions of the document may need to be\nintroduced.",
+            "es": "Este punto del problema aborda la necesidad de informaci\u00f3n sobre buenas pr\u00e1cticas, plantillas y ejemplos para preparar documentos que definan de manera formal los acuerdos para una red de colaboraci\u00f3n de las partes interesadas. Esta necesidad puede surgir durante el compromiso inicial de las partes interesadas para redactar de las partes interesadas para redactar los t\u00e9rminos y el plan general de la colaboraci\u00f3n. Cuando se produce la coevaluaci\u00f3n del resultado de la colaboraci\u00f3n con respecto a lo especificado en el acuerdo de colaboraci\u00f3n, puede ser necesario introducir posibles revisiones del documento.",
+            "it": "Questo problema si riferisce alla necessit\u00e0 di disporre di informazioni relative a buone pratiche, modelli ed esempi per preparare documenti che definiscono in modo formale accordi di collaborazione per una rete di stakeholder. Questa necessit\u00e0 pu\u00f2 emergere durante il coinvolgimento iniziale degli stakeholder per elencare i termini ed il piano generale di collaborazione. Possibili revisioni al documento di accordo possono essere necessarie durante le fasi di valutazione iterativa dei risultati della collaborazione rispetto agli accordi iniziali.",
+            "lv": "\u0160is problem\u0101tiskais jaut\u0101jums attiecas uz vajadz\u012bbu p\u0113c inform\u0101cijas par labu praksi, veidn\u0113m un piem\u0113riem dokumentu sagatavo\u0161anai, kas ofici\u0101l\u0101 veid\u0101 nosaka nol\u012bgumus par ieinteres\u0113to personu sadarb\u012bbas t\u012bklu. \u0160\u012b vajadz\u012bba var rasties ieinteres\u0113to personu s\u0101kotn\u0113j\u0101s iesaistes laik\u0101, lai re\u0123istr\u0113tu sadarb\u012bbas noteikumus un visp\u0101r\u0113jo pl\u0101nu. Kad notiek kopv\u0113rt\u0113jums pamatojoties uz sadarb\u012bbas rezult\u0101tiem attiec\u012bb\u0101 uz partner\u012bbas nol\u012bgum\u0101 noteikto, iesp\u0113jams, b\u016bs j\u0101ievie\u0161 iesp\u0113jamie dokumenta groz\u012bjumi."
+        },
+        "functionality_translations": {
+            "en": "Knowledge enablers solving this problem should  contain descriptive text that explains the rationale and the benefit of preparing and signing a partnership agreement, templates for guiding the preparation of the agreement, and examples of successful partnership agreements for the co-production of services.\n\nThe baseline agreement template should cover:\n- Overall aim and domain of the agreement\n- The list of network partners\n- Rules for extending the network of stakeholders after the initial agreement signing\n- Definition of partner roles and levels of commitment\n- Definition of rules of fair play, obligations, rights within the collaborative network\n- Contact persons\n- Advisory board\n- Thematic work groups\n- Dissemination and communication plan\n- Monitoring and evaluation plan\n- Duration\n\nAlternative versions of the agreement template may be required for different governance models (e.g. G2C, C2G, C+G).\nMultilingual versions of the agreement templates should be available",
+            "es": ""
+        },
+        "id": "ORG_PROBLEM_8",
+        "name_translations": {
+            "en": "Partnership agreement definition",
+            "es": "Definici\u00f3n de acuerdo de asociaci\u00f3n",
+            "it": "Definizione di accordi di partnership",
+            "lv": "Partner\u012bbas l\u012bguma defin\u012bcija"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "This problem item refers to the need to describe the data management life cycle for all data sets that are collected, processed or generated by the co-production of public services.",
+            "es": "Este punto del problema se refiere a la necesidad de describir el ciclo de vida de la gesti\u00f3n de datos para todos los conjuntos de datos que se recogen, procesan o generan por la coproducci\u00f3n de servicios p\u00fablicos.",
+            "it": "Questo problema si riferisce alla necessit\u00e0 di descrivere il ciclo di vita della gestione dei dati per tutte le collezioni di dati raccolte, processate o generate durante la co-produzione di servizi pubblici.",
+            "lv": "\u0160is problemjaut\u0101jums attiecas uz nepiecie\u0161am\u012bbu aprakst\u012bt datu p\u0101rvald\u012bbas dz\u012bves ciklu vis\u0101m datu kop\u0101m, kas tiek ieg\u016btas, apstr\u0101d\u0101tas vai \u0123ener\u0113tas, kop\u012bgi ra\u017eojot sabiedriskos pakalpojumus."
+        },
+        "functionality_translations": {
+            "en": "Knowledge enablers addressing this problem should include  descriptive text that explains the rationale and the benefit of preparing a Data Management Plan, templates for guiding the preparation of the plan, examples of Data Management Plans.\nThe baseline Data Management Plan template should cover:\nOverall aim and domain of the DMP\nMotivations to collect data \nFlow of data\nPotential impact of data\nThe handling of data during & after the end of the project\nThe types of data\nDefinition of user and supplier pids concerning data? (ownership, minimalization, responsibility, sharing, archiving, anonymity)\nPolicies for access and sharing\nPolicies and provisions for re-use\n-Plans for archiving data",
+            "es": ""
+        },
+        "id": "ORG_PROBLEM_9",
+        "name_translations": {
+            "en": "Data Management Plan Definition (DPM)",
+            "es": "Definici\u00f3n del plan de gesti\u00f3n de datos (DPM)",
+            "it": "Definizione di un piano di gestione dei dati",
+            "lv": "Datu p\u0101rvald\u012bbas pl\u0101na defin\u012bcija (DPM)"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "This problem item addresses the need to provide members of the public with the information they need to understand the project, the decision process, and also to understand how public input influenced the decision",
+            "es": "Este punto del problema aborda la necesidad de proporcionar a los miembros del p\u00fablico la informaci\u00f3n que necesitan para entender el proyecto, el proceso de decisi\u00f3n, y tambi\u00e9n para entender c\u00f3mo las aportaciones del p\u00fablico influyeron en la decisi\u00f3n",
+            "it": "Questo problema si riferisce alla necessit\u00e0 di fornire al pubblico le informazioni che necessitano per comprendere il progetto, il processo decisionale e per comprendere come il loro contributo pu\u00f2 influenzare le decisioni.",
+            "lv": "\u0160\u012b probl\u0113ma attiecas uz nepiecie\u0161am\u012bbu sniegt sabiedr\u012bbas locek\u013ciem inform\u0101ciju, kas vi\u0146iem nepiecie\u0161ama, lai izprastu projektu, l\u0113mumu pie\u0146em\u0161anas procesu, k\u0101 ar\u012b saprastu, k\u0101 sabiedr\u012bbas ieguld\u012bjums ietekm\u0113ja l\u0113mumu"
+        },
+        "functionality_translations": {
+            "en": "INTERLINKERs addressing this problem need to  provide information and guidelines on how to reach out to citizens and inform them on the creation of innovative public services. Sample methods to inform the public are for example:\nIn-person methods to inform: public meetings, briefings, telephone contacts\nRemote methods to inform: printed and digital  information (fact sheets, newsletters and bulletins), web sites, information repositories, information hotlines, information kiosks, press and media, social media)\nAll these methods have specific constraints for their application, e.g. preferred number of participants, and contexts they are best suited for, e.g. type of audience or the current phase of the project.  \nActivities within INTERLINK WP5 are currently investigating which methods for informing and engaging the public are best suited for the three project use cases",
+            "es": ""
+        },
+        "id": "ORG_PROBLEM_10",
+        "name_translations": {
+            "en": "Inform the public",
+            "es": "Informar al p\u00fablico",
+            "it": "Informare il pubblico",
+            "lv": "Inform\u0113t sabiedr\u012bbu"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "This problem item addresses the need to provide members of the public with the possibility to actively participate in the decision process, whenever this is desired by the selected governance model.",
+            "es": "Este punto del problema aborda la necesidad de proporcionar a los miembros del p\u00fablico la posibilidad de participar activamente en el proceso de decisi\u00f3n, siempre que as\u00ed lo desee el modelo de gobernanza seleccionado.",
+            "it": "Questo problema si riferisce alla necessit\u00e0 di consentire alla cittadinanza di partecipare in modo attivo al processo decisionale, qualcosa questo sia previsto dal modello di governance selezionato.",
+            "lv": "\u0160aj\u0101 problem\u0101tiskaj\u0101 jaut\u0101jum\u0101 ir piev\u0113rsta uzman\u012bba nepiecie\u0161am\u012bbai nodro\u0161in\u0101t sabiedr\u012bbas locek\u013ciem iesp\u0113ju akt\u012bvi piedal\u012bties l\u0113mumu pie\u0146em\u0161anas proces\u0101, kad vien tas ir paredz\u0113ts izv\u0113l\u0113taj\u0101 p\u0101rvald\u012bbas model\u012b."
+        },
+        "functionality_translations": {
+            "en": "INTERLINKERs addressing this problem need to  provide information and guidelines on how to let public discussion converge and select preferred solutions. Software tools to aid e-voting are also relevant for this problem item. Sample methods for agreement seeking with the public are for example consensus workshops, advisory boards, citizen juries and computer assisted processes that include functionalities like online presentation, interactive polls and Q&A with participants, as well as real time visualization of answers. \nAll these methods have specific constraints for their application, e.g. preferred number of participants, and contexts they are best suited for, e.g. type of audience or the current phase of the project.  \nActivities within INTERLINK WP5 are currently investigating which methods for consensus building and agreement with the public are best suited for the three project use cases.",
+            "es": ""
+        },
+        "id": "ORG_PROBLEM_11",
+        "name_translations": {
+            "en": "Consensus building and agreement seeking with the public",
+            "es": "Creaci\u00f3n de consenso y b\u00fasqueda de acuerdos con el p\u00fablico",
+            "it": "Costruzione di consenso e di accordo da parte dei cittadini",
+            "lv": "Vieno\u0161an\u0101s veido\u0161ana un vieno\u0161an\u0101s mekl\u0113\u0161ana ar sabiedr\u012bbu"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "This problem item addresses the need of providing guidance on how to develop a shared language among the co-production team members to ensure effective codesign and co-production of services. Developing a shared language is crucial to be able for stakeholders to: i) build a common ground for joint action, ii) share, mutually agree on, and understand a longterm research plan and protocol, iii) to ongoingly evaluate the success or failure of decisions",
+            "es": "Este apartado del problema aborda la necesidad de proporcionar orientaci\u00f3n sobre c\u00f3mo desarrollar un lenguaje compartido entre los miembros del equipo de coproducci\u00f3n para garantizar un codise\u00f1o y una coproducci\u00f3n de servicios eficaces. El desarrollo de un lenguaje compartido es crucial para que las partes interesadas puedan: i) construir un terreno com\u00fan para la acci\u00f3n conjunta, ii) compartir, acordar mutuamente y comprender un plan y un protocolo de investigaci\u00f3n a largo plazo, iii) evaluar continuamente el \u00e9xito o el fracaso de las decisiones",
+            "it": "Questo problema si riferisce alla necessit\u00e0 di fornire una guida e consigli su come sviluppare una linguaggio condiviso all'interno del team di co-produzione per assicurare attivit\u00e0 di co-design e di esecuzione collaborativa dei servizi efficaci. Lo sviluppo di un linguaggio comune \u00e8 cruciale per consentire agli stakeholder di: i) costruire una base di partenza comune per attivit\u00e0 congiunte, ii) condividere, concordare e comprendere un piano ed un protocollo di ricerca a lungo termine, (iii) valutare progressivamente il successo o il fallimento delle decisioni prese.",
+            "lv": "\u0160aj\u0101 problem\u0101tiskaj\u0101 jaut\u0101jum\u0101 ir piev\u0113rsta uzman\u012bba nepiecie\u0161am\u012bbai sniegt nor\u0101d\u012bjumus par to, k\u0101 izstr\u0101d\u0101t kop\u012bgu valodu kopra\u017eojuma grupas dal\u012bbniekiem, lai nodro\u0161in\u0101tu pakalpojumu efekt\u012bvu kod\u0113\u0161anu un kopra\u017eo\u0161anu. Kop\u012bgas valodas izstr\u0101de ir \u013coti svar\u012bga, lai ieinteres\u0113t\u0101s personas var\u0113tu: i) izveidot kop\u012bgu pamatu kop\u012bgai r\u012bc\u012bbai, ii) dal\u012bties, savstarp\u0113ji vienoties un saprast ilgtermi\u0146a p\u0113tniec\u012bbas pl\u0101nu un protokolu, iii) ongotiski nov\u0113rt\u0113t l\u0113mumu pan\u0101kumus vai neveiksmi"
+        },
+        "functionality_translations": {
+            "en": "Knowledge enablers coping with this problem should  include  descriptive text that explains the rationale and the benefit of developing a shared language and of valuing the diversity of experiences, skills and values that each participant in the co-production process brings. \nThe enablers should propose  activities that the team might perform to create a shared language and value diversity. They should provide guidelines for discussing and exchanging knowledge, to value the knowledge of team members. In co-production processes it is crucial for participants to embrace diversity, to respect different values and knowledge systems.",
+            "es": ""
+        },
+        "id": "ORG_PROBLEM_12",
+        "name_translations": {
+            "en": "Develop a shared language (and value diversity)",
+            "es": "Desarrollar un lenguaje compartido (y valorar la diversidad)",
+            "it": "Sviluppo di un linguaggio condiviso (valorizzando la diversit\u00e0)",
+            "lv": "Izveidot kop\u012bgu valodu (un v\u0113rt\u012bbu daudzveid\u012bbu)"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "Citizen participation in collaborative projects strongly depends on their motivation and their willingness to interact with governmental institutions and provide input on the given task.",
+            "es": "La participaci\u00f3n de los ciudadanos en los proyectos de colaboraci\u00f3n depende en gran medida de su motivaci\u00f3n y de su voluntad de interactuar con las instituciones gubernamentales y de hacer aportaciones a la tarea encomendada.",
+            "it": "La partecipazione dei cittadini in progetti collaborativi dipende fortemente dalla loro motivazione e dalla loro disponibilit\u00e0 ad interagire con istituzione governative e a fornire input su task assegnati.",
+            "lv": "Pilso\u0146u l\u012bdzdal\u012bba sadarb\u012bbas projektos ir liel\u0101 m\u0113r\u0101 atkar\u012bga no vi\u0146u motiv\u0101cijas un v\u0113lmes sadarboties ar valsts iest\u0101d\u0113m un sniegt ieguld\u012bjumu attiec\u012bgaj\u0101 darb\u0101."
+        },
+        "functionality_translations": {
+            "en": "Enablers related to this problem should provide guidance and tools to track citizens' engagement and reward participation. \nGuidelines and tips on how to monitor citizens' level of engagement and track  activities performed by citizens and other entities engaged in the collaborative process  (e.g. participation in a workshop, submission of ideas on a web portal, attendance to events) \nGuidelines to define the rewarding strategy\nTypes of rewarding mechanisms  that can be used to sustain, encourage participation, according to the type of audience and depending on the tasks\n intrinsic rewarding  (e.g.: fun, self-realization, challenging tasks etc.)\nextrinsic rewarding  (e.g.: financial or non-financial rewards, career improvement, reputation etc.) \nGuidelines and tools to assess and follow-up the user\u2019s engagement and satisfaction level of the public. \nModule to track and follow up the engagement and satisfaction of citizens/participants.",
+            "es": ""
+        },
+        "id": "ORG_PROBLEM_13",
+        "name_translations": {
+            "en": "Loyalty, incentives and rewards",
+            "es": "Fidelizaci\u00f3n, incentivos y recompensas",
+            "it": "Fidelizzazione, incentivi e premi",
+            "lv": "Lojalit\u0101te, stimuli un atalgojums"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "At different stages of the co-production process stakeholders (including citizens) are contacted, interviewed, asked for ideas and opinions. It is important to inform them about the context and purpose of the data collection and to gather their consent to be able to use the collected data collected in compliance with data protection regulations.",
+            "es": "En las distintas fases del proceso de coproducci\u00f3n se contacta con las partes interesadas (incluidos los ciudadanos), se les entrevista y se les piden ideas y opiniones. Es importante informarles sobre el contexto y la finalidad de la recogida de datos y recabar su consentimiento para poder utilizar los datos recogidos respetando la normativa de protecci\u00f3n de datos.",
+            "it": "Durante fasi diverse del processo di co-produzione, gli stakeholder (inclusi i cittadini) vengono contattati, intervistati, incoraggiati a fornire idee ed opinioni. E' importante informarli sul contesto e gli obiettivi della raccolta dati e ottenere il loro consenso all'utilizzo del materiale raccolto in conformit\u00e0 con le normative sulla privacy e la protezione dei dati.",
+            "lv": "Da\u017e\u0101dos kopra\u017eo\u0161anas procesa posmos ar ieinteres\u0113taj\u0101m person\u0101m (tostarp iedz\u012bvot\u0101jiem) sazin\u0101s, interv\u0113, l\u016bdz idejas un atzinumus. Ir svar\u012bgi inform\u0113t tos par datu v\u0101k\u0161anas kontekstu un m\u0113r\u0137i un apkopot vi\u0146u piekri\u0161anu, lai var\u0113tu izmantot sav\u0101ktos datus saska\u0146\u0101 ar datu aizsardz\u012bbas noteikumiem."
+        },
+        "functionality_translations": {
+            "en": "Knowledge enablers coping with this problem should  include  descriptive guidelines that explain the importance of complying with the GDPR at all stages of co-production.\nTemplates for inform sheets and consent forms should be provided for different types of venues and data to be collected. Multilinguality and compliance to different national regulations should be supported.",
+            "es": ""
+        },
+        "id": "ORG_PROBLEM_14",
+        "name_translations": {
+            "en": "Consent collection",
+            "es": "Recogida de consentimientos",
+            "it": "Raccolta dei consensi",
+            "lv": "Priek\u0161likumu apkopo\u0161ana"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "This item relates to the need of exploring and refining the problem that a service addresses. The service design process is a problem-solving activity and it is important to clearly understand which is the challenge that the team addresses and how more information can be collected to understand how the service should be designed. Guidelines and tools are needed to help teams in discussing initial ideas and assumptions, refine them through structured methods and become aware about the missing information that still needs to be collected.",
+            "es": "Este punto se refiere a la necesidad de explorar y refinar el problema que aborda un servicio. El proceso de dise\u00f1o de servicios es una actividad de resoluci\u00f3n de problemas y es importante entender claramente cu\u00e1l es el reto que aborda el equipo y c\u00f3mo se puede recopilar m\u00e1s informaci\u00f3n para entender c\u00f3mo debe dise\u00f1arse el servicio. Se necesitan directrices y herramientas para ayudar a los equipos a debatir las ideas y suposiciones iniciales, refinarlas mediante m\u00e9todos estructurados y tomar conciencia de la informaci\u00f3n que falta por recopilar.",
+            "it": "Questa problematica si riferisce alla necessit\u00e0 di esplorare e raffinare il problema che un servizio deve risolvere. Il processo di disegno di un servizio \u00e8 essenzialmente una attivit\u00e0 di risoluzione di problemi (problem-solving) ed \u00e8 importante comprendere in modo chiaro quale \u00e8 la sfida che il team di lavoro deve risolvere e come informazioni aggiuntive possano essere raccolte. Linee guida e strumenti sono necessari per aiutare il team di co-produzione nella discussione delle idee ed assunzioni iniziali, nel loro raffinamento tramite metodi strutturati e nell'identificazione delle informazioni mancanti che devono ancora essere raccolte.",
+            "lv": "\u0160is punkts ir saist\u012bts ar vajadz\u012bbu izp\u0113t\u012bt un atrisin\u0101t probl\u0113mu, kas saist\u012bta ar pakalpojumu. Pakalpojuma projekt\u0113\u0161anas process ir probl\u0113mu risin\u0101\u0161anas pas\u0101kums, un ir svar\u012bgi skaidri saprast, kas ir uzdevums, ko grupa risina un k\u0101 var apkopot pla\u0161\u0101ku inform\u0101ciju, lai saprastu, k\u0101 pakalpojums ir j\u0101veido. Vadl\u012bnijas un r\u012bki ir vajadz\u012bgi, lai pal\u012bdz\u0113tu grup\u0101m apspriest s\u0101kotn\u0113j\u0101s idejas un pie\u0146\u0113mumus, preciz\u0113t tos, izmantojot struktur\u0113tas metodes, un uzzin\u0101t tr\u016bksto\u0161o inform\u0101ciju, kas v\u0113l j\u0101apkopo."
+        },
+        "functionality_translations": {
+            "en": "The knowledge enablers solving this problem should include descriptive text  that explains the rationale and the benefit of collecting and discussing ideas to refine the problem/challenge. Enablers should propose activities that the team might perform to refine the challenge concept, guiding the application of structured methods to collect and discuss ideas, such as brainstorming, and activities to elicit initial assumptions,  to agree on ideas and refine them. \nThis enabler should cover:\n- Explanation of  the benefits for defining the challenge and refining the understanding of the problem to be addressed\n- Tips to structure an open discussion that value diversity and knowledge exchange\n- Methods that can be used to discuss and collaboratively refine the idea, such as a structured brainstorming \n- Guidelines on how to conduct a brainstorming for problem refinement\n- Templates that can be used to organize ideas during a brainstorming for problem refinement and identification of missing  information (e.g. Ideas crowdsourcing, data collection through user research,..). \nThese knowledge enablers can be associated to the use of a Software  enabler to perform online brainstorming",
+            "es": ""
+        },
+        "id": "UND_PROBLEM_1",
+        "name_translations": {
+            "en": "Collaborative problem refinement",
+            "es": "Refinamiento del problema en colaboraci\u00f3n",
+            "it": "Raffinamento collaborativo del problema",
+            "lv": "Sadarb\u012bbas probl\u0113mas preciz\u0113\u0161ana"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "This problem item relates to the need to support the initiators of the co-production process to identify, select and plan the active involvement of stakeholders in the co-production team. It is important that the initiators of a co-production process understand who are the potential stakeholders, which are their motivations to participate and potential barriers, which skills and expertise they might bring in the project, and which type of support they need to fully contribute to the project.",
+            "es": "Este punto del problema se refiere a la necesidad de apoyar a los iniciadores del proceso de coproducci\u00f3n para identificar, seleccionar y planificar la participaci\u00f3n activa de las partes interesadas en el equipo de coproducci\u00f3n. Es importante que los iniciadores de un proceso de coproducci\u00f3n comprendan qui\u00e9nes son los posibles interesados, cu\u00e1les son sus motivaciones para participar y los posibles obst\u00e1culos, qu\u00e9 habilidades y conocimientos podr\u00edan aportar al proyecto y qu\u00e9 tipo de apoyo necesitan para contribuir plenamente al proyecto.",
+            "it": "Questo problema si riferisce alla necessit\u00e0 di supportare gli iniziatori di un progetto di co-produzione nel processo di identificazione, selezione e pianificazione del coinvolgimento attivo degli stakeholder all'interno del team di co-produzione. E' importante che gli iniziatori del processo di co-produzione comprendano chi sono i potenziali stakeholder, quali sono le loro motivazioni a partecipare e potenziali barriere, quali competenze ed esperienze possono portare nel progetto, quale tipo di supporto necessitano per contribuire pienamente.",
+            "lv": "\u0160\u012b probl\u0113ma attiecas uz nepiecie\u0161am\u012bbu atbalst\u012bt kopra\u017eo\u0161anas procesa iniciatorus, lai noteiktu, izv\u0113l\u0113tos un pl\u0101notu ieinteres\u0113to personu akt\u012bvu iesaist\u012b\u0161anos kopra\u017eojuma grup\u0101. Ir svar\u012bgi, lai kopra\u017eo\u0161anas procesa iniciatori izprastu, kas ir potenci\u0101l\u0101s ieinteres\u0113t\u0101s personas, kas ir vi\u0146u motiv\u0101cija piedal\u012bties, un iesp\u0113jamos \u0161\u0137\u0113r\u0161\u013cus, k\u0101das prasmes un zin\u0101\u0161anas vi\u0146i var\u0113tu ieviest projekt\u0101 un k\u0101da veida atbalsts vi\u0146iem ir nepiecie\u0161ams, lai piln\u012bb\u0101 piedal\u012btos projekt\u0101."
+        },
+        "functionality_translations": {
+            "en": "Knowledge for  \"stakeholders mapping\" should include:\nGuidelines that explain the rationale of the process of stakeholders mapping and analysis and that support the team in selecting relevant stakeholders, that is people directly or indirectly affected by the service  or that can influence the service. Different types of stakeholders exist that have diverse motivations to participate, different skills and potential roles to play in the project: public authorities (public servants and politicians, citizens (potential end-users and experts), private business and non-profit organizations (SMEs, freelance, etc). Also different roles should be considered: 1) service end-users, 2) co-production team, 3) Interlink partners\nGuidelines to analyse stakeholders motivations and potential incentives to participate: i) personal, ii) society, iii) financial, iv) governance, iv) research\nTemplates that support the team in \ncreating a stakeholders map, which  is helpful for understanding the complexity of building relationships, realizing which connectors can be crucial for innovation development and why\nin making the network balanced, i.e. by \nensuring inclusiveness, or openness to all who wish to participate\nensuring representativeness, ensuring that the interests of all stakeholders are effectively advocated\nensuring impartiality, or all parties being treated equally\nrecognising gender and cultural differences\nTangible material to facilitate the stakeholders analysis during a brainstorming (cards for people, roles, possible expectations, etc.)",
+            "es": ""
+        },
+        "id": "UND_PROBLEM_2",
+        "name_translations": {
+            "en": "Stakeholders mapping",
+            "es": "Mapeo de las partes interesadas",
+            "it": "Mappatura degli stakeholder",
+            "lv": "Ieinteres\u0113to personu dal\u012b\u0161ana"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "This problem item refers to the need to support teams in collecting data and information about users and their behaviour for different purposes and phases of the co-production process, e.g. to better understand a phenomenon, to improve\nknowledge on citizens' needs toward services, to measure attitudes and\nexpectations, to monitor users satisfaction toward a service or a facility.",
+            "es": "Este punto del problema se refiere a la necesidad de apoyar a los equipos en la recopilaci\u00f3n de datos e informaci\u00f3n sobre los usuarios y su comportamiento para diferentes fines y fases del proceso de coproducci\u00f3n, por ejemplo, para comprender mejor un fen\u00f3meno, para mejorar conocimiento de las necesidades de los ciudadanos respecto a los servicios, para medir las actitudes y para medir las actitudes y expectativas, o para controlar la satisfacci\u00f3n de los usuarios con respecto a un servicio o instalaci\u00f3n.",
+            "it": "Questo problema si riferisce alla necessit\u00e0 di supportare i gruppi di lavoro nella raccolta di dati e informazioni sui potenziali utenti di un servizio ed il loro comportamento. Queste informazioni possono essere utili per diversi scopi e durante varie fasi del processo di co-produzione, ad esempio per comprendere meglio un fenomeno, per migliorare la conoscenza sulle necessit\u00e0 dei cittadini rispetto ai servizi, per misurare attitudini ed aspettative, per monitorare la soddisfazione degli utenti verso un servizio o una struttura.",
+            "lv": "\u0160\u012b probl\u0113ma attiecas uz nepiecie\u0161am\u012bbu atbalst\u012bt grupas datu un inform\u0101cijas v\u0101k\u0161an\u0101 par lietot\u0101jiem un to uzved\u012bbu da\u017e\u0101dos kopra\u017eo\u0161anas procesa nol\u016bkos un posmos, piem\u0113ram, lai lab\u0101k izprastu k\u0101du par\u0101d\u012bbu, uzlabotu zin\u0101\u0161anas par iedz\u012bvot\u0101ju vajadz\u012bb\u0101m attiec\u012bb\u0101 uz pakalpojumiem, nov\u0113rt\u0113tu attieksmi un cer\u012bbas, uzraudz\u012btu lietot\u0101ju apmierin\u0101t\u012bbu pret pakalpojumu vai iek\u0101rtu."
+        },
+        "functionality_translations": {
+            "en": "The enablers addressing this problem item should help select the most appropriate data collection methods according to the specific information goals, explaining their pros and cons. For each method presented (e.g. survey, interviews, etc), guidelines and templates should be provided. \nKnowledge enablers should cover articulated guidelines including:\nMotivations to perform user research, according to the phase of the process and specific needs in terms of data collection, e.g.:\nunderstand a phenomenon\nvalidate an hypothesis\nevaluate a service\nmonitor service quality\nBenefits of collecting data directly from users\nType of data that can be collected and their pro and cons: qualitative vs quantitative \nDescription of the different methods to collect data\nGuidelines to support the team in deciding which is the best method to use to collect data, according to their informative needs, constraints and skills\nThe description of the process that should be followed to define a protocol for data collection\nDescription of how to collect and manage personal information when conducting user studies\nTips on  how to collect data through interviews \nTips on  how to collect data through focus groups \nTips on  how to collect data through online surveys  \nTips on  how to collect data through web data \n\nSpecific templates with already validated dimensions and scales are provided to support the set-up of the user research, such as\nsatisfaction / perceived quality of a service\nintention to use / easy to use scale\nThese knowledge enablers can be associated with the use of Software  tools for surveys.",
+            "es": ""
+        },
+        "id": "UND_PROBLEM_3",
+        "name_translations": {
+            "en": "Data collection about users and their behavior (user research)",
+            "es": "Recogida de datos sobre los usuarios y su comportamiento (investigaci\u00f3n de usuarios)",
+            "it": "Raccolta di dati sugli utenti ed il loro comportamento (ricerca utente)",
+            "lv": "Datu v\u0101k\u0161ana par lietot\u0101jiem un vi\u0146u uzved\u012bbu (lietot\u0101ju izp\u0113te)"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "A co-production team might need help to define the targets of the service and the characteristics of the users of the service and which are their main needs and the challenges they experience.",
+            "es": "Un equipo de coproducci\u00f3n puede necesitar ayuda para definir los objetivos del servicio y las caracter\u00edsticas de los usuarios del mismo y cu\u00e1les son sus principales necesidades y los retos que experimentan.",
+            "it": "Un team di co-produzione pu\u00f2 necessitare aiuto nella definizione dei destinatari del servizio e delle caratteristiche degli utenti, le loro necessit\u00e0 e le difficolt\u00e0 che incontrano.",
+            "lv": "Kopra\u017eo\u0161anas grupai var\u0113tu b\u016bt nepiecie\u0161ama pal\u012bdz\u012bba, lai noteiktu pakalpojuma m\u0113r\u0137us un pakalpojuma lietot\u0101ju \u012bpa\u0161\u012bbas, un kas ir vi\u0146u galven\u0101s vajadz\u012bbas un probl\u0113mas, ar kur\u0101m vi\u0146i saskaras."
+        },
+        "functionality_translations": {
+            "en": "Knowledge enablers addressing this problem should include \nDescriptive text that explains the rationale of clearly identifying the target users of a service and a definition of  \u201cPersonas\u201d as a method to identify, understand and empathize with users of a service\nGuidelines on how to identify \u201cPersonas\u201d \nGuidelines and templates to use \u201cPersonas\u201d during the design process",
+            "es": ""
+        },
+        "id": "UND_PROBLEM_4",
+        "name_translations": {
+            "en": "Identify and understand users of the service (Personas)",
+            "es": "Identificar y comprender a los usuarios del servicio (Personas)",
+            "it": "Identificazione e comprensione degli utenti del servizio (Personas)",
+            "lv": "Identific\u0113t un saprast pakalpojuma  lietot\u0101jus (Personas)"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "This problem relates to the need to support the co-creation team to collect ideas from a large set of contributors (e.g. citizens) related to a specific challenge, organize and manage the ideas and eventually evaluate them. Crowdsourcing projects can target both internal and external participants via dedicated tools and platforms, questionnaires, social media, competitions and other methods.",
+            "es": "Este problema est\u00e1 relacionado con la necesidad de apoyar al equipo de cocreaci\u00f3n para recoger ideas de un gran conjunto de contribuyentes (por ejemplo, ciudadanos) relacionadas con un reto espec\u00edfico, organizar y gestionar las ideas y, finalmente, evaluarlas. Los proyectos de crowdsourcing pueden dirigirse a participantes tanto internos como externos a trav\u00e9s de herramientas y plataformas espec\u00edficas, cuestionarios, redes sociales, concursos y otros m\u00e9todos.",
+            "it": "Questo problema si riferisce alla necessit\u00e0 di supportare il team di co-produzione nella raccolta di idee, collegate ad una specifica sfida, da un vasto numero di contributori (ad esempio cittadini). Ulteriori attivit\u00e0 riguardano l'organizzazione e gestione delle idee e la loro eventuale valutazione. Progetti di crowdsourcing possono coinvolgere sia partecipanti interni che esterni attraverso strumenti e piattaforme dedicate, questionari, social media, competizioni ed altri metodi.",
+            "lv": "\u0160\u012b probl\u0113ma ir saist\u012bta ar nepiecie\u0161am\u012bbu atbalst\u012bt koprad\u012b\u0161anas grupu, lai sav\u0101ktu idejas no liela iesaist\u012bto personu (piem\u0113ram, pilso\u0146u) kopuma, kas saist\u012bti ar konkr\u0113tu probl\u0113mu, organiz\u0113tu un p\u0101rvald\u012btu idejas un, visbeidzot, nov\u0113rt\u0113tu t\u0101s. Kolekt\u012bvie projekti var b\u016bt v\u0113rsti gan uz iek\u0161\u0113jiem, gan \u0101r\u0113jiem dal\u012bbniekiem, izmantojot \u012bpa\u0161us r\u012bkus un platformas, anketas, soci\u0101los medijus, konkursus un citas metodes."
+        },
+        "functionality_translations": {
+            "en": "The enablers solving this problem should  contain descriptive text that explains the rationale and the benefit of collecting crowdsourced data.\nGuidelines, tips and examples  are to be made available to support the co-creation team to collect ideas from a large set of contributors (e.g. citizens) .\nInformation that should be included:\nDefinition of ideas crowdsourcing\nBenefits of crowdsourcing\nWhen this method can be helpful\nProcess to set-up an ideas crowdsourced initiative\nWhich participants should be involved?\nUnderstand motivations for participation: why do people participate in this kind of activity? Which are their motivations?\nBarriers and challenges in using crowdsourced data\nHow to promote the initiative (channeles, strategies, etc)\nExamples of projects in which crowdsourced data have been used\nMethods that can be used to perform ideas crowdsourcing:\nSW tools\nSocial media\nOnline questionnaire \nPublic workshops\n\nThis knowledge enabler can be associated to the use of software enablers to perform ideas crowdsourcing",
+            "es": ""
+        },
+        "id": "UND_PROBLEM_5",
+        "name_translations": {
+            "en": "Ideas crowdsourcing",
+            "es": "El crowdsourcing de ideas",
+            "it": "Crowsourcing di idee",
+            "lv": "Ideju kombin\u0113t\u0101 izmanto\u0161ana"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "This problem item refers to the need to map in a synthetic representation all the key roles that can impact on the user, organization and service environment. The ecosystem map is built by first displaying all the entities, and then connecting them based on the type of value they exchange.",
+            "es": "Este punto del problema se refiere a la necesidad de mapear en una representaci\u00f3n sint\u00e9tica todos los roles clave que pueden impactar en el entorno del usuario, la organizaci\u00f3n y el servicio. El mapa del ecosistema se construye mostrando primero todas las entidades, y luego conect\u00e1ndolas en funci\u00f3n del tipo de valor que intercambian.",
+            "it": "Questo problema si riferisce alla necessit\u00e0 di mappare in una rappresentazione sintetica tutti i ruoli principali che possono impattare sull'utente, l'organizzazione e il contesto del servizio. La mappa dell'ecosistema viene costruita attraverso una prima identificazione delle entit\u00e0 coinvolte e il loro successivo collegamento in base al tipo di valore che scambiano.",
+            "lv": "\u0160\u012b probl\u0113ma attiecas uz nepiecie\u0161am\u012bbu kart\u0113t sint\u0113tisk\u0101 att\u0113lojum\u0101 visas galven\u0101s lomas, kas var ietekm\u0113t lietot\u0101ju, organiz\u0101ciju un pakalpojumu vidi. Ekosist\u0113mas karte tiek veidota, vispirms att\u0113lojot visas vien\u012bbas un p\u0113c tam t\u0101s savienojot, pamatojoties uz v\u0113rt\u012bbu, ko t\u0101s apmain\u0101s."
+        },
+        "functionality_translations": {
+            "en": "The knowledge enablers addressing this problem, first of all, include descriptive text that explains the rationale and the benefit of mapping all the entities  involved in the delivery of a service.\nGuidelines should be provided to \nexplain the process that should be followed to map the entities\nillustrate the difference between actors (primary, secondary, etc), organizations, services\nTemplates should be prepared to facilitate\nthe listing of actors and their role\nthe visual representation of the map of actors and their relationships",
+            "es": ""
+        },
+        "id": "UND_PROBLEM_6",
+        "name_translations": {
+            "en": "Ecosystem mapping",
+            "es": "Mapa del ecosistema",
+            "it": "Mappatura dell'ecosistema",
+            "lv": "Ekosist\u0113mas kart\u0113\u0161ana"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "Public Administrations and their service providers may require a general introductory guidance on how to approach the design of high-quality public services. The guidelines should refer to the different issues related with the \u201cService design\u201d problem.",
+            "es": "Las Administraciones P\u00fablicas y sus proveedores de servicios pueden necesitar una gu\u00eda general introductoria sobre c\u00f3mo abordar el dise\u00f1o de servicios p\u00fablicos de alta calidad. Las directrices deber\u00edan referirse a las diferentes cuestiones relacionadas con el problema del \"dise\u00f1o de servicios\".",
+            "it": "Le Pubbliche Amministrazioni e i loro fornitori di servizi possono necessitare di una guida introduttiva e di un accompagnamento al disegno di servizi pubblici di buona qualit\u00e0. Linee guida dovrebbero essere messe a disposizione e chiarire le diverse problematiche collegate al disegno di servizi.",
+            "lv": "Publisk\u0101s administr\u0101cijas un to pakalpojumu sniedz\u0113ji var piepras\u012bt visp\u0101r\u0113jus ieteikumus par to, k\u0101 tuvin\u0101ties kvalitat\u012bvu sabiedrisko pakalpojumu izstr\u0101dei. Pamatnost\u0101dn\u0113s ir j\u0101atsaucas uz da\u017e\u0101diem jaut\u0101jumiem, kas saist\u012bti ar \u201cService design\u201d probl\u0113mu."
+        },
+        "functionality_translations": {
+            "en": "The knowledge enablers addressing this problem should be in the form of descriptive text that summarizes the main guidelines related to the design of digital public services. They should provide information on these topics: \nprinciples of citizen-centred design, \nprinciples of service design and of e-government, \naspects of project management, \nrequired expertise for service design,\naccessibility, \nrelevant regulations, \ngood practices for content design, \nlanguage,\nissues related to SEO, \nprinciples of user research, \nguidelines for user interface design.",
+            "es": ""
+        },
+        "id": "DEF_PROBLEM_1",
+        "name_translations": {
+            "en": "Guidelines for (digital) public service design",
+            "es": "Directrices para el dise\u00f1o de servicios p\u00fablicos (digitales)",
+            "it": "Linee guida per il disegno di servizi pubblici (digitali)",
+            "lv": "(Digit\u0101lo) publisko pakalpojumu projekt\u0113\u0161anas vadl\u012bnijas"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "Brainstorming sessions may be useful in different phases of the co-production process. During each phase, the template and materials useful to guide the discussion should be customized to facilitate the organization of the specific event. During the \"ideation\" stage, the co-production team may require specific guidance in organizing and managing a brainstorming to produce service ideas, discuss and select them, through divergent and convergent phases of group discussion.",
+            "es": "Las sesiones de lluvia de ideas pueden ser \u00fatiles en diferentes fases del proceso de coproducci\u00f3n. Durante cada fase, la plantilla y los materiales \u00fatiles para guiar el debate deben adaptarse para facilitar la organizaci\u00f3n del evento espec\u00edfico. Durante la fase de \"ideaci\u00f3n\", el equipo de coproducci\u00f3n puede requerir una orientaci\u00f3n espec\u00edfica para organizar y gestionar una tormenta de ideas de servicio, debatirlas y seleccionarlas, a trav\u00e9s de fases divergentes y convergentes de discusi\u00f3n en grupo.",
+            "it": "Sessioni di brainstorming possono essere utili in diverse fasi del processo di co-produzione. Durante ciascuna fase, i modelli e i materiali utili per guidare la discussione dovrebbero essere personalizzati per facilitare l'organizzazione dei singoli eventi. Durante la fase ideativa di un servizio, il gruppo di lavoro di co-produzione pu\u00f2 necessitare di una guida alla organizzazione e conduzione di un brainstorming per generare idee del servizio, discuterle e selezionarle, attraverso fasi di discussione divergenti e convergenti.",
+            "lv": "Eksperiment\u0101l\u0101s sesijas var b\u016bt noder\u012bgas da\u017e\u0101d\u0101s kopra\u017eo\u0161anas procesa f\u0101z\u0113s. Katr\u0101 posm\u0101 forma un materi\u0101li, kas ir noder\u012bgi diskusijas vad\u012b\u0161anai, ir j\u0101piel\u0101go, lai atvieglotu konkr\u0113t\u0101 notikuma organiz\u0113\u0161anu. \u201cIdeju\u201d posm\u0101 kopra\u017eojuma darba grupai var b\u016bt nepiecie\u0161ami \u012bpa\u0161i nor\u0101d\u012bjumi, lai organiz\u0113tu un p\u0101rvald\u012btu ideju par pakalpojumiem, apspriestu un atlas\u012btu t\u0101s, izmantojot at\u0161\u0137ir\u012bgas un konver\u0123ences grupas diskusiju f\u0101zes."
+        },
+        "functionality_translations": {
+            "en": "Knowledge enablers addressing this problem  should cover:\nDescriptive guidelines explaining the rationale and the benefit of organizing a brainstorming for discussing service ideas\nWhen it is useful to organize a brainstorming\nA template description of the process that should be followed to organize and manage a brainstorming\nTools and materials that can be used to organize a brainstorming: online vs offline",
+            "es": ""
+        },
+        "id": "DEF_PROBLEM_2",
+        "name_translations": {
+            "en": "Brainstorm service ideas",
+            "es": "Lluvia de ideas sobre el servicio",
+            "it": "Brainstorming per idee sul futuro servizio",
+            "lv": "Brainstorm servisa idejas"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "After the understanding of the problem and the brainstorming of the service ideas, the co-production team should elaborate concrete solutions for a given challenge. Co-design workshops are useful at this stage as collective activities organized to discuss design issues and choices. Enablers are required to suggest how the coproduction team can work together and with relevant actors (also considering the map of actors developed thanks to the INTERLINKER \u201cMap of actors\u201d) to start defining the service to be co-designed and co-delivered.",
+            "es": "Tras la comprensi\u00f3n del problema y el brainstorming de las ideas de servicio, el equipo de coproducci\u00f3n debe elaborar soluciones concretas para un determinado reto. Los talleres de codise\u00f1o son \u00fatiles en esta fase como actividades colectivas organizadas para debatir los problemas y las opciones de dise\u00f1o. Los facilitadores deben sugerir c\u00f3mo el equipo de coproducci\u00f3n puede trabajar conjuntamente y con los actores relevantes (teniendo en cuenta tambi\u00e9n el mapa de actores elaborado gracias al \"Mapa de actores\" de INTERLINKER) para empezar a definir el servicio que se va a codise\u00f1ar y a codise\u00f1ar.",
+            "it": "Dopo l'analisi approfondita del problema da risolvere e un primo brainstorming di idee sul servizio, il team di co-produzione dovrebbe elaborare delle prime soluzioni concrete per la sfida da affrontare. Dei workshop di co-design (disegno collaborativo del servizio) sono utili in questa fase, come forma di attivit\u00e0 collettiva per discutere idee di design e possibili scelte. Informazioni e linee guida dovrebbero essere messi a disposizione per fornire una traccia di come i team di co-produzione possano lavorare insieme, anche in collaborazione con portatori di interesse esterni, per raffinare il servizio che deve essere disegnato ed eseguito in modo collaborativo.",
+            "lv": "P\u0113c probl\u0113mas izpra\u0161anas un pakalpojuma ideju apsv\u0113r\u0161anas kopra\u017eojuma komandai b\u016btu j\u0101izstr\u0101d\u0101 konkr\u0113ti risin\u0101jumi konkr\u0113tam izaicin\u0101jumam. Kopprojekta semin\u0101ri \u0161aj\u0101 posm\u0101 ir noder\u012bgi k\u0101 kolekt\u012bvie pas\u0101kumi, kas tiek organiz\u0113ti, lai apspriestu dizaina jaut\u0101jumus un izv\u0113les. Ir nepiecie\u0161ami pilnvarot\u0101ji, kas iesaka, k\u0101 kopra\u017eo\u0161anas grupa var sadarboties un sadarboties ar attiec\u012bgajiem dal\u012bbniekiem (\u0146emot v\u0113r\u0101 ar\u012b dal\u012bbnieku karti, kas izstr\u0101d\u0101ta, pateicoties INTERVERSIT\u0100TEI \u201cAktieru karte\u201d), lai s\u0101ktu defin\u0113t l\u012bdzveidojamo un l\u012bdzsniedzamo pakalpojumu."
+        },
+        "functionality_translations": {
+            "en": "Enablers supporting this problem item include descriptive text that explains the rationale and the benefits of performing co-design workshops  as part of a co-production process and template materials to guide organizing and managing the workshop.\nEnablers should cover:\nDefinition of a co-design workshop\nMotivations to carry out a co-design workshop\nTips on how to organize a co-design workshop (e.g. define the topic, define the agenda, choose the data, prepare presentation and material for the workshop, define roles: who is the moderator?\nTips on how to moderate a co-design workshop\nActivities that can be performed during a co-design workshop (using INTERLINKERs such as \u201cMap of the Actors\u201d; \u201cPersonas\u201d)\nExamples",
+            "es": ""
+        },
+        "id": "DEF_PROBLEM_3",
+        "name_translations": {
+            "en": "Organize a co-design workshop",
+            "es": "Organizar un taller de codise\u00f1o",
+            "it": "Organizzazione di un workshop di co-design",
+            "lv": "Organiz\u0113 kopprojekta darbn\u012bcu"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "The co-production team may need guidance on how to define the interaction between the users and the service, reflecting on how a solution might be used by concrete users in a concrete context.",
+            "es": "El equipo de coproducci\u00f3n puede necesitar orientaci\u00f3n sobre c\u00f3mo definir la interacci\u00f3n entre los usuarios y el servicio, reflexionando sobre c\u00f3mo una soluci\u00f3n podr\u00eda ser utilizada por usuarios concretos en un contexto concreto.",
+            "it": "Il team di co-produzione pu\u00f2 necessitare di una guida nella definizione della interazione fra gli utenti ed il servizio. Possono essere utili dei momenti di riflessione su come il servizio potrebbe essere utilizzato da utenti reali in contesti reali.",
+            "lv": "Koprades komandai var b\u016bt vajadz\u012bgi nor\u0101d\u012bjumi par to, k\u0101 noteikt mijiedarb\u012bbu starp lietot\u0101jiem un pakalpojumu, p\u0101rdom\u0101jot, k\u0101 konkr\u0113ti lietot\u0101ji var\u0113tu izmantot risin\u0101jumu konkr\u0113t\u0101 kontekst\u0101."
+        },
+        "functionality_translations": {
+            "en": "Descriptive text that \nexplains the rationale and the benefits of clearly defining the interaction among users and a service before implementing it.\nsuggest tools that can be used to reach this goal, such as \u201cScenarios\u201d, and \u201cUser  Journey\u201d\nFor each method presented:\nbenefit of using it in a design process\nhow to use it\ntemplates\nExamples",
+            "es": ""
+        },
+        "id": "DEF_PROBLEM_4",
+        "name_translations": {
+            "en": "Define the interaction among users and service (Scenarios and User Journey)",
+            "es": "Definir la interacci\u00f3n entre los usuarios y el servicio (escenarios y las rutas de los usuarios)",
+            "it": "Definizione della interazione fra gli utenti e il servizio (scenari e percorsi utente)",
+            "lv": "Lietot\u0101ju un pakalpojumu mijiedarb\u012bbas noteik\u0161ana (scen\u0101riji un lietot\u0101ju \u017eurn\u0101li)"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "The ideas and service design concepts need to be translated into formal requirements and service specifications to proceed with the implementation of the service. Guidance may be needed on how to collect, structure and communicate requirements and all the service specifications that clarify the objective of the service and how it should be developed",
+            "es": "Las ideas y los conceptos de dise\u00f1o del servicio deben traducirse en requisitos formales y especificaciones del servicio para proceder a su implantaci\u00f3n. Es posible que se necesite orientaci\u00f3n sobre c\u00f3mo recoger, estructurar y comunicar los requisitos y todas las especificaciones del servicio que aclaren el objetivo del servicio y c\u00f3mo debe desarrollarse",
+            "it": "Le idee e i concetti per il disegno del servizio devono essere tradotti in requisiti formali e specifiche di servizio per procedere all'implementazione del servizio. Una guida pu\u00f2 essere necessaria su come raccogliere, strutturare e comunicare i requisiti e tutte le specifiche del servizio che chiariscono l'obiettivo del servizio e come dovrebbe essere sviluppato.",
+            "lv": "Idejas un pakalpojumu dizaina koncepcijas ir j\u0101p\u0101rveido form\u0101l\u0101s pras\u012bb\u0101s un pakalpojumu specifik\u0101cij\u0101s, lai turpin\u0101tu pakalpojuma \u012bsteno\u0161anu. Var b\u016bt vajadz\u012bgi nor\u0101d\u012bjumi par to, k\u0101 apkopot, struktur\u0113t un pazi\u0146ot pras\u012bbas un visas pakalpojumu specifik\u0101cijas, kas preciz\u0113 pakalpojuma m\u0113r\u0137i un k\u0101 tas j\u0101izstr\u0101d\u0101."
+        },
+        "functionality_translations": {
+            "en": "The knowledge enablers addressing this problem item should provide descriptive text that \nexplains the rationale and the benefits of clearly defining how a system /service should work\nillustrates different approaches for specifying system requirements and service specification and the pros and cons of the different approaches\nexplains how to select the best approach based on the task, team composition and other factors \ncontains guidelines and templates on how requirements can be represented\ncontains guidelines and templates on how service specifications can be represented",
+            "es": ""
+        },
+        "id": "DEF_PROBLEM_5",
+        "name_translations": {
+            "en": "Define requirements and service specifications",
+            "es": "Definir los requisitos y las especificaciones del servicio",
+            "it": "Definizione dei requisiti e delle specifiche del servizio",
+            "lv": "Defin\u0113jiet pras\u012bbas un pakalpojumu specifik\u0101cijas"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "When defining a new public service, the co-production team needs to prepare adequate content. Guidance is needed on how to select and use the most appropriate language according to the users of the digital service and their skills.",
+            "es": "A la hora de definir un nuevo servicio p\u00fablico, el equipo de coproducci\u00f3n debe preparar los contenidos adecuados. Es necesario orientar sobre c\u00f3mo seleccionar y utilizar el lenguaje m\u00e1s adecuado en funci\u00f3n de los usuarios del servicio digital y sus competencias.",
+            "it": "Durante la definizione di un nuovo servizio pubblico, il team di co-produzione deve preparare contenuto adeguato. Una guida \u00e8 necessaria su come identificare il linguaggio pi\u00f9 appropriato da usare a seconda degli utilizzatori del servizio digitale e delle loro capacit\u00e0.",
+            "lv": "Defin\u0113jot jaunu sabiedrisko pakalpojumu, kopra\u017eojuma komandai j\u0101sagatavo atbilsto\u0161s saturs. Ir vajadz\u012bgi nor\u0101d\u012bjumi par to, k\u0101 izv\u0113l\u0113ties un lietot vispiem\u0113rot\u0101ko valodu atkar\u012bb\u0101 no digit\u0101l\u0101 pakalpojuma lietot\u0101jiem un vi\u0146u prasm\u0113m."
+        },
+        "functionality_translations": {
+            "en": "Enablers addressing this problem item should provide guidelines and  operational tools to create content, review it collaboratively and define the correct tone of voice with which to address users.\nExamples and templates to provide guidance in the good practice of using a shared approach to the creation and management of textual and multimedia content are required.",
+            "es": ""
+        },
+        "id": "DEF_PROBLEM_6",
+        "name_translations": {
+            "en": "Content design",
+            "es": "Dise\u00f1o de contenidos",
+            "it": "Disegno del contenuto",
+            "lv": "Satura noform\u0113jums"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "The implementation of the user interface should guarantee usability. Coproduction team members involved in the interface design should be aware of good practices for interface design in the domain of public services.",
+            "es": "La implementaci\u00f3n de la interfaz de usuario debe garantizar la usabilidad. Los miembros del equipo de coproducci\u00f3n que participen en el dise\u00f1o de la interfaz deben conocer las buenas pr\u00e1cticas de dise\u00f1o de interfaces en el \u00e1mbito de los servicios p\u00fablicos.",
+            "it": "L'implementazione dell'interfaccia utente dovrebbe garantire l'usabilit\u00e0. I membri del team di co-produzione coinvolti nel disegno dell'interfaccia dovrebbero tenere in considerazione le buone pratiche per il disegno di interfacce per servizi pubblici.",
+            "lv": "Lietot\u0101ja saskarnes ievie\u0161anai ir j\u0101garant\u0113 izmantojam\u012bba. Koprades grupas dal\u012bbniekiem, kas iesaist\u012bti saskar\u0146u izstr\u0101d\u0113, vajadz\u0113tu b\u016bt inform\u0113tiem par labo praksi saskar\u0146u izstr\u0101d\u0113 publisko pakalpojumu jom\u0101."
+        },
+        "functionality_translations": {
+            "en": "Knowledge resources addressing this problem items should include:\nGuidelines and templates on User Interface Design\nGuidelines and templates to design usable UI",
+            "es": ""
+        },
+        "id": "BUILD_PROBLEM_1",
+        "name_translations": {
+            "en": "User interface design",
+            "es": "Dise\u00f1o de interfaz de usuario",
+            "it": "Disegno dell'interfaccia utente",
+            "lv": "Lietot\u0101ja interfeisa dizains"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "When the public services are provided digitally in the form of Web sites or mobile applications, it is necessary that the service may be easily used by different categories of users, especially considering the people with disabilities. The services should be provided in a multi-channel manner, maximizing the\nexploitation by potentially any group of users or by the agents acting on their\nbehalf, and providing clear statements regarding the accessibility limits in the\ncurrent implementation.",
+            "es": "Cuando los servicios p\u00fablicos se prestan de forma digital en forma de sitios web o aplicaciones m\u00f3viles, es necesario que el servicio pueda ser utilizado f\u00e1cilmente por diferentes categor\u00edas de usuarios, especialmente teniendo en cuenta a las personas con discapacidad. Los servicios deben prestarse de forma multicanal, maximizando la\nexplotaci\u00f3n por parte de cualquier grupo de usuarios o de los agentes que act\u00faen en su\ny proporcionando declaraciones claras sobre los l\u00edmites de accesibilidad en la\nimplementaci\u00f3n actual.",
+            "it": "Quando un servizio pubblico viene offerto digitalmente attraverso un sito web o una applicazione mobile, \u00e8 necessario che il servizio sia facilmente usabile da diverse categorie di utenti, con particolare attenzione agli utenti con disabilit\u00e0. I servizi dovrebbero essere offerti attraverso canali diversi, massimizzando il loro potenziale utilizzo da parte di ogni categoria di utente o da parte di attori che agiscono per  conto dei reali beneficiari. Chiare asserzioni dovrebbero essere incluse sui limiti di accessibilit\u00e0 presenti nella implementazione corrente.",
+            "lv": "Ja publiskie pakalpojumi tiek sniegti digit\u0101li Web vietu vai mobilo lietojumprogrammu veid\u0101, ir nepiecie\u0161ams, lai pakalpojumu var\u0113tu viegli izmantot da\u017e\u0101das lietot\u0101ju kategorijas, \u012bpa\u0161i \u0146emot v\u0113r\u0101 personas ar invalidit\u0101ti. Pakalpojumi b\u016btu j\u0101sniedz daudzkan\u0101lu veid\u0101, maksim\u0101li palielinot to izmanto\u0161anu, ko veic potenci\u0101li jebkura lietot\u0101ju grupa vai p\u0101rst\u0101vji, kas darbojas to v\u0101rd\u0101, un sniedzot skaidrus pazi\u0146ojumus par pieejam\u012bbas ierobe\u017eojumiem pa\u0161reiz\u0113j\u0101 ievie\u0161an\u0101."
+        },
+        "functionality_translations": {
+            "en": "The functionalities expected to address this problem include in particular:\nthe proper ways to design, organize, structure and implement accessible user interfaces;\nrealization of reusable accessible general purpose components;\nthe ways to evaluate and certify the accessibility requirements compliance according to the existing normative regulations.",
+            "es": ""
+        },
+        "id": "BUILD_PROBLEM_2",
+        "name_translations": {
+            "en": "Implement accessible digital public services",
+            "es": "Implantar servicios p\u00fablicos digitales accesibles",
+            "it": "Implementazione di servizi pubblici digitali accessibili",
+            "lv": "Leviest pieejamus digit\u0101los publiskos pakalpojumus"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "The EU and national legislation promote the use and adoption of Open Source software solutions as a way to reduce the development cost, to avoid the lock-in effect and to foster the adoption driven by Open Source communities. In other terms, Open Source is an enabler for the reusability principles underlying the European Interoperability Framework. Facing this problem, it is necessary to facilitate the selection, development, and maintenance of the Open Source software products.",
+            "es": "La UE y la legislaci\u00f3n nacional promueven el uso y la adopci\u00f3n de soluciones de software de c\u00f3digo abierto como forma de reducir el coste de desarrollo, evitar el efecto de bloqueo y fomentar la adopci\u00f3n impulsada por las comunidades de c\u00f3digo abierto. En otras palabras, el C\u00f3digo Abierto es un facilitador de los principios de reutilizaci\u00f3n subyacentes al Marco Europeo de Interoperabilidad. Frente a este problema, es necesario facilitar la selecci\u00f3n, el desarrollo y el mantenimiento de los productos de software de c\u00f3digo abierto.",
+            "it": "L'Unione Europea e la legislazione nazionale promuovono l'uso e l'adozione di soluzioni software Open Source come metodo per ridurre i costi di sviluppo, limitare la dipendenza dai fornitori e incoraggiare l'adozione della tecnologia favorita dalle comunit\u00e0 che promuovono il software libero. In altri termini, l'approccio Open Source funge da abililitatore dei principi di riusabilit\u00e0 alla base dello European Interoperability Framework. Per affrontare questo problema \u00e8 necessario facilitare la selezione, lo sviluppo e la manutenzione dei prodotti software di tipo open source.",
+            "lv": "Es un valstu ties\u012bbu akti veicina atv\u0113rt\u0101 pirmkoda programmat\u016bras risin\u0101jumu izmanto\u0161anu un pie\u0146em\u0161anu, lai samazin\u0101tu izstr\u0101des izmaksas, izvair\u012btos no noslogojuma un veicin\u0101tu to pie\u0146em\u0161anu, ko veicina atv\u0113rt\u0101 avota kopienas. Citiem v\u0101rdiem sakot, Open Source ir Eiropas sadarbsp\u0113jas satvara pamat\u0101 eso\u0161o atkalizmanto\u0161anas principu veicin\u0101t\u0101js. Saskaroties ar \u0161o probl\u0113mu, ir nepiecie\u0161ams atvieglot atv\u0113rt\u0101 avota programmproduktu izv\u0113li, izstr\u0101di un uztur\u0113\u0161anu."
+        },
+        "functionality_translations": {
+            "en": "The functionalities expected to address this problem include in particular:\nUnderstanding different types of Open Source licenses, their limits and applicability;\nthe proper ways to manage the acquisition of the software products ensuring appropriate licensing;\nmethodological approach to the development of Open Source software in order to foster active public community and reuse;\nproper ways to maintain and support the evolution of the Open Source software solutions.",
+            "es": ""
+        },
+        "id": "BUILD_PROBLEM_3",
+        "name_translations": {
+            "en": "Open Source Software Licensing",
+            "es": "Licencias de software de c\u00f3digo abierto",
+            "it": "Utilizzo di licenze software Open Source",
+            "lv": "Atv\u0113rt\u0101s avota programmat\u016bras licenc\u0113\u0161ana"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "European Interoperability Framework requires digital services to achieve an appropriate level of technical interoperability. When it comes to the implementation, it refers to the usage of standard communication protocols and data formats in order to guarantee the usage of the service in machine-to-machine communications, to facilitate software integration and re-use.",
+            "es": "El Marco Europeo de Interoperabilidad exige que los servicios digitales alcancen un nivel adecuado de interoperabilidad t\u00e9cnica. Cuando se trata de la implementaci\u00f3n, se refiere al uso de protocolos de comunicaci\u00f3n y formatos de datos est\u00e1ndar para garantizar el uso del servicio en las comunicaciones de m\u00e1quina a m\u00e1quina, para facilitar la integraci\u00f3n y reutilizaci\u00f3n del software.",
+            "it": "Lo European Interoperability Framework impone che i servizi digitali raggiungano un appropriato livello di interoperabilit\u00e0 tecnica. Relativamente all'implementazione, questo requisito si riferisce all'utilizzo di protocolli di comunicazione e formati di dati standard per garantire l'utilizzabilit\u00e0 del servizio in comunicazioni fra sistemi diversi, per facilitare l'integrazione software e il riuso.",
+            "lv": "Eiropas sadarbsp\u0113jas sist\u0113mai ir vajadz\u012bgi digit\u0101li pakalpojumi, lai sasniegtu atbilsto\u0161u tehnisk\u0101s sadarbsp\u0113jas l\u012bmeni. Run\u0101jot par ievie\u0161anu, tas attiecas uz standarta sazi\u0146as protokolu un datu form\u0101tu izmanto\u0161anu, lai garant\u0113tu pakalpojuma izmanto\u0161anu savienojumos starp ma\u0161\u012bn\u0101m, lai veicin\u0101tu programmat\u016bras integr\u0101ciju un atk\u0101rtotu izmanto\u0161anu."
+        },
+        "functionality_translations": {
+            "en": "The functionalities expected to address this problem include in particular:\nidentify, select, and implement appropriate interoperability patterns for interacting with the service;\ndesign and definition of suitable service interfaces (APIs) following the API-first approach;\ndocumentation and publishing of the interfaces.",
+            "es": ""
+        },
+        "id": "BUILD_PROBLEM_4",
+        "name_translations": {
+            "en": "Implementing Interoperable Digital Public Services",
+            "es": "Implantaci\u00f3n de servicios p\u00fablicos digitales interoperables",
+            "it": "Implementazione di servizi pubblici digitali interoperabili",
+            "lv": "Sadarbsp\u0113j\u012bgu digit\u0101lo publisko pakalpojumu ievie\u0161ana"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "Digital public services should ensure that the interactions with these services takes place in a secure and trustworthy environment, following the principle of security by design. Access control, user identification, data management should be made compliant with the corresponding regulations, including e.g., the Regulation and Directive for data protection, Regulation on electronic identification, etc.",
+            "es": "Los servicios p\u00fablicos digitales deben garantizar que las interacciones con estos servicios tengan lugar en un entorno seguro y fiable, siguiendo el principio de seguridad por dise\u00f1o. El control de acceso, la identificaci\u00f3n de los usuarios y la gesti\u00f3n de los datos deben ajustarse a la normativa correspondiente, incluidos, por ejemplo, el Reglamento y la Directiva sobre protecci\u00f3n de datos, el Reglamento sobre identificaci\u00f3n electr\u00f3nica, etc.",
+            "it": "I servizi pubblici digitali dovrebbero garantire che le interazioni degli utenti con i servizi avvengano in un ambiente sicuro ed affidabile, secondo il principio di \"sicurezza tramite design appropriato\". I controlli di accesso, l'identificazione dell'utente, la gestione dei dati dovrebbero essere conformi alle normative corrispondenti, ad esempio la normativa e le direttive sulla protezione dei dati, la normativa sulla identit\u00e0 elettronica, ecc.",
+            "lv": "Digit\u0101lajiem publiskajiem pakalpojumiem b\u016btu j\u0101nodro\u0161ina, ka mijiedarb\u012bba ar \u0161iem pakalpojumiem notiek dro\u0161\u0101 un uzticam\u0101 vid\u0113, iev\u0113rojot dro\u0161\u012bbas principu p\u0113c konstrukcijas. Piek\u013cuves kontrole, lietot\u0101ju identifik\u0101cija, datu p\u0101rvald\u012bba b\u016btu j\u0101padara atbilsto\u0161a attiec\u012bgajiem noteikumiem, tostarp, piem\u0113ram, regulai un direkt\u012bvai par datu aizsardz\u012bbu, regulai par elektronisko identifik\u0101ciju utt."
+        },
+        "functionality_translations": {
+            "en": "The functionalities expected to address this problem include in particular:\nimplementing secure communication protocols for service interaction;\nimplementation of the trusted and protected user identification and authentication;\nimplementation of secure storage of personal data;\nguarantee transparent, informed, and controllable management of personal data in line with GDPR requirements;\nguarantee security in operations (audit, monitoring, incident handling).",
+            "es": ""
+        },
+        "id": "BUILD_PROBLEM_5",
+        "name_translations": {
+            "en": "Implementing Secure and Trusted Digital Public Services",
+            "es": "Implantaci\u00f3n de servicios p\u00fablicos digitales seguros y de confianza",
+            "it": "Implementazione di servizi pubblici digitali sicuri e affidabili",
+            "lv": "Dro\u0161u un uzticamu digit\u0101lo publisko pakalpojumu ievie\u0161ana"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "One of the objectives for the open, transparent, and interoperable public services is to make them citizen-centric and enable the participation of citizens to the execution, improvement and evolution of the service. To achieve this, it is necessary to incentivise and make more attractive such participation and collaboration. A wide range of techniques, ranging from gamification, to feedback, and to rewards may apply",
+            "es": "Uno de los objetivos de los servicios p\u00fablicos abiertos, transparentes e interoperables es hacerlos centrados en el ciudadano y permitir la participaci\u00f3n de \u00e9ste en la ejecuci\u00f3n, mejora y evoluci\u00f3n del servicio. Para lograrlo, es necesario incentivar y hacer m\u00e1s atractiva esa participaci\u00f3n y colaboraci\u00f3n. Se puede aplicar un amplio abanico de t\u00e9cnicas, que van desde la gamificaci\u00f3n, la retroalimentaci\u00f3n y las recompensas que podr\u00edan aplicarse",
+            "it": "Un importante obiettivo per la realizzazione di servizi pubblici aperti, trasparenti e interoperabili \u00e8 quello di renderli centrati sul cittadino e consentire la partecipazione dei cittadini alla esecuzione, miglioramento ed evoluzione dei servizi stessi. Per raggiungere tale obiettivo, \u00e8 necessario incentivare e rendere maggiormente attrattiva questa partecipazione e collaborazione. Un'ampia gamma di metodi pu\u00f2 essere utilizzata, spaziando dalle tecniche di gamification (che introducono aspetti di gioco), alla raccolta di opinioni e riscontri, all'utilizzo di ricompense e premi.",
+            "lv": "Viens no atv\u0113rto, p\u0101rredzamo un sadarbsp\u0113j\u012bgo sabiedrisko pakalpojumu m\u0113r\u0137iem ir padar\u012bt tos par pilso\u0146iem un nodro\u0161in\u0101t iedz\u012bvot\u0101ju l\u012bdzdal\u012bbu pakalpojuma izpild\u0113, uzlabo\u0161an\u0101 un att\u012bst\u012bb\u0101. Lai to pan\u0101ktu, ir j\u0101stimul\u0113 un j\u0101padara pievilc\u012bg\u0101ka \u0161\u0101da l\u012bdzdal\u012bba un sadarb\u012bba. Var tikt pielietoti da\u017e\u0101di pa\u0146\u0113mieni, s\u0101kot no gamifik\u0101cijas, l\u012bdz atgriezeniskajai saitei un l\u012bdz pat atl\u012bdz\u012bbai"
+        },
+        "functionality_translations": {
+            "en": "The functionalities expected to address this problem include in particular:\nDefine the incentives, rewards, policies, and appropriate mechanisms for continuous end user engagement\nAdopt and implement gamification techniques for sustainable participation;\nImplement the solutions to monitor, collect, and certify the end user actions and contributions.",
+            "es": ""
+        },
+        "id": "BUILD_PROBLEM_6",
+        "name_translations": {
+            "en": "Engage and incentivise citizen participation to the implementation and co-delivery of public services",
+            "es": "Involucrar e incentivar la participaci\u00f3n de los ciudadanos en la implementaci\u00f3n y co-prestaci\u00f3n de los servicios p\u00fablicos",
+            "it": "Coinvolgimento e incentivi alla partecipazione dei cittadini nella implementazione ed esecuzione dei servizi pubblici",
+            "lv": "Iesaistiet un stimul\u0113jiet iedz\u012bvot\u0101ju l\u012bdzdal\u012bbu publisko pakalpojumu \u012bsteno\u0161an\u0101 un koppieg\u0101d\u0113"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "In line with the Cloud-first principle promoted by EU Cloud Strategy, it is requested that the digital public services, when implemented as software solutions, adopt Cloud architectures and Cloud solutions to ensure their compatibility, portability, and scalability. In these settings, it is important to define and realize a proper Cloud strategy for the service implementation, appropriate Cloud-native architectures, different types of Cloud providers, as well as appropriate Cloud technologies and enablers.",
+            "es": "En consonancia con el principio de \"la nube es lo principal\" promovido por la estrategia de la UE sobre la nube, se solicita que los servicios p\u00fablicos digitales, cuando se implementen como soluciones de software, adopten arquitecturas y soluciones en la nube para garantizar su compatibilidad, portabilidad y escalabilidad. En este contexto, es importante definir y realizar una estrategia de nube adecuada para la implementaci\u00f3n del servicio, arquitecturas nativas de la nube apropiadas, diferentes tipos de proveedores de la nube, as\u00ed como tecnolog\u00edas y habilitadores de la nube apropiados.",
+            "it": "In linea con il principio \"Cloud-first\" promosso dalla strategia europea per il Cloud (EU Cloud Strategy), \u00e8 richiesto che i servizi digitali pubblici, quando implementati come soluzioni software, adottino delle architetture e soluzioni Cloud che assicurino compatibilit\u00e0, portabilit\u00e0 e scalabilit\u00e0. In questi contesti \u00e8 dunque importante definire e realizzare una appropriata strategia per l'implementazione del servizio con appropriate architetture basate su Cloud, diversi tipi di fornitori Cloud e appropriate tecnologie abilitanti.",
+            "lv": "Saska\u0146\u0101 ar ES m\u0101ko\u0146dato\u0161anas strat\u0113\u0123ijas atbalst\u012bto principu \u201cM\u0101konis pirmais\u201d, lai nodro\u0161in\u0101tu to savietojam\u012bbu, p\u0101rnesam\u012bbu un m\u0113rogojam\u012bbu, ir nepiecie\u0161ams, lai digit\u0101lie publiskie pakalpojumi, ja tos ievie\u0161 k\u0101 programmat\u016bras risin\u0101jumus, pie\u0146emtu m\u0101ko\u0146dato\u0161anas arhitekt\u016bras un m\u0101ko\u0146dato\u0161anas risin\u0101jumus. \u0160ajos apst\u0101k\u013cos ir svar\u012bgi defin\u0113t un \u012bstenot pien\u0101c\u012bgu m\u0101ko\u0146dato\u0161anas strat\u0113\u0123iju pakalpojuma ievie\u0161anai, atbilsto\u0161as m\u0101ko\u0146dato\u0161anas arhitekt\u016bras, da\u017e\u0101dus m\u0101ko\u0146pakalpojumu sniedz\u0113jus, k\u0101 ar\u012b atbilsto\u0161as m\u0101ko\u0146dato\u0161anas tehnolo\u0123ijas un veicin\u0101t\u0101jus."
+        },
+        "functionality_translations": {
+            "en": "The functionalities expected to address this problem include in particular:\nIdentify and apply the appropriate Cloud adoption strategy for PA\nIdentify and apply the appropriate Cloud migration strategy for PA software\nImplementation of the new digital services following Cloud-native architectures\nAdoption and usage of Cloud technologies and solutions for the service development and provisioning",
+            "es": ""
+        },
+        "id": "BUILD_PROBLEM_7",
+        "name_translations": {
+            "en": "Cloud-ready digital public services",
+            "es": "Servicios p\u00fablicos digitales preparados para la nube",
+            "it": "Servizi pubblici digitali basati su Cloud",
+            "lv": "M\u0101ko\u0146pakalpojumiem gatavi digit\u0101lie publiskie pakalpojumi"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "Building Blocks are endorsed by the European Commission and ensure that digital services will be fully compatible with others on the market and become interoperable, EU-compliant final products. In the CEF approach definition, a Building Block is an open and reusable digital solution. The implementation of new public services should take advantage of CEF Building Blocks as much as possible.",
+            "es": "Los Bloques de Construcci\u00f3n est\u00e1n avalados por la Comisi\u00f3n Europea y garantizan que los servicios digitales sean totalmente compatibles con otros del mercado y se conviertan en productos finales interoperables y conformes con la UE. En la definici\u00f3n del enfoque CEF, un Bloque de Construcci\u00f3n es una soluci\u00f3n digital abierta y reutilizable. La implementaci\u00f3n de nuevos servicios p\u00fablicos deber\u00eda aprovechar los Bloques de Construcci\u00f3n del CEF en la medida de lo posible.",
+            "it": "I \"Building Blocks\" sono componenti di sviluppo standard promossi dalla Commissione Europea come metodologia per garantire che i servizi digitali siano pienamente compatibili con altri sul mercato e diventino prodotti interoperabili soddisfacenti le normative europee. All'interno del paradigma CEF, un Building Block viene definito come una soluzione digitale aperta e riusabile. L'implementazione di nuovi servizi pubblici dovrebbe sfruttare i CEF Building Blocks is pi\u00f9 possibile.",
+            "lv": "Eiropas Komisija apstiprina \u0113ku blokus un nodro\u0161ina, ka digit\u0101lie pakalpojumi b\u016bs piln\u012bb\u0101 sader\u012bgi ar citiem tirg\u016b un k\u013c\u016bs par sadarbsp\u0113j\u012bgiem, ES pras\u012bb\u0101m atbilsto\u0161iem galaproduktiem. CEF pieejas defin\u012bcij\u0101 veido\u0161anas bloks ir atv\u0113rts un atk\u0101rtoti izmantojams digit\u0101lais risin\u0101jums. Jauno publisko pakalpojumu \u012bsteno\u0161anai p\u0113c iesp\u0113jas vair\u0101k j\u0101izmanto EISI \u0113ku bloku priek\u0161roc\u012bbas."
+        },
+        "functionality_translations": {
+            "en": "This problem is addressed by providing guidance on how to develop digital services in compliance  with EU regulations and CEF principles. Currently, there are eight Building Blocks: Big Data Test Infrastructure, Context Broker, eArchiving, eDelivery, eID, eInvoicing, eSignature and eTranslation. Information and id to the Connecting Europe Facility (CEF) should be provided and given proper visibility and promotion.",
+            "es": ""
+        },
+        "id": "BUILD_PROBLEM_8",
+        "name_translations": {
+            "en": "Re-use of CEF Building Blocks",
+            "es": "Reutilizaci\u00f3n de los bloques de construcci\u00f3n del CEF",
+            "it": "Riuso di CEF Building Blocks",
+            "lv": "EISI \u0113ku bloku atk\u0101rtota izmanto\u0161ana"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "This problem item addresses the need of a digital service that supports the collaborative creation of effective descriptions of public services or processes that can be useful (i) for the daily work of people who provide information about the services to the public, (ii) for citizens and other end-users of the services, (iii) for other PAs that would like to replicate the services or the processes at their local level. The domain problem considered here encompasses the following user tasks: 1) Co-creation and co-delivery of information of public utility, e.g. \u25cf creation and sharing of knowledge on public services \u25cf creation and sharing of good practices on public services and processes \u25cf collaborative process of information creation to ensure quality descriptions and active participation of all the stakeholders involved in the delivery of information \u25cf collaborative process of information enrichment with citizens involvement 2) Structuring of information according to standard classifications and data models for public services and process descriptions 3) In some case the need may also be to co-create information that augments and better explains existing information sources and is shown in overlay 4) Monitoring of quality of information service",
+            "es": "Este punto del problema aborda la necesidad de un servicio digital que apoye la creaci\u00f3n colaborativa de descripciones efectivas de servicios o procesos p\u00fablicos que puedan ser \u00fatiles (i) para el trabajo diario de las personas que proporcionan informaci\u00f3n sobre los servicios al p\u00fablico, (ii) para los ciudadanos y otros usuarios finales de los servicios, (iii) para otras AP que quieran replicar los servicios o los procesos a su nivel local. El problema de dominio considerado aqu\u00ed abarca las siguientes tareas de los usuarios: 1) Co-creaci\u00f3n y co-entrega de informaci\u00f3n de utilidad p\u00fablica, por ejemplo \u25cf creaci\u00f3n y puesta en com\u00fan de conocimientos sobre los servicios p\u00fablicos \u25cf creaci\u00f3n y puesta en com\u00fan de buenas pr\u00e1cticas sobre los servicios y procesos p\u00fablicos \u25cf proceso colaborativo de creaci\u00f3n de informaci\u00f3n para garantizar descripciones de calidad y la participaci\u00f3n activa de todas las partes interesadas que participan en la entrega de informaci\u00f3n \u25cf proceso colaborativo de enriquecimiento de la informaci\u00f3n con la participaci\u00f3n de los ciudadanos 2) Estructuraci\u00f3n de la informaci\u00f3n de acuerdo con las clasificaciones y modelos de datos est\u00e1ndar para los servicios p\u00fablicos y las descripciones de los procesos 3) En alg\u00fan caso, la necesidad tambi\u00e9n puede ser la de co-crear informaci\u00f3n que aumente y explique mejor las fuentes de informaci\u00f3n existentes y se muestra en superposici\u00f3n 4) Seguimiento de la calidad del servicio de informaci\u00f3n",
+            "it": "Questo problema \u00e8 riferito alla necessit\u00e0 di poter disporre di un servizio digitale che supporti la creazione collaborativa di descrizioni efficaci di servizi o processi pubblici che possa essere utile (i) per supportare il lavoro quotidiano del personale che fornisce ai pubblico informazioni sui servizi, (ii) per informare direttamente i cittadini e gli altri utenti finali dei servizi, (iii) per informare altre Pubbliche Amministrazioni che volessero replicare i servizi e i processi nel loro territorio. Il problema considerato qui comprende le seguenti attivit\u00e0: 1) co-creazione e messa a disposizione collaborativa di informazioni di pubblica utilit\u00e0 (ad esempio: conoscenza sui servizi pubblici; buone pratiche su servizi pubblici e processi; informazioni arricchite con il punto di vista dei diversi stakeholder e dei cittadini); 2) strutturazione dell'informazione rispetto a classificazioni standard e modelli di dati per servizi pubblici e processi; 3) co-creazione di informazione che aumenta e descrive in maniera pi\u00f9 efficace sorgenti informative esistenti attraverso delle visualizzazioni in sovraimpressione; 4) Monitoraggio della qualit\u00e0 del servizio informativo ai cittadini.",
+            "lv": "\u0160is problem\u0101tiskais jaut\u0101jums attiecas uz digit\u0101lu pakalpojumu nepiecie\u0161am\u012bbu, kas atbalsta t\u0101du efekt\u012bvu sabiedrisko pakalpojumu vai procesu aprakstu kop\u012bgu rad\u012b\u0161anu, kuri var b\u016bt noder\u012bgi: i) to cilv\u0113ku ikdienas darbam, kuri sniedz inform\u0101ciju par pakalpojumiem sabiedr\u012bbai, ii) iedz\u012bvot\u0101jiem un citiem pakalpojumu tie\u0161ajiem lietot\u0101jiem, iii) citiem SD, kas v\u0113las pavairot pakalpojumus vai procesus viet\u0113j\u0101 l\u012bmen\u012b. \u0160eit apl\u016bkot\u0101 dom\u0113na probl\u0113ma ietver \u0161\u0101dus lietot\u0101ja uzdevumus: 1) l\u012bdzrad\u012b\u0161ana un kop\u012bga inform\u0101cijas snieg\u0161ana par komun\u0101lajiem pakalpojumiem, piem\u0113ram, \u25cf zin\u0101\u0161anu rad\u012b\u0161ana un apmai\u0146a par sabiedriskajiem pakalpojumiem; \u25cf p\u0101rzin\u0101\u0161anu rad\u012b\u0161ana un apmai\u0146a ar labu praksi par sabiedriskajiem pakalpojumiem un procesiem; \u25cf inform\u0101cijas izveides sadarb\u012bbas process; lai nodro\u0161in\u0101tu inform\u0101cijas snieg\u0161an\u0101 iesaist\u012bto pu\u0161u kvalit\u0101tes aprakstus un akt\u012bvu l\u012bdzdal\u012bbu; \u25cf inform\u0101cijas bag\u0101tin\u0101\u0161anas sadarb\u012bbas process ar iedz\u012bvot\u0101ju l\u012bdzdal\u012bbu; 2) inform\u0101cijas struktur\u0113\u0161ana atbilsto\u0161i kvalit\u0101tes klasifik\u0101cijai un inform\u0101cijas mode\u013ciem."
+        },
+        "functionality_translations": {
+            "en": "In brief, the expected functionalities to solve the problem are the following:\n- Repository of shareable documents\n- Templates for creating good descriptions\n- Authentication\n- Manage access and edit rights of different user groups\n- Add annotations to web document parts or terms\n- Browse, search and filter through available documents, templates and annotations\n- Edit, comment and revise templates, document parts or annotations\n- Resolve comments and approve revisions and annotations\n- Versioning of documents\n- Underlying database\n- Multilinguality\n- Monitor the access to service descriptions\n- Customizable graphical layout to align with PA corporate image",
+            "es": ""
+        },
+        "id": "BUILD_PROBLEM_9",
+        "name_translations": {
+            "en": "Collaborative knowledge sharing on public processes and services",
+            "es": "Intercambio de conocimientos sobre procesos y servicios p\u00fablicos",
+            "it": "Condivisione collaborativa di conoscenza su servizi e processi pubblici",
+            "lv": "Kop\u012bgu zin\u0101\u0161anu apmai\u0146a par sabiedriskajiem procesiem un pakalpojumiem"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "Defining the evaluation criteria for a service to be co-delivered is a crucial step to monitor the quality of the co-designed and co-delivered service. Enablers addressing this problem should support the team in finding the most appropriate criteria, agree on them and use them in the evaluation of the service co-delivered",
+            "es": "Definir los criterios de evaluaci\u00f3n de un servicio que se va a prestar conjuntamente es un paso crucial para controlar la calidad del servicio codise\u00f1ado y prestado conjuntamente. Los facilitadores que abordan este problema deben ayudar al equipo a encontrar los criterios m\u00e1s adecuados, acordarlos y utilizarlos en la evaluaci\u00f3n del servicio codise\u00f1ado",
+            "it": "La definizione dei criteri di valutazione di un servizio che deve essere eseguito in modo collaborativo rappresenta un passo cruciale per il monitoraggio della qualit\u00e0 del servizio. Il team di co-produzione deve essere accompagnato nella ricerca dei criteri pi\u00f9 appropriati, nel concordare la loro scelta e nella loro applicazione per la valutazione del servizio.",
+            "lv": "Koppieg\u0101des pakalpojuma nov\u0113rt\u0113\u0161anas krit\u0113riju noteik\u0161ana ir b\u016btisks solis, lai uzraudz\u012btu kop\u012bgi projekt\u0113t\u0101 un kop\u012bgi pieg\u0101d\u0101t\u0101 pakalpojuma kvalit\u0101ti. Pilnvarot\u0101jiem, kas risina \u0161o probl\u0113mu, ir j\u0101atbalsta darba grupa vispiem\u0113rot\u0101ko krit\u0113riju atra\u0161an\u0101, j\u0101vienojas par tiem un j\u0101izmanto tie koppieg\u0101des pakalpojuma nov\u0113rt\u0113\u0161an\u0101."
+        },
+        "functionality_translations": {
+            "en": "The knowledge enablers supporting this problem item should include: \nGuidelines for the selection of KPIs for co-produced public services\nGuidelines on how to define the evaluation criteria according to the type of service \nSet of standard criteria templates that might be used to evaluate the service, like for example acceptance, usability, trust, quality of service:\nevaluation dimensions defined for digital services and summarized in standard evaluation questionnaires\nExamples of KPIs and evaluation criteria set by significant Use Cases",
+            "es": ""
+        },
+        "id": "VAL_PROBLEM_1",
+        "name_translations": {
+            "en": "Define the evaluation criteria and KPIs",
+            "es": "Definir los criterios de evaluaci\u00f3n y los KPI",
+            "it": "Definizione dei criteri di valutazione e degli principali indicatori di performance",
+            "lv": "Nov\u0113rt\u0113\u0161anas krit\u0113riju un KPI defin\u0113\u0161ana"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "This problem profile refers to the reflection strategy that supports the coproduction team in iteratively evaluating whether the service is feasible and viable in the longer run (sustainable) or not, and hence deciding if it is worth continuing the co-production effort. Enablers in this category should provide support to the team during different stages of the project, supporting them in reflecting and continuously evaluating the process and the outcomes of the collaborative process",
+            "es": "Este perfil de problema se refiere a la estrategia de reflexi\u00f3n que apoya al equipo de coproducci\u00f3n en la evaluaci\u00f3n iterativa de si el servicio es factible y viable a largo plazo (sostenible) o no, y por lo tanto decidir si vale la pena continuar con el esfuerzo de coproducci\u00f3n. Los habilitadores de esta categor\u00eda deben proporcionar apoyo al equipo durante las diferentes etapas del proyecto, ayud\u00e1ndoles a reflexionar y evaluar continuamente el proceso y los resultados del proceso de colaboraci\u00f3n",
+            "it": "Questo problema sottolinea l'importanza di una strategia di riflessione che supporti il team di co-produzione nel valutare iterativamente se il servizio \u00e8 fattibile e sostenibile nel lungo termine o meno, e quindi nel decidere se \u00e8 opportuno proseguire nell'iniziativa di co-produzione. Le risorse per risolvere questo problema dovrebbero supportare il team nel riflettere e valutare in modo continuo il processo collaborativo ed i suoi risultati.",
+            "lv": "\u0160is probl\u0113mas profils attiecas uz p\u0101rdomu strat\u0113\u0123iju, kas atbalsta kopra\u017eojuma komandu, veicot atk\u0101rtotu nov\u0113rt\u0113jumu, vai pakalpojums ir iesp\u0113jams un dz\u012bvotsp\u0113j\u012bgs ilgtermi\u0146\u0101 (ilgtsp\u0113j\u012bgs) vai n\u0113, un l\u012bdz ar to lemjot, vai ir v\u0113rts turpin\u0101t kopra\u017eo\u0161anas centienus. \u0160\u012bs kategorijas dal\u012bbniekiem b\u016btu j\u0101sniedz atbalsts komandai da\u017e\u0101dos projekta posmos, atbalstot vi\u0146us, atspogu\u013cojot un past\u0101v\u012bgi nov\u0113rt\u0113jot sadarb\u012bbas procesa norisi un rezult\u0101tus."
+        },
+        "functionality_translations": {
+            "en": "The enablers addressing this problem should provide guidance and tools on co-evaluation activities according to the stage of the process to be evaluated and should include:\nenablers for internal assessment of resources\nenablers for checking which are the competencies required for addressing the next phases of the process \nenablers to check competencies and skills internal to the group \n\u2026.\nMore detailed specifications for the desired knowledge and functionalities to solve this problem profile will be elaborated as research in WP2 on the governance models and co-production process progresses.",
+            "es": ""
+        },
+        "id": "VAL_PROBLEM_2",
+        "name_translations": {
+            "en": "Ongoing internal co-evaluation (Go-no go)",
+            "es": "Coevaluaci\u00f3n interna continua (Seguir o no seguir)",
+            "it": "Valutazione interna continua (Go-no go)",
+            "lv": "Past\u0101v\u012bgs iek\u0161\u0113jais kopv\u0113rt\u0113jums (iet-neiet)"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "This problem addresses the need to validate a concept of a service or to verify the assumptions about a final product before developing it. Different types of proof of concepts can be used, according to the stage of service development and the type of service, whether it is a digital service or not.",
+            "es": "Este problema aborda la necesidad de validar el concepto de un servicio o de verificar las hip\u00f3tesis sobre un producto final antes de desarrollarlo. Se pueden utilizar diferentes tipos de pruebas de concepto, seg\u00fan la fase de desarrollo del servicio y el tipo de servicio, ya sea digital o no.",
+            "it": "Questo problema si riferisce alla necessit\u00e0 di validare la concezione di un servizio o di verificare le assunzioni su un prodotto prima del suo sviluppo. Diversi modalit\u00e0 di validazione possono essere utilizzate, a seconda dello stadio di sviluppo del tipo di servizio, e a seconda che il servizio sia digitale o meno.",
+            "lv": "\u0160\u012b probl\u0113ma attiecas uz nepiecie\u0161am\u012bbu pirms pakalpojuma izstr\u0101des apstiprin\u0101t pakalpojuma j\u0113dzienu vai p\u0101rbaud\u012bt pie\u0146\u0113mumus par gala produktu. Atkar\u012bb\u0101 no pakalpojumu izstr\u0101des posma un pakalpojuma veida var izmantot da\u017e\u0101dus j\u0113dzienu pier\u0101d\u012b\u0161anas veidus neatkar\u012bgi no t\u0101, vai tas ir digit\u0101lais pakalpojums vai ne."
+        },
+        "functionality_translations": {
+            "en": "Enablers addressing this problem should provide guidance on the different approaches to develop and test a proof of concept, in which situations they could be useful, and  on how to use the insights coming from the test to improve the service before developing and co-delivering it.\nDescriptive text explaining what is a proof of concepts, which are the different types of proof of concepts that can be realized\nExamples and Templates of experience scenarios\nExamples andTemplates of Pen & paper mock-ups\nExamples and Templates of  Low-fidelity prototypes\nExamples of  MVP (minimum version of product)\nDescriptive text explaining how these artefacts might be used to validate and refine a concept of a new service",
+            "es": ""
+        },
+        "id": "VAL_PROBLEM_3",
+        "name_translations": {
+            "en": "Develop and test a proof of concept",
+            "es": "Desarrollar y probar una prueba de concepto",
+            "it": "Sviluppo e test di un prototipo di idea",
+            "lv": "Izstr\u0101d\u0101t un p\u0101rbaud\u012bt koncepcijas apliecin\u0101jumu"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "This problem addresses the need to perform an early evaluation of the digital service leveraging experts without involving end users.",
+            "es": "Este problema aborda la necesidad de realizar una evaluaci\u00f3n temprana del servicio digital aprovechando a los expertos sin involucrar a los usuarios finales.",
+            "it": "Questo problema si riferisce alla necessit\u00e0 di eseguire una valutazione precoce dei servizi digitali sfruttando le competenze di esperti senza coinvolgere ancora gli utenti finali.",
+            "lv": "\u0160\u012b probl\u0113ma ir saist\u012bta ar nepiecie\u0161am\u012bbu veikt agr\u012bnu digit\u0101lo pakalpojumu, piesaistot ekspertu nov\u0113rt\u0113jumu, neiesaistot gala lietot\u0101jus."
+        },
+        "functionality_translations": {
+            "en": "Enablers to support this problem item should include guidelines on how to conduct an Heuristic Evaluation (also Expert evaluation) and templates with the heuristics (principles) to follow to perform the test. The test can be conducted with early mock-ups as well with functioning systems.",
+            "es": ""
+        },
+        "id": "VAL_PROBLEM_4",
+        "name_translations": {
+            "en": "Test the digital service with experts",
+            "es": "Probar el servicio digital con expertos",
+            "it": "Testare i servizi digitali con esperti",
+            "lv": "Izm\u0113\u0123iniet digit\u0101lo pakalpojumu kop\u0101 ar ekspertiem"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "This problem addresses the need to continuously monitor the service co-delivered in order to keep work on track, regularly review progress, make adjustments and changes if necessary.",
+            "es": "Este problema aborda la necesidad de hacer un seguimiento continuo del servicio codirigido para mantener el trabajo en marcha, revisar peri\u00f3dicamente los avances y hacer ajustes y cambios si es necesario.",
+            "it": "Questo problema si riferisce alla necessit\u00e0 di monitorare in modo continuo il servizio eseguito in modo collaborativo al fine di mantenere l'esecuzione secondo le aspettative, di controllare regolarmente i progressi e applicare aggiustamenti o cambiamenti se necessario.",
+            "lv": "\u0160\u012b probl\u0113ma ir saist\u012bta ar nepiecie\u0161am\u012bbu past\u0101v\u012bgi uzraudz\u012bt kop\u012bgi sniegto pakalpojumu, lai turpin\u0101tu darbu, regul\u0101ri p\u0101rskat\u012btu paveikto, veiktu piel\u0101gojumus un izmai\u0146as, ja nepiecie\u0161ams."
+        },
+        "functionality_translations": {
+            "en": "Enablers should provide guidance and tools  on how to monitor and evaluate services co-delivered.\nGuidelines on how to monitor services co-delivery \nSteps to follow to set up a monitoring process:\nReview the indicators you are going to measure, also according with KPIs (like number of users, users' satisfaction, other dimensions specifically related to co-production, \u2026.)\nDecide if indicators should be measured through qualitative or quantitative methods\nCollect and analyse data\nList of tools that can be used to monitor the quality of the service co-delivered\nUse data to implement changes and improve service co-delivery",
+            "es": ""
+        },
+        "id": "VAL_PROBLEM_5",
+        "name_translations": {
+            "en": "Monitoring and ongoing evaluation of the co-delivered service",
+            "es": "Seguimiento y evaluaci\u00f3n continua del servicio codirigido",
+            "it": "Monitoraggio e valutazione in itinere del servizio erogato in modo collaborativo",
+            "lv": "L\u012bdzsniegt\u0101 pakalpojuma uzraudz\u012bba un past\u0101v\u012bga nov\u0113rt\u0113\u0161ana"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "This problem addresses the need to review and refine the business model and market reach plan associated to a co-produced service.",
+            "es": "Este problema aborda la necesidad de revisar y refinar el modelo de negocio y el plan de alcance del mercado asociado a un servicio coproducido.",
+            "it": "Questo problema si riferisce alla necessit\u00e0 di rivedere e raffinare il modello di business e il piano di copertura del mercato associato ad un servizio co-prodotto.",
+            "lv": "\u0160\u012b probl\u0113ma risina nepiecie\u0161am\u012bbu p\u0101rskat\u012bt un preciz\u0113t uz\u0146\u0113m\u0113jdarb\u012bbas modeli un tirgus sasniedzam\u012bbas pl\u0101nu, kas saist\u012bts ar kopra\u017eojuma pakalpojumu."
+        },
+        "functionality_translations": {
+            "en": "Enablers should provide guidance and tools on how to define suitable business models and effective business plans that would allow to put in practice the deviced business models.",
+            "es": ""
+        },
+        "id": "SUS_PROBLEM_1",
+        "name_translations": {
+            "en": "Define a sustainability / business plan",
+            "es": "Definir un plan de sostenibilidad / negocio",
+            "it": "Definizione di un piano di business e di sostenibilit\u00e0",
+            "lv": "Ilgtsp\u0113j\u012bbas/uz\u0146\u0113m\u0113jdarb\u012bbas pl\u0101na defin\u0113\u0161ana"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "This problem addresses the need to be able to specify a new public service proposal to be considered for co-production.",
+            "es": "Este problema aborda la necesidad de poder especificar una nueva propuesta de servicio p\u00fablico que se considere para la coproducci\u00f3n.",
+            "it": "Questo problema si riferisce alla necessit\u00e0 di specificare una nuova proposta di servizio pubblico da considerare per la co-produzione.",
+            "lv": "\u0160\u012b probl\u0113ma ir saist\u012bta ar nepiecie\u0161am\u012bbu noteikt jaunu sabiedrisko pakalpojumu priek\u0161likumu, kas b\u016btu j\u0101\u0146em v\u0113r\u0101 attiec\u012bb\u0101 uz kopprodukciju."
+        },
+        "functionality_translations": {
+            "en": "Enablers should provide guidance and tools on how to generate an adequate proposal of public service, compliant with standards, that would allow for these specifications to be realized.",
+            "es": ""
+        },
+        "id": "HACKATHON_PROBLEM_1",
+        "name_translations": {
+            "en": "Define a proposal of public service",
+            "es": "Definir una propuesta de servicio p\u00fablico",
+            "it": "Definizione di una nuova proposta di servizio pubblico",
+            "lv": "Sabiedrisko pakalpojumu priek\u0161likuma defin\u0113\u0161ana"
+        }
+    },
+    {
+        "description_translations": {
+            "en": "This problem addresses the need to define the rules for a competition (hackathon, contest) where different teams may take part.",
+            "es": "Este problema aborda la necesidad de definir las reglas de una competici\u00f3n (hackathon, concurso) en la que pueden participar diferentes equipos.",
+            "it": "Questo problema si riferisce alla necessit\u00e0 di definire delle regole per una competizione (hackathon, concorso) a cui prendono parte diverse squadre.",
+            "lv": "\u0160\u012b probl\u0113ma ir saist\u012bta ar nepiecie\u0161am\u012bbu defin\u0113t noteikumus par konkursu (hackathon, konkursu), kur\u0101 var piedal\u012bties da\u017e\u0101das komandas."
+        },
+        "functionality_translations": {
+            "en": "Enablers should provide guidance and tools to help co-producers co-defining the rules of a given competition.",
+            "es": ""
+        },
+        "id": "HACKATHON_PROBLEM_2",
+        "name_translations": {
+            "en": "Define the rules of a Hackathon or Contest",
+            "es": "Definir las reglas de un Hackathon o Concurso",
+            "it": "Definizione delle regole per un hackathon o un concorso",
+            "lv": "Hakatona vai Konkursa noteikumu defin\u0113\u0161ana"
+        }
+    }
+]

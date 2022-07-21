@@ -1,0 +1,71 @@
+{
+    "administrative_scopes": [
+        "national",
+        "local"
+    ],
+    "asset_name_translations": {
+        "en": "Guidelines for technical interoperability for PA and related operational documents"
+    },
+    "constraints_and_limitations_translations": {
+        "en": "No special constraints apply"
+    },
+    "description_translations": {
+        "en": "<p>This resource describes the guidelines for technical interoperability for PA and related operational documents: interaction patterns, interoperability profiles, implementation recommendations (in Italian). </p>",
+        "es": "<p>Este recurso describe las directrices de interoperabilidad t\u00e9cnica para la AP y los documentos operativos relacionados: patrones de interacci\u00f3n, perfiles de interoperabilidad, recomendaciones de implementaci\u00f3n (en italiano)</p>",
+        "it": "<p>Questa risorsa descrive le linee guida per l'interoperabilit\u00e0 tecnica per la PA e i relativi documenti operativi: modelli di interazione, profili di interoperabilit\u00e0, raccomandazioni di attuazione (in italiano). </p>",
+        "lv": "<p>\u0160is resurss raksturo tehnisk\u0101s sadarbsp\u0113jas vadl\u012bnijas valsts p\u0101rvald\u0113 un ar t\u0101m saist\u012btos operacion\u0101los dokumentus: mijiedarb\u012bbas mode\u013cus, sadarbsp\u0113jas profilus, ievie\u0161anas rekomend\u0101cijas (it\u0101\u013cu valod\u0101).</p>"
+    },
+    "difficulty": "difficult",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "form": "guidelines",
+    "format": "structured_format",
+    "id": "italian-pa-interoperablity-model",
+    "instructions_translations": {
+        "en": "./interlinkers/externalknowledge/it-guidelines-data-protection/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "permissive",
+    "name_translations": {
+        "en": "Italian PA interoperablity model",
+        "es": "Modelo de interoperabilidad de la AP italiana",
+        "it": "Modello per l'interoperabilit\u00e0 delle PA italiane",
+        "lv": "It\u0101lijas valsts p\u0101rvaldes sadarbsp\u0113jas modelis"
+    },
+    "problemprofiles": [
+        "BUILD_PROBLEM_3"
+    ],
+    "regulations_and_standards_translations": {
+        "en": "EU Open Source Software Strategy: https://ec.europa.eu/info/departments/informatics/open-source-software-strategy_en"
+    },
+    "tags_translations": {
+        "en": [
+            "open source",
+            "software",
+            "interoperability",
+            "public administration",
+            "reuse",
+            "acquisition"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enabling_services",
+        "enabling_services;implementing_software_and_artifacts"
+    ],
+    "uri_translations": {
+        "en": "https://www.agid.gov.it/it/infrastrutture/sistema-pubblico-connettivita/il-nuovo-modello-interoperabilita"
+    }
+}

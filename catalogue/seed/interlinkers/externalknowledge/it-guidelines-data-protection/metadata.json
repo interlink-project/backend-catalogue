@@ -1,0 +1,69 @@
+{
+    "administrative_scopes": [
+        "eu",
+        "national",
+        "local"
+    ],
+    "asset_name_translations": {
+        "en": "EDPB Guidelines 4/2019. Data Protection by Design and by Default"
+    },
+    "constraints_and_limitations_translations": {
+        "en": "No special constraints apply"
+    },
+    "description_translations": {
+        "en": "<p>These Guidelines give general guidance on the obligation of Data Protection by Design and by Default (henceforth \u201cDPbDD\u201d) set forth in Article 25 in the GDPR.</p>",
+        "es": "<p>Estas Directrices ofrecen una orientaci\u00f3n general sobre la obligaci\u00f3n de la Protecci\u00f3n de Datos por Dise\u00f1o y por Defecto (en adelante \"DPbDD\") establecida en el art\u00edculo 25 del GDPR.</p>",
+        "it": "<p>Le presenti Linee guida forniscono indicazioni generali sull'obbligo di protezione dei dati fin dalla progettazione e per impostazione predefinita (di seguito \"DPbDD\") di cui all'articolo 25 del GDPR.</p>",
+        "lv": "<p>\u0160\u012bs vadl\u012bnijas sniedz visp\u0101r\u0113ju ieskatu GDPR 25. pant\u0101 izkl\u0101st\u012btaj\u0101s integr\u0113t\u0101s datu aizsardz\u012bbas un datu aizsardz\u012bbas p\u0113c noklus\u0113juma (turpm\u0101k \"DPbDD\") saist\u012bb\u0101s.</p>"
+    },
+    "difficulty": "difficult",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "form": "guidelines",
+    "format": "pdf",
+    "id": "edpb-data-protection-guidelines",
+    "instructions_translations": {
+        "en": "./interlinkers/externalknowledge/it-guidelines-data-protection/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "permissive",
+    "name_translations": {
+        "en": "EDPB Data Protection Guidelines",
+        "es": "Directrices de protecci\u00f3n de datos del EDPB",
+        "it": "Linee guida EDPB per la protezione dei dati",
+        "lv": "EDPB Datu aizsardz\u012bbas vadl\u012bnijas"
+    },
+    "problemprofiles": [
+        "BUILD_PROBLEM_3"
+    ],
+    "regulations_and_standards_translations": {
+        "en": "<ul><li>Article 70 (1e) of the Regulation 2016/679/EU of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of personal data and on the free movement of such data, and repealing Directive 95/46/EC], (hereinafter \"GDPR\")</li> <li>EEA Agreement and in particular to Annex XI and Protocol 37 thereof, as amended by the Decision of the EEA joint Committee No 154/2018 of 6 July 2018,</li><li>Article 12 and Article 22 of its Rules of Procedure</li></ul>"
+    },
+    "tags_translations": {
+        "en": [
+            "GDPR",
+            "privacy",
+            "security"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enabling_services",
+        "enabling_services;implementing_software_and_artifacts"
+    ],
+    "uri_translations": {
+        "en": "https://edpb.europa.eu/sites/default/files/files/file1/edpb_guidelines_201904_dataprotection_by_design_and_by_default_v2.0_en.pdf"
+    }
+}

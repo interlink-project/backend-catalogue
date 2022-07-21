@@ -1,0 +1,66 @@
+{
+    "administrative_scopes": [
+        "eu"
+    ],
+    "constraints_and_limitations_translations": {
+        "en": "No special constraints apply"
+    },
+    "description_translations": {
+        "en": "<p>This resource provides a skeleton to organize a focus group to investigate the co-production practices in a given organization. It addresses a series of questions about previous or current collaboration practices, the dynamics of collaboration (timeline, people, tools, communication channels), current KPIs, critical aspects and  desiderata.</p>",
+        "es": "<p>Este recurso proporciona un esqueleto para organizar un grupo focal que investigue las pr\u00e1cticas de coproducci\u00f3n en una organizaci\u00f3n determinada. Aborda una serie de preguntas sobre las pr\u00e1cticas de colaboraci\u00f3n anteriores o actuales, la din\u00e1mica de la colaboraci\u00f3n (calendario, personas, herramientas, canales de comunicaci\u00f3n), los KPI actuales, los aspectos cr\u00edticos y los desiderata.</p>",
+        "it": "<p>Questa risorsa fornisce uno scheletro per organizzare un focus group per studiare le pratiche di coproduzione in una determinata organizzazione. Affronta una serie di domande sulle pratiche di collaborazione precedenti o attuali, le dinamiche della collaborazione (timeline, persone, strumenti, canali di comunicazione), KPI attuali, aspetti critici e desiderata.</p>",
+        "lv": "<p>\u0160is resurss pied\u0101v\u0101 fokusgrupas organiz\u0113\u0161anas ietvaru koprades prakses izp\u0113tei konkr\u0113t\u0101 organiz\u0101cij\u0101. Tas ietver jaut\u0101jumu kopumu par \u0161\u012bbr\u012b\u017ea sadarb\u012bbas praksi, sadarb\u012bbas dinamiku (laika grafiks, cilv\u0113ki, r\u012bki, komunik\u0101cijas kan\u0101li), \u0161\u012bbr\u012b\u017ea sasniedzamajiem r\u0101d\u012bt\u0101jiem (KPI), kritiskajiem aspektiem un v\u0113lm\u0113m.</p>"
+    },
+    "difficulty": "easy",
+    "domain": "",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "file_translations": {
+        "en": "./interlinkers/knowledge/Focus-Group-Template-Co-production/resource.pptx"
+    },
+    "form": "document_template",
+    "format": "editable_source_document",
+    "id": "focus-group-template-co-production-investigation",
+    "instructions_translations": {
+        "en": "./interlinkers/knowledge/Focus-Group-Template-Co-production/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "public_domain",
+    "name_translations": {
+        "en": "Focus Group Template Co-production Investigation",
+        "es": "Plantilla de grupo focal Investigaci\u00f3n de coproducci\u00f3n",
+        "it": "Schema per focus group in indagini di coproduzione",
+        "lv": "Koprades izp\u0113tes fokusgrupas veidlapa"
+    },
+    "problemprofiles": [
+        "VAL_PROBLEM_2"
+    ],
+    "process": "",
+    "regulations_and_standards_translations": {
+        "en": ""
+    },
+    "softwareinterlinker": "googledrive",
+    "tags_translations": {
+        "en": [
+            "focus group",
+            "template",
+            "understand"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enhancing_services"
+    ]
+}

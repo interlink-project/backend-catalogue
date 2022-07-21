@@ -1,0 +1,67 @@
+{
+    "administrative_scopes": [
+        "eu",
+        "national",
+        "local"
+    ],
+    "asset_name_translations": {
+        "en": "Open source guide"
+    },
+    "constraints_and_limitations_translations": {
+        "en": "No special constraints apply"
+    },
+    "description_translations": {
+        "en": "<p>A collection of resources for individuals, communities, and companies who want to learn how to run and contribute to an open source project.</p>",
+        "es": "<p>Una colecci\u00f3n de recursos para individuos, comunidades y empresas que quieran aprender a dirigir y contribuir a un proyecto de c\u00f3digo abierto.</p>",
+        "it": "<p>Una raccolta di risorse per individui, comunit\u00e0 e aziende che desiderano imparare a gestire e contribuire a un progetto open source.</p>",
+        "lv": "<p>Resursu kopums indiv\u012bdiem, kopien\u0101m un uz\u0146\u0113mumiem, kuri v\u0113las iem\u0101c\u012bties, k\u0101 piedal\u012bties un vad\u012bt atv\u0113rt\u0101 koda projektu.</p>"
+    },
+    "difficulty": "very_easy",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "form": "guidelines",
+    "format": "structured_format",
+    "id": "open-source-guides",
+    "instructions_translations": {
+        "en": "./interlinkers/externalknowledge/Opensource-Guide/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "public_domain",
+    "name_translations": {
+        "en": "Open Source guides",
+        "es": "Gu\u00edas de c\u00f3digo abierto",
+        "it": "Indicazioni per Open Source",
+        "lv": "Atv\u0113rt\u0101 koda ce\u013cvedis"
+    },
+    "problemprofiles": [
+        "BUILD_PROBLEM_3"
+    ],
+    "regulations_and_standards_translations": {
+        "en": "EU Open Source Software Strategy: https://ec.europa.eu/info/departments/informatics/open-source-software-strategy_en"
+    },
+    "tags_translations": {
+        "en": [
+            "open source software"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enabling_services",
+        "enabling_services;implementing_software_and_artifacts"
+    ],
+    "uri_translations": {
+        "en": "https://opensource.guide/"
+    }
+}

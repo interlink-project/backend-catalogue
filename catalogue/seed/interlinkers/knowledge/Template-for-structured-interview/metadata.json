@@ -1,0 +1,70 @@
+{
+    "administrative_scopes": [
+        "eu"
+    ],
+    "constraints_and_limitations_translations": {
+        "en": "No special constraints apply"
+    },
+    "description_translations": {
+        "en": "<p>Instructions and examples on how to conduct structured interviews for a co-production project.  </p>",
+        "es": "<p>Instrucciones y ejemplos sobre c\u00f3mo realizar entrevistas estructuradas para un proyecto de coproducci\u00f3n.  </p>",
+        "it": "<p>Istruzioni ed esempi su come condurre interviste strutturate in un progetto di coproduzione. </p>",
+        "lv": "<p>Koprades procesam nepiecie\u0161amo struktur\u0113to interviju veik\u0161anas instrukcija ar piem\u0113riem.</p>"
+    },
+    "difficulty": "easy",
+    "domain": "",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "file_translations": {
+        "en": "./interlinkers/knowledge/Template-for-structured-interview/resource.docx"
+    },
+    "form": "document_template",
+    "format": "editable_source_document",
+    "id": "template-for-structured-interview",
+    "instructions_translations": {
+        "en": "./interlinkers/knowledge/Template-for-structured-interview/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "public_domain",
+    "name_translations": {
+        "en": "template for structured interview",
+        "es": "Plantilla para la entrevista estructurada",
+        "it": "Modello per interviste strutturate",
+        "lv": "Struktur\u0113t\u0101s intervijas veidlapa"
+    },
+    "problemprofiles": [
+        "ORG_PROBLEM_2",
+        "ORG_PROBLEM_4",
+        "ORG_PROBLEM_10",
+        "ORG_PROBLEM_14",
+        "UND_PROBLEM_3"
+    ],
+    "process": "",
+    "regulations_and_standards_translations": {
+        "en": ""
+    },
+    "softwareinterlinker": "googledrive",
+    "tags_translations": {
+        "en": [
+            "product specification",
+            "template",
+            "understand"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enhancing_services"
+    ]
+}

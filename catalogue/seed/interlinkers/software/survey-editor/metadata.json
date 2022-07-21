@@ -1,0 +1,97 @@
+{
+    "constraints_and_limitations_translations": {
+        "en": "Some text here",
+        "es": ""
+    },
+    "description_translations": {
+        "en": "Survey designer and publishing INTERLINKER which allows to create on demand new forms to gather information or help in decision making in co-production processess. It is based on open source tool SurveyJs (https://github.com/surveyjs)",
+        "es": "Dise\u00f1ador y editor de encuestas INTERLINKER que permite crear bajo demanda nuevos formularios para recoger informaci\u00f3n o ayudar a la toma de decisiones en procesos de coproducci\u00f3n. Est\u00e1 basado en la herramienta de c\u00f3digo abierto SurveyJs (https://github.com/surveyjs)",
+        "it": "L INTERLINKER Survey designer and publishing permette di creare on demand nuovi moduli per raccogliere informazioni o aiutare nel processo decisionale nei processi di coproduzione. Si basa sullo strumento open source SurveyJs (https://github.com/surveyjs)",
+        "lv": "Aptauju veido\u0161anas un public\u0113\u0161anas INTERLINKERs, kas \u013cauj izveidot un piepras\u012bt jaunas formas inform\u0101cijas iev\u0101k\u0161anai vai pal\u012bdz\u0113t koprades proces\u0101 radu\u0161os l\u0113mumu pie\u0146em\u0161anai. Tas ir balst\u012bts uz atv\u0113rt\u0101 koda r\u012bku SurveyJS (https://github.com/surveyjs)"
+    },
+    "difficulty": "easy",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "id": "survey-editor",
+    "instructions_translations": {
+        "en": "./interlinkers/software/survey-editor/instructions.md"
+    },
+    "integration": {
+        "api_path": "/assets",
+        "auth_method": "cookie",
+        "capabilities": {
+            "clone": true,
+            "delete": true,
+            "download": false,
+            "edit": false,
+            "instantiate": true,
+            "open_in_modal": true,
+            "preview": true,
+            "shortcut": true,
+            "view": true
+        },
+        "capabilities_translations": {
+            "clone_text_translations": {
+                "en": "Clone survey",
+                "es": "Clonar encuesta"
+            },
+            "delete_text_translations": {
+                "en": "Delete survey",
+                "es": "Eliminar encuesta"
+            },
+            "instantiate_text_translations": {
+                "en": "Create a survey",
+                "es": "Crear una encuesta"
+            },
+            "preview_text_translations": {
+                "en": "Preview survey",
+                "es": "Ver la encuesta propuesta"
+            },
+            "view_text_translations": {
+                "en": "Open survey editor",
+                "es": "Abrir editor de encuesta"
+            }
+        },
+        "domain": "",
+        "is_subdomain": false,
+        "path": "surveyeditor",
+        "service_name": "surveyeditor"
+    },
+    "is_responsive": true,
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "propietary",
+    "logotype": "./interlinkers/software/survey-editor/logo.jpeg",
+    "name_translations": {
+        "en": "Survey editor",
+        "es": "Editor de encuestas",
+        "it": "Survey editor",
+        "lv": "Aptauju redaktors"
+    },
+    "problemprofiles": [],
+    "regulations_and_standards_translations": {
+        "en": "Optional text here",
+        "es": ""
+    },
+    "supported_by": [
+        "saas"
+    ],
+    "supports_internationalization": true,
+    "tags_translations": {
+        "en": [
+            "survey",
+            "question",
+            "poll",
+            "vote"
+        ]
+    },
+    "type": "software"
+}

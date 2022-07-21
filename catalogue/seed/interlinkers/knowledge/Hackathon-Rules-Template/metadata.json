@@ -1,0 +1,67 @@
+{
+    "administrative_scopes": [
+        "eu"
+    ],
+    "constraints_and_limitations_translations": {
+        "en": "No special constraints apply"
+    },
+    "description_translations": {
+        "en": "<p>Document with template for co-design of Hackathon Rules</p>",
+        "es": "<p>Documento con la plantilla para el codise\u00f1o de las reglas del Hackathon</p>",
+        "it": "<p>Documento con schemi e modello per il co-design delle Regole in Hackathon</p>",
+        "lv": "<p>Dokuments ar hakatona noteikumu kopdizaina paraugu</p>"
+    },
+    "difficulty": "very_easy",
+    "domain": "",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "file_translations": {
+        "en": "./interlinkers/knowledge/Hackathon-Rules-Template/resource.docx"
+    },
+    "form": "document_template",
+    "format": "editable_source_document",
+    "id": "hackathon-rules-template-for-interlink-project",
+    "instructions_translations": {
+        "en": "./interlinkers/knowledge/Hackathon-Rules-Template/instructions.md"
+    },
+    "is_sustainability_related": true,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "public_domain",
+    "name_translations": {
+        "en": "Hackathon Rules Template for INTERLINK project",
+        "es": "Plantilla de reglas del Hackathon para el proyecto INTERLINK",
+        "it": "Modello relativo alle regole per hackaton specifiche per progetto INTERLINK",
+        "lv": "Hakatona noteikumu paraugs INTERLINK projektam"
+    },
+    "problemprofiles": [
+        "HACKATHON_PROBLEM_2"
+    ],
+    "process": "",
+    "regulations_and_standards_translations": {
+        "en": "Hackathon Rules Template is compliant to GDPR norms."
+    },
+    "softwareinterlinker": "googledrive",
+    "tags_translations": {
+        "en": [
+            "hackathon",
+            "rules",
+            "co-production project participants",
+            "INTERLINK"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enhancing_services"
+    ]
+}

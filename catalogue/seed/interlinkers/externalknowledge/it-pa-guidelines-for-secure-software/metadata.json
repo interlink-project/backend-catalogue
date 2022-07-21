@@ -1,0 +1,66 @@
+{
+    "administrative_scopes": [
+        "national",
+        "local"
+    ],
+    "asset_name_translations": {
+        "en": "AgID guidelines for the development of secure software"
+    },
+    "constraints_and_limitations_translations": {
+        "en": "No special constraints apply"
+    },
+    "description_translations": {
+        "en": "<p>This resource describes the guidelines for the development of secure software in the public administration</p>",
+        "es": "<p>Este recurso describe las directrices para el desarrollo de software seguro en la administraci\u00f3n p\u00fablica</p>",
+        "it": "<p>Questa risorsa descrive le linee guida per lo sviluppo di software sicuro nella pubblica amministrazione</p>",
+        "lv": "<p>\u0160aj\u0101 resurs\u0101 raksturotas vadl\u012bnijas dro\u0161as programmat\u016bras izstr\u0101dei valsts p\u0101rvald\u0113</p>"
+    },
+    "difficulty": "difficult",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "form": "guidelines",
+    "format": "structured_format",
+    "id": "agid-guidelines-for-the-development-of-secure-software-in-italian",
+    "instructions_translations": {
+        "en": "./interlinkers/externalknowledge/it-pa-guidelines-for-secure-software/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "permissive",
+    "name_translations": {
+        "en": " AgID guidelines for the development of secure software (in Italian)",
+        "es": " Directrices de AgID para el desarrollo de software seguro (en italiano)",
+        "it": " Linee guida AgID per lo sviluppo di software sicuro (in italiano)",
+        "lv": " It\u0101lijas Digit\u0101l\u0101s a\u0123ent\u016bras vadl\u012bnijas dro\u0161as programmat\u016bras izstr\u0101dei (it\u0101\u013cu valod\u0101)"
+    },
+    "problemprofiles": [
+        "BUILD_PROBLEM_3"
+    ],
+    "regulations_and_standards_translations": {
+        "en": ""
+    },
+    "tags_translations": {
+        "en": [
+            "security"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enabling_services",
+        "enabling_services;implementing_software_and_artifacts"
+    ],
+    "uri_translations": {
+        "en": "https://www.agid.gov.it/it/sicurezza/cert-pa/linee-guida-sviluppo-del-software-sicuro"
+    }
+}

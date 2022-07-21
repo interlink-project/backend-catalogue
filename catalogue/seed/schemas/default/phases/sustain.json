@@ -1,0 +1,195 @@
+{
+    "id": "phase-sustain",
+    "prerequisites": [
+        {
+            "item": "phase-build",
+            "status": "finished"
+        }
+    ],
+    "name_translations": {
+        "en": "Sustain",
+        "es": "Sostener",
+        "it": "Durabilit\u00e0",
+        "lv": "Uztur\u0113t"
+    },
+    "description_translations": {
+        "en": "Define the business models to ensure sustainability of the co-produced service. Create business plans and exploitation agreements that will foster the adoption of your co-produced service by third party PAs, companies and stakeholders. Continous maintenance and monotoring is needed for responsive, accesible, widely adopted services as INTERLINK ambitions.",
+        "es": "Definir los modelos de negocio para garantizar la sostenibilidad del servicio coproducido. Cree planes de negocio y acuerdos de explotaci\u00f3n que fomenten la adopci\u00f3n de su servicio coproducido por parte de terceras AP, empresas y partes interesadas. El mantenimiento y la monitorizaci\u00f3n continuos son necesarios para que los servicios respondan, sean accesibles y se adopten ampliamente, tal y como ambiciona INTERLINK.",
+        "it": "Definisci i modelli di business per garantire la sostenibilit\u00e0 economica del servizio realizzato congiuntamente. Crea piani aziendali e licenze per l'utilizzo del servizio, in modo da favorire l'adozione da parte di Pubbliche Amministrazioni, aziende e terze parti. La manutenzione e il monitoraggio continui sono cruciali per garantire servizi efficaci, aggiornati e accessibili.",
+        "lv": "Defin\u0113jiet uz\u0146\u0113m\u0113jdarb\u012bbas mode\u013cus, lai nodro\u0161in\u0101tu kop\u0113ji rad\u012bt\u0101 pakalpojuma ilgtsp\u0113ju. Izveidojiet biznesa pl\u0101nus un ekspluat\u0101cijas l\u012bgumus, kas veicin\u0101s to, ka tre\u0161o pu\u0161u publisk\u0101 p\u0101rvalde, uz\u0146\u0113mumi un ieinteres\u0113t\u0101s puses ievie\u0161 j\u016bsu kop\u012bgi izstr\u0101d\u0101tos pakalpojumus. Respons\u012bviem, pieejamiem un pla\u0161i ieviestiem pakalpojumiem ir nepiecie\u0161ama nep\u0101rtraukta uztur\u0113\u0161ana un uzraudz\u012bba."
+    },
+    "objectives": [
+        {
+            "name_translations": {
+                "en": "Handover",
+                "es": "Entrega",
+                "it": "Passaggio di consegne",
+                "lv": "Nodo\u0161ana"
+            },
+            "description_translations": {
+                "en": "Optinally delegate service deployment from own on premise to Cloud-based to external hosting provider infrastructure. Agree on contract, costs, responsabilities and benefits for third party take over of service delivery ",
+                "es": "Delegar opcionalmente el despliegue del servicio de las propias instalaciones a la infraestructura de un proveedor de alojamiento externo basado en la nube. Acordar el contrato, los costes, las responsabilidades y las ventajas de que un tercero se haga cargo de la prestaci\u00f3n del servicio. ",
+                "it": "Puoi delegare l'erogazione del servizio a terzi, passando da soluzioni basate su risorse interne a soluzioni basate su infrastrutture Cloud di fornitori esterni. Concorda contratti, costi, responsabilit\u00e0 e benefici con i fornitori. ",
+                "lv": "P\u0113c izv\u0113les dele\u0123\u0113jiet pakalpojuma izvieto\u0161anu uz m\u0101ko\u0146a b\u0101zes \u0101r\u0113j\u0101s izmitin\u0101\u0161anas pakalpojumu sniedz\u0113ja infrastrukt\u016bru. Vienojieties par l\u012bgumu, izmaks\u0101m, atbild\u012bbu un ieguvumiem, lai tre\u0161\u0101s personas var\u0113tu p\u0101r\u0146emt pakalpojumu snieg\u0161anu "
+            },
+            "problemprofiles": [],
+            "tasks": [
+                {
+                    "name_translations": {
+                        "en": "Business model specification",
+                        "es": "Especificaci\u00f3n de Modelo de Negocio",
+                        "it": "Specifica il modello di business",
+                        "lv": "Biznesa mode\u013ca specifik\u0101cija"
+                    },
+                    "description_translations": {
+                        "en": "Co-production team defines one to many business models with their associated business plans which can be negotiated with third party adopters of the service, who want to take over execution, maintenance and monitoring, but where exploitation between co-producers and adopters needs to be clarified.",
+                        "es": "El equipo de coproducci\u00f3n define de uno a varios modelos de negocio con sus correspondientes planes de negocio que pueden negociarse con terceros adoptantes del servicio, que quieren hacerse cargo de la ejecuci\u00f3n, el mantenimiento y el seguimiento, pero en los que hay que aclarar la explotaci\u00f3n entre coproductores y adoptantes.",
+                        "it": "Il gruppo di lavoro definisce da uno a molti modelli di business con i relativi piani aziendali che possono essere negoziati con terze parti che adottano il servizio, che desiderano gestirne l'esecuzione, la manutenzione e il monitoraggio. In questo caso \u00e8 necessario definire la strategia di valorizzazione tra chi realizza e chi adotta il nuovo servizio",
+                        "lv": "Koprades darba grupa defin\u0113 vienu vai vair\u0101kus uz\u0146\u0113m\u0113jdarb\u012bbas mode\u013cus ar to saist\u012btajiem uz\u0146\u0113m\u0113jdarb\u012bbas pl\u0101niem, par kuriem var vienoties ar tre\u0161\u0101s puses pakalpojuma izmantot\u0101jiem, kas v\u0113las p\u0101r\u0146emt izpildi, uztur\u0113\u0161anu un uzraudz\u012bbu, bet kur ir j\u0101preciz\u0113 ekspluat\u0101cija starp koprades dal\u012bbniekiem un pakalpojuma ievies\u0113jiem."
+                    },
+                    "problemprofiles": [
+                        "ORG_PROBLEM_7"
+                    ],
+                    "id": "task-business-model-specification",
+                    "prerequisites": []
+                },
+                {
+                    "name_translations": {
+                        "en": "Exploitation agreement",
+                        "es": "Acuerdo de Explotaci\u00f3n",
+                        "it": "Accordo per l'utilizzo",
+                        "lv": "Ekspluat\u0101cijas l\u012bgums"
+                    },
+                    "description_translations": {
+                        "en": "Before a third party adopter may take over a co-produced service an exploitation agreement must be produced and signed by the involved parties. ",
+                        "es": "Antes de que un tercer adoptante pueda hacerse cargo de un servicio coproducido, debe elaborarse un acuerdo de explotaci\u00f3n que deber\u00e1n firmar las partes implicadas. ",
+                        "it": "Prima che una terza parte possa adottare un servizio nuovo, \u00e8 importante firmare un accordo per il suo utilizzo tra chi lo ha ideato e realizzato e chi lo dovr\u00e0 erogare o gestire. ",
+                        "lv": "Pirms tre\u0161\u0101 puse var p\u0101r\u0146emt kopra\u017eoto pakalpojumu, ir j\u0101sagatavo un j\u0101paraksta iesaist\u012btaj\u0101m pus\u0113m izmanto\u0161anas l\u012bgums. "
+                    },
+                    "problemprofiles": [
+                        "ORG_PROBLEM_7"
+                    ],
+                    "prerequisites": [
+                        {
+                            "item": "task-business-model-specification",
+                            "type": "previous"
+                        }
+                    ],
+                    "id": "task-exploitation-agreement"
+                },
+                {
+                    "name_translations": {
+                        "en": "Handover",
+                        "es": "Entrega",
+                        "it": "Passaggio di consegne",
+                        "lv": "Nodo\u0161ana"
+                    },
+                    "description_translations": {
+                        "en": "Provide documentation for third party take over of service maintenane and monitoring. Agreement on contract to regulate transfer of runnning responsability to third party and sharing of revenues among those that co-produced the service and third parties who may optionally host the service. Customization of the delivered service to target customers (translations, content adaptations and so on) ",
+                        "es": "Proporcionar documentaci\u00f3n para que un tercero se haga cargo del mantenimiento y la supervisi\u00f3n del servicio. Acuerdo sobre el contrato para regular la transferencia de la responsabilidad de funcionamiento a terceros y el reparto de los ingresos entre los que coprodujeron el servicio y los terceros que pueden alojar opcionalmente el servicio. Personalizaci\u00f3n del servicio prestado a los clientes objetivo (traducciones, adaptaciones de contenido, etc.) ",
+                        "it": "Fornisci la documentazione utile alle parti terze che si occuperanno della manutenzione e del monitoraggio del servizio. E' importante definire un accordo contrattuale per disciplinare il trasferimento della responsabilit\u00e0 di esercizio a terzi e la ripartizione dei ricavi tra coloro che hanno realizzato il servizio e le terze parti che possono sfruttarlo. Prevedi come personalizzare il servizio in base ai clienti (attraverso traduzioni in altre lingue d'uso, adattamenti di contenuti e cos\u00ec via). ",
+                        "lv": "Nodro\u0161iniet dokument\u0101ciju, lai tre\u0161\u0101s personas var\u0113tu p\u0101r\u0146emt pakalpojumu uztur\u0113\u0161anu un uzraudz\u012bbu. Vieno\u0161an\u0101s par l\u012bgumu, ar ko reglament\u0113 ilgsto\u0161as atbild\u012bbas nodo\u0161anu tre\u0161ajai personai un ie\u0146\u0113mumu sadali starp tiem, kas kop\u012bgi sagatavoju\u0161i pakalpojumu, un tre\u0161aj\u0101m person\u0101m, kuras potenci\u0101li var uz\u0146emt pakalpojumu. Pieg\u0101d\u0101t\u0101 pakalpojuma piel\u0101go\u0161ana klientiem (tulkojumi, satura piel\u0101gojumi utt.) "
+                    },
+                    "problemprofiles": [
+                        "ORG_PROBLEM_7"
+                    ],
+                    "prerequisites": [
+                        {
+                            "item": "task-exploitation-agreement",
+                            "type": "previous"
+                        }
+                    ],
+                    "id": "task-handover"
+                }
+            ],
+            "id": "objective-handover",
+            "prerequisites": []
+        },
+        {
+            "name_translations": {
+                "en": "Maintenance",
+                "es": "Mantenimiento",
+                "it": "Manutenzione",
+                "lv": "Uztur\u0113\u0161ana"
+            },
+            "description_translations": {
+                "en": "Ensure the deployed service is continously operative and responsive to new customer demands who may make the service further adopted and more useful. This responsability may be shared by co-production team and third parties who may have taken over the service. ",
+                "es": "Garantizar que el servicio desplegado est\u00e9 continuamente operativo y responda a las nuevas demandas de los clientes que puedan hacer que el servicio se adopte m\u00e1s y sea m\u00e1s \u00fatil. Esta responsabilidad puede ser compartida por el equipo de coproducci\u00f3n y por terceros que puedan haber asumido el servicio. ",
+                "it": "Garantisci che il servizio implementato sia costantemente aggiornato e risponda alle richieste dei clienti. Questo potrebbe rendere il servizio pi\u00f9 adatto ai loro bisogni e pi\u00f9 utile. Questa responsabilit\u00e0 pu\u00f2 essere condivisa tra il gruppo di lavoro e le terze parti che eventualmente gestiscono il servizio. ",
+                "lv": "Nodro\u0161iniet, lai izvietotais pakalpojums past\u0101v\u012bgi darbotos un atbilstu jaun\u0101m klientu pras\u012bb\u0101m, kas var padar\u012bt pakalpojumu vair\u0101k pie\u0146emamu un lietder\u012bg\u0101ku. \u0160o atbild\u012bbu var uz\u0146emties koprades grupa un tre\u0161\u0101s personas, kas var\u0113tu b\u016bt p\u0101r\u0146\u0113mu\u0161as pakalpojumu. "
+            },
+            "problemprofiles": [],
+            "tasks": [
+                {
+                    "name_translations": {
+                        "en": "Task distribution for maintenance, contracts regulation, data management archiving",
+                        "es": "Distribuci\u00f3n de tareas para el mantenimiento, regulaci\u00f3n de contratos, archivo de la gesti\u00f3n de datos",
+                        "it": "Distribuzione degli incarichi per la manutenzione, la regolamentazione dei contratti, la gestione dell'archiviazione dei dati",
+                        "lv": "Uzdevumu sadale uztur\u0113\u0161anai, l\u012bgumu regul\u0113\u0161anai un datu p\u0101rvald\u012bbas arhiv\u0113\u0161anai"
+                    },
+                    "description_translations": {
+                        "en": "If service depoyment was delegated or is still carried out by co-production team, task distribution among those responsible for maintenance must be ensured. Regularly contract monitoring and maintenance activities will need to be carried out to ensure 24x7 operation.",
+                        "es": "Si el dep\u00f3sito de servicios se deleg\u00f3 o se sigue llevando a cabo por el equipo de coproducci\u00f3n, debe garantizarse la distribuci\u00f3n de tareas entre los responsables del mantenimiento. Ser\u00e1 necesario realizar peri\u00f3dicamente actividades de supervisi\u00f3n y mantenimiento de los contratos para garantizar el funcionamiento 24 horas al d\u00eda, 7 d\u00edas a la semana.",
+                        "it": "Sia che l'esecuzione del servizio sia stata delegata ad altri sia che sia svolta dal gruppo di lavoro, una efficace distribuzione delle attivit\u00e0 deve essere assicurata fra coloro che si occupano della manutenzione. Operazioni regolari di monitoraggio e di manutenzione devono essere svolte per assicurare il funzionamento 24 ore al giorno, 7 giorni su 7.",
+                        "lv": "Ja pakalpojuma snieg\u0161ana tika dele\u0123\u0113ta vai to joproj\u0101m veic koprades komanda, ir j\u0101nodro\u0161ina uzdevumu sadale starp tiem, kas ir atbild\u012bgi par tehnisko uztur\u0113\u0161anu. Lai nodro\u0161in\u0101tu 24/7 darb\u012bbu, regul\u0101ri j\u0101veic l\u012bguma uraudz\u012bba un uztur\u0113\u0161anas darbi."
+                    },
+                    "problemprofiles": [],
+                    "id": "task-task-distribution-for-maintenance-contracts-regulation-data-management-archiving",
+                    "prerequisites": []
+                }
+            ],
+            "prerequisites": [
+                {
+                    "item": "objective-handover",
+                    "type": "previous"
+                }
+            ],
+            "id": "objective-maintenance"
+        },
+        {
+            "name_translations": {
+                "en": "Monitoring",
+                "es": "Monitorizaci\u00f3n",
+                "it": "Monitoraggio",
+                "lv": "Uzraudz\u012bba"
+            },
+            "description_translations": {
+                "en": "Monitor that the service is fulfilling its originally set objectives by tracking a set of KPIs inferred from usage or polling customers.  ",
+                "es": "Supervisar que el servicio est\u00e1 cumpliendo los objetivos fijados originalmente mediante el seguimiento de un conjunto de KPIs inferidos del uso o el sondeo de los clientes.  ",
+                "it": "Monitora il raggiungimento degli obiettivi originariamente definiti attraverso una serie di indicatori chiave (Key Performance Indicator, KPI) dedotti dall'utilizzo del servizio o effettuando sondaggi con chi lo fruisce.  ",
+                "lv": "Uzraugiet, vai pakalpojums izpilda savus s\u0101kotn\u0113ji noteiktos m\u0113r\u0137us, sekojot l\u012bdzi KPI kopumam, kas izriet no lieto\u0161anas datiem vai lietot\u0101ju aptauj\u0101m.  "
+            },
+            "problemprofiles": [
+                "UND_PROBLEM_3",
+                "VAL_PROBLEM_5"
+            ],
+            "tasks": [
+                {
+                    "name_translations": {
+                        "en": "Monitoring ongoing evaluation, periodic evaluations with stakeholders",
+                        "es": "Seguimiento de la evaluaci\u00f3n continua, evaluaciones peri\u00f3dicas con las partes interesadas",
+                        "it": "Monitoraggio continuo della valutazione, valutazioni periodiche con le parti interessate",
+                        "lv": "Nep\u0101rtraukta nov\u0113rt\u0113juma uzraudz\u012bba, regul\u0101ri nov\u0113rt\u0113jumi ar ieinteres\u0113taj\u0101m pus\u0113m"
+                    },
+                    "description_translations": {
+                        "en": "Analyse logs gathered by the delivered service. Analyse surveys/questionnaires filled in by stakeholders. ",
+                        "es": "Analizar los registros recogidos por el servicio prestado. Analizar las encuestas/cuestionarios rellenados por las partes interesadas. ",
+                        "it": "Analizza i registri raccolti dal servizio erogato. Analizza i sondaggi e i questionari compilati dalle parti interessate. ",
+                        "lv": "Analiz\u0113jiet sniegt\u0101 pakalpojuma datu \u017eurn\u0101lu (logfailus). Analiz\u0113jiet ieinteres\u0113to pu\u0161u aizpild\u012bt\u0101s aptaujas anketas. "
+                    },
+                    "problemprofiles": [],
+                    "id": "task-monitoring-ongoing-evaluation-periodic-evaluations-with-stakeholders",
+                    "prerequisites": []
+                }
+            ],
+            "prerequisites": [
+                {
+                    "item": "objective-maintenance",
+                    "type": "previous"
+                }
+            ],
+            "id": "objective-monitoring"
+        }
+    ],
+    "is_part_of_codelivery": true
+}

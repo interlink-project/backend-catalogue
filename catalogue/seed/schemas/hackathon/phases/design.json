@@ -1,0 +1,385 @@
+{
+    "id": "phase-design",
+    "prerequisites": [
+        {
+            "item": "phase-engage",
+            "status": "finished"
+        }
+    ],
+    "name_translations": {
+        "en": "Design",
+        "es": "Dise\u00f1o",
+        "it": "Progettazione",
+        "lv": "Projekt\u0113\u0161ana"
+    },
+    "description_translations": {
+        "en": "Follow the guidelines to discuss together, in a balanced and inclusive way, issues, beneficiaries, and priorities for the service to be designed. Find useful resources to conduct interviews, surveys and focus groups for a deeper understanding of stakeholders\u2019 and citizens\u2019 needs and requirements. Use the proposed material to organize service design workshops and develop mockups. Stop and reflect on the process so far with the co-evaluation checklists.",
+        "es": "Siga las directrices para debatir juntos, de forma equilibrada e inclusiva, los problemas, los beneficiarios y las prioridades del servicio que se va a dise\u00f1ar. Encuentre recursos \u00fatiles para realizar entrevistas, encuestas y grupos de discusi\u00f3n para comprender mejor las necesidades y requisitos de las partes interesadas y los ciudadanos. Utilizar el material propuesto para organizar talleres de dise\u00f1o de servicios y desarrollar maquetas. Det\u00e9ngase y reflexione sobre el proceso hasta el momento con las listas de comprobaci\u00f3n de la coevaluaci\u00f3n.",
+        "it": "Segui le linee guida per discutere in modo equilibrato e inclusivo temi, beneficiari e priorit\u00e0 per il servizio da progettare. Trova le risorse per condurre interviste, sondaggi e focus group utili a comprendere meglio i bisogni e le esigenze degli attori coinvolti e dei cittadini. Utilizza il materiale proposto per organizzare sessioni di progettazione e sviluppare mockup. Fermati e rifletti sul processo finora svolto con le checklist di valutazione.",
+        "lv": "Iev\u0113rojiet vadl\u012bnijas, lai l\u012bdzsvarot\u0101 un iek\u013caujo\u0161\u0101 veid\u0101 kop\u012bgi apspriestu izstr\u0101d\u0101jam\u0101 pakalpojuma probl\u0113mas, labuma guv\u0113jus un priorit\u0101tes. Atrodiet noder\u012bgus resursus, lai veiktu intervijas, aptaujas un fokusgrupas, lai dzi\u013c\u0101k izprastu ieinteres\u0113to personu un iedz\u012bvot\u0101ju vajadz\u012bbas un pras\u012bbas. Izmantojiet pied\u0101v\u0101to materi\u0101lu, lai organiz\u0113tu pakalpojumu dizaina darbn\u012bcas un izstr\u0101d\u0101tu maketus. Apst\u0101jieties un p\u0101rdom\u0101jiet l\u012bdz\u0161in\u0113jo procesu, izmantojot kop\u0113j\u0101 nov\u0113rt\u0113juma kontrolsarakstus."
+    },
+    "objectives": [
+        {
+            "name_translations": {
+                "en": "Focus the problem collaboratively",
+                "es": "Enfocar el problema de forma colaborativa",
+                "it": "Identifica il problema in modo collaborativo",
+                "lv": "Kop\u012bgi koncentr\u0113jieties uz probl\u0113mu"
+            },
+            "description_translations": {
+                "en": "Clearly define the problem to be addresses by the co-production team and agree on it. This  is an important step towards creating an effective and efficient solution. Different resources can be useful to this end: tips on how to create and share a common language among team members, resources to guide collaborative discussions, tools for ideas collection.",
+                "es": "Defina claramente el problema que debe abordar el equipo de coproducci\u00f3n y p\u00f3ngase de acuerdo sobre \u00e9l. Este es un paso importante para crear una soluci\u00f3n eficaz y eficiente. Para ello pueden ser \u00fatiles diferentes recursos: consejos sobre c\u00f3mo crear y compartir un lenguaje com\u00fan entre los miembros del equipo, recursos para guiar los debates colaborativos, herramientas para la recopilaci\u00f3n de ideas.",
+                "it": "Definisci e condividi con chiarezza il problema che deve essere affrontato dal gruppo di lavoro. E' un passo importante per poi realizzare una soluzione efficace ed efficiente. Diverse risorse possono essere utili: risorse su come adottare un linguaggio comune tra i membri del gruppo, risorse per guidare discussioni collaborative, risorse per la raccolta di idee.",
+                "lv": "Skaidri defin\u0113jiet un vienojieties par probl\u0113mu, kas j\u0101risina koprades komandai. Tas ir svar\u012bgs solis efekt\u012bva risin\u0101juma rad\u012b\u0161anai. \u0160im nol\u016bkam var b\u016bt noder\u012bgi da\u017e\u0101di resursi: ieteikumi, k\u0101 izveidot kop\u012bgu terminolo\u0123iju un dal\u012bties taj\u0101 ar komandas locek\u013ciem, resursi, lai vad\u012btu sadarb\u012bbas diskusijas, r\u012bki ideju apkopo\u0161anai."
+            },
+            "problemprofiles": [
+                "ORG_PROBLEM_1",
+                "UND_PROBLEM_3",
+                "UND_PROBLEM_1",
+                "VAL_PROBLEM_2"
+            ],
+            "tasks": [
+                {
+                    "name_translations": {
+                        "en": "Collaboratively Hackathon problem refinement",
+                        "es": "Perfeccionamiento del problema del Hackathon en colaboraci\u00f3n",
+                        "it": "Definizione collaborativa del problema alla base dell'hackathon",
+                        "lv": "Sadarb\u012bba Hakatonos probl\u0113mas preciz\u0113\u0161anai"
+                    },
+                    "description_translations": {
+                        "en": "Refine with the collaboration of the stakeholders network the problem to be addressed. Service design is a problem-solving activity and it is important to clearly understand which is the challenge that the team addresses and how more information can be collected to understand how the service should be designed. Organize focus groups to discuss initial ideas and assumptions, refine them through structured methods and become aware about the missing information that still needs to be collected.",
+                        "es": "Afinar con la colaboraci\u00f3n de la red de partes interesadas el problema a tratar. El dise\u00f1o de servicios es una actividad de resoluci\u00f3n de problemas y es importante entender claramente cu\u00e1l es el reto que aborda el equipo y c\u00f3mo se puede recopilar m\u00e1s informaci\u00f3n para entender c\u00f3mo debe dise\u00f1arse el servicio. Organice grupos de discusi\u00f3n para debatir las ideas y suposiciones iniciales, perfeccionarlas mediante m\u00e9todos estructurados y tomar conciencia de la informaci\u00f3n que falta por recopilar.",
+                        "it": "Circoscrivi il problema e i suoi confini grazie alla collaborazione della rete di tutti gli attori coinvolti. La progettazione del servizio \u00e8 un'attivit\u00e0 di problem solving ed \u00e8 importante capire con chiarezza qual \u00e8 la sfida che il gruppo di lavoro deve affrontare, come raccogliere le informazioni necessarie alla progettazione del servizio. Organizza focus group per discutere idee e ipotesi, perfezionali attraverso metodi strutturati e identifica le informazioni mancanti che devono ancora essere raccolte.",
+                        "lv": "Uzlabojiet risin\u0101mo probl\u0113mu, sadarbojoties ar ieinteres\u0113to pu\u0161u t\u012bklu. Pakalpojuma izstr\u0101de ir probl\u0113mu risin\u0101\u0161anas darb\u012bba, un ir svar\u012bgi skaidri saprast, k\u0101ds ir izaicin\u0101jums, kuru komanda risina, un k\u0101 var sav\u0101kt vair\u0101k inform\u0101cijas, lai saprastu, k\u0101 pakalpojums ir j\u0101izstr\u0101d\u0101. Organiz\u0113jiet fokusa grupas, lai apspriestu s\u0101kotn\u0113j\u0101s idejas un pie\u0146\u0113mumus, pilnveidotu tos, izmantojot struktur\u0113tas metodes, un uzzin\u0101tu par tr\u016bksto\u0161o inform\u0101ciju, kas v\u0113l ir j\u0101apkopo."
+                    },
+                    "problemprofiles": [],
+                    "id": "task-collaboratively-hackathon-problem-refinement",
+                    "prerequisites": []
+                },
+                {
+                    "name_translations": {
+                        "en": "Ideas collection for Hackathon exploration and refinement",
+                        "es": "Recopilaci\u00f3n de ideas para la exploraci\u00f3n y el perfeccionamiento del Hackathon",
+                        "it": "Raccolta di idee per l'esplorazione e il perfezionamento dell'hackathon",
+                        "lv": "Ideju kolekcija Hakatona izp\u0113tei un uzlabo\u0161anai"
+                    },
+                    "description_translations": {
+                        "en": "In case of need, enlarge the collection of ideas about the various aspects of the problem by launching a discussion forum.",
+                        "es": "En caso de necesidad, ampl\u00ede la recopilaci\u00f3n de ideas sobre los distintos aspectos del problema poniendo en marcha un foro de debate.",
+                        "it": "In caso di necessit\u00e0, amplia la raccolta di idee sui vari aspetti del problema avviando un forum di discussione.",
+                        "lv": "Ja nepiecie\u0161ams, papla\u0161iniet ideju kolekciju par da\u017e\u0101diem probl\u0113mas aspektiem, r\u012bkojot diskusiju forumu."
+                    },
+                    "problemprofiles": [],
+                    "prerequisites": [
+                        {
+                            "item": "task-collaboratively-hackathon-problem-refinement",
+                            "type": "previous"
+                        }
+                    ],
+                    "id": "task-ideas-collection-for-hackathon-exploration-and-refinement"
+                },
+                {
+                    "name_translations": {
+                        "en": "Sketch an initial idea of the Hackathon: theme, plan, submission & evaluation process",
+                        "es": "Esbozar una idea inicial del Hackathon: tema, plan, proceso de presentaci\u00f3n y evaluaci\u00f3n",
+                        "it": "Abbozza un'idea iniziale dell'hackathon: il tema, il piano, la consegna e la valutazione",
+                        "lv": "Ieskic\u0113jiet s\u0101kotn\u0113jo hakatona ideju: t\u0113ma, pl\u0101ns, iesnieg\u0161ana un nov\u0113rt\u0113\u0161ana"
+                    },
+                    "description_translations": {
+                        "en": "Draft an initial description (or multiple optional descriptions) of the potential service: what it does, who benefits from the service, who helps delivering it. Use description templates to facilitate your task.",
+                        "es": "Redacte una descripci\u00f3n inicial (o varias descripciones opcionales) del posible servicio: qu\u00e9 hace, a qui\u00e9n beneficia el servicio, qui\u00e9n ayuda a prestarlo. Utilice plantillas de descripci\u00f3n para facilitar su tarea.",
+                        "it": "Abbozza una descrizione iniziale (o pi\u00f9 descrizioni) del potenziale servizio: cosa fa? chi sono i beneficiari? chi lo eroga? Usa i modelli per facilitare questa attivit\u00e0.",
+                        "lv": "Sagatavojiet potenci\u0101l\u0101 pakalpojuma s\u0101kotn\u0113jo aprakstu (vai vair\u0101kus papildu aprakstus): k\u0101 tas str\u0101d\u0101, kas g\u016bst labumu no pakalpojuma, kur\u0161 pal\u012bdz to sniegt. Izmantojiet apraksta veidnes, lai atvieglotu savu uzdevumu."
+                    },
+                    "problemprofiles": [
+                        "HACKATHON_PROBLEM_2"
+                    ],
+                    "prerequisites": [
+                        {
+                            "item": "task-ideas-collection-for-hackathon-exploration-and-refinement",
+                            "type": "previous"
+                        }
+                    ],
+                    "id": "task-sketch-an-initial-idea-of-the-hackathon-theme-plan-submission-evaluation-process"
+                }
+            ],
+            "id": "objective-focus-the-problem-collaboratively",
+            "prerequisites": []
+        },
+        {
+            "name_translations": {
+                "en": "Ideation",
+                "es": "Ideaci\u00f3n",
+                "it": "Ideazione",
+                "lv": "Ideju \u0123ener\u0113\u0161ana"
+            },
+            "description_translations": {
+                "en": "Ideation is the preliminary phase of service design in which the design team is created, the collected data are reviewed, and futher ideas are sougth if necessary.",
+                "es": "La ideaci\u00f3n es la fase preliminar del dise\u00f1o del servicio en la que se crea el equipo de dise\u00f1o, se revisan los datos recogidos y se buscan nuevas ideas si es necesario.",
+                "it": "L'ideazione \u00e8 la fase preliminare della progettazione del servizio; in questa fase viene creato il gruppo di progettazione, vengono esaminati i dati raccolti e, se necessario, vengono elaborate ulteriori idee.",
+                "lv": "Ideju \u0123ener\u0113\u0161ana ir pakalpojuma izstr\u0101des s\u0101kotn\u0113j\u0101 f\u0101ze, kur\u0101 tiek izveidota dizaina komanda, apkopoti dati un vajadz\u012bbas gad\u012bjum\u0101 tiek mekl\u0113tas papildu idejas."
+            },
+            "problemprofiles": [
+                "ORG_PROBLEM_1",
+                "ORG_PROBLEM_13",
+                "ORG_PROBLEM_14",
+                "UND_PROBLEM_4",
+                "UND_PROBLEM_5",
+                "DEF_PROBLEM_2",
+                "DEF_PROBLEM_3"
+            ],
+            "tasks": [
+                {
+                    "name_translations": {
+                        "en": "Collaboratively agree on Hackathon design",
+                        "es": "Acordar en colaboraci\u00f3n el dise\u00f1o del Hackathon",
+                        "it": "Concorda il piano operativo dell'hackathon",
+                        "lv": "Kop\u012bgi vienojieties par hakatona dizainu"
+                    },
+                    "description_translations": {
+                        "en": "Go back to your network of stakeholders to validate the service idea by means of a focus group or a poll.",
+                        "es": "Vuelva a su red de interesados para validar la idea del servicio mediante un grupo de discusi\u00f3n o una encuesta.",
+                        "it": "Consulta nuovamente la rete di attori che hai coinvolto per validare l'idea di servizio attraverso un focus group o un sondaggio.",
+                        "lv": "Atgriezieties ieinteres\u0113to personu t\u012bkl\u0101, lai apstiprin\u0101tu pakalpojuma ideju, izmantojot fokusa grupu vai aptauju."
+                    },
+                    "problemprofiles": [],
+                    "id": "task-collaboratively-agree-on-hackathon-design",
+                    "prerequisites": []
+                },
+                {
+                    "name_translations": {
+                        "en": "Define requirements and constraints for the Hackathon: plan, submission & evaluation process",
+                        "es": "Definir los requisitos y limitaciones del Hackathon: plan, presentaci\u00f3n y proceso de evaluaci\u00f3n",
+                        "it": "Definisci requisiti e vincoli per l'hackathon: piano, consegna e valutazione",
+                        "lv": "Defin\u0113jiet hakatona pras\u012bbas un ierobe\u017eojumus: pl\u0101ns, iesnieg\u0161ana un nov\u0113rt\u0113\u0161anas process"
+                    },
+                    "description_translations": {
+                        "en": "The ideas and service design concepts need to be translated into formal requirements to proceed with the implementation of the service. Follow the guidelines on how to collect, structure and communicate requirements and all the service specifications that clarify the objective of the service and how it should be developed. Use stardard representation formalism for requirements descriptions, as for example the Volere Requirements Specification template.",
+                        "es": "Las ideas y los conceptos de dise\u00f1o del servicio deben traducirse en requisitos formales para proceder a la implantaci\u00f3n del servicio. Siga las directrices sobre c\u00f3mo recoger, estructurar y comunicar los requisitos y todas las especificaciones del servicio que aclaren el objetivo del servicio y c\u00f3mo debe desarrollarse. Utilice un formalismo de representaci\u00f3n est\u00e1ndar para las descripciones de requisitos, como por ejemplo la plantilla de especificaci\u00f3n de requisitos de Volere.",
+                        "it": "Le idee relative alla progettazione del servizio devono essere tradotte in requisiti formali per procedere all'implementazione del servizio. Segui le linee guida su come raccogliere, strutturare e comunicare i requisiti e tutte le specifiche del servizio che definiscono l'obiettivo del servizio e come dovrebbe essere sviluppato. Utilizza standard per le descrizioni dei requisiti, come ad esempio il modello \"Volere Requirements Specification\".",
+                        "lv": "Idejas un pakalpojuma dizaina koncepcijas ir j\u0101p\u0101rv\u0113r\u0161 form\u0101l\u0101s pras\u012bb\u0101s, lai var\u0113tu turpin\u0101t ar pakalpojuma ievie\u0161anu. Iev\u0113rojiet vadl\u012bnijas par pras\u012bbu apkopo\u0161anu, struktur\u0113\u0161anu un pazi\u0146o\u0161anu, k\u0101 ar\u012b visas pakalpojuma specifik\u0101cijas, kas preciz\u0113 pakalpojuma m\u0113r\u0137i un to, k\u0101 tas b\u016btu j\u0101izstr\u0101d\u0101. Izmantojiet standarta att\u0113lojuma form\u0101lismu pras\u012bbu aprakstiem, piem\u0113ram, Volere pras\u012bbu specifik\u0101cijas veidni."
+                    },
+                    "problemprofiles": [
+                        "ORG_PROBLEM_8"
+                    ],
+                    "prerequisites": [
+                        {
+                            "item": "task-collaboratively-agree-on-hackathon-design",
+                            "type": "previous"
+                        }
+                    ],
+                    "id": "task-define-requirements-and-constraints-for-the-hackathon-plan-submission-evaluation-process"
+                }
+            ],
+            "prerequisites": [
+                {
+                    "item": "objective-focus-the-problem-collaboratively",
+                    "type": "previous"
+                }
+            ],
+            "id": "objective-ideation"
+        },
+        {
+            "name_translations": {
+                "en": "Service specification",
+                "es": "Especificaciones del servicio",
+                "it": "Specifica del servizio",
+                "lv": "Pakalpojuma specifik\u0101cija"
+            },
+            "description_translations": {
+                "en": "The ideas and service design concepts need to be translated into formal requirements and service specifications to proceed with the implementation of the service. Follow the guidelines to collect, structure and communicate requirements and all the service specifications that clarify the objective of the service and how it should be developed.",
+                "es": "Las ideas y los conceptos de dise\u00f1o del servicio deben traducirse en requisitos formales y especificaciones del servicio para proceder a su implantaci\u00f3n. Siga las directrices para recoger, estructurar y comunicar los requisitos y todas las especificaciones del servicio que aclaren el objetivo del servicio y c\u00f3mo debe desarrollarse.",
+                "it": "Le idee relative alla progettazione del servizio devono essere tradotti in requisiti formali per procedere all'implementazione del servizio. Segui le linee guida su come raccogliere, strutturare e comunicare i requisiti e tutte le specifiche del servizio che definiscono l'obiettivo del servizio e come dovrebbe essere sviluppato.",
+                "lv": "Idejas un pakalpojuma dizaina koncepcijas ir j\u0101p\u0101rv\u0113r\u0161 form\u0101l\u0101s pras\u012bb\u0101s un pakalpojuma specifik\u0101cij\u0101s, lai turpin\u0101tu ar pakalpojuma ievie\u0161anu. Iev\u0113rojiet vadl\u012bnijas, lai apkopotu, struktur\u0113tu un pazi\u0146otu pras\u012bbas un visas pakalpojuma specifik\u0101cijas, kas preciz\u0113 pakalpojuma m\u0113r\u0137i un to, k\u0101 tas b\u016btu j\u0101izstr\u0101d\u0101."
+            },
+            "problemprofiles": [
+                "ORG_PROBLEM_1",
+                "DEF_PROBLEM_1",
+                "DEF_PROBLEM_5",
+                "BUILD_PROBLEM_1"
+            ],
+            "tasks": [
+                {
+                    "name_translations": {
+                        "en": "Consider eu guidelines for public service developement",
+                        "es": "Considerar las directrices de la UE para el desarrollo del servicio p\u00fablico",
+                        "it": "Considera linee guida europee per lo sviluppo di servizi pubblici",
+                        "lv": "Apsveriet ES vadl\u012bnijas sabiedrisko pakalpojumu att\u012bst\u012bbai"
+                    },
+                    "description_translations": {
+                        "en": "Consult good practices for interface design and public services development. Reflect, in your specific use case, on how to make sure the services are provided in a multi-channel manner, maximizing the exploitation by potentially any group of users or by the agents acting on their behalf, and providing clear statements regarding the accessibility limits in the current implementation.",
+                        "es": "Consulte las buenas pr\u00e1cticas de dise\u00f1o de interfaces y desarrollo de servicios p\u00fablicos. Reflexione, en su caso de uso espec\u00edfico, sobre c\u00f3mo asegurarse de que los servicios se prestan de forma multicanal, maximizando el aprovechamiento por parte de cualquier grupo de usuarios potencialmente o por los agentes que act\u00faan en su nombre, y proporcionando declaraciones claras sobre los l\u00edmites de accesibilidad en la implementaci\u00f3n actual.",
+                        "it": "Consulta le buone pratiche per la progettazione di interfacce e lo sviluppo di servizi pubblici. Rifletti su come assicurare che il tuo specifico servizio venga erogato in modo multicanale, massimizzandone l'utilizzo da parte di qualsiasi gruppo di utenti o da parte degli attori che agiscono per loro conto. Fornisci informazioni chiare sulle limitazioni in termini di accessibilit\u00e0 dell'attuale implementazione.",
+                        "lv": "Iepaz\u012bstieties ar saskar\u0146u dizaina un publisko pakalpojumu izstr\u0101des labo praksi. J\u016bsu konkr\u0113taj\u0101 lieto\u0161anas gad\u012bjum\u0101 p\u0101rdom\u0101jiet, k\u0101 nodro\u0161in\u0101t, lai pakalpojumi tiek sniegti ar vair\u0101ku kan\u0101lu pal\u012bdz\u012bbu, maksim\u0101li palielinot to izmanto\u0161anu, ko potenci\u0101li izmanto jebkura lietot\u0101ju grupa vai a\u0123enti, kas darbojas vi\u0146u v\u0101rd\u0101, sniedzot skaidrus pazi\u0146ojumus par pieejam\u012bbas ierobe\u017eojumiem pa\u0161reiz\u0113j\u0101 \u012bsteno\u0161an\u0101."
+                    },
+                    "problemprofiles": [],
+                    "id": "task-consider-eu-guidelines-for-public-service-developement",
+                    "prerequisites": []
+                },
+                {
+                    "name_translations": {
+                        "en": "User interface design for Hackathon website and submission system",
+                        "es": "Dise\u00f1o de la interfaz de usuario para el sitio web y el sistema de presentaci\u00f3n del Hackathon",
+                        "it": "Progetta l'interfaccia utente per il sito web dell'hackathon e il sistema di consegna",
+                        "lv": "Lietot\u0101ja saskarnes dizains hakatona vietnei un iesnieg\u0161anas sist\u0113mai"
+                    },
+                    "description_translations": {
+                        "en": "Proceed with the design of the user interface of the service through the preparation of initial sketches and mockups. Ensure the design of the user interface follows the guidelines on usability and accessibility. ",
+                        "es": "Proceder al dise\u00f1o de la interfaz de usuario del servicio mediante la preparaci\u00f3n de bocetos y maquetas iniciales. Aseg\u00farese de que el dise\u00f1o de la interfaz de usuario sigue las directrices de usabilidad y accesibilidad. ",
+                        "it": "Procedi con la progettazione dell'interfaccia utente del servizio attraverso la predisposizione di bozze grafiche e mockup iniziali. Assicurati che il design dell'interfaccia utente segua le linee guida sull'usabilit\u00e0 e l'accessibilit\u00e0. ",
+                        "lv": "Turpiniet ar pakalpojuma lietot\u0101ja saskarnes izstr\u0101di, sagatavojot s\u0101kotn\u0113j\u0101s skices un maketus. Nodro\u0161iniet, lai lietot\u0101ja saskarnes dizains atbilstu lietojam\u012bbas un pieejam\u012bbas vadl\u012bnij\u0101m. "
+                    },
+                    "problemprofiles": [],
+                    "prerequisites": [
+                        {
+                            "item": "task-consider-eu-guidelines-for-public-service-developement",
+                            "type": "previous"
+                        }
+                    ],
+                    "id": "task-user-interface-design-for-hackathon-website-and-submission-system"
+                },
+                {
+                    "name_translations": {
+                        "en": "Content design, including plan, rules, prize announcement and so on",
+                        "es": "Dise\u00f1o de contenidos, incluyendo el plan, las reglas, el anuncio del premio, etc.",
+                        "it": "Progetta il contenuto, includendo il piano generale, il regolamento, la premiazione e cos\u00ec via",
+                        "lv": "Satura dizains, tostarp pl\u0101ns, noteikumi, balvas pazi\u0146o\u0161ana un t\u0101 t\u0101l\u0101k"
+                    },
+                    "description_translations": {
+                        "en": "Prepare adequate content for the new/enhanced public service. Follow the guidelines on how to select and use the most appropriate language according to the users of the digital service and their skills.",
+                        "es": "Preparar los contenidos adecuados para el nuevo/mejorado servicio p\u00fablico. Seguir las directrices sobre c\u00f3mo seleccionar y utilizar el lenguaje m\u00e1s adecuado seg\u00fan los usuarios del servicio digital y sus competencias.",
+                        "it": "Prepara contenuti adeguati per il nuovo servizio pubblico. Segui le linee guida su come selezionare e utilizzare il linguaggio pi\u00f9 appropriato in base agli utenti del servizio digitale e alle loro competenze.",
+                        "lv": "Sagatavojiet atbilsto\u0161u saturu jaunajam/uzlabotajam sabiedriskajam pakalpojumam. Iev\u0113rojiet nor\u0101d\u012bjumus par to, k\u0101 izv\u0113l\u0113ties un lietot vispiem\u0113rot\u0101ko valodu atbilsto\u0161i digit\u0101l\u0101 pakalpojuma lietot\u0101jiem un vi\u0146u prasm\u0113m."
+                    },
+                    "problemprofiles": [
+                        "DEF_PROBLEM_6"
+                    ],
+                    "prerequisites": [
+                        {
+                            "item": "task-user-interface-design-for-hackathon-website-and-submission-system",
+                            "type": "previous"
+                        }
+                    ],
+                    "id": "task-content-design-including-plan-rules-prize-announcement-and-so-on"
+                }
+            ],
+            "prerequisites": [
+                {
+                    "item": "objective-ideation",
+                    "type": "previous"
+                }
+            ],
+            "id": "objective-service-specification"
+        },
+        {
+            "name_translations": {
+                "en": "Sustainability",
+                "es": "Sostenibilidad",
+                "it": "Durabilit\u00e0",
+                "lv": "Ilgtsp\u0113j\u012bba"
+            },
+            "description_translations": {
+                "en": "Before further going deep into the development of your service. Stop and reflect about the design results obtained so far and about the actual feasibility and sustainability of what you are about to implement.",
+                "es": "Antes de seguir profundizando en el desarrollo de su servicio Det\u00e9ngase y reflexione sobre los resultados de dise\u00f1o obtenidos hasta el momento y sobre la viabilidad y sostenibilidad reales de lo que va a poner en marcha.",
+                "it": "Prima di approfondire ulteriormente lo sviluppo del tuo servizio, fermati e rifletti sui risultati progettuali finora ottenuti e sull'effettiva fattibilit\u00e0 e sostenibilit\u00e0 di ci\u00f2 che stai per realizzare.",
+                "lv": "Pirms turpin\u0101t pakalpojuma izstr\u0101di, apst\u0101jaties un p\u0101rdom\u0101jiet l\u012bdz \u0161im sasniegtos projekt\u0113\u0161anas rezult\u0101tus, k\u0101 ar\u012b to, k\u0101da ir pakalpojuma \u012bsteno\u0161anas iesp\u0113jam\u012bba un ilgtsp\u0113ja."
+            },
+            "problemprofiles": [
+                "UND_PROBLEM_3"
+            ],
+            "tasks": [
+                {
+                    "name_translations": {
+                        "en": "Evaluation of codesign",
+                        "es": "Evaluaci\u00f3n del codise\u00f1o",
+                        "it": "Valutazione della progettazione collaborativa",
+                        "lv": "Kod\u0113juma nov\u0113rt\u0113\u0161ana"
+                    },
+                    "description_translations": {
+                        "en": "Is the design output satisfactory?\r\nFollow the proposed checklist to understand if you are done with design or whether an iterative refinement cycle is recommended.",
+                        "es": "\u00bfEl resultado del dise\u00f1o es satisfactorio?\nSiga la lista de comprobaci\u00f3n propuesta para saber si ha terminado el dise\u00f1o o si se recomienda un ciclo de perfeccionamiento iterativo.",
+                        "it": "L'output del progetto \u00e8 soddisfacente?\nSegui la checklist per capire se hai terminato la progettazione o se \u00e8 consigliabile un ciclo di perfezionamento iterativo.",
+                        "lv": "Vai projekt\u0113\u0161anas rezult\u0101ts ir apmierino\u0161s?\nSekojiet pied\u0101v\u0101tajam kontrolsarakstam, lai saprastu, vai projekt\u0113\u0161ana ir nosl\u0113gta, vai ar\u012b ir ieteicams veikt iterat\u012bvu pilnveido\u0161anas ciklu."
+                    },
+                    "problemprofiles": [],
+                    "id": "task-evaluation-of-codesign",
+                    "prerequisites": []
+                },
+                {
+                    "name_translations": {
+                        "en": "Refine the preliminary business model",
+                        "es": "Perfeccionar el modelo de negocio preliminar",
+                        "it": "Perfeziona il modello di business preliminare",
+                        "lv": "Uzlabojiet s\u0101kotn\u0113jo biznesa modeli"
+                    },
+                    "description_translations": {
+                        "en": "How much funding is needed? Where does the money come from? What are the sources of funding / support necessary to keep it running after implementation?\r\nFollow the proposed checklist for an intermediate evaluation of financial sustainability.",
+                        "es": "\u00bfCu\u00e1ntos fondos se necesitan? \u00bfDe d\u00f3nde procede el dinero? \u00bfCu\u00e1les son las fuentes de financiaci\u00f3n/apoyo necesarias para mantenerlo en funcionamiento despu\u00e9s de la aplicaci\u00f3n?\nSiga la lista de comprobaci\u00f3n propuesta para una evaluaci\u00f3n intermedia de la sostenibilidad financiera.",
+                        "it": "Quanti finanziamenti esterni sono necessari? Come potrebbe auto-sostenersi e con quali soldi? Quali sono le fonti di finanziamento/sostegno per mantenere il servizio operativo dopo l'implementazione?\nSegui la checklist per una valutazione intermedia della sostenibilit\u00e0 finanziaria.",
+                        "lv": "Cik liels finans\u0113jums ir nepiecie\u0161ams? No kurienes n\u0101k finans\u0113jums? K\u0101di ir finans\u0113juma/atbalsta avoti, kas nepiecie\u0161ami, lai nodro\u0161in\u0101tu t\u0101 darb\u012bbu p\u0113c ievie\u0161anas?\nSekojiet pied\u0101v\u0101tajam kontrolsarakstam, lai veiktu finansi\u0101l\u0101s ilgtsp\u0113jas starpposma nov\u0113rt\u0113jumu."
+                    },
+                    "problemprofiles": [],
+                    "prerequisites": [
+                        {
+                            "item": "task-evaluation-of-codesign",
+                            "type": "previous"
+                        }
+                    ],
+                    "id": "task-refine-the-preliminary-business-model"
+                },
+                {
+                    "name_translations": {
+                        "en": "Feasibility analysis",
+                        "es": "An\u00e1lisis de viabilidad",
+                        "it": "Analisi di fattibilit\u00e0",
+                        "lv": "Ievie\u0161anas iesp\u0113jam\u012bbas anal\u012bze"
+                    },
+                    "description_translations": {
+                        "en": "Are all technical skills and resources available to proceed with development? \r\nFollow the proposed checklist for an intermediate evaluation of technical sustainabiity.",
+                        "es": "\u00bfEst\u00e1n disponibles todas las competencias y recursos t\u00e9cnicos para proceder al desarrollo? \nSiga la lista de comprobaci\u00f3n propuesta para una evaluaci\u00f3n intermedia de la sostenibilidad t\u00e9cnica.",
+                        "it": "Sono disponibili tutte le competenze e le risorse tecniche per procedere con lo sviluppo?\nSegui la checklist per una valutazione intermedia della sostenibilit\u00e0 tecnica.",
+                        "lv": "Vai ir pieejamas visas tehnisk\u0101s prasmes un resursi, lai turpin\u0101tu izstr\u0101di?\nSekojiet pied\u0101v\u0101tajam kontrolsarakstam, lai veiktu tehnisk\u0101s ilgtsp\u0113jas starpposma nov\u0113rt\u0113jumu."
+                    },
+                    "problemprofiles": [],
+                    "prerequisites": [
+                        {
+                            "item": "task-refine-the-preliminary-business-model",
+                            "type": "previous"
+                        }
+                    ],
+                    "id": "task-feasibility-analysis"
+                },
+                {
+                    "name_translations": {
+                        "en": "Understand motivations and incentives",
+                        "es": "Comprender las motivaciones y los incentivos",
+                        "it": "Comprendi le motivazioni e come incentivarle",
+                        "lv": "Izprotiet motiv\u0101ciju un stimulus"
+                    },
+                    "description_translations": {
+                        "en": "What are the incentives for those who can provide support / funding and for those developing / maintaining them?\r\nStop and reflect on how stakeholders collaboration in co-creation went so far. Follow the proposed checklist to understand whether further incentives and supportive measures are needed to ensure productive development and co-delivery phases.",
+                        "es": "\u00bfCu\u00e1les son los incentivos para los que pueden proporcionar apoyo / financiaci\u00f3n y para los que los desarrollan / mantienen?\nDet\u00e9ngase y reflexione sobre c\u00f3mo ha ido la colaboraci\u00f3n de las partes interesadas en la cocreaci\u00f3n hasta ahora. Siga la lista de comprobaci\u00f3n propuesta para comprender si se necesitan m\u00e1s incentivos y medidas de apoyo para garantizar un desarrollo productivo y fases de cocreaci\u00f3n.",
+                        "it": "Quali sono gli incentivi per coloro che forniscono supporto e/o finanziamenti al servizio e per coloro che lo sviluppano, mantengono in vita?\nProva a riflettere su come ha funzionato fino ad ora la collaborazione fra gli attori. Segui la check-list per capire se sono necessari ulteriori incentivi, misure di supporto per assicurare l'implementazione e l'erogazione del servizio.",
+                        "lv": "K\u0101di ir stimuli tiem, kas var sniegt atbalstu/finans\u0113jumu, un tiem, kas tos izstr\u0101d\u0101/uztur?\nApst\u0101jies un p\u0101rdom\u0101, k\u0101 l\u012bdz \u0161im norisin\u0101j\u0101s ieinteres\u0113to pu\u0161u sadarb\u012bba koprad\u012b\u0161an\u0101. Sekojiet kontrolsarakstam, lai saprastu, vai ir nepiecie\u0161ami papildu stimuli un atbalsta pas\u0101kumi, lai nodro\u0161in\u0101tu produkt\u012bvu izstr\u0101des un koppieg\u0101des posmu."
+                    },
+                    "problemprofiles": [],
+                    "prerequisites": [
+                        {
+                            "item": "task-feasibility-analysis",
+                            "type": "previous"
+                        }
+                    ],
+                    "id": "task-understand-motivations-and-incentives"
+                }
+            ],
+            "prerequisites": [
+                {
+                    "item": "objective-service-specification",
+                    "type": "previous"
+                }
+            ],
+            "id": "objective-sustainability"
+        }
+    ],
+    "is_part_of_codelivery": false
+}

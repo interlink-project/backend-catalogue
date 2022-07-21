@@ -1,0 +1,68 @@
+{
+    "administrative_scopes": [
+        "eu",
+        "national",
+        "local"
+    ],
+    "asset_name_translations": {
+        "en": "Trello"
+    },
+    "constraints_and_limitations_translations": {
+        "en": "None"
+    },
+    "description_translations": {
+        "en": "<p>Trello is a collaboration tool that organizes your projects into boards. In one glance, Trello tells you what's being worked on, who's working on what, and where something is in a process.</p>",
+        "es": "<p>Trello es una herramienta de colaboraci\u00f3n que organiza tus proyectos en tableros. De un solo vistazo, Trello te dice en qu\u00e9 se est\u00e1 trabajando, qui\u00e9n est\u00e1 trabajando en qu\u00e9 y en qu\u00e9 punto del proceso se encuentra algo.</p>",
+        "it": "<p>Trello \u00e8 uno strumento di collaborazione che organizza i tuoi progetti in bacheche. In un colpo d'occhio, Trello ti dice su cosa si sta lavorando, chi sta lavorando su cosa e dove si trova qualcosa in un processo.</p>",
+        "lv": "<p>Trello ir sadarb\u012bbas r\u012bks, ar kura pal\u012bdz\u012bbu iesp\u0113jams izk\u0101rtot projektus t\u0101fel\u0113s. Vien\u0101 att\u0113l\u0101 Trello sp\u0113j par\u0101d\u012bt, kas tiek dar\u012bts, kur\u0161 str\u0101d\u0101 ar k\u0101diem jaut\u0101jumiem, un kuras lietas ir proces\u0101.</p>"
+    },
+    "difficulty": "easy",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "id": "trello",
+    "instructions_translations": {
+        "en": "./interlinkers/externalsoftware/trello/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "propietary",
+    "logotype": "./interlinkers/externalsoftware/trello/logo.png",
+    "name_translations": {
+        "en": "Trello",
+        "es": "Trello",
+        "it": "Trello",
+        "lv": "Trello"
+    },
+    "problemprofiles": [
+        "ORG_PROBLEM_2"
+    ],
+    "regulations_and_standards_translations": {
+        "en": "None"
+    },
+    "tags_translations": {
+        "en": [
+            "project management",
+            "task management",
+            "team working"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "software",
+    "types": [
+        "enabling_services",
+        "enhancing_services"
+    ],
+    "uri_translations": {
+        "en": "https://trello.com/es"
+    }
+}

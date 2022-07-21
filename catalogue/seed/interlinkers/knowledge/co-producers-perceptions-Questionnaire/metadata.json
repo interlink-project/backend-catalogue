@@ -1,0 +1,66 @@
+{
+    "administrative_scopes": [
+        "eu"
+    ],
+    "constraints_and_limitations_translations": {
+        "en": "No special constraints apply"
+    },
+    "description_translations": {
+        "en": "<p>This is a model of a questionnaire aimed to measure co-producer's perceptions on user-based quality, value-based quality, trust and acceptance. This questionnaire is thought to be answered by those who take part in the co-production of a public service or reuse artefacts (public services & INTERLINKERs) made available through INTERLINK co-production tools (Collaborative Environment and Catalogue).</p>",
+        "es": "<p>Este es un modelo de cuestionario destinado a medir las percepciones de los coproductores sobre la calidad basada en el usuario, la calidad basada en el valor, la confianza y la aceptaci\u00f3n. Este cuestionario est\u00e1 pensado para ser respondido por quienes participan en la coproducci\u00f3n de un servicio p\u00fablico o de artefactos de reutilizaci\u00f3n (servicios p\u00fablicos e INTERLINKERs) puestos a disposici\u00f3n a trav\u00e9s de las herramientas de coproducci\u00f3n de INTERLINK (Entorno Colaborativo y Cat\u00e1logo).</p>",
+        "it": "<p>Questo \u00e8 un modello di questionario volto a misurare le percezioni del coproduttore sulla qualit\u00e0 basata sull'utente, sulla qualit\u00e0 basata sul valore, sulla fiducia e sull'accettazione. Si ritiene che a questo questionario rispondano coloro che partecipano alla coproduzione di un servizio pubblico o riutilizzano manufatti (servizi pubblici e INTERLINKER) messi a disposizione attraverso gli strumenti di coproduzione INTERLINK (Ambiente e Catalogo Collaborativi).</p>",
+        "lv": "<p>\u0160is ir aptaujas modelis koprades procesa dal\u012bbnieku uztveres (uz lietot\u0101ju balst\u012bta kvalit\u0101te, uz v\u0113rt\u012bb\u0101m balst\u012bta kvalit\u0101te, uzticam\u012bba un pie\u0146em\u0161ana) m\u0113r\u012b\u0161anai. \u0160\u012b aptauja paredz\u0113ta koprades procesa dal\u012bbniekiem, kuri iesaist\u0101s publisk\u0101 pakalpojuma vai vair\u0101klietojamo artefaktu (publiskie pakalpojumi un INTERLINKERi) koprad\u0113. T\u0101 ir pieejama INTERLINK koprades r\u012bkos (Sadarb\u012bbas vide un Katalogs).</p>"
+    },
+    "difficulty": "easy",
+    "domain": "",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "file_translations": {
+        "en": "./interlinkers/knowledge/co-producers-perceptions-Questionnaire/resource.pdf"
+    },
+    "form": "survey_template",
+    "format": "editable_source_document",
+    "id": "guidelines-for-surveys",
+    "instructions_translations": {
+        "en": "./interlinkers/knowledge/co-producers-perceptions-Questionnaire/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "public_domain",
+    "name_translations": {
+        "en": "Guidelines for surveys",
+        "es": "Directrices para las encuestas",
+        "it": "Linee guida per i sondaggi",
+        "lv": "Aptauju vadl\u012bnijas"
+    },
+    "problemprofiles": [
+        "UND_PROBLEM_3"
+    ],
+    "process": "",
+    "regulations_and_standards_translations": {
+        "en": ""
+    },
+    "softwareinterlinker": "googledrive",
+    "tags_translations": {
+        "en": [
+            "product specification",
+            "template",
+            "understand"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enhancing_services"
+    ]
+}

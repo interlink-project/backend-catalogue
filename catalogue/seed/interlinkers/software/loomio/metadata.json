@@ -1,0 +1,106 @@
+{
+    "administrative_scopes": [
+        "eu",
+        "national",
+        "local"
+    ],
+    "constraints_and_limitations_translations": {
+        "en": "None",
+        "es": ""
+    },
+    "description_translations": {
+        "en": "<p>Loomio is an Open Source solution that offers a workspace for conversation, sharing information and opinions, making proposals, deciding actions and achieving outcomes. With Loomio it is possible to</p><ul><li>start and organize discussions and keep record of participation and involvement;</li><li>manage collaborative decisions through different forms of polls, surveys, etc;</li><li>enable collaborating voting around ideas and proposal under discussion.</li></ul>",
+        "es": "<p>Loomio is an Open Source solution that offers a workspace for conversation, sharing information and opinions, making proposals, deciding actions and achieving outcomes. Con Loomio es posible</p><ul><li>iniciar y organizar discusiones y mantener un registro de la participaci\u00f3n e implicaci\u00f3n;</li><li>gestionar las decisiones colaborativas a trav\u00e9s de diferentes formas de sondeos, encuestas, etc;</li><li>permitir la votaci\u00f3n colaborativa en torno a ideas y propuestas en discusi\u00f3n.</li></ul>",
+        "it": "<p>Loomio \u00e8 una soluzione Open Source che offre uno spazio di lavoro per la conversazione, la condivisione di informazioni e opinioni, la formulazione di proposte, la decisione di azioni e il raggiungimento di risultati. Con Loomio \u00e8 possibile</p><ul><li>avviare e organizzare discussioni e tenere traccia della partecipazione e del coinvolgimento;</li><li>gestire decisioni collaborative attraverso diverse forme di sondaggi, sondaggi, ecc;</li><li> li><li>consentire di collaborare votando su idee e proposte in discussione.</li></ul>",
+        "lv": "<p>Loomio ir atv\u0113rt\u0101 koda risin\u0101jums, kas pied\u0101v\u0101 darbavietu sarun\u0101m, inform\u0101cijas un viedok\u013cu apmai\u0146ai, priek\u0161likumu izteik\u0161anai, l\u0113mumu pie\u0146em\u0161anai un m\u0113r\u0137u sasnieg\u0161anai. Ar Loomio ir iesp\u0113jams</p><ul><li>uzs\u0101kt un organiz\u0113t diskusijas un sekot l\u012bdzi dal\u012bbai un iesaistei;</li><li>vad\u012bt sadarb\u012bb\u0101 balst\u012btus l\u0113mumus ar da\u017e\u0101du balsojumu, aptauju u.c. r\u012bku pal\u012bdz\u012bbu;</li><li>aktiviz\u0113t kop\u012bgus balsojumus par idej\u0101m un priek\u0161likumiem, kas tiek apspriesti.</li></ul>"
+    },
+    "difficulty": "medium",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "id": "loomio",
+    "instructions_translations": {
+        "en": "./interlinkers/software/loomio/instructions.md"
+    },
+    "integration": {
+        "api_path": "/api/v1/assets",
+        "auth_method": "header",
+        "capabilities": {
+            "clone": false,
+            "delete": true,
+            "edit": false,
+            "instantiate": true,
+            "open_in_modal": false,
+            "preview": false,
+            "shortcut": true,
+            "view": true
+        },
+        "capabilities_translations": {
+            "delete_text_translations": {
+                "en": "Delete Loomio thread",
+                "es": "Eliminar hilo de Loomio"
+            },
+            "instantiate_text_translations": {
+                "en": "Create a discussion thread in Loomio",
+                "es": "Crear un hilo en Loomio"
+            },
+            "view_text_translations": {
+                "en": "Open thread in Loomio",
+                "es": "Abrir hilo en Loomio"
+            }
+        },
+        "domain": "",
+        "is_subdomain": true,
+        "path": "loomio",
+        "service_name": "loomio"
+    },
+    "is_responsive": true,
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "copyleft",
+    "logotype": "./interlinkers/software/loomio/logo.png",
+    "name_translations": {
+        "en": "Loomio",
+        "es": "Loomio",
+        "it": "Loomio",
+        "lv": "Loomio"
+    },
+    "overview_text": {
+        "en": "Web-based tool for collaborative decision making, discussion. and idea management",
+        "es": ""
+    },
+    "problemprofiles": [
+        "UND_PROBLEM_1",
+        "UND_PROBLEM_5",
+        "DEF_PROBLEM_2"
+    ],
+    "regulations_and_standards_translations": {
+        "en": "None",
+        "es": ""
+    },
+    "supported_by": [
+        "on_premise"
+    ],
+    "supports_internationalization": true,
+    "tags_translations": {
+        "en": [
+            "decision making",
+            "idea management",
+            "voting"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "software",
+    "types": [
+        "enabling_services;operation_services"
+    ]
+}

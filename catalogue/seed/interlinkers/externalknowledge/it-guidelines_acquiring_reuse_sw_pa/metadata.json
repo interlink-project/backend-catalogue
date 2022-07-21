@@ -1,0 +1,69 @@
+{
+    "administrative_scopes": [
+        "national",
+        "local"
+    ],
+    "asset_name_translations": {
+        "en": "Guidelines on the acquisition and reuse of software for public administrations"
+    },
+    "constraints_and_limitations_translations": {
+        "en": "No special constraints apply"
+    },
+    "description_translations": {
+        "en": "<p>This resource aims at explaining how to acquire and reuse software in PA context.</p>",
+        "es": "<p>Este recurso pretende explicar c\u00f3mo adquirir y reutilizar software en el contexto de la AP.</p>",
+        "it": "<p>Questa risorsa mira a spiegare come acquisire e riutilizzare software nel contesto della PA.</p>",
+        "lv": "<p>\u0160\u012b resursa m\u0113r\u0137is ir skaidrot, k\u0101 ieg\u016bt un atk\u0101rtoti izmantot programmat\u016bru valsts p\u0101rvald\u0113.</p>"
+    },
+    "difficulty": "difficult",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "form": "guidelines",
+    "format": "structured_format",
+    "id": "guidelines-on-the-acquisition-and-reuse-of-software-for-public-administrations",
+    "instructions_translations": {
+        "en": "./interlinkers/externalknowledge/it-guidelines_acquiring_reuse_sw_pa/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "permissive",
+    "name_translations": {
+        "en": "Guidelines on the acquisition and reuse of software for public administrations",
+        "es": "Directrices sobre la adquisici\u00f3n y reutilizaci\u00f3n de programas inform\u00e1ticos para las administraciones p\u00fablicas",
+        "it": "Linee guida per l'acquisizione e il riutilizzo di software per le pubbliche amministrazioni",
+        "lv": "Programmat\u016bras ieg\u016b\u0161anas un atk\u0101rtotas izmanto\u0161anas vadl\u012bnijas valsts p\u0101rvald\u0113"
+    },
+    "problemprofiles": [
+        "BUILD_PROBLEM_3"
+    ],
+    "regulations_and_standards_translations": {
+        "en": ""
+    },
+    "tags_translations": {
+        "en": [
+            "open source",
+            "public administration",
+            "reuse",
+            "acquisition"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enabling_services",
+        "enabling_services;implementing_software_and_artifacts"
+    ],
+    "uri_translations": {
+        "en": "https://docs.italia.it/italia/developers-italia/gl-acquisition-and-reuse-software-for-pa-docs/en/stabile/index.html"
+    }
+}

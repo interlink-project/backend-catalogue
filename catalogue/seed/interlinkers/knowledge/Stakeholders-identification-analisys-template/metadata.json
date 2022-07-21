@@ -1,0 +1,68 @@
+{
+    "administrative_scopes": [
+        "eu"
+    ],
+    "constraints_and_limitations_translations": {
+        "en": "No special constraints apply"
+    },
+    "description_translations": {
+        "en": "<p>This template of an excel file can be used in conjunction with the Stakeholders Mapping Canvas to identify by name and title the people, groups, and organisations that have significant influence on project direction and its success or who are significantly impacted by the project. The template helps in planning Stakeholders engagement according to different dimensions:<br> <ul><br><li>the desired or expected level of involvement<br><li> potential issues related to their engagement<br><li>motivations and barriers that can support you in finding the best strategy to engage them in the co-production process<br><li> expectation of the different Stakeholders<br><li> skills and potential role within the co-production process.<br></ul></p>",
+        "es": "<p>This template of an excel file can be used in conjunction with the Stakeholders Mapping Canvas to identify by name and title the people, groups, and organisations that have significant influence on project direction and its success or who are significantly impacted by the project. The template helps in planning Stakeholders engagement according to different dimensions:<br> <ul><br><li>the desired or expected level of involvement<br><li> potential issues related to their engagement<br><li>motivations and barriers that can support you in finding the best strategy to engage them in the co-production process<br><li> expectation of the different Stakeholders<br><li> skills and potential role within the co-production process.<br></ul></p>",
+        "it": "<p>Questo modello di file excel pu\u00f2 essere utilizzato insieme allo Stakeholders Mapping Canvas per identificare per nome e titolo le persone, i gruppi e le organizzazioni che hanno un'influenza significativa sulla direzione del progetto e sul suo successo o che sono significativamente influenzati dal progetto . Il modello aiuta a pianificare il coinvolgimento degli stakeholder in base a diverse dimensioni:<br> <ul><br><li>il livello di coinvolgimento desiderato o previsto<br><li> potenziali problemi legati al loro coinvolgimento<br><li>motivazioni e barriere che possono supportarti nella ricerca della migliore strategia per coinvolgerli nel processo di coproduzione<br><li> aspettative dei diversi Stakeholders<br><li> competenze e ruolo potenziale all'interno del processo di coproduzione.<br><li> ></ul></p>",
+        "lv": "<p>\u0160is Excel faila paraugs var tikt izmantots kop\u0101 ar ieinteres\u0113to pu\u0161u kart\u0113\u0161anas r\u012bku, lai p\u0113c v\u0101rda un nosaukuma identific\u0113tu cilv\u0113kus, grupas un organiz\u0101cijas, kur\u0101m ir noz\u012bm\u012bga ietekme uz projekta virz\u012bbu un izn\u0101kumu vai uz kuriem projekts atst\u0101s noz\u012bm\u012bgu ietekmi. Paraugs pal\u012bdz pl\u0101not ieinteres\u0113to pu\u0161u iesaisti saska\u0146\u0101 ar da\u017e\u0101d\u0101m dimensij\u0101m:<br> <ul><br><li>v\u0113lamais vai paredzamais iesaistes l\u012bmenis<br><li>iesp\u0113jam\u0101s probl\u0113mas, kas saist\u012btas ar vi\u0146u iesaisti<br><li>motiv\u0101cijas faktori un barjeras, kas var pal\u012bdz\u0113t izv\u0113l\u0113ties lab\u0101ko strat\u0113\u0123iju vi\u0146u iesaistei koprades proces\u0101<br><li>da\u017e\u0101du ieinteres\u0113to pu\u0161u ekspekt\u0101cijas<br><li>prasmes un iesp\u0113jam\u0101 loma koprades proces\u0101.<br></ul></p>"
+    },
+    "difficulty": "easy",
+    "domain": "",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "file_translations": {
+        "en": "./interlinkers/knowledge/Stakeholders-identification-analisys-template/resource.xlsx"
+    },
+    "form": "document_template",
+    "format": "editable_source_document",
+    "id": "stakeholders-identification-analisys-template-guidelines",
+    "instructions_translations": {
+        "en": "./interlinkers/knowledge/Stakeholders-identification-analisys-template/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "public_domain",
+    "name_translations": {
+        "en": "Stakeholders identification analisys template guidelines",
+        "es": "Directrices para el an\u00e1lisis de las partes interesadas",
+        "it": "Modello di linee guida per l'analisi identificativa degli stakeholder",
+        "lv": "Ieinteres\u0113to pu\u0161u identific\u0113\u0161anas anal\u012bzes veidlapas vadl\u012bnijas"
+    },
+    "problemprofiles": [
+        "ORG_PROBLEM_1",
+        "UND_PROBLEM_2",
+        "ORG_PROBLEM_5"
+    ],
+    "process": "",
+    "regulations_and_standards_translations": {
+        "en": ""
+    },
+    "softwareinterlinker": "googledrive",
+    "tags_translations": {
+        "en": [
+            "product specification",
+            "testing",
+            "usability"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enhancing_services"
+    ]
+}

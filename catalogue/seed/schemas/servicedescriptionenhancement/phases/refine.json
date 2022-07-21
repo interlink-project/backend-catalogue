@@ -1,0 +1,151 @@
+{
+    "id": "phase-refine",
+    "prerequisites": [
+        {
+            "item": "phase-run",
+            "status": "finished"
+        }
+    ],
+    "name_translations": {
+        "en": "Refine",
+        "es": "Refinar",
+        "it": "Definizione",
+        "lv": "Uzlabojiet"
+    },
+    "description_translations": {
+        "en": "Apply refinements according to crowd-contributions and publish new version of service description.",
+        "es": "Aplicar mejoras seg\u00fan las contribuciones de la multitud y publicar una nueva versi\u00f3n de la descripci\u00f3n del servicio.",
+        "it": "Aggiungi i contributi collettivi e pubblica la nuova versione della descrizione del servizio",
+        "lv": "Veiciet uzlabojumus atbilsto\u0161i kolekt\u012bvajiem ieguld\u012bjumiem un public\u0113jiet jaunu pakalpojuma apraksta versiju."
+    },
+    "objectives": [
+        {
+            "name_translations": {
+                "en": "Apply refinements",
+                "es": "Aplicar mejoras",
+                "it": "Accogli le definizioni",
+                "lv": "Piem\u0113rojiet uzlabojumus"
+            },
+            "description_translations": {
+                "en": "You may use a changes template to trace how the refinements approved in report from Description Augmenter are applied",
+                "es": "Puede utilizar una plantilla de cambios para seguir c\u00f3mo se aplican las mejoras aprobadas en el informe del Aumentador de Descripciones",
+                "it": "Puoi tenere traccia delle modifiche per non perdere la cronistoria dei commenti applicati al documento attraverso il Description Augmenter",
+                "lv": "Varat izmantot izmai\u0146u veidni, lai izsekotu, k\u0101 tiek piem\u0113roti Apraksta Papla\u0161in\u0101t\u0101ja p\u0101rskat\u0101 apstiprin\u0101tie uzlabojumi"
+            },
+            "problemprofiles": [],
+            "tasks": [
+                {
+                    "name_translations": {
+                        "en": "Generate a checklist for improvements",
+                        "es": "Generar una lista de control para las mejoras",
+                        "it": "Genera una checklist per monitorare i commenti",
+                        "lv": "Izveidojiet kontrolsarakstu uzlabojumiem"
+                    },
+                    "description_translations": {
+                        "en": "You may clone a given Servicepedia enhancements reports and upload with the support of GoogleDrive INTERLINKER (through initiate Procedure) so that you can use such document as check list to indicate what accepted refinement suggestions have been processed.",
+                        "es": "Puede clonar un determinado informe de mejoras de Servicepedia y subirlo con el apoyo de GoogleDrive INTERLINKER (a trav\u00e9s de iniciar el Procedimiento) para que pueda utilizar dicho documento como lista de comprobaci\u00f3n para indicar qu\u00e9 sugerencias de mejora aceptadas han sido procesadas.",
+                        "it": "Puoi effettuare una copia del report con tutte le modifiche e caricarlo nello spazio di lavoro con il supporto dell'INTERLINKER GoogleDrive (clicca sul bottone \"Abilita risorse collaborative\"). Puoi usare questo documento come checklist per indicare quali suggerimenti sono stati accettati e processati.",
+                        "lv": "J\u016bs varat klon\u0113t noteiktus Servicepedia uzlabojumu p\u0101rskatus un aug\u0161upiel\u0101d\u0113t, izmantojot GoogleDrive INTERLINKERa atbalstu (izmantojot inici\u0113\u0161anas proced\u016bru). J\u016bs varat izmantot \u0161o dokumentu k\u0101 kontrolsarakstu, lai nor\u0101d\u012btu, k\u0101di pie\u0146emtie uzlabojumu ieteikumi ir apstr\u0101d\u0101ti."
+                    },
+                    "problemprofiles": [
+                        "ORG_PROBLEM_7"
+                    ],
+                    "id": "task-generate-a-checklist-for-improvements",
+                    "prerequisites": []
+                },
+                {
+                    "name_translations": {
+                        "en": "Link to content management system (CMS) where changes should be applied",
+                        "es": "Enlace al sistema de gesti\u00f3n de contenidos (CMS) donde deben aplicarse los cambios",
+                        "it": "Crea collegamenti nel Content Management System (CMS) nel punto dove dovrebbero essere applicati dei cambiamenti",
+                        "lv": "Saite uz satura p\u0101rvald\u012bbas sist\u0113mu (CMS), kur\u0101 b\u016btu j\u0101piem\u0113ro izmai\u0146as"
+                    },
+                    "description_translations": {
+                        "en": "Link to content management system (CMS) where changes should be applied to the public service description",
+                        "es": "Enlace al sistema de gesti\u00f3n de contenidos (CMS) donde se deben aplicar los cambios a la descripci\u00f3n del servicio p\u00fablico",
+                        "it": "Crea collegamenti nel Content Management System (CMS) nel punto dove dovrebbero essere applicati dei cambiamenti alla descrizione dei servizi pubblici",
+                        "lv": "Saite uz satura p\u0101rvald\u012bbas sist\u0113mu, kur j\u0101veic izmai\u0146as sabiedrisk\u0101 pakalpojuma aprakst\u0101"
+                    },
+                    "problemprofiles": [
+                        "ORG_PROBLEM_7"
+                    ],
+                    "prerequisites": [
+                        {
+                            "item": "task-generate-a-checklist-for-improvements",
+                            "type": "previous"
+                        }
+                    ],
+                    "id": "task-link-to-content-management-system-cms-where-changes-should-be-applied"
+                }
+            ],
+            "id": "objective-apply-refinements",
+            "prerequisites": []
+        },
+        {
+            "name_translations": {
+                "en": "Publish refined version of public service description",
+                "es": "Publicar una versi\u00f3n mejorada de la descripci\u00f3n del servicio p\u00fablico",
+                "it": "Pubblica la versione aggiornata della descrizione del servizio pubblico",
+                "lv": "Public\u0113jiet publisk\u0101 pakalpojuma apraksta preciz\u0113tu versiju"
+            },
+            "description_translations": {
+                "en": "Using the External Resource Manager (through Initiate Procedure) include link to enhanced version of public service description after changes have been applied",
+                "es": "Mediante el Gestor de Recursos Externos (a trav\u00e9s del Procedimiento de Iniciaci\u00f3n) incluir el enlace a la versi\u00f3n mejorada de la descripci\u00f3n del servicio p\u00fablico despu\u00e9s de aplicar los cambios",
+                "it": "Usa il Gestore di Risorse Esterne (clicca sul bottone \"Abilita risorse collaborative\") per includere un collegamento alla versione aggiornata della descrizione del servizio pubblico, dopo aver accolto i commenti",
+                "lv": "Izmantojot \u0101r\u0113jo resursu p\u0101rvaldnieku (izmantojot inici\u0113\u0161anas proced\u016bru), iek\u013caujiet saiti uz sabiedrisko pakalpojumu apraksta uzlaboto versiju p\u0113c izmai\u0146u ievie\u0161anas"
+            },
+            "problemprofiles": [],
+            "tasks": [
+                {
+                    "name_translations": {
+                        "en": "Link with enhanced version of public service description",
+                        "es": "Enlace con la versi\u00f3n mejorada de la descripci\u00f3n del servicio p\u00fablico",
+                        "it": "Crea un link alla versione aggiornata della descrizione del servizio pubblico",
+                        "lv": "Saite ar publisk\u0101 pakalpojuma apraksta uzlaboto versiju"
+                    },
+                    "description_translations": {
+                        "en": "Leverage External Resource Manager to include reference to new public service description",
+                        "es": "Incluir la referencia a la nueva descripci\u00f3n del servicio p\u00fablico",
+                        "it": "Utilizza il Gestore di Risorse Esterne per includere riferimenti alla nuova descrizione di servizio pubblico",
+                        "lv": "Izmantojiet \u0101r\u0113jo resursu p\u0101rvaldnieku, lai iek\u013cautu atsauci uz jauno publisk\u0101 pakalpojuma aprakstu"
+                    },
+                    "problemprofiles": [],
+                    "prerequisites": [],
+                    "id": "task-link-with-enhanced-version-of-public-service-description"
+                },
+                {
+                    "name_translations": {
+                        "en": "Communicate enhancements to co-refiners",
+                        "es": "Comunicar las mejoras a los co-refinadores",
+                        "it": "Comunica le nuove definizioni ai partecipanti",
+                        "lv": "Pazi\u0146ojiet par uzlabojumiem koprades dal\u012bbniekiem"
+                    },
+                    "description_translations": {
+                        "en": "Communicate the enhancements applied as result of co-refiners contributions and send update",
+                        "es": "Comunicar las mejoras aplicadas como resultado de las contribuciones de los co-refinadores y enviar la actualizaci\u00f3n",
+                        "it": "Comunica i commenti accolti, come risultato del contributo dei partecipanti e invia gli aggiornamenti",
+                        "lv": "Pazi\u0146ojiet par koprades rezult\u0101t\u0101 ieviestajiem uzlabojumiem un nos\u016btiet atjaunin\u0101jumus"
+                    },
+                    "problemprofiles": [
+                        "ORG_PROBLEM_4"
+                    ],
+                    "prerequisites": [
+                        {
+                            "item": "task-link-with-enhanced-version-of-public-service-description",
+                            "type": "previous"
+                        }
+                    ],
+                    "id": "task-communicate-enhancements-to-co-refiners"
+                }
+            ],
+            "prerequisites": [
+                {
+                    "item": "objective-apply-refinements",
+                    "type": "previous"
+                }
+            ],
+            "id": "objective-publish-refined-version-of-public-service-description"
+        }
+    ],
+    "is_part_of_codelivery": true
+}

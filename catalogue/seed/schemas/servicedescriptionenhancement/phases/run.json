@@ -1,0 +1,140 @@
+{
+    "id": "phase-run",
+    "prerequisites": [
+        {
+            "item": "phase-design",
+            "status": "finished"
+        }
+    ],
+    "name_translations": {
+        "en": "Run",
+        "es": "Ejecuci\u00f3n",
+        "it": "Esegui",
+        "lv": "Palaidiet"
+    },
+    "description_translations": {
+        "en": "Make use of instantiated co-refinement process, reviewing contribs from users of the service description, accepting or rejecting them, exporting reports with changes accepted so that they are processed for refinement.",
+        "es": "Hacer uso del proceso de co-refinamiento instanciado, revisando las contribuciones de los usuarios de la descripci\u00f3n del servicio, acept\u00e1ndolas o rechaz\u00e1ndolas, exportando informes con los cambios aceptados para que sean procesados para su refinamiento.",
+        "it": "Utilizza il processo di definizione, controlla i contributi dei partecipanti: puoi accettarli o declinarli; esporta il report con i commenti accettati in modo che possano essere elaborati per la definizione.",
+        "lv": "Izmantojiet atjaunin\u0101tu koprades procesu, p\u0101rskatot pakalpojuma apraksta lietot\u0101ju ieguld\u012bjumus, pie\u0146emot vai noraidot tos, un eksport\u0113jot p\u0101rskatus ar pie\u0146emtaj\u0101m izmai\u0146\u0101m, lai tie tiktu apstr\u0101d\u0101ti un nodoti pakalpojuma pilnveido\u0161anai."
+    },
+    "objectives": [
+        {
+            "name_translations": {
+                "en": "Monitor continuous crowd refinement process",
+                "es": "Supervisar el proceso de perfeccionamiento continuo de la multitud",
+                "it": "Monitora in modo continuo il processo di definizione collettivo",
+                "lv": "P\u0101rraugiet past\u0101v\u012bgo pilnveido\u0161anas procesu"
+            },
+            "description_translations": {
+                "en": "Access to the Description Augmenter to the augmented view of service descriptions to monitor and moderate contributions from the crowd, generate intermediary reports and store them. Notice that only the creator of the process to refine a service description can moderate it, unless rights are given to other co-refinement team members through Servicepedia dashboard",
+                "es": "Acceso al Aumentador de Descripciones a la vista aumentada de las descripciones de servicios para supervisar y moderar las contribuciones de la multitud, generar informes intermedios y almacenarlos. Tenga en cuenta que s\u00f3lo el creador del proceso para refinar una descripci\u00f3n de servicio puede moderarla, a menos que se den derechos a otros miembros del equipo de co-refinamiento a trav\u00e9s del tablero de Servicepedia",
+                "it": "Accedi attraverso il Description Augmenter ad una vista aumentata delle descrizioni del servizio per monitorare e moderare i contributi collettivi, per memorizzare il report conclusivo e quelli intermedi. Tieni conto che solamente il creatore del processo per definire una descrizione del servizio pu\u00f2 moderare la discussione, a meno che ad altri membri del gruppo vengano assegnati tali diritti attraverso il pannello di controllo della Servicepedia",
+                "lv": "Piek\u013cuve Apraksta papla\u0161in\u0101t\u0101jam pakalpojumu aprakstu papla\u0161in\u0101tajam skatam, lai p\u0101rraudz\u012btu un regul\u0113tu dal\u012bbnieku ieguld\u012bjumu, \u0123ener\u0113tu starpposma atskaites un tos saglab\u0101tu. \u0145emiet v\u0113r\u0101, ka tikai pakalpojuma apraksta uzlabo\u0161anas procesa veidot\u0101js var to regul\u0113t, ja vien Servicepedia inform\u0101cijas panel\u012b nav pie\u0161\u0137irtas ties\u012bbas citiem koppilnveido\u0161anas komandas dal\u012bbniekiem."
+            },
+            "problemprofiles": [
+                "UND_PROBLEM_1",
+                "UND_PROBLEM_5",
+                "DEF_PROBLEM_2",
+                "BUILD_PROBLEM_9"
+            ],
+            "tasks": [
+                {
+                    "name_translations": {
+                        "en": "Link to the Description Augmenter project",
+                        "es": "Enlace al proyecto en Description Augmenter",
+                        "it": "Crea un link al progetto in Description Augmenter",
+                        "lv": "Saite uz Aprakstu Papildin\u0101t\u0101ja projektu"
+                    },
+                    "description_translations": {
+                        "en": "Produce a link to the description augmenter process so that co-producers can review contributions, accept, reject them or generate reports for refinement processing. Again, only those with rol moderator in Servicepedia can accept or reject suggestions. All the others, can comment and add new augmentation suggestions ",
+                        "es": "Producir un enlace al proceso de aumento de la descripci\u00f3n para que los coproductores puedan revisar las contribuciones, aceptarlas, rechazarlas o generar informes para procesarlas. De nuevo, s\u00f3lo aquellos con rol de moderador en Servicepedia pueden aceptar o rechazar las sugerencias. Todos los dem\u00e1s, pueden comentar y a\u00f1adir nuevas sugerencias de aumento ",
+                        "it": "Genera un link al progetto in Description Augmenter in modo che altri partecipanti possano rivedere i contributi, accettarli o declinarli e generare i report riassuntivi del processo di definizione. Ricorda che solo i partecipanti con ruolo di moderatore in Servicepedia possono accettare o declinare i suggerimenti. Tutti gli altri possono commentare e aggiungere. ",
+                        "lv": "Izveidojiet saiti uz apraksta papildin\u0101\u0161anas procesu, lai kopra\u017eot\u0101ji var\u0113tu p\u0101rskat\u012bt ieguld\u012bjumus, tos pie\u0146emt vai noraid\u012bt vai \u0123ener\u0113t p\u0101rskatus pilnveido\u0161anai. Turkl\u0101t tie, kuriem pakalpojum\u0101 Servicepedia ir moderators, var pie\u0146emt vai noraid\u012bt ieteikumus. Visi p\u0101r\u0113jie var koment\u0113t un pievienot jaunus palielin\u0101\u0161anas ieteikumus "
+                    },
+                    "problemprofiles": [],
+                    "prerequisites": [],
+                    "id": "task-link-to-the-description-augmenter-project"
+                },
+                {
+                    "name_translations": {
+                        "en": "Review in Servicepedia dashboard user contributions",
+                        "es": "Revisi\u00f3n en las contribuciones de los usuarios del tablero de Servicepedia",
+                        "it": "Verifica nel pannello di controllo della Servicepedia i contributi degli utenti",
+                        "lv": "P\u0101rskatiet lietot\u0101ju ieguld\u012bjumu Servicepedia inform\u0101cijas panel\u012b"
+                    },
+                    "description_translations": {
+                        "en": "Review in Servicepedia dashboard contributions from users, accept those that are good, reject the bad ones, until completing revision process",
+                        "es": "Revisar en el tablero de Servicepedia las contribuciones de los usuarios, aceptar las que son buenas, rechazar las malas, hasta completar el proceso de revisi\u00f3n",
+                        "it": "Controlla nel pannello di controllo della Servicepedia i contributi degli utenti, accetta quelli che sono validi, declina quelli non ottimali, fino al completamento del processo di revisione.",
+                        "lv": "P\u0101rskatiet Servicepedia inform\u0101cijas panel\u012b lietot\u0101ju sniegtos ieguld\u012bjumus, pie\u0146emiet labos un noraidiet sliktos, l\u012bdz esat pabeidzis p\u0101rskat\u012b\u0161anas procesu."
+                    },
+                    "problemprofiles": [],
+                    "prerequisites": [
+                        {
+                            "item": "task-link-to-the-description-augmenter-project",
+                            "type": "previous"
+                        }
+                    ],
+                    "id": "task-review-in-servicepedia-dashboard-user-contributions"
+                }
+            ],
+            "id": "objective-monitor-continuous-crowd-refinement-process",
+            "prerequisites": []
+        },
+        {
+            "name_translations": {
+                "en": "Publish report with descriptions accepted to be processed",
+                "es": "Publicar el informe con las descripciones admitidas a tr\u00e1mite",
+                "it": "Pubblica un report con le revisioni accettate e pronte per essere processate",
+                "lv": "Public\u0113jiet p\u0101rskatu ar aprakstiem, kuri ir nodoti apstr\u0101dei"
+            },
+            "description_translations": {
+                "en": "Publish enhancement report generated from Servicepedia after having processed refinement suggestions for a given public service description",
+                "es": "Publicar el informe de mejora generado a partir de Servicepedia despu\u00e9s de haber procesado las sugerencias de mejora para una determinada descripci\u00f3n de servicio p\u00fablico",
+                "it": "Pubblica i report sulle definizioni generate dalla componente Servicepedia dopo aver terminato di processare i suggerimenti su una data descrizione di servizio pubblico.",
+                "lv": "Public\u0113jiet uzlabojumu p\u0101rskatu, kas izviedots Servicepedia p\u0113c tam, kad ir apstr\u0101d\u0101ti konkr\u0113t\u0101 publisk\u0101 pakalpojuma apraksta preciz\u0113\u0161anas ieteikumi"
+            },
+            "problemprofiles": [
+                "ORG_PROBLEM_13",
+                "ORG_PROBLEM_14",
+                "DEF_PROBLEM_5"
+            ],
+            "tasks": [
+                {
+                    "name_translations": {
+                        "en": "Publish enhancement report",
+                        "es": "Publicar el informe de mejora",
+                        "it": "Pubblica il report di definizione",
+                        "lv": "Public\u0113jiet uzlabojumu p\u0101rskatu"
+                    },
+                    "description_translations": {
+                        "en": "Publish enhancement report from Servicepedia.",
+                        "es": "Publicar el informe de mejora de la Servicepedia.",
+                        "it": "Pubblica il report di definizione dalla componente Servicepedia",
+                        "lv": "Public\u0113jiet uzlabojuma p\u0101rskatu no Servicepedia."
+                    },
+                    "problemprofiles": [
+                        "BUILD_PROBLEM_2",
+                        "BUILD_PROBLEM_3",
+                        "BUILD_PROBLEM_4",
+                        "BUILD_PROBLEM_5",
+                        "BUILD_PROBLEM_6",
+                        "BUILD_PROBLEM_7",
+                        "BUILD_PROBLEM_9"
+                    ],
+                    "id": "task-publish-enhancement-report",
+                    "prerequisites": []
+                }
+            ],
+            "prerequisites": [
+                {
+                    "item": "objective-monitor-continuous-crowd-refinement-process",
+                    "type": "previous"
+                }
+            ],
+            "id": "objective-publish-report-with-descriptions-accepted-to-be-processed"
+        }
+    ],
+    "is_part_of_codelivery": true
+}

@@ -1,0 +1,67 @@
+{
+    "administrative_scopes": [
+        "eu"
+    ],
+    "constraints_and_limitations_translations": {
+        "en": "No special constraints apply"
+    },
+    "description_translations": {
+        "en": "<p>This resource provides a skeleton to organize a focus group to investigate the problem that needs to be solved by a digital service / functionality. It addresses a series of questions about potential users, current practices, critical aspects and  desiderata.</p>",
+        "es": "<p>Este recurso proporciona un esqueleto para organizar un grupo focal que investigue el problema que necesita resolver un servicio/funcionalidad digital. Aborda una serie de preguntas sobre los usuarios potenciales, las pr\u00e1cticas actuales, los aspectos cr\u00edticos y los desiderata.</p>",
+        "it": "<p>Questa risorsa fornisce uno scheletro per organizzare un focus group per indagare sul problema che deve essere risolto da un servizio/funzionalit\u00e0 digitale. Risponde a una serie di domande su potenziali utenti, pratiche attuali, aspetti critici e desiderata.</p>",
+        "lv": "<p>\u0160is resurss pied\u0101v\u0101 ietvaru fokusgrupu organiz\u0113\u0161anai, lai izp\u0113t\u012btu probl\u0113mu, kuru nepiecie\u0161ams atrisin\u0101t ar digit\u0101lo pakalpojumu/funkcionalit\u0101ti. Tas apkopo jaut\u0101jumu kopumu par potenci\u0101lajiem lietot\u0101jiem, eso\u0161o praksi, kritiskajiem aspektiem un v\u0113lm\u0113m.</p>"
+    },
+    "difficulty": "easy",
+    "domain": "",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "file_translations": {
+        "en": "./interlinkers/knowledge/Focus-Group-Template-problem-exploration-functionalities/resource.pptx"
+    },
+    "form": "document_template",
+    "format": "editable_source_document",
+    "id": "focus-group-on-problem-exploration-for-new-digital-functionality",
+    "instructions_translations": {
+        "en": "./interlinkers/knowledge/Focus-Group-Template-problem-exploration-functionalities/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "public_domain",
+    "name_translations": {
+        "en": "Focus Group on problem exploration for new digital functionality",
+        "es": "Grupo de discusi\u00f3n sobre la exploraci\u00f3n de problemas para una nueva funcionalidad digital",
+        "it": "Focus Group sull'esplorazione dei problemi per nuove funzionalit\u00e0 digitali",
+        "lv": "Fokusgrupa probl\u0113mu izp\u0113tei jaunas digit\u0101l\u0101s funkcionalit\u0101tes rad\u012b\u0161anai"
+    },
+    "problemprofiles": [
+        "UND_PROBLEM_3",
+        "VAL_PROBLEM_2"
+    ],
+    "process": "",
+    "regulations_and_standards_translations": {
+        "en": ""
+    },
+    "softwareinterlinker": "googledrive",
+    "tags_translations": {
+        "en": [
+            "focus group",
+            "template",
+            "understand"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enhancing_services"
+    ]
+}

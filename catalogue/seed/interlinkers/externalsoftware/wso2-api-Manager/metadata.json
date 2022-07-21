@@ -1,0 +1,69 @@
+{
+    "administrative_scopes": [
+        "eu",
+        "national",
+        "local"
+    ],
+    "asset_name_translations": {
+        "en": "WSO2 Api manager"
+    },
+    "constraints_and_limitations_translations": {
+        "en": "None"
+    },
+    "description_translations": {
+        "en": "<p>WSO2 API Manager is a complete platform for building, integrating, and exposing your digital services as managed APIs in the cloud, on-premise, and hybrid architectures to drive your digital transformation strategy. It allows API developers to design, publish, and manage the lifecycle of APIs and API product managers to create API products from one or more APIs.</p>",
+        "es": "<p>WSO2 API Manager es una plataforma completa para construir, integrar y exponer sus servicios digitales como APIs gestionadas en la nube, en las instalaciones y en arquitecturas h\u00edbridas para impulsar su estrategia de transformaci\u00f3n digital. Permite a los desarrolladores de API dise\u00f1ar, publicar y gestionar el ciclo de vida de las API y a los gestores de productos de API crear productos de API a partir de una o m\u00e1s APIs.</p>",
+        "it": "<p>WSO2 API Manager \u00e8 una piattaforma completa per creare, integrare ed esporre i tuoi servizi digitali come API gestite nelle architetture cloud, on-premise e ibride per guidare la tua strategia di trasformazione digitale. Consente agli sviluppatori API di progettare, pubblicare e gestire il ciclo di vita delle API e ai product manager API di creare prodotti API da una o pi\u00f9 API.</p>",
+        "lv": "<p>WSO2 API mened\u017eeris ir pilnv\u0113rt\u012bga platforma tie\u0161saistes pakalpojumu veido\u0161anai, integr\u0113\u0161anai un atkl\u0101\u0161anai caur vad\u012btiem API m\u0101ko\u0146datos, fiziskaj\u0101 vid\u0113 un hibr\u012bdaj\u0101s arhitekt\u016br\u0101s, t\u0101 \u013caujot virz\u012bt digit\u0101l\u0101s transform\u0101cijas strat\u0113\u0123iju. Tas \u013cauj API izstr\u0101d\u0101t\u0101jiem veidot, public\u0113t un vad\u012bt API dz\u012bves ciklu, bet API produktu vad\u012bt\u0101jiem veidot API produktus no vienas vai vair\u0101k\u0101m API.</p>"
+    },
+    "difficulty": "medium",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "id": "wso2-api-manager",
+    "instructions_translations": {
+        "en": "./interlinkers/externalsoftware/wso2-api-Manager/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "public_domain",
+    "logotype": "./interlinkers/externalsoftware/wso2-api-Manager/logo.jpeg",
+    "name_translations": {
+        "en": "WSO2 API Manager",
+        "es": "WSO2 API Manager",
+        "it": "WSO2 API Manager",
+        "lv": "WSO2 API mened\u017eeris"
+    },
+    "problemprofiles": [
+        "BUILD_PROBLEM_4"
+    ],
+    "regulations_and_standards_translations": {
+        "en": "Open API"
+    },
+    "tags_translations": {
+        "en": [
+            "OPEN API",
+            "API MANAGEMENT",
+            "SERVICES"
+        ]
+    },
+    "targets": [
+        "all;pas",
+        "all;businesses",
+        "all;research_organizations"
+    ],
+    "type": "software",
+    "types": [
+        "enabling_services"
+    ],
+    "uri_translations": {
+        "en": "https://wso2.com/api-manager/"
+    }
+}

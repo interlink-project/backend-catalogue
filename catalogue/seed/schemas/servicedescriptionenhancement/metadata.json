@@ -1,0 +1,34 @@
+{
+    "author": "",
+    "description_translations": {
+        "en": "Specific co-production process specially catered for co-refinement of public service descriptions where citizens, civil servants managing public service infrastructure and civil servants working at specific departments cooperate. It is composed of the following phases: a) ENGAGE \u2013 where stakeholders involved in service description refinements are understood and engagement plans are proposed; b) DESIGN \u2013 where the actual managers of e-services prepare the description augmentation space to be used by those enhancing service descriptions; c) RUN \u2013 where the contributions from diverse stakeholders are gathered, moderated and validated with the support of the Description Augmenter INTERLINKER; and d) REFINE \u2013 where the validated contributions are assessment and applied in refinements to service descriptions.",
+        "es": "Proceso espec\u00edfico de coproducci\u00f3n especialmente concebido para el perfeccionamiento de las descripciones de los servicios p\u00fablicos en el que cooperan los ciudadanos, los funcionarios que gestionan la infraestructura de los servicios p\u00fablicos y los funcionarios que trabajan en departamentos espec\u00edficos. Se compone de las siguientes fases: a) ENGAGE \\u2013 donde se comprenden las partes interesadas que participan en el perfeccionamiento de las descripciones de los servicios y se proponen planes de participaci\u00f3n; b) DESIGN \\u2013 donde los gestores reales de los servicios electr\u00f3nicos preparan el espacio de aumento de la descripci\u00f3n que utilizar\u00e1n los que mejoran las descripciones de los servicios; c) RUN \\u2013 donde se recogen las contribuciones de las diversas partes interesadas, se moderan y se validan con el apoyo del INTERLINKER de aumento de la descripci\u00f3n; y d) REFINE \\u2013 donde se eval\u00faan las contribuciones validadas y se aplican en el perfeccionamiento de las descripciones de los servicios.",
+        "it": "Si tratta di uno specifico processo di co-produzione specificamente rivolto alla definizione delle descrizioni dei servizi pubblici dove i cittadini, gli impiegati che gestiscono le infrastrutture dei servizi pubblici e gli impiegati in specifici dipartimenti collaborano nella preparazione delle spiegazioni. Questo processo \u00e8 composto dalle seguenti fasi: a) COINVOLGIMENTO - durante il quale gli attori vengono individuati e coinvolti; b) PROGETTAZIONE - dove gli attuali gestori dei servizi digitali preparano lo spazio per la collaborazione e la definizione delle descrizioni dei servizi; c) ESECUZIONE - quando i contributi dei diversi attori vengono raccolti, moderati e validati con il supporto dell'INTERLIKER Description Augmenter; e d) DEFINIZIONE - quando i contributi validati vengono tradotti nelle descrizioni dei servizi.",
+        "lv": "Konkr\u0113ts koprades process, kas \u012bpa\u0161i paredz\u0113ts sabiedrisko pakalpojumu aprakstu kop\u012bgai pilnveido\u0161anai, kur sadarbojas iedz\u012bvot\u0101ji, ier\u0113d\u0146i, kuri p\u0101rvalda sabiedrisko pakalpojumu infrastrukt\u016bru, un ier\u0113d\u0146i, kuri str\u0101d\u0101 noteikt\u0101s noda\u013c\u0101s. Tas sast\u0101v no \u0161\u0101d\u0101m f\u0101z\u0113m:) IESAISTE, kur tiek noskaidrotas pakalpojumu aprakstu uzlabo\u0161an\u0101 iesaist\u012bt\u0101s puses un pied\u0101v\u0101ti iesaistes pl\u0101ni; b) PROJEKT\u0112\u0160ANA, kur faktiskie e-pakalpojumu vad\u012bt\u0101ji sagatavo apraksta papildin\u0101\u0161anas vietu, kas j\u0101izmanto tiem, kuri papildina pakalpojumu aprakstus; c) PALAI\u0160ANA, kur da\u017e\u0101du ieinteres\u0113to pu\u0161u ieguld\u012bjums tiek sav\u0101kts, regul\u0113ts un apstiprin\u0101ts, izmantojot Pakalpojumu aprakstu INTERLINKERa sasaisti; d) UZLABO\u0160ANA ,kur apstiprin\u0101tie ieguld\u012bjumi tiek nov\u0113rt\u0113ti un piem\u0113roti pakalpojumu aprakstu preciz\u0113jumos."
+    },
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "id": "servicedescriptionenhancement",
+    "languages": [
+        "en",
+        "es",
+        "it",
+        "lv"
+    ],
+    "licence": "permissive",
+    "name_translations": {
+        "en": "Co-production schema to support co-refinement of public service descriptions",
+        "es": "Esquema de coproducci\u00f3n para apoyar el perfeccionamiento de las descripciones de los servicios p\u00fablicos",
+        "it": "Schema di co-produzione per guidare la definizione collaborativa delle descrizioni dei servizi pubblici",
+        "lv": "Koprades sh\u0113ma sabiedrisko pakalpojumu aprakstu kop\u012bgas pilnveido\u0161anas atbalstam"
+    },
+    "tags_translations": {
+        "en": [
+            "default",
+            "coproduction"
+        ]
+    }
+}

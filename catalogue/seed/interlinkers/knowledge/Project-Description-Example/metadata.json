@@ -1,0 +1,71 @@
+{
+    "administrative_scopes": [
+        "eu"
+    ],
+    "constraints_and_limitations_translations": {
+        "en": "No special constraints apply"
+    },
+    "description_translations": {
+        "en": "<p>Example of project description that synthetically summarizes the goals and major aspects of a co-production initiative.  </p>",
+        "es": "<p>Ejemplo de descripci\u00f3n de proyecto que resume sint\u00e9ticamente los objetivos y aspectos principales de una iniciativa de coproducci\u00f3n.</p>",
+        "it": "<p>Esempio di descrizione del progetto che riassume sinteticamente gli obiettivi e gli aspetti principali di un'iniziativa di coproduzione. </p>",
+        "lv": "<p>Projekta raksturojuma piem\u0113rs, kas sint\u0113tiski apkopo koprades iniciat\u012bvas m\u0113r\u0137us un galvenos raksturlielumus.</p>"
+    },
+    "difficulty": "easy",
+    "domain": "",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "file_translations": {
+        "en": "./interlinkers/knowledge/Project-Description-Example/resource.docx"
+    },
+    "form": "document_template",
+    "format": "editable_source_document",
+    "id": "project-description-example",
+    "instructions_translations": {
+        "en": "./interlinkers/knowledge/Project-Description-Example/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "public_domain",
+    "name_translations": {
+        "en": "Project description example",
+        "es": "Ejemplo de descripci\u00f3n del proyecto",
+        "it": "Esempio di descrizione del progetto",
+        "lv": "Projekta raksturojuma piem\u0113rs"
+    },
+    "problemprofiles": [
+        "DEF_PROBLEM_1",
+        "ORG_PROBLEM_1",
+        "ORG_PROBLEM_2",
+        "ORG_PROBLEM_10",
+        "DEF_PROBLEM_1"
+    ],
+    "process": "",
+    "regulations_and_standards_translations": {
+        "en": ""
+    },
+    "softwareinterlinker": "googledrive",
+    "tags_translations": {
+        "en": [
+            "product specification",
+            "template",
+            "example",
+            "description of project"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enhancing_services"
+    ]
+}

@@ -1,0 +1,66 @@
+{
+    "administrative_scopes": [
+        "eu"
+    ],
+    "constraints_and_limitations_translations": {
+        "en": "No special constraints apply"
+    },
+    "description_translations": {
+        "en": "This canvas can be used collaboratively, for instance, during a brainstorming or a focus group, to reflect on the the most suitable business model associated to a co-produced service.",
+        "es": "Este lienzo puede utilizarse de forma colaborativa, por ejemplo, durante una tormenta de ideas o un grupo de discusi\u00f3n, para reflexionar sobre el modelo de negocio m\u00e1s adecuado asociado a un servicio coproducido.",
+        "it": "Questo canvas pu\u00f2 essere utilizzato in modo collaborativo, ad esempio, durante un brainstorming o un focus group, per riflettere sul modello di business pi\u00f9 adatto associato a un servizio coprodotto.",
+        "lv": "\u0160is audekls var tikt lietots sadarb\u012bbai, piem\u0113ram, pr\u0101ta v\u0113tru vai fokusgrupu laik\u0101, lai nov\u0113rt\u0113tu piem\u0113rot\u0101ko biznesa modeli koprad\u012btajam pakalpojumam."
+    },
+    "difficulty": "easy",
+    "domain": "",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "file_translations": {
+        "en": "./interlinkers/knowledge/Business-Model-Canvas/resource.pptx"
+    },
+    "form": "document_template",
+    "format": "editable_source_document",
+    "id": "business-model-canvas",
+    "instructions_translations": {
+        "en": "./interlinkers/knowledge/Business-Model-Canvas/instructions.md"
+    },
+    "is_sustainability_related": true,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "public_domain",
+    "name_translations": {
+        "en": "Business Model Canvas",
+        "es": "Business Model Canvas",
+        "it": "Business Model Canvas",
+        "lv": "Biznesa mode\u013ca pl\u0101no\u0161anas r\u012bks"
+    },
+    "problemprofiles": [
+        "SUS_PROBLEM_1"
+    ],
+    "process": "",
+    "regulations_and_standards_translations": {
+        "en": ""
+    },
+    "softwareinterlinker": "googledrive",
+    "tags_translations": {
+        "en": [
+            "model",
+            "canvas",
+            "business"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enhancing_services"
+    ]
+}

@@ -1,0 +1,66 @@
+{
+    "administrative_scopes": [
+        "eu"
+    ],
+    "constraints_and_limitations_translations": {
+        "en": "No special constraints apply"
+    },
+    "description_translations": {
+        "en": "<p>This canvas can be edited collaboratively by the co-producing team to ellaborate the business plan for a co-produced service..</p>",
+        "es": "<p>Este lienzo puede ser editado de forma colaborativa por el equipo coproductor para elaborar el plan de negocio de un servicio coproducido..</p>",
+        "it": "<p>Questo modello pu\u00f2 essere modificato in collaborazione dal team di coproduzione per elaborare il business plan per un servizio di coproduzione.</p>",
+        "lv": "<p>\u0160is audekls var tikt kop\u012bgi papildin\u0101ts koprades komandas ietvaros, lai izstr\u0101d\u0101tu koprad\u012bt\u0101 pakalpojuma biznesa modeli.</p>"
+    },
+    "difficulty": "easy",
+    "domain": "",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "file_translations": {
+        "en": "./interlinkers/knowledge/Business-Plan-Template/resource.docx"
+    },
+    "form": "document_template",
+    "format": "editable_source_document",
+    "id": "business-plan-template",
+    "instructions_translations": {
+        "en": "./interlinkers/knowledge/Business-Plan-Template/instructions.md"
+    },
+    "is_sustainability_related": true,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "public_domain",
+    "name_translations": {
+        "en": "Business Plan Template",
+        "es": "Plantilla del plan de negocios",
+        "it": "Modello del Business Plan",
+        "lv": "Biznesa pl\u0101na veidlapa"
+    },
+    "problemprofiles": [
+        "SUS_PROBLEM_1"
+    ],
+    "process": "",
+    "regulations_and_standards_translations": {
+        "en": ""
+    },
+    "softwareinterlinker": "googledrive",
+    "tags_translations": {
+        "en": [
+            "template",
+            "canvas",
+            "business"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enhancing_services"
+    ]
+}

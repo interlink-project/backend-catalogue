@@ -1,0 +1,66 @@
+{
+    "administrative_scopes": [
+        "eu"
+    ],
+    "constraints_and_limitations_translations": {
+        "en": "No special constraints apply"
+    },
+    "description_translations": {
+        "en": "<p>Template to collect data through online survey for assessing Media and Technology Usage and Attitudes</p>",
+        "es": "<p>Plantilla para recoger datos a trav\u00e9s de una encuesta en l\u00ednea para evaluar el uso de los medios de comunicaci\u00f3n y la tecnolog\u00eda y las actitudes</p>",
+        "it": "<p>Modello per raccogliere dati tramite sondaggi online per valutare l'utilizzo e attitudine verso media e tecnologia</p>",
+        "lv": "<p> Veidlapa tie\u0161saistes aptaujas par mediju un tehnolo\u0123iju lieto\u0161anas un attieksmes nov\u0113rt\u0113jumu datu sav\u0101k\u0161anai</p>"
+    },
+    "difficulty": "easy",
+    "domain": "",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "file_translations": {
+        "en": "./interlinkers/knowledge/Template-for-online-survey/resource.docx"
+    },
+    "form": "document_template",
+    "format": "editable_source_document",
+    "id": "template-for-online-survey-guidelines",
+    "instructions_translations": {
+        "en": "./interlinkers/knowledge/Template-for-online-survey/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "public_domain",
+    "name_translations": {
+        "en": "template for online survey guidelines",
+        "es": "Plantilla para las directrices de la encuesta en l\u00ednea",
+        "it": "modello di linee guida per sondaggi online",
+        "lv": "veidlapa tie\u0161saistes aptauju vadl\u012bnij\u0101m"
+    },
+    "problemprofiles": [
+        "UND_PROBLEM_3"
+    ],
+    "process": "",
+    "regulations_and_standards_translations": {
+        "en": ""
+    },
+    "softwareinterlinker": "googledrive",
+    "tags_translations": {
+        "en": [
+            "product specification",
+            "testing",
+            "usability"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enhancing_services"
+    ]
+}

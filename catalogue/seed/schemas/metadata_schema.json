@@ -1,0 +1,89 @@
+{
+    "title": "CoproductionSchema",
+    "type": "object",
+    "properties": {
+        "name_translations": {
+            "title": "Name Translations",
+            "type": "object"
+        },
+        "description_translations": {
+            "title": "Description Translations",
+            "type": "object"
+        },
+        "id": {
+            "title": "Id",
+            "type": "string"
+        },
+        "tags_translations": {
+            "title": "Tags Translations",
+            "type": "object",
+            "additionalProperties": {
+                "type": "array",
+                "items": {
+                    "type": "string"
+                },
+                "minItems": 1
+            }
+        },
+        "author": {
+            "title": "Author",
+            "type": "string"
+        },
+        "licence": {
+            "$ref": "#/definitions/Licences"
+        },
+        "languages": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/Languages"
+            }
+        },
+        "environments": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/Environments"
+            }
+        }
+    },
+    "required": [
+        "name_translations",
+        "description_translations",
+        "id",
+        "tags_translations",
+        "author",
+        "licence"
+    ],
+    "additionalProperties": false,
+    "definitions": {
+        "Licences": {
+            "title": "Licences",
+            "description": "An enumeration.",
+            "enum": [
+                "public_domain",
+                "permissive",
+                "copyleft",
+                "non_commercial",
+                "propietary"
+            ]
+        },
+        "Languages": {
+            "title": "Languages",
+            "description": "An enumeration.",
+            "enum": [
+                "en",
+                "es",
+                "lv",
+                "it"
+            ]
+        },
+        "Environments": {
+            "title": "Environments",
+            "description": "An enumeration.",
+            "enum": [
+                "varam",
+                "mef",
+                "zgz"
+            ]
+        }
+    }
+}

@@ -1,0 +1,131 @@
+{
+    "title": "Phase",
+    "type": "object",
+    "properties": {
+        "name_translations": {
+            "title": "Name Translations",
+            "type": "object"
+        },
+        "description_translations": {
+            "title": "Description Translations",
+            "type": "object"
+        },
+        "id": {
+            "title": "Id",
+            "type": "string"
+        },
+        "prerequisites": {
+            "title": "Prerequisites",
+            "type": "object",
+            "additionalProperties": {
+                "type": "string"
+            }
+        },
+        "objectives": {
+            "title": "Objectives",
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/Objective"
+            }
+        },
+        "is_part_of_codelivery": {
+            "title": "Is Part Of Codelivery",
+            "type": "boolean"
+        }
+    },
+    "required": [
+        "name_translations",
+        "description_translations",
+        "id",
+        "prerequisites",
+        "objectives",
+        "is_part_of_codelivery"
+    ],
+    "additionalProperties": false,
+    "definitions": {
+        "Task": {
+            "title": "Task",
+            "type": "object",
+            "properties": {
+                "name_translations": {
+                    "title": "Name Translations",
+                    "type": "object"
+                },
+                "description_translations": {
+                    "title": "Description Translations",
+                    "type": "object"
+                },
+                "problemprofiles": {
+                    "title": "Problemprofiles",
+                    "type": "array",
+                    "items": {}
+                },
+                "id": {
+                    "title": "Id",
+                    "type": "string"
+                },
+                "prerequisites": {
+                    "title": "Prerequisites",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                }
+            },
+            "required": [
+                "name_translations",
+                "description_translations",
+                "problemprofiles",
+                "id",
+                "prerequisites"
+            ],
+            "additionalProperties": false
+        },
+        "Objective": {
+            "title": "Objective",
+            "type": "object",
+            "properties": {
+                "name_translations": {
+                    "title": "Name Translations",
+                    "type": "object"
+                },
+                "description_translations": {
+                    "title": "Description Translations",
+                    "type": "object"
+                },
+                "problemprofiles": {
+                    "title": "Problemprofiles",
+                    "type": "array",
+                    "items": {}
+                },
+                "id": {
+                    "title": "Id",
+                    "type": "string"
+                },
+                "prerequisites": {
+                    "title": "Prerequisites",
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "tasks": {
+                    "title": "Tasks",
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/Task"
+                    }
+                }
+            },
+            "required": [
+                "name_translations",
+                "description_translations",
+                "problemprofiles",
+                "id",
+                "prerequisites",
+                "tasks"
+            ],
+            "additionalProperties": false
+        }
+    }
+}
