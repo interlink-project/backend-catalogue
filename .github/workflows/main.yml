@@ -8,11 +8,9 @@ on:
       - '*'
     branches:
       - master
-      - seed_data
   pull_request:
     branches:
       - master
-      - seed_data
 
 jobs:
   # If seed data changed, test it before creating the docker image
