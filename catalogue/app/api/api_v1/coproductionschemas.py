@@ -9,6 +9,7 @@ from sqlalchemy.orm import Session
 from app import crud, models, schemas
 from app.exceptions import CrudException
 from app.general import deps
+from app.locales import get_language
 
 router = APIRouter()
 
@@ -19,12 +20,13 @@ async def list_coproductionschemas(
     creator: Optional[List[str]] = Query(None),
     search: Optional[str] = Query(None),
     db: Session = Depends(deps.get_db),
+    language: Session = Depends(get_language),
     current_user: Optional[dict] = Depends(deps.get_current_user),
 ) -> Any:
     """
     Retrieve coproductionschemas.
     """
-    return await crud.coproductionschema.get_multi(db, search=search, rating=rating, creator=creator)
+    return await crud.coproductionschema.get_multi(db, search=search, rating=rating, language=language, creator=creator)
 
 @router.get("/public", response_model=List[schemas.CoproductionSchemaOutFull])
 async def public_coproductionschemas(
