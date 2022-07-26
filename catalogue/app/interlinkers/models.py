@@ -173,9 +173,9 @@ class KnowledgeInterlinker(Interlinker):
     # not exposed in out schema
     @property
     def internal_link(self):
-        backend = self.softwareinterlinker.service_name
+        service_name = self.softwareinterlinker.service_name
         api_path = self.softwareinterlinker.api_path
-        return f"http://{backend}{api_path}/{self.genesis_asset_id}"
+        return f"http://{service_name}{api_path}/{self.genesis_asset_id}"
 
 
 class ExternalKnowledgeInterlinker(Interlinker):

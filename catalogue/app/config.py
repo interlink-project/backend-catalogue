@@ -14,6 +14,7 @@ class Settings(BaseSettings):
         elif isinstance(v, (list, str)):
             return v
         raise ValueError(v)
+    BACKEND_SECRET: str
 
     PROTOCOL: str
     SERVER_NAME: str

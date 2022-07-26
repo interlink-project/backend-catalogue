@@ -160,6 +160,7 @@ async def create_interlinker(db, metadata_path, software=False, externalsoftware
 
     # TODO: update files and remove old ones 
     if knowledge:
+        existing_interlinker: models.KnowledgeInterlinker
         # get file contents in file and send to the software interlinker
         service = data["softwareinterlinker"]
         softwareinterlinker = await crud.interlinker.get_softwareinterlinker_by_service_name(db=db, service_name=service)
@@ -170,17 +171,27 @@ async def create_interlinker(db, metadata_path, software=False, externalsoftware
         try:
             print(f"\tis {service} supported knowledge interlinker")
 
-            #TODO: if softwareinterlinker != existing_interlinker.softwareinterlinker => delete asset
             genesis_asset_id_translations = {}
             for key, value in data["file_translations"].items():
                 filename = path_leaf(value)
                 short_filename, file_extension = os.path.splitext(filename)
 
+                # Delete existent asset in the interlinker
+                existing_asset_id = existing_interlinker.genesis_asset_id_translations[key]
+                URL = f"http://{softwareinterlinker.service_name}{softwareinterlinker.api_path}/{existing_asset_id}"
+                response = requests.delete(URL, headers={
+                    "Authorization": settings.BACKEND_SECRET
+                })
+                if response.status_code < 200 or response.status_code >= 300:
+                    raise Exception(response.json())
+
+                # Create a new one
                 if "json" in file_extension:
                     with open(str(folder) + "/" + filename, 'r') as f:
                         response = requests.post(
                             f"http://{service}/assets", data=f.read()).json()
                 else:
+                    
                     filedata = open(str(folder) + "/" + filename, "rb").read()
                     name_for_file = data["name_translations"][key]
                     files_data = {
