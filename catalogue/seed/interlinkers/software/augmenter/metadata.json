@@ -54,7 +54,7 @@
         "domain": "",
         "is_subdomain": true,
         "path": "servicepedia",
-        "service_name": "servicepedia"
+        "service_name": "augmenterservice"
     },
     "is_responsive": true,
     "is_sustainability_related": false,
