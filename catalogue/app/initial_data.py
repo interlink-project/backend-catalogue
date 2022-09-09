@@ -206,14 +206,15 @@ async def create_interlinker(db, metadata_path, software=False, externalsoftware
                 
 
                 # Delete existent asset in the interlinker for the given language key
-                existing_asset_id = existing_interlinker.genesis_asset_id_translations.get(LANGUAGE_KEY, None)
-                if existing_asset_id:
-                    URL = f"http://{softwareinterlinker.service_name}{softwareinterlinker.api_path}/{existing_asset_id}"
-                    response = requests.delete(URL, headers={
-                        "Authorization": settings.BACKEND_SECRET
-                    })
-                    if (response.status_code < 200 or response.status_code >= 300) and response.status_code != 404:
-                        raise Exception(response.json())
+                if existing_interlinker:
+                    existing_asset_id = getattr(existing_interlinker, "genesis_asset_id_translations", {}).get(LANGUAGE_KEY, None)
+                    if existing_asset_id:
+                        URL = f"http://{softwareinterlinker.service_name}{softwareinterlinker.api_path}/{existing_asset_id}"
+                        response = requests.delete(URL, headers={
+                            "Authorization": settings.BACKEND_SECRET
+                        })
+                        if (response.status_code < 200 or response.status_code >= 300) and response.status_code != 404:
+                            raise Exception(response.json())
 
                 # Create a new asset with the content of the file in file_translations
                 short_filename, file_extension = os.path.splitext(filename)
@@ -238,7 +239,7 @@ async def create_interlinker(db, metadata_path, software=False, externalsoftware
                 
                 response_data = response.json()
                 genesis_asset_id_translations[LANGUAGE_KEY] = response_data["id"] if "id" in response_data else response_data["_id"]
-                print(f"Asset for the {LANGUAGE_KEY} has been created and added in the genesis_asset_id_translations")
+                print(f"Asset for the {LANGUAGE_KEY} has been created and added into the genesis_asset_id_translations dict")
 
             # Last fields needed for the knowledge interlinker
             data["softwareinterlinker_id"] = softwareinterlinker.id
