@@ -1,2 +1,2 @@
 # How to use this INTERLINKER
-The schema of a new coproduction process.
+You can use this template to aid your specifying "the schema of a new coproduction process model".
