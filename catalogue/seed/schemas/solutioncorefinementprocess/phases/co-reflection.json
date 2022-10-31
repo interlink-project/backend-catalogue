@@ -1,256 +1,242 @@
-{
-    "id": "phase-coreflection",
-    "prerequisites": [],
-    "name_translations": {
-        "en": "Co-reflection of solution",
-        "es": "Correflexi\u00F3n sobre la soluci\u00F3n",
-        "it": "Co-riflessione della soluzione",
-        "lv": "Risin\u0101juma l\u012Bdzatspogu\u013Co\u0161ana"
-    },
-    "description_translations": {
-        "en": "During this phase, two objectives are addressed. Firstly, a collaborative retrospective analysis of the current existing solution is performed, where status, outcomes, and reflections about positive and negative aspects of the current released are reviewed. To accomplish this objective, presentations and reflection documents may be performed. Secondly, a collaborative reflection about possible new desirable features for the solution is performed. To meet this objective, polls on possible new features and guiding discussions may be performed. ",
-        "es": "Durante esta fase, se abordan dos objetivos. En primer lugar, se realiza un an\u00E1lisis retrospectivo colaborativo de la soluci\u00F3n actual existente, en el que se revisa el estado, los resultados y las reflexiones sobre los aspectos positivos y negativos de la actual liberada. Para lograr este objetivo, se pueden realizar presentaciones y documentos de reflexi\u00F3n. En segundo lugar, se realiza una reflexi\u00F3n colaborativa sobre posibles nuevas caracter\u00EDsticas deseables para la soluci\u00F3n. Para cumplir este objetivo, se pueden realizar encuestas sobre posibles nuevas caracter\u00EDsticas y debates orientativos. ",
-        "it": "In questa fase si affrontano due obiettivi. In primo luogo, viene eseguita un'analisi retrospettiva collaborativa dell'attuale soluzione esistente, in cui vengono esaminati lo stato, i risultati e le riflessioni sugli aspetti positivi e negativi dell'attuale rilascio. Per raggiungere questo obiettivo, si possono realizzare presentazioni e documenti di riflessione. In secondo luogo, viene effettuata una riflessione collaborativa sulle possibili nuove caratteristiche desiderabili per la soluzione. Per raggiungere questo obiettivo, si possono effettuare sondaggi su possibili nuove funzionalit\u00E0 e discussioni guida. ",
-        "lv": "\u0160aj\u0101 posm\u0101 tiek risin\u0101ti divi m\u0113r\u0137i. Pirmk\u0101rt, tiek veikta pa\u0161reiz\u0113j\u0101 eso\u0161\u0101 risin\u0101juma retrospekt\u012Bva anal\u012Bze, kur\u0101 tiek p\u0101rskat\u012Bts pa\u0161reiz\u0113j\u0101 atbr\u012Bvot\u0101 risin\u0101juma st\u0101voklis, rezult\u0101ti un p\u0101rdomas par pozit\u012Bvajiem un negat\u012Bvajiem aspektiem. Lai sasniegtu \u0161o m\u0113r\u0137i, var tikt veiktas prezent\u0101cijas un atspogu\u013Cojuma dokumenti. Otrk\u0101rt, tiek veiktas kop\u012Bgas p\u0101rdomas par iesp\u0113jam\u0101m jaun\u0101m v\u0113lam\u0101m risin\u0101juma iez\u012Bm\u0113m. Lai sasniegtu \u0161o m\u0113r\u0137i, var veikt aptaujas par iesp\u0113jam\u0101m jaun\u0101m funkcij\u0101m un vad\u012Bt diskusijas. "
-    },
-    "objectives": [
-        {
-            "name_translations": {
-                "en": "Co-analyse retrospectively solution",
-                "es": "Co-analizar la soluci\u00F3n retrospectivamente",
-                "it": "Co-analizzare la soluzione in modo retrospettivo ",
-                "lv": "Risin\u0101juma retrospekt\u012Bva l\u012Bdzanal\u012Bze"
-            },
-            "description_translations": {
-                "en": "The understanding of the work done until that moment for a given solution and a reflection of what has been done right, what could be done and what should be done better or in another way is critical to continuously enhance an existing solution.",
-                "es": "La comprensi\u00F3n del trabajo realizado hasta ese momento para una determinada soluci\u00F3n y la reflexi\u00F3n sobre lo que se ha hecho bien, lo que podr\u00EDa hacerse y lo que deber\u00EDa hacerse mejor o de otra manera es fundamental para mejorar continuamente una soluci\u00F3n existente. ",
-                "it": "La comprensione del lavoro svolto fino a quel momento per una determinata soluzione e la riflessione su ci\u00F2 che \u00E8 stato fatto bene, su ci\u00F2 che potrebbe essere fatto e su ci\u00F2 che dovrebbe essere fatto meglio o in un altro modo \u00E8 fondamentale per migliorare continuamente una soluzione esistente. ",
-                "lv": "Izpratne par l\u012Bdz \u0161im paveikto darbu saist\u012Bb\u0101 ar konkr\u0113to risin\u0101jumu un p\u0101rdomas par to, kas ir izdar\u012Bts pareizi, ko var\u0113tu dar\u012Bt un ko vajadz\u0113tu dar\u012Bt lab\u0101k vai cit\u0101di, ir \u013Coti svar\u012Bga, lai nep\u0101rtraukti uzlabotu eso\u0161o risin\u0101jumu."
-            },
-            "problemprofiles": [],
-            "tasks": [
-                {
-                    "name_translations": {
-                        "en": "Summarize current solution features",
-                        "es": "Entender los diferentes tipos de stakeholders y sus motivaciones",
-                        "it": "Comprendi le diverse tipologie di attori da coinvolgere",
-                        "lv": "Izpratne par da\u017e\u0101diem ieinteres\u0113to personu veidiem"
-                    },
-                    "description_translations": {
-                        "en": "Retrospective explanation of current features of solution under analysis subject to re-design. ",
-                        "es": "Explicaci\u00F3n retrospectiva de las caracter\u00EDsticas actuales de la soluci\u00F3n analizada sujeta a redise\u00F1o. ",
-                        "it": "Spiegazione retrospettiva delle caratteristiche attuali della soluzione in analisi soggetta a riprogettazione. ",
-                        "lv": "Analiz\u0113jam\u0101 risin\u0101juma pa\u0161reiz\u0113jo iez\u012Bmju retrospekt\u012Bvs skaidrojums, kas pak\u013Cauts p\u0101rprojekt\u0113\u0161anai."
-                    },
-                    "problemprofiles": [
-                        "ORG_PROBLEM_10"
-                    ],
-                    "prerequisites": [],
-                    "id": "task-summarize-current-solution"
-                },
-                {
-                    "name_translations": {
-                        "en": "Summarize evaluation results of current solution",
-                        "es": "Resumir los resultados de la evaluaci\u00F3n de la soluci\u00F3n actual",
-                        "it": "Riassumere i risultati della valutazione della soluzione attuale",
-                        "lv": "Apkopot pa\u0161reiz\u0113j\u0101 risin\u0101juma nov\u0113rt\u0113\u0161anas rezult\u0101tus"
-                    },
-                    "description_translations": {
-                        "en": "Retrospective explanation of the evaluation results carried out over the solution under analysis ",
-                        "es": "Explicaci\u00F3n retrospectiva de los resultados de la evaluaci\u00F3n realizada sobre la soluci\u00F3n analizada ",
-                        "it": "Spiegazione retrospettiva dei risultati della valutazione effettuata sulla soluzione in analisi ",
-                        "lv": "Analiz\u0113jam\u0101 risin\u0101juma nov\u0113rt\u0113\u0161anas rezult\u0101tu retrospekt\u012Bvs skaidrojums"
-                    },
-                    "problemprofiles": [
-                        "ORG_PROBLEM_10"
-                    ],
-                    "prerequisites": [
-                        {
-                            "item": "task-summarize-current-solution",
-                            "type": "previous"
-                        }
-                    ],
-                    "id": "task-summarize-evaluation-results"
-                },
-                {
-                    "name_translations": {
-                        "en": "Review based on reflections from evaluators",
-                        "es": "Revisi\u00F3n basada en las reflexiones de los evaluadores",
-                        "it": "Revisione basata sulle riflessioni dei valutatori",
-                        "lv": "P\u0101rskats, pamatojoties uz v\u0113rt\u0113t\u0101ju p\u0101rdom\u0101m"
-                    },
-                    "description_translations": {
-                        "en": "Synthesis on the new features that should be added to the current solution to improve it in a following release or update.",
-                        "es": "S\u00EDntesis sobre las nuevas caracter\u00EDsticas que deber\u00EDan a\u00F1adirse a la soluci\u00F3n actual para mejorarla en una siguiente versi\u00F3n o actualizaci\u00F3n",
-                        "it": "Sintesi delle nuove funzionalit\u00E0 che dovrebbero essere aggiunte alla soluzione attuale per migliorarla in una release o in un aggiornamento successivo.",
-                        "lv": "Sint\u0113ze par jaun\u0101m funkcij\u0101m, kas j\u0101pievieno pa\u0161reiz\u0113jam risin\u0101jumam, lai to uzlabotu n\u0101kamaj\u0101 versij\u0101 vai atjaunin\u0101jum\u0101."
-                    },
-                    "problemprofiles": [
-                        "ORG_PROBLEM_10"
-                    ],
-                    "prerequisites": [
-                        {
-                            "item": "task-summarize-evaluation-results",
-                            "type": "previous"
-                        }
-                    ],
-                    "id": "task-review-evaluators-reflections"
-                }
-            ],
-            "id": "objective-restrospective-analysis",
-            "prerequisites": []
-        },
-        {
-            "name_translations": {
-                "en": "Co-reflect on new features for solution",
-                "es": "Co-responder a las nuevas caracter\u00EDsticas de la soluci\u00F3n",
-                "it": "Riflettere insieme sulle nuove caratteristiche della soluzione",
-                "lv": "Kop\u012Bga p\u0101rdomu veik\u0161ana par jaun\u0101m risin\u0101juma funkcij\u0101m"
-            },
-            "description_translations": {
-                "en": "During this phase, several objectives are addressed voting the preferred existing features, voting the most desirable new features or revisions of existing ones and discussing over different aspects to make the solution more acceptable and sustainable, namely, co-delivery aspects, quality of the resulting co-produced solution or discussion on possible new most needed enhancements. ",
-                "es": "Durante esta fase, se abordan varios objetivos: votar las caracter\u00EDsticas existentes preferidas, votar las nuevas caracter\u00EDsticas m\u00E1s deseables o las revisiones de las existentes y debatir sobre diferentes aspectos para que la soluci\u00F3n sea m\u00E1s aceptable y sostenible, a saber, los aspectos de la coproducci\u00F3n, la calidad de la soluci\u00F3n coproducida resultante o el debate sobre las posibles mejoras nuevas m\u00E1s necesarias. ",
-                "it": "Durante questa fase, vengono affrontati diversi obiettivi: votare le caratteristiche esistenti preferite, votare le nuove caratteristiche pi\u00F9 desiderabili o le revisioni di quelle esistenti e discutere su diversi aspetti per rendere la soluzione pi\u00F9 accettabile e sostenibile, ovvero gli aspetti di co-delivery, la qualit\u00E0 della soluzione co-prodotta risultante o la discussione sui possibili nuovi miglioramenti pi\u00F9 necessari. ",
-                "lv": "\u0160aj\u0101 f\u0101z\u0113 tiek risin\u0101ti vair\u0101ki uzdevumi, balsojot par v\u0113lamaj\u0101m eso\u0161aj\u0101m funkcij\u0101m, balsojot par v\u0113lam\u0101kaj\u0101m jaunaj\u0101m funkcij\u0101m vai eso\u0161o funkciju p\u0101rskat\u012B\u0161anu un apsprie\u017Eot da\u017E\u0101dus aspektus, lai risin\u0101jumu padar\u012Btu pie\u0146emam\u0101ku un ilgtsp\u0113j\u012Bg\u0101ku, proti, kop\u012Bgas pieg\u0101des aspektus, kop\u012Bgi izstr\u0101d\u0101t\u0101 risin\u0101juma kvalit\u0101ti vai diskusiju par iesp\u0113jamiem jauniem, visvair\u0101k nepiecie\u0161amajiem uzlabojumiem. "
-            },
-            "problemprofiles": [
-                "ORG_PROBLEM_11",
-                "VAL_PROBLEM_2",
-				"UND_PROBLEM_1"
-            ],
-            "tasks": [
-                {
-                    "name_translations": {
-                        "en": "Voting and discussing current functionalities",
-                        "es": "Votaci\u00F3n y debate de las funcionalidades actuales",
-                        "it": "Votare e discutere le funzionalit\u00E0 attuali",
-                        "lv": "Balso\u0161ana un pa\u0161reiz\u0113jo funkcionalit\u0101\u0161u apsprie\u0161ana"
-                    },
-                    "description_translations": {
-                        "en": "Discuss and prioritize through voting what features are considered most useful.",
-                        "es": "Discutir y priorizar mediante votaci\u00F3n qu\u00E9 caracter\u00EDsticas se consideran m\u00E1s \u00FAtiles.",
-                        "it": "Discutere e stabilire le priorit\u00E0 attraverso la votazione delle caratteristiche ritenute pi\u00F9 utili.",
-                        "lv": "Apspriediet un, balsojot, nosakiet priorit\u0101tes, kuras funkcijas tiek uzskat\u012Btas par visnoder\u012Bg\u0101kaj\u0101m."
-                    },
-                    "problemprofiles": [
-                        "ORG_PROBLEM_11",
-						"VAL_PROBLEM_2",
-						"UND_PROBLEM_1"
-                    ],
-                    "id": "task-voting-discussing-current-functionalities",
-                    "prerequisites": []
-                },
-                {
-                    "name_translations": {
-                        "en": "Voting and discussing potential new functionalities or revisions of existing ones",
-                        "es": "Votar y debatir posibles nuevas funcionalidades o revisiones de las existentes",
-                        "it": "Votare e discutere potenziali nuove funzionalit\u00E0 o revisioni di quelle esistenti",
-                        "lv": "Balso\u0161ana un diskusija par iesp\u0113jam\u0101m jaun\u0101m funkcij\u0101m vai eso\u0161o funkciju p\u0101rskat\u012B\u0161anu."
-                    },
-                    "description_translations": {
-                        "en": "Discuss and prioritize through voting what new features or current features’ enhancements should be considered most useful.",
-                        "es": "Discutir y priorizar a trav\u00E9s de la votaci\u00F3n qu\u00E9 nuevas caracter\u00EDsticas o mejoras de las caracter\u00EDsticas actuales deben considerarse m\u00E1s \u00FAtiles.",
-                        "it": "Discutere e stabilire le priorit\u00E0 attraverso la votazione delle nuove funzionalit\u00E0 o dei miglioramenti delle funzionalit\u00E0 attuali da considerare pi\u00F9 utili.",
-                        "lv": "Apspriediet un, balsojot, nosakiet priorit\u0101tes, kuras jaunas funkcijas vai pa\u0161reiz\u0113jo funkciju uzlabojumi b\u016Btu uzskat\u0101mi par visnoder\u012Bg\u0101kajiem."
-                    },
-                    "problemprofiles": [
-                        "ORG_PROBLEM_11",
-						"VAL_PROBLEM_2",
-						"UND_PROBLEM_1"
-                    ],
-                    "prerequisites": [
-                        {
-                            "item": "task-voting-discussing-current-functionalities",
-                            "type": "previous"
-                        }
-                    ],
-                    "id": "task-voting-discussing-new-functionalities"
-                },
-                {
-                    "name_translations": {
-                        "en": "Guided discussion on co-delivery aspects (Incentives and Rewards)",
-                        "es": "Debate guiado sobre los aspectos de la coproducci\u00F3n (incentivos y recompensas)",
-                        "it": "Discussione guidata sugli aspetti di co-delivery (Incentivi e ricompense)",
-                        "lv": "Vad\u012Bta diskusija par kop\u012Bgas pieg\u0101des aspektiem (stimuli un atl\u012Bdz\u012Bba)"
-                    },
-                    "description_translations": {
-                        "en": "Guide discussion on aspects that could help the solution to be sustainable. For example, analyse what role incentives and rewards may play on making solution co-delivery feasible and viable. ",
-                        "es": "Orientar el debate sobre los aspectos que podr\u00EDan ayudar a que la soluci\u00F3n sea sostenible. Por ejemplo, analice qu\u00E9 papel pueden desempe\u00F1ar los incentivos y las recompensas para que la codistribuci\u00F3n de la soluci\u00F3n sea factible y viable.",
-                        "it": "Guidare la discussione sugli aspetti che potrebbero aiutare la soluzione a essere sostenibile. Ad esempio, analizzate il ruolo che gli incentivi e le ricompense possono avere nel rendere fattibile e praticabile la co-delivery della soluzione. ",
-                        "lv": "Vad\u012Bt diskusiju par aspektiem, kas var\u0113tu pal\u012Bdz\u0113t risin\u0101jumam b\u016Bt ilgtsp\u0113j\u012Bgam. Piem\u0113ram, analiz\u0113jiet, k\u0101da noz\u012Bme var\u0113tu b\u016Bt stimuliem un atl\u012Bdz\u012Bbai, lai risin\u0101jumu kop\u012Bga pieg\u0101de b\u016Btu iesp\u0113jama un dz\u012Bvotsp\u0113j\u012Bga."
-                    },
-                    "problemprofiles": [
-                        "ORG_PROBLEM_11",
-						"VAL_PROBLEM_2",
-						"UND_PROBLEM_1"
-                    ],
-                    "prerequisites": [
-                        {
-                            "item": "task-voting-discussing-new-functionalities",
-                            "type": "previous"
-                        }
-                    ],
-                    "id": "task-guided-discussion-codelivery-aspects"
-                },
-                {
-                    "name_translations": {
-                        "en": "Guided discussion on quality of co-production (satisfaction, trust, acceptance)",
-                        "es": "Debate guiado sobre la calidad de la coproducci\u00F3n (satisfacci\u00F3n, confianza, aceptaci\u00F3n)",
-                        "it": "Discussione guidata sulla qualit\u00E0 della co-produzione (soddisfazione, fiducia, accettazione)",
-                        "lv": "Vad\u012Bta diskusija par kopra\u017Eo\u0161anas kvalit\u0101ti (apmierin\u0101t\u012Bba, uztic\u0113\u0161an\u0101s, pie\u0146em\u0161ana)"
-                    },
-                    "description_translations": {
-                        "en": "Guided discussion on how to enhance the quality of the co-produced solution in terms of satisfaction, trust, acceptance … so that its adoption may be wider.",
-                        "es": "Debate guiado sobre c\u00F3mo mejorar la calidad de la soluci\u00F3n coproducida en t\u00E9rminos de satisfacci\u00F3n, confianza, aceptaci\u00F3n... para que su adopci\u00F3n sea m\u00E1s amplia. ",
-                        "it": "Discussione guidata su come migliorare la qualit\u00E0 della soluzione co-prodotta in termini di soddisfazione, fiducia, accettazione... in modo che la sua adozione possa essere pi\u00F9 ampia.",
-                        "lv": "Vad\u012Bta diskusija par to, k\u0101 uzlabot kop\u012Bgi rad\u012Bt\u0101 risin\u0101juma kvalit\u0101ti attiec\u012Bb\u0101 uz apmierin\u0101t\u012Bbu, uztic\u0113\u0161anos, pie\u0146em\u0161anu..., lai t\u0101 pie\u0146em\u0161ana b\u016Btu pla\u0161\u0101ka."
-                    },
-                    "problemprofiles": [
-                        "ORG_PROBLEM_10",
-                        "ORG_PROBLEM_11"
-                    ],
-                    "prerequisites": [
-                        {
-                            "item": "task-guided-discussion-codelivery-aspects",
-                            "type": "previous"
-                        }
-                    ],
-                    "id": "task-guided-discussion-quality-coproduction"
-                },
-                {
-                    "name_translations": {
-                        "en": "Guided discussion on other extensions to solution",
-                        "es": "Debate guiado sobre otras extensiones de la soluci\u00F3n",
-                        "it": "Discussione guidata su altre estensioni della soluzione",
-                        "lv": "Vad\u012Bta diskusija par citiem risin\u0101juma papla\u0161in\u0101jumiem"
-                    },
-                    "description_translations": {
-                        "en": "Guided discussion on what other extensions and new features should be added to the current solution. ",
-                        "es": "Debate guiado sobre qu\u00E9 otras extensiones y nuevas funciones deber\u00EDan a\u00F1adirse a la soluci\u00F3n actual.",
-                        "it": "Discussione guidata su quali altre estensioni e nuove funzionalit\u00E0 dovrebbero essere aggiunte alla soluzione attuale. ",
-                        "lv": "Vad\u012Bta diskusija par to, k\u0101di citi papla\u0161in\u0101jumi un jaunas funkcijas b\u016Btu j\u0101pievieno pa\u0161reiz\u0113jam risin\u0101jumam. "
-                    },
-                    "problemprofiles": [
-                        "ORG_PROBLEM_10",
-                        "ORG_PROBLEM_11"
-                    ],
-                    "prerequisites": [
-                        {
-                            "item": "task-guided-discussion-quality-coproduction",
-                            "type": "previous"
-                        }
-                    ],
-                    "id": "task-guided-discussion-extensions-solution"
-                }
-            ],
-            "prerequisites": [
-                {
-                    "item": "objective-restrospective-analysis",
-                    "type": "previous"
-                }
-            ],
-            "id": "objective-coreflection-analysis"
-        }
-    ],
-    "is_part_of_codelivery": false
-}
+	{
+		"id": "phase-coreflection",
+		"prerequisites": {},
+		"name_translations": {
+			"en": "Co-reflection of solution",
+			"es": "Correflexi\u00F3n sobre la soluci\u00F3n",
+			"it": "Co-riflessione della soluzione",
+			"lv": "Risin\u0101juma l\u012Bdzatspogu\u013Co\u0161ana"
+		},
+		"description_translations": {
+			"en": "During this phase, two objectives are addressed. Firstly, a collaborative retrospective analysis of the current existing solution is performed, where status, outcomes, and reflections about positive and negative aspects of the current released are reviewed. To accomplish this objective, presentations and reflection documents may be performed. Secondly, a collaborative reflection about possible new desirable features for the solution is performed. To meet this objective, polls on possible new features and guiding discussions may be performed. ",
+			"es": "Durante esta fase, se abordan dos objetivos. En primer lugar, se realiza un an\u00E1lisis retrospectivo colaborativo de la soluci\u00F3n actual existente, en el que se revisa el estado, los resultados y las reflexiones sobre los aspectos positivos y negativos de la actual liberada. Para lograr este objetivo, se pueden realizar presentaciones y documentos de reflexi\u00F3n. En segundo lugar, se realiza una reflexi\u00F3n colaborativa sobre posibles nuevas caracter\u00EDsticas deseables para la soluci\u00F3n. Para cumplir este objetivo, se pueden realizar encuestas sobre posibles nuevas caracter\u00EDsticas y debates orientativos. ",
+			"it": "In questa fase si affrontano due obiettivi. In primo luogo, viene eseguita un'analisi retrospettiva collaborativa dell'attuale soluzione esistente, in cui vengono esaminati lo stato, i risultati e le riflessioni sugli aspetti positivi e negativi dell'attuale rilascio. Per raggiungere questo obiettivo, si possono realizzare presentazioni e documenti di riflessione. In secondo luogo, viene effettuata una riflessione collaborativa sulle possibili nuove caratteristiche desiderabili per la soluzione. Per raggiungere questo obiettivo, si possono effettuare sondaggi su possibili nuove funzionalit\u00E0 e discussioni guida. ",
+			"lv": "\u0160aj\u0101 posm\u0101 tiek risin\u0101ti divi m\u0113r\u0137i. Pirmk\u0101rt, tiek veikta pa\u0161reiz\u0113j\u0101 eso\u0161\u0101 risin\u0101juma retrospekt\u012Bva anal\u012Bze, kur\u0101 tiek p\u0101rskat\u012Bts pa\u0161reiz\u0113j\u0101 atbr\u012Bvot\u0101 risin\u0101juma st\u0101voklis, rezult\u0101ti un p\u0101rdomas par pozit\u012Bvajiem un negat\u012Bvajiem aspektiem. Lai sasniegtu \u0161o m\u0113r\u0137i, var tikt veiktas prezent\u0101cijas un atspogu\u013Cojuma dokumenti. Otrk\u0101rt, tiek veiktas kop\u012Bgas p\u0101rdomas par iesp\u0113jam\u0101m jaun\u0101m v\u0113lam\u0101m risin\u0101juma iez\u012Bm\u0113m. Lai sasniegtu \u0161o m\u0113r\u0137i, var veikt aptaujas par iesp\u0113jam\u0101m jaun\u0101m funkcij\u0101m un vad\u012Bt diskusijas. "
+		},
+		"objectives": [
+			{
+				"name_translations": {
+					"en": "Co-analyse retrospectively solution",
+					"es": "Co-analizar la soluci\u00F3n retrospectivamente",
+					"it": "Co-analizzare la soluzione in modo retrospettivo ",
+					"lv": "Risin\u0101juma retrospekt\u012Bva l\u012Bdzanal\u012Bze"
+				},
+				"description_translations": {
+					"en": "The understanding of the work done until that moment for a given solution and a reflection of what has been done right, what could be done and what should be done better or in another way is critical to continuously enhance an existing solution.",
+					"es": "La comprensi\u00F3n del trabajo realizado hasta ese momento para una determinada soluci\u00F3n y la reflexi\u00F3n sobre lo que se ha hecho bien, lo que podr\u00EDa hacerse y lo que deber\u00EDa hacerse mejor o de otra manera es fundamental para mejorar continuamente una soluci\u00F3n existente. ",
+					"it": "La comprensione del lavoro svolto fino a quel momento per una determinata soluzione e la riflessione su ci\u00F2 che \u00E8 stato fatto bene, su ci\u00F2 che potrebbe essere fatto e su ci\u00F2 che dovrebbe essere fatto meglio o in un altro modo \u00E8 fondamentale per migliorare continuamente una soluzione esistente. ",
+					"lv": "Izpratne par l\u012Bdz \u0161im paveikto darbu saist\u012Bb\u0101 ar konkr\u0113to risin\u0101jumu un p\u0101rdomas par to, kas ir izdar\u012Bts pareizi, ko var\u0113tu dar\u012Bt un ko vajadz\u0113tu dar\u012Bt lab\u0101k vai cit\u0101di, ir \u013Coti svar\u012Bga, lai nep\u0101rtraukti uzlabotu eso\u0161o risin\u0101jumu."
+				},
+				"problemprofiles": [],
+				"tasks": [
+					{
+						"name_translations": {
+							"en": "Summarize current solution features",
+							"es": "Entender los diferentes tipos de stakeholders y sus motivaciones",
+							"it": "Comprendi le diverse tipologie di attori da coinvolgere",
+							"lv": "Izpratne par da\u017e\u0101diem ieinteres\u0113to personu veidiem"
+						},
+						"description_translations": {
+							"en": "Retrospective explanation of current features of solution under analysis subject to re-design. ",
+							"es": "Explicaci\u00F3n retrospectiva de las caracter\u00EDsticas actuales de la soluci\u00F3n analizada sujeta a redise\u00F1o. ",
+							"it": "Spiegazione retrospettiva delle caratteristiche attuali della soluzione in analisi soggetta a riprogettazione. ",
+							"lv": "Analiz\u0113jam\u0101 risin\u0101juma pa\u0161reiz\u0113jo iez\u012Bmju retrospekt\u012Bvs skaidrojums, kas pak\u013Cauts p\u0101rprojekt\u0113\u0161anai."
+						},
+						"problemprofiles": [
+							"ORG_PROBLEM_10"
+						],
+						"prerequisites": {},
+						"id": "task-summarize-current-solution"
+					},
+					{
+						"name_translations": {
+							"en": "Summarize evaluation results of current solution",
+							"es": "Resumir los resultados de la evaluaci\u00F3n de la soluci\u00F3n actual",
+							"it": "Riassumere i risultati della valutazione della soluzione attuale",
+							"lv": "Apkopot pa\u0161reiz\u0113j\u0101 risin\u0101juma nov\u0113rt\u0113\u0161anas rezult\u0101tus"
+						},
+						"description_translations": {
+							"en": "Retrospective explanation of the evaluation results carried out over the solution under analysis ",
+							"es": "Explicaci\u00F3n retrospectiva de los resultados de la evaluaci\u00F3n realizada sobre la soluci\u00F3n analizada ",
+							"it": "Spiegazione retrospettiva dei risultati della valutazione effettuata sulla soluzione in analisi ",
+							"lv": "Analiz\u0113jam\u0101 risin\u0101juma nov\u0113rt\u0113\u0161anas rezult\u0101tu retrospekt\u012Bvs skaidrojums"
+						},
+						"problemprofiles": [
+							"ORG_PROBLEM_10"
+						],
+						"prerequisites": {
+							"item": "task-summarize-current-solution",
+							"type": "previous"
+						},
+						"id": "task-summarize-evaluation-results"
+					},
+					{
+						"name_translations": {
+							"en": "Review based on reflections from evaluators",
+							"es": "Revisi\u00F3n basada en las reflexiones de los evaluadores",
+							"it": "Revisione basata sulle riflessioni dei valutatori",
+							"lv": "P\u0101rskats, pamatojoties uz v\u0113rt\u0113t\u0101ju p\u0101rdom\u0101m"
+						},
+						"description_translations": {
+							"en": "Synthesis on the new features that should be added to the current solution to improve it in a following release or update.",
+							"es": "S\u00EDntesis sobre las nuevas caracter\u00EDsticas que deber\u00EDan a\u00F1adirse a la soluci\u00F3n actual para mejorarla en una siguiente versi\u00F3n o actualizaci\u00F3n",
+							"it": "Sintesi delle nuove funzionalit\u00E0 che dovrebbero essere aggiunte alla soluzione attuale per migliorarla in una release o in un aggiornamento successivo.",
+							"lv": "Sint\u0113ze par jaun\u0101m funkcij\u0101m, kas j\u0101pievieno pa\u0161reiz\u0113jam risin\u0101jumam, lai to uzlabotu n\u0101kamaj\u0101 versij\u0101 vai atjaunin\u0101jum\u0101."
+						},
+						"problemprofiles": [
+							"ORG_PROBLEM_10"
+						],
+						"prerequisites": {
+							"item": "task-summarize-evaluation-results",
+							"type": "previous"
+						},
+						"id": "task-review-evaluators-reflections"
+					}
+				],
+				"id": "objective-restrospective-analysis",
+				"prerequisites": {}
+			},
+			{
+				"name_translations": {
+					"en": "Co-reflect on new features for solution",
+					"es": "Co-responder a las nuevas caracter\u00EDsticas de la soluci\u00F3n",
+					"it": "Riflettere insieme sulle nuove caratteristiche della soluzione",
+					"lv": "Kop\u012Bga p\u0101rdomu veik\u0161ana par jaun\u0101m risin\u0101juma funkcij\u0101m"
+				},
+				"description_translations": {
+					"en": "During this phase, several objectives are addressed voting the preferred existing features, voting the most desirable new features or revisions of existing ones and discussing over different aspects to make the solution more acceptable and sustainable, namely, co-delivery aspects, quality of the resulting co-produced solution or discussion on possible new most needed enhancements. ",
+					"es": "Durante esta fase, se abordan varios objetivos: votar las caracter\u00EDsticas existentes preferidas, votar las nuevas caracter\u00EDsticas m\u00E1s deseables o las revisiones de las existentes y debatir sobre diferentes aspectos para que la soluci\u00F3n sea m\u00E1s aceptable y sostenible, a saber, los aspectos de la coproducci\u00F3n, la calidad de la soluci\u00F3n coproducida resultante o el debate sobre las posibles mejoras nuevas m\u00E1s necesarias. ",
+					"it": "Durante questa fase, vengono affrontati diversi obiettivi: votare le caratteristiche esistenti preferite, votare le nuove caratteristiche pi\u00F9 desiderabili o le revisioni di quelle esistenti e discutere su diversi aspetti per rendere la soluzione pi\u00F9 accettabile e sostenibile, ovvero gli aspetti di co-delivery, la qualit\u00E0 della soluzione co-prodotta risultante o la discussione sui possibili nuovi miglioramenti pi\u00F9 necessari. ",
+					"lv": "\u0160aj\u0101 f\u0101z\u0113 tiek risin\u0101ti vair\u0101ki uzdevumi, balsojot par v\u0113lamaj\u0101m eso\u0161aj\u0101m funkcij\u0101m, balsojot par v\u0113lam\u0101kaj\u0101m jaunaj\u0101m funkcij\u0101m vai eso\u0161o funkciju p\u0101rskat\u012B\u0161anu un apsprie\u017Eot da\u017E\u0101dus aspektus, lai risin\u0101jumu padar\u012Btu pie\u0146emam\u0101ku un ilgtsp\u0113j\u012Bg\u0101ku, proti, kop\u012Bgas pieg\u0101des aspektus, kop\u012Bgi izstr\u0101d\u0101t\u0101 risin\u0101juma kvalit\u0101ti vai diskusiju par iesp\u0113jamiem jauniem, visvair\u0101k nepiecie\u0161amajiem uzlabojumiem. "
+				},
+				"problemprofiles": [
+					"ORG_PROBLEM_11",
+					"VAL_PROBLEM_2",
+					"UND_PROBLEM_1"
+				],
+				"tasks": [
+					{
+						"name_translations": {
+							"en": "Voting and discussing current functionalities",
+							"es": "Votaci\u00F3n y debate de las funcionalidades actuales",
+							"it": "Votare e discutere le funzionalit\u00E0 attuali",
+							"lv": "Balso\u0161ana un pa\u0161reiz\u0113jo funkcionalit\u0101\u0161u apsprie\u0161ana"
+						},
+						"description_translations": {
+							"en": "Discuss and prioritize through voting what features are considered most useful.",
+							"es": "Discutir y priorizar mediante votaci\u00F3n qu\u00E9 caracter\u00EDsticas se consideran m\u00E1s \u00FAtiles.",
+							"it": "Discutere e stabilire le priorit\u00E0 attraverso la votazione delle caratteristiche ritenute pi\u00F9 utili.",
+							"lv": "Apspriediet un, balsojot, nosakiet priorit\u0101tes, kuras funkcijas tiek uzskat\u012Btas par visnoder\u012Bg\u0101kaj\u0101m."
+						},
+						"problemprofiles": [
+							"ORG_PROBLEM_11",
+							"VAL_PROBLEM_2",
+							"UND_PROBLEM_1"
+						],
+						"id": "task-voting-discussing-current-functionalities",
+						"prerequisites": {}
+					},
+					{
+						"name_translations": {
+							"en": "Voting and discussing potential new functionalities or revisions of existing ones",
+							"es": "Votar y debatir posibles nuevas funcionalidades o revisiones de las existentes",
+							"it": "Votare e discutere potenziali nuove funzionalit\u00E0 o revisioni di quelle esistenti",
+							"lv": "Balso\u0161ana un diskusija par iesp\u0113jam\u0101m jaun\u0101m funkcij\u0101m vai eso\u0161o funkciju p\u0101rskat\u012B\u0161anu."
+						},
+						"description_translations": {
+							"en": "Discuss and prioritize through voting what new features or current features’ enhancements should be considered most useful.",
+							"es": "Discutir y priorizar a trav\u00E9s de la votaci\u00F3n qu\u00E9 nuevas caracter\u00EDsticas o mejoras de las caracter\u00EDsticas actuales deben considerarse m\u00E1s \u00FAtiles.",
+							"it": "Discutere e stabilire le priorit\u00E0 attraverso la votazione delle nuove funzionalit\u00E0 o dei miglioramenti delle funzionalit\u00E0 attuali da considerare pi\u00F9 utili.",
+							"lv": "Apspriediet un, balsojot, nosakiet priorit\u0101tes, kuras jaunas funkcijas vai pa\u0161reiz\u0113jo funkciju uzlabojumi b\u016Btu uzskat\u0101mi par visnoder\u012Bg\u0101kajiem."
+						},
+						"problemprofiles": [
+							"ORG_PROBLEM_11",
+							"VAL_PROBLEM_2",
+							"UND_PROBLEM_1"
+						],
+						"prerequisites": {
+							"item": "task-voting-discussing-current-functionalities",
+							"type": "previous"
+						},
+						"id": "task-voting-discussing-new-functionalities"
+					},
+					{
+						"name_translations": {
+							"en": "Guided discussion on co-delivery aspects (Incentives and Rewards)",
+							"es": "Debate guiado sobre los aspectos de la coproducci\u00F3n (incentivos y recompensas)",
+							"it": "Discussione guidata sugli aspetti di co-delivery (Incentivi e ricompense)",
+							"lv": "Vad\u012Bta diskusija par kop\u012Bgas pieg\u0101des aspektiem (stimuli un atl\u012Bdz\u012Bba)"
+						},
+						"description_translations": {
+							"en": "Guide discussion on aspects that could help the solution to be sustainable. For example, analyse what role incentives and rewards may play on making solution co-delivery feasible and viable. ",
+							"es": "Orientar el debate sobre los aspectos que podr\u00EDan ayudar a que la soluci\u00F3n sea sostenible. Por ejemplo, analice qu\u00E9 papel pueden desempe\u00F1ar los incentivos y las recompensas para que la codistribuci\u00F3n de la soluci\u00F3n sea factible y viable.",
+							"it": "Guidare la discussione sugli aspetti che potrebbero aiutare la soluzione a essere sostenibile. Ad esempio, analizzate il ruolo che gli incentivi e le ricompense possono avere nel rendere fattibile e praticabile la co-delivery della soluzione. ",
+							"lv": "Vad\u012Bt diskusiju par aspektiem, kas var\u0113tu pal\u012Bdz\u0113t risin\u0101jumam b\u016Bt ilgtsp\u0113j\u012Bgam. Piem\u0113ram, analiz\u0113jiet, k\u0101da noz\u012Bme var\u0113tu b\u016Bt stimuliem un atl\u012Bdz\u012Bbai, lai risin\u0101jumu kop\u012Bga pieg\u0101de b\u016Btu iesp\u0113jama un dz\u012Bvotsp\u0113j\u012Bga."
+						},
+						"problemprofiles": [
+							"ORG_PROBLEM_11",
+							"VAL_PROBLEM_2",
+							"UND_PROBLEM_1"
+						],
+						"prerequisites": {
+							"item": "task-voting-discussing-new-functionalities",
+							"type": "previous"
+						},
+						"id": "task-guided-discussion-codelivery-aspects"
+					},
+					{
+						"name_translations": {
+							"en": "Guided discussion on quality of co-production (satisfaction, trust, acceptance)",
+							"es": "Debate guiado sobre la calidad de la coproducci\u00F3n (satisfacci\u00F3n, confianza, aceptaci\u00F3n)",
+							"it": "Discussione guidata sulla qualit\u00E0 della co-produzione (soddisfazione, fiducia, accettazione)",
+							"lv": "Vad\u012Bta diskusija par kopra\u017Eo\u0161anas kvalit\u0101ti (apmierin\u0101t\u012Bba, uztic\u0113\u0161an\u0101s, pie\u0146em\u0161ana)"
+						},
+						"description_translations": {
+							"en": "Guided discussion on how to enhance the quality of the co-produced solution in terms of satisfaction, trust, acceptance … so that its adoption may be wider.",
+							"es": "Debate guiado sobre c\u00F3mo mejorar la calidad de la soluci\u00F3n coproducida en t\u00E9rminos de satisfacci\u00F3n, confianza, aceptaci\u00F3n... para que su adopci\u00F3n sea m\u00E1s amplia. ",
+							"it": "Discussione guidata su come migliorare la qualit\u00E0 della soluzione co-prodotta in termini di soddisfazione, fiducia, accettazione... in modo che la sua adozione possa essere pi\u00F9 ampia.",
+							"lv": "Vad\u012Bta diskusija par to, k\u0101 uzlabot kop\u012Bgi rad\u012Bt\u0101 risin\u0101juma kvalit\u0101ti attiec\u012Bb\u0101 uz apmierin\u0101t\u012Bbu, uztic\u0113\u0161anos, pie\u0146em\u0161anu..., lai t\u0101 pie\u0146em\u0161ana b\u016Btu pla\u0161\u0101ka."
+						},
+						"problemprofiles": [
+							"ORG_PROBLEM_10",
+							"ORG_PROBLEM_11"
+						],
+						"prerequisites": {
+							"item": "task-guided-discussion-codelivery-aspects",
+							"type": "previous"
+						},
+						"id": "task-guided-discussion-quality-coproduction"
+					},
+					{
+						"name_translations": {
+							"en": "Guided discussion on other extensions to solution",
+							"es": "Debate guiado sobre otras extensiones de la soluci\u00F3n",
+							"it": "Discussione guidata su altre estensioni della soluzione",
+							"lv": "Vad\u012Bta diskusija par citiem risin\u0101juma papla\u0161in\u0101jumiem"
+						},
+						"description_translations": {
+							"en": "Guided discussion on what other extensions and new features should be added to the current solution. ",
+							"es": "Debate guiado sobre qu\u00E9 otras extensiones y nuevas funciones deber\u00EDan a\u00F1adirse a la soluci\u00F3n actual.",
+							"it": "Discussione guidata su quali altre estensioni e nuove funzionalit\u00E0 dovrebbero essere aggiunte alla soluzione attuale. ",
+							"lv": "Vad\u012Bta diskusija par to, k\u0101di citi papla\u0161in\u0101jumi un jaunas funkcijas b\u016Btu j\u0101pievieno pa\u0161reiz\u0113jam risin\u0101jumam. "
+						},
+						"problemprofiles": [
+							"ORG_PROBLEM_10",
+							"ORG_PROBLEM_11"
+						],
+						"prerequisites": {
+							"item": "task-guided-discussion-quality-coproduction",
+							"type": "previous"
+						},
+						"id": "task-guided-discussion-extensions-solution"
+					}
+				],
+				"prerequisites": {
+					"item": "objective-restrospective-analysis",
+					"type": "previous"
+				},
+				"id": "objective-coreflection-analysis"
+			}
+		],
+		"is_part_of_codelivery": false
+	}

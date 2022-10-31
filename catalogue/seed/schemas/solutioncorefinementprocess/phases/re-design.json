@@ -1,11 +1,9 @@
 {
     "id": "phase-redesign",
-    "prerequisites": [
-        {
+    "prerequisites": {
             "item": "phase-coreflection",
             "status": "finished"
-        }
-    ],
+    },
     "name_translations": {
         "en": "Re-design of solution",
         "es": "Redise\u00F1o de la soluci\u00F3n",
@@ -51,12 +49,12 @@
                         "lv": "Noteikt priorit\u0101tes un pl\u0101not darbsemin\u0101ru kopumu, kur\u0101 tiek apspriestas jaunas produkta funkcijas un papla\u0161in\u0101jumi. "
                     },
                     "problemprofiles": [],
-                    "prerequisites": [],
+                    "prerequisites": {},
                     "id": "task-organize-codesign-workshop"
                 }
             ],
             "id": "objective-codecide-future-codesign-actions",
-            "prerequisites": []
+            "prerequisites": {}
         },
         {
             "name_translations": {
@@ -91,7 +89,7 @@
                     "problemprofiles": [
                         "DEF_PROBLEM_3"
                     ],
-                    "prerequisites": [],
+                    "prerequisites": {},
                     "id": "task-collaborative-redesign-solution"
                 },
 				{
@@ -110,12 +108,10 @@
                     "problemprofiles": [
                         "DEF_PROBLEM_3"
                     ],
-                    "prerequisites": [
-						{
-                            "item": "task-collaborative-redesign-solution",
-                            "type": "previous"
-                        }
-					],
+                    "prerequisites": {
+						"item": "task-collaborative-redesign-solution",
+						"type": "previous"
+					},
                     "id": "task-codesign-codelivery-mechanism"
                 },
 				{
@@ -134,21 +130,17 @@
                     "problemprofiles": [
                         "DEF_PROBLEM_3"
                     ],
-                    "prerequisites": [
-						{
-                            "item": "task-codesign-codelivery-mechanism",
-                            "type": "previous"
-                        }
-					],
+                    "prerequisites": {
+						"item": "task-codesign-codelivery-mechanism",
+                        "type": "previous"
+					},
                     "id": "task-redesign-monitoring-mechanism"
                 }
             ],
-            "prerequisites": [
-                {
+            "prerequisites": {
                     "item": "objective-codecide-future-codesign-actions",
                     "type": "previous"
-                }
-            ],
+            },
             "id": "objective-repeat-codesign-solution-process"
         }
     ],
