@@ -1,10 +1,12 @@
 {
     "id": "phase-design",
-    "prerequisites": {
-		"item": "phase-engage",
-		"status": "finished"
+    "prerequisites": [
+		{
+			"item": "phase-engage",
+			"status": "finished"
+		}
         
-    },
+    ],
     "name_translations": {
         "en": "Design",
         "es": "Dise\u00f1o",
@@ -51,7 +53,7 @@
                         "lv": "Sadarbojoties ar ieinteres\u0113to personu t\u012bklu, uzlabojiet risin\u0101m\u0101s probl\u0113mas defin\u012bciju. Pakalpojuma izstr\u0101de ir probl\u0113mu risin\u0101\u0161anas darb\u012bba, un ir svar\u012bgi skaidri saprast, kur\u0161 ir izaicin\u0101jums, kuru komanda risina, un k\u0101 var sav\u0101kt vair\u0101k inform\u0101cijas, lai saprastu, k\u0101 pakalpojums ir j\u0101izstr\u0101d\u0101. Organiz\u0113jiet fokusgrupas, lai apspriestu s\u0101kotn\u0113j\u0101s idejas un pie\u0146\u0113mumus, pilnveidotu tos, izmantojot struktur\u0113tas metodes, un uzzin\u0101tu par tr\u016bksto\u0161o inform\u0101ciju, kas v\u0113l ir j\u0101iev\u0101c."
                     },
                     "problemprofiles": [],
-                    "prerequisites": {},
+                    "prerequisites": [],
                     "id": "task-collaboratively-problem-refinement"
                 },
                 {
@@ -68,16 +70,18 @@
                         "lv": "Idejas un pakalpojuma dizaina koncepcijas ir j\u0101p\u0101rv\u0113r\u0161 form\u0101l\u0101s pras\u012bb\u0101s, lai var\u0113tu turpin\u0101t ar pakalpojuma ievie\u0161anu. Iev\u0113rojiet vadl\u012bnijas par to, k\u0101 apkopot, struktur\u0113t un pazi\u0146ot pras\u012bbas un visas pakalpojumu specifik\u0101cijas, kas preciz\u0113 pakalpojuma m\u0113r\u0137i un to, k\u0101 tas j\u0101izstr\u0101d\u0101. Izmantojiet standarta att\u0113lojuma form\u0101lismu pras\u012bbu aprakstiem, piem\u0113ram, Volere pras\u012bbu specifik\u0101cijas veidni."
                     },
                     "problemprofiles": [],
-                    "prerequisites": {
-                        
-						"item": "task-collaboratively-problem-refinement",
-						"type": "previous"
-                    },
+                    "prerequisites": [
+						{
+							"item": "task-collaboratively-problem-refinement",
+							"type": "previous"
+						}
+							
+                    ],
                     "id": "task-define-requirements-and-constraints-for-the-public-service-description-enhancement"
                 }
             ],
             "id": "objective-focus-the-service-description-enhancement-problem-collaboratively",
-            "prerequisites": {}
+            "prerequisites": []
         },
         {
             "name_translations": {
@@ -117,14 +121,16 @@
                     "problemprofiles": [
                         "BUILD_PROBLEM_9"
                     ],
-                    "prerequisites": {},
+                    "prerequisites": [],
                     "id": "task-launch-description-augmenter"
                 }
             ],
-            "prerequisites": {
-				"item": "objective-focus-the-service-description-enhancement-problem-collaboratively",
-				"type": "previous"
-            },
+            "prerequisites": [
+				{
+					"item": "objective-focus-the-service-description-enhancement-problem-collaboratively",
+					"type": "previous"
+				}
+            ],
             "id": "objective-service-description-refinement-process-specification"
         },
         {
@@ -158,16 +164,16 @@
                         "lv": "K\u0101di ir stimuli tiem, kas var sniegt atbalstu/finans\u0113jumu, un tiem, kas izstr\u0101d\u0101/uztur pakalpojumu?\nApst\u0101jies un apdom\u0101jiet, k\u0101 l\u012bdz \u0161im norisin\u0101j\u0101s ieinteres\u0113to pu\u0161u sadarb\u012bba koprades proces\u0101. Izskatiet pied\u0101v\u0101to kontrolsarakstu, lai saprastu, vai ir nepiecie\u0161ami papildu stimuli un atbalsta pas\u0101kumi, lai nodro\u0161in\u0101tu produkt\u012bvu izstr\u0101des un koppieg\u0101des posmu."
                     },
                     "problemprofiles": [],
-                    "prerequisites": {},
+                    "prerequisites": [],
                     "id": "task-understand-motivations-and-incentives"
                 }
             ],
-            "prerequisites": {
-                
-				"item": "objective-service-description-refinement-process-specification",
-				"type": "previous"
-                
-            },
+            "prerequisites": [
+				{
+					"item": "objective-service-description-refinement-process-specification",
+					"type": "previous"
+                }
+            ],
             "id": "objective-sustainability"
         }
     ],
