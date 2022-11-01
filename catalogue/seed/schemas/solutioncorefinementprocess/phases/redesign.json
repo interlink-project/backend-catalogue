@@ -1,9 +1,11 @@
 {
     "id": "phase-re-design-of-solution",
-    "prerequisites": {
-        "item": "phase-coreflection",
-        "status": "finished"
-    },
+    "prerequisites": [
+        {
+            "item": "phase-coreflection",
+            "status": "finished"
+        }
+    ],
     "name_translations": {
         "en": "Re-design of solution",
         "es": "Redise\u00f1o de la soluci\u00f3n",
