@@ -1,11 +1,10 @@
 {
     "id": "phase-design",
     "prerequisites": [
-		{
-			"item": "phase-engage",
-			"status": "finished"
-		}
-        
+        {
+            "item": "phase-engage",
+            "status": "finished"
+        }
     ],
     "name_translations": {
         "en": "Design",
@@ -71,11 +70,10 @@
                     },
                     "problemprofiles": [],
                     "prerequisites": [
-						{
-							"item": "task-collaboratively-problem-refinement",
-							"type": "previous"
-						}
-							
+                        {
+                            "item": "task-collaboratively-problem-refinement",
+                            "type": "previous"
+                        }
                     ],
                     "id": "task-define-requirements-and-constraints-for-the-public-service-description-enhancement"
                 }
@@ -126,10 +124,10 @@
                 }
             ],
             "prerequisites": [
-				{
-					"item": "objective-focus-the-service-description-enhancement-problem-collaboratively",
-					"type": "previous"
-				}
+                {
+                    "item": "objective-focus-the-service-description-enhancement-problem-collaboratively",
+                    "type": "previous"
+                }
             ],
             "id": "objective-service-description-refinement-process-specification"
         },
@@ -169,9 +167,9 @@
                 }
             ],
             "prerequisites": [
-				{
-					"item": "objective-service-description-refinement-process-specification",
-					"type": "previous"
+                {
+                    "item": "objective-service-description-refinement-process-specification",
+                    "type": "previous"
                 }
             ],
             "id": "objective-sustainability"
