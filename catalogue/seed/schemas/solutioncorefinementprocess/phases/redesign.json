@@ -1,8 +1,8 @@
 {
-    "id": "phase-re-design-of-solution",
+    "id": "phase-redesignofsolution",
     "prerequisites": [
         {
-            "item": "phase-co-reflection-of-solution",
+            "item": "phase-coreflectionofsolution",
             "status": "finished"
         }
     ],
