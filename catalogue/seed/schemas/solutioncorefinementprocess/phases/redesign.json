@@ -2,7 +2,7 @@
     "id": "phase-re-design-of-solution",
     "prerequisites": [
         {
-            "item": "phase-coreflection",
+            "item": "phase-co-reflection-of-solution",
             "status": "finished"
         }
     ],
