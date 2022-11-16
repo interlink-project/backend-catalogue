@@ -23,7 +23,7 @@
     },
     "form": "document_template",
     "format": "editable_source_document",
-    "id": "consent-form-template",
+    "id": "consent_form_template",
     "instructions_translations": {
         "en": "./interlinkers/knowledge/Consent-Form-Template/instructions.md"
     },

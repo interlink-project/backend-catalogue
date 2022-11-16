@@ -24,7 +24,7 @@
     ],
     "form": "guidelines",
     "format": "structured_format",
-    "id": "eidas-standard",
+    "id": "eidas_standard",
     "instructions_translations": {
         "en": "./interlinkers/externalknowledge/eidas-standard/instructions.md"
     },

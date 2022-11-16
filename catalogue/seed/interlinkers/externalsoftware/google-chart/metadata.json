@@ -22,7 +22,7 @@
         "mef",
         "zgz"
     ],
-    "id": "google-chart",
+    "id": "google_chart",
     "instructions_translations": {
         "en": "./interlinkers/externalsoftware/google-chart/instructions.md"
     },

@@ -24,7 +24,7 @@
     },
     "form": "document_template",
     "format": "editable_source_document",
-    "id": "stakeholders-mapping-canvas",
+    "id": "stakeholders_mapping_canvas",
     "instructions_translations": {
         "en": "./interlinkers/knowledge/Stakeholders-Mapping-Canvas/instructions.md"
     },

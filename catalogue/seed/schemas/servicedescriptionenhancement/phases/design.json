@@ -53,7 +53,7 @@
                     },
                     "problemprofiles": [],
                     "prerequisites": [],
-                    "id": "task-collaboratively-problem-refinement"
+                    "id": "task-collaboratively_problem_refinement"
                 },
                 {
                     "name_translations": {
@@ -71,14 +71,14 @@
                     "problemprofiles": [],
                     "prerequisites": [
                         {
-                            "item": "task-collaboratively-problem-refinement",
+                            "item": "task-collaboratively_problem_refinement",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-define-requirements-and-constraints-for-the-public-service-description-enhancement"
+                    "id": "task-define_requirements_and_constraints_for_the_public_service_description_enhancement"
                 }
             ],
-            "id": "objective-focus-the-service-description-enhancement-problem-collaboratively",
+            "id": "objective-focus_the_service_description_enhancement_problem_collaboratively",
             "prerequisites": []
         },
         {
@@ -120,16 +120,16 @@
                         "BUILD_PROBLEM_9"
                     ],
                     "prerequisites": [],
-                    "id": "task-launch-description-augmenter"
+                    "id": "task-launch_description_augmenter"
                 }
             ],
             "prerequisites": [
                 {
-                    "item": "objective-focus-the-service-description-enhancement-problem-collaboratively",
+                    "item": "objective-focus_the_service_description_enhancement_problem_collaboratively",
                     "type": "previous"
                 }
             ],
-            "id": "objective-service-description-refinement-process-specification"
+            "id": "objective-service_description_refinement_process_specification"
         },
         {
             "name_translations": {
@@ -163,12 +163,12 @@
                     },
                     "problemprofiles": [],
                     "prerequisites": [],
-                    "id": "task-understand-motivations-and-incentives"
+                    "id": "task-understand_motivations_and_incentives"
                 }
             ],
             "prerequisites": [
                 {
-                    "item": "objective-service-description-refinement-process-specification",
+                    "item": "objective-service_description_refinement_process_specification",
                     "type": "previous"
                 }
             ],

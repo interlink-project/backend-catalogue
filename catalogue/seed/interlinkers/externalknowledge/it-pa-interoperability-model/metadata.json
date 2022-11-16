@@ -23,7 +23,7 @@
     ],
     "form": "guidelines",
     "format": "structured_format",
-    "id": "italian-pa-interoperablity-model",
+    "id": "italian_pa_interoperablity_model",
     "instructions_translations": {
         "en": "./interlinkers/externalknowledge/it-guidelines-data-protection/instructions.md"
     },

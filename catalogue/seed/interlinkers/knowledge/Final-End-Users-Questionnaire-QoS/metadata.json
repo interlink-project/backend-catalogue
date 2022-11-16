@@ -23,7 +23,7 @@
     },
     "form": "survey_template",
     "format": "pdf",
-    "id": "final-end-user-s-questionnaire-quality-of-service",
+    "id": "final_end_user_s_questionnaire_quality_of_service",
     "instructions_translations": {
         "en": "./interlinkers/knowledge/Final-End-Users-Questionnaire-QoS/instructions.md"
     },

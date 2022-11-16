@@ -23,7 +23,7 @@
     },
     "form": "document_template",
     "format": "editable_source_document",
-    "id": "information-sheet-for-interlink-project",
+    "id": "information_sheet_for_interlink_project",
     "instructions_translations": {
         "en": "./interlinkers/knowledge/Information-Sheet-INTERLINK/instructions.md"
     },

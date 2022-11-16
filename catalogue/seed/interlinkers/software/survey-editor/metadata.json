@@ -15,7 +15,7 @@
         "mef",
         "zgz"
     ],
-    "id": "survey-editor",
+    "id": "survey_editor",
     "instructions_translations": {
         "en": "./interlinkers/software/survey-editor/instructions.md"
     },

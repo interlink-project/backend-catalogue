@@ -23,7 +23,7 @@
     },
     "form": "document_template",
     "format": "editable_source_document",
-    "id": "hackathon-rules-template-for-interlink-project",
+    "id": "hackathon_rules_template_for_interlink_project",
     "instructions_translations": {
         "en": "./interlinkers/knowledge/Hackathon-Rules-Template/instructions.md"
     },

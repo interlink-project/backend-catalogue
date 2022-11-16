@@ -23,7 +23,7 @@
     },
     "form": "document_template",
     "format": "editable_source_document",
-    "id": "public-service-proposal-template-for-interlink-project",
+    "id": "public_service_proposal_template_for_interlink_project",
     "instructions_translations": {
         "en": "./interlinkers/knowledge/Public-Service-Proposal-Template/instructions.md"
     },

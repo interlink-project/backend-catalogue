@@ -20,7 +20,7 @@
         "mef",
         "zgz"
     ],
-    "id": "event-co-designer",
+    "id": "event_co_designer",
     "instructions_translations": {
         "en": "./interlinkers/externalsoftware/event-codesigner/instructions.md"
     },

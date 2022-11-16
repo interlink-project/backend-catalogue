@@ -23,7 +23,7 @@
     },
     "form": "guidelines",
     "format": "editable_source_document",
-    "id": "usability-testing-guidelines",
+    "id": "usability_testing_guidelines",
     "instructions_translations": {
         "en": "./interlinkers/knowledge/Usability-testing/instructions.md"
     },

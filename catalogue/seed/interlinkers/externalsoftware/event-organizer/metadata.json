@@ -20,7 +20,7 @@
         "mef",
         "zgz"
     ],
-    "id": "event-organizer",
+    "id": "event_organizer",
     "instructions_translations": {
         "en": "./interlinkers/externalsoftware/event-organizer/instructions.md"
     },

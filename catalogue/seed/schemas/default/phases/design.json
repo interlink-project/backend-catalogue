@@ -54,7 +54,7 @@
                     "problemprofiles": [
                         "ORG_PROBLEM_12"
                     ],
-                    "id": "task-develop-a-shared-language",
+                    "id": "task-develop_a_shared_language",
                     "prerequisites": []
                 },
                 {
@@ -73,11 +73,11 @@
                     "problemprofiles": [],
                     "prerequisites": [
                         {
-                            "item": "task-develop-a-shared-language",
+                            "item": "task-develop_a_shared_language",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-collaboratively-problem-refinement"
+                    "id": "task-collaboratively_problem_refinement"
                 },
                 {
                     "name_translations": {
@@ -95,11 +95,11 @@
                     "problemprofiles": [],
                     "prerequisites": [
                         {
-                            "item": "task-collaboratively-problem-refinement",
+                            "item": "task-collaboratively_problem_refinement",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-ideas-collection-for-problem-exploration-and-refinement"
+                    "id": "task-ideas_collection_for_problem_exploration_and_refinement"
                 },
                 {
                     "name_translations": {
@@ -117,11 +117,11 @@
                     "problemprofiles": [],
                     "prerequisites": [
                         {
-                            "item": "task-ideas-collection-for-problem-exploration-and-refinement",
+                            "item": "task-ideas_collection_for_problem_exploration_and_refinement",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-sketch-an-initial-idea-of-the-service"
+                    "id": "task-sketch_an_initial_idea_of_the_service"
                 },
                 {
                     "name_translations": {
@@ -139,11 +139,11 @@
                     "problemprofiles": [],
                     "prerequisites": [
                         {
-                            "item": "task-sketch-an-initial-idea-of-the-service",
+                            "item": "task-sketch_an_initial_idea_of_the_service",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-collaborative-agree-on-a-service-idea"
+                    "id": "task-collaborative_agree_on_a_service_idea"
                 },
                 {
                     "name_translations": {
@@ -161,14 +161,14 @@
                     "problemprofiles": [],
                     "prerequisites": [
                         {
-                            "item": "task-collaborative-agree-on-a-service-idea",
+                            "item": "task-collaborative_agree_on_a_service_idea",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-define-requirements-and-constraints-for-the-service"
+                    "id": "task-define_requirements_and_constraints_for_the_service"
                 }
             ],
-            "id": "objective-focus-the-problem-collaboratively",
+            "id": "objective-focus_the_problem_collaboratively",
             "prerequisites": []
         },
         {
@@ -208,7 +208,7 @@
                     "problemprofiles": [
                         "ORG_PROBLEM_6.2"
                     ],
-                    "id": "task-collect-data-about-users-and-their-behavior",
+                    "id": "task-collect_data_about_users_and_their_behavior",
                     "prerequisites": []
                 },
                 {
@@ -227,20 +227,20 @@
                     "problemprofiles": [],
                     "prerequisites": [
                         {
-                            "item": "task-collect-data-about-users-and-their-behavior",
+                            "item": "task-collect_data_about_users_and_their_behavior",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-ecosystem-mapping"
+                    "id": "task-ecosystem_mapping"
                 }
             ],
             "prerequisites": [
                 {
-                    "item": "objective-focus-the-problem-collaboratively",
+                    "item": "objective-focus_the_problem_collaboratively",
                     "type": "previous"
                 }
             ],
-            "id": "objective-problem-exploration"
+            "id": "objective-problem_exploration"
         },
         {
             "name_translations": {
@@ -278,7 +278,7 @@
                         "lv": "Izveidot ieinteres\u0113to pu\u0161u kodolu, lai turpin\u0101tu pakalpojuma ideju \u0123ener\u0113\u0161anu. Sniedziet atbilsto\u0161u komunik\u0101ciju, motiv\u0113jo\u0161us pazi\u0146ojumus un darba pl\u0101na inform\u0101ciju par turpm\u0101kajiem pakalpojuma koprades so\u013ciem."
                     },
                     "problemprofiles": [],
-                    "id": "task-engage-relevant-actors-in-the-design",
+                    "id": "task-engage_relevant_actors_in_the_design",
                     "prerequisites": []
                 },
                 {
@@ -297,11 +297,11 @@
                     "problemprofiles": [],
                     "prerequisites": [
                         {
-                            "item": "task-engage-relevant-actors-in-the-design",
+                            "item": "task-engage_relevant_actors_in_the_design",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-organize-a-brainstorming"
+                    "id": "task-organize_a_brainstorming"
                 },
                 {
                     "name_translations": {
@@ -319,16 +319,16 @@
                     "problemprofiles": [],
                     "prerequisites": [
                         {
-                            "item": "task-organize-a-brainstorming",
+                            "item": "task-organize_a_brainstorming",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-ideas-crowdsourcing"
+                    "id": "task-ideas_crowdsourcing"
                 }
             ],
             "prerequisites": [
                 {
-                    "item": "objective-problem-exploration",
+                    "item": "objective-problem_exploration",
                     "type": "previous"
                 }
             ],
@@ -368,7 +368,7 @@
                         "lv": "Apdom\u0101jiet pakalpojuma sa\u0146\u0113m\u0113ja r\u012bc\u012bbu, vajadz\u012bbas un gaidas. Personas ir izdom\u0101ti person\u0101\u017ei, kas iemieso j\u016bsu klienta, sa\u0146\u0113m\u0113ja vai finans\u0113juma atbalst\u012bt\u0101ja arhetipu. Tie tiek rad\u012bti, vispus\u012bgi nov\u0113rojot klientu segmentu un apkopojot to kop\u012bg\u0101s \u012bpa\u0161\u012bbas, uzved\u012bbu, motiv\u0101ciju, intereses utt. Tas ir noder\u012bgs l\u012bdzeklis, lai ieg\u016btu inform\u0101ciju par to, kam j\u016bs gatavojaties."
                     },
                     "problemprofiles": [],
-                    "id": "task-define-personas",
+                    "id": "task-define_personas",
                     "prerequisites": []
                 },
                 {
@@ -387,11 +387,11 @@
                     "problemprofiles": [],
                     "prerequisites": [
                         {
-                            "item": "task-define-personas",
+                            "item": "task-define_personas",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-define-scenarios"
+                    "id": "task-define_scenarios"
                 },
                 {
                     "name_translations": {
@@ -409,11 +409,11 @@
                     "problemprofiles": [],
                     "prerequisites": [
                         {
-                            "item": "task-define-scenarios",
+                            "item": "task-define_scenarios",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-define-user-journeys"
+                    "id": "task-define_user_journeys"
                 }
             ],
             "prerequisites": [
@@ -422,7 +422,7 @@
                     "type": "previous"
                 }
             ],
-            "id": "objective-service-design"
+            "id": "objective-service_design"
         },
         {
             "name_translations": {
@@ -457,7 +457,7 @@
                         "lv": "Iepaz\u012bstiet labu praksi saskar\u0146u izstr\u0101d\u0113 un publisko pakalpojumu att\u012bst\u012bb\u0101. Sav\u0101 specifiskaj\u0101 lieto\u0161anas gad\u012bjum\u0101 atspogu\u013cojiet, k\u0101 nodro\u0161in\u0101t, lai pakalpojumi tiktu sniegti daudzkan\u0101lu veid\u0101, maksim\u0101li palielinot to izmanto\u0161anu, ko veic potenci\u0101li jebkura lietot\u0101ju grupa vai p\u0101rst\u0101vji, kas darbojas to v\u0101rd\u0101, un sniedziet skaidrus pazi\u0146ojumus par pieejam\u012bbas ierobe\u017eojumiem pa\u0161reiz\u0113j\u0101 ievie\u0161an\u0101."
                     },
                     "problemprofiles": [],
-                    "id": "task-consider-eu-guidelines-for-public-service-developement",
+                    "id": "task-consider_eu_guidelines_for_public_service_developement",
                     "prerequisites": []
                 },
                 {
@@ -476,11 +476,11 @@
                     "problemprofiles": [],
                     "prerequisites": [
                         {
-                            "item": "task-consider-eu-guidelines-for-public-service-developement",
+                            "item": "task-consider_eu_guidelines_for_public_service_developement",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-user-interface-design"
+                    "id": "task-user_interface_design"
                 },
                 {
                     "name_translations": {
@@ -500,11 +500,11 @@
                     ],
                     "prerequisites": [
                         {
-                            "item": "task-user-interface-design",
+                            "item": "task-user_interface_design",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-content-design"
+                    "id": "task-content_design"
                 },
                 {
                     "name_translations": {
@@ -522,11 +522,11 @@
                     "problemprofiles": [],
                     "prerequisites": [
                         {
-                            "item": "task-content-design",
+                            "item": "task-content_design",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-service-specification-definition"
+                    "id": "task-service_specification_definition"
                 },
                 {
                     "name_translations": {
@@ -544,11 +544,11 @@
                     "problemprofiles": [],
                     "prerequisites": [
                         {
-                            "item": "task-service-specification-definition",
+                            "item": "task-service_specification_definition",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-data-model-design"
+                    "id": "task-data_model_design"
                 },
                 {
                     "name_translations": {
@@ -566,20 +566,20 @@
                     "problemprofiles": [],
                     "prerequisites": [
                         {
-                            "item": "task-data-model-design",
+                            "item": "task-data_model_design",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-software-architecture-and-api-design"
+                    "id": "task-software_architecture_and_api_design"
                 }
             ],
             "prerequisites": [
                 {
-                    "item": "objective-service-design",
+                    "item": "objective-service_design",
                     "type": "previous"
                 }
             ],
-            "id": "objective-service-specification"
+            "id": "objective-service_specification"
         },
         {
             "name_translations": {
@@ -613,7 +613,7 @@
                         "lv": "Analiz\u0113jiwtt un vizualiz\u0113jiet sist\u0113mas izmai\u0146as un att\u012bst\u012bbu atbilsto\u0161i konkr\u0113tiem scen\u0101rijiem un to dinamikai.\nSist\u0113mas scen\u0101riji ievie\u0161 dinamisku anal\u012bzes l\u012bmeni, piem\u0113rojot laika rit\u0113jumu un par\u0101dot n\u0101kotn\u0113 iesp\u0113jamo notikumu variantus. \u0160\u0101d\u0101 veid\u0101 sist\u0113mas scen\u0101riji nodro\u0161ina dzi\u013c\u0101ku sist\u0113mas anal\u012bzes l\u012bmeni, kas v\u0113rsts uz sist\u0113mas dinamikas izpratni un attiec\u012bb\u0101m starp dal\u012bbniekiem da\u017e\u0101dos apst\u0101k\u013cos."
                     },
                     "problemprofiles": [],
-                    "id": "task-experience-scenarios",
+                    "id": "task-experience_scenarios",
                     "prerequisites": []
                 },
                 {
@@ -632,11 +632,11 @@
                     "problemprofiles": [],
                     "prerequisites": [
                         {
-                            "item": "task-experience-scenarios",
+                            "item": "task-experience_scenarios",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-mockups-and-lowfi-prototypes"
+                    "id": "task-mockups_and_lowfi_prototypes"
                 },
                 {
                     "name_translations": {
@@ -654,11 +654,11 @@
                     "problemprofiles": [],
                     "prerequisites": [
                         {
-                            "item": "task-mockups-and-lowfi-prototypes",
+                            "item": "task-mockups_and_lowfi_prototypes",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-perform-an-heuristic-evaluation"
+                    "id": "task-perform_an_heuristic_evaluation"
                 },
                 {
                     "name_translations": {
@@ -676,16 +676,16 @@
                     "problemprofiles": [],
                     "prerequisites": [
                         {
-                            "item": "task-perform-an-heuristic-evaluation",
+                            "item": "task-perform_an_heuristic_evaluation",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-perform-a-test-with-users"
+                    "id": "task-perform_a_test_with_users"
                 }
             ],
             "prerequisites": [
                 {
-                    "item": "objective-service-specification",
+                    "item": "objective-service_specification",
                     "type": "previous"
                 }
             ],
@@ -722,7 +722,7 @@
                         "lv": "Vai izveidotais dizains ir apmierino\u0161s?\nSekojiet pied\u0101v\u0101tajam kontrolsarakstam, lai saprastu, vai esat pabeidzis projekt\u0113\u0161anas darbus vai ar\u012b ieteicams veikt iterat\u012bvu pilnveido\u0161anas ciklu."
                     },
                     "problemprofiles": [],
-                    "id": "task-evaluation-of-codesign",
+                    "id": "task-evaluation_of_codesign",
                     "prerequisites": []
                 },
                 {
@@ -741,11 +741,11 @@
                     "problemprofiles": [],
                     "prerequisites": [
                         {
-                            "item": "task-evaluation-of-codesign",
+                            "item": "task-evaluation_of_codesign",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-refine-the-preliminary-business-model"
+                    "id": "task-refine_the_preliminary_business_model"
                 },
                 {
                     "name_translations": {
@@ -763,11 +763,11 @@
                     "problemprofiles": [],
                     "prerequisites": [
                         {
-                            "item": "task-refine-the-preliminary-business-model",
+                            "item": "task-refine_the_preliminary_business_model",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-feasibility-analysis"
+                    "id": "task-feasibility_analysis"
                 },
                 {
                     "name_translations": {
@@ -785,11 +785,11 @@
                     "problemprofiles": [],
                     "prerequisites": [
                         {
-                            "item": "task-feasibility-analysis",
+                            "item": "task-feasibility_analysis",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-understand-motivations-and-incentives"
+                    "id": "task-understand_motivations_and_incentives"
                 }
             ],
             "prerequisites": [

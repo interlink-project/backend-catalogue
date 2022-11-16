@@ -23,7 +23,7 @@
     },
     "form": "guidelines",
     "format": "editable_source_document",
-    "id": "focus-group-guidelines",
+    "id": "focus_group_guidelines",
     "instructions_translations": {
         "en": "./interlinkers/knowledge/Focus-Group-Guidelines/instructions.md"
     },

@@ -23,7 +23,7 @@
     ],
     "form": "guidelines",
     "format": "pdf",
-    "id": "cloud-enablement-kit-in-italian",
+    "id": "cloud_enablement_kit_in_italian",
     "instructions_translations": {
         "en": "./interlinkers/externalknowledge/it-cloud-enablement-kit/instructions.md"
     },

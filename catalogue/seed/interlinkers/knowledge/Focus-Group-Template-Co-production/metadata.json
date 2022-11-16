@@ -23,7 +23,7 @@
     },
     "form": "document_template",
     "format": "editable_source_document",
-    "id": "focus-group-template-co-production-investigation",
+    "id": "focus_group_template_co_production_investigation",
     "instructions_translations": {
         "en": "./interlinkers/knowledge/Focus-Group-Template-Co-production/instructions.md"
     },

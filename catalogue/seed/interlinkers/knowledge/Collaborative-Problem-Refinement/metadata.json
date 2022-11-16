@@ -23,7 +23,7 @@
     },
     "form": "document_template",
     "format": "editable_source_document",
-    "id": "collaborative-problem-refinement",
+    "id": "collaborative_problem_refinement",
     "instructions_translations": {
         "en": "./interlinkers/knowledge/Collaborative-Problem-Refinement/instructions.md"
     },

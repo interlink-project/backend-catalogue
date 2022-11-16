@@ -23,7 +23,7 @@
     },
     "form": "document_template",
     "format": "editable_source_document",
-    "id": "stakeholders-identification-analisys-template-guidelines",
+    "id": "stakeholders_identification_analisys_template_guidelines",
     "instructions_translations": {
         "en": "./interlinkers/knowledge/Stakeholders-identification-analisys-template/instructions.md"
     },

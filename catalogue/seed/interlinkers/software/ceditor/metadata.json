@@ -15,7 +15,7 @@
         "mef",
         "zgz"
     ],
-    "id": "collaborative-editor",
+    "id": "collaborative_editor",
     "instructions_translations": {
         "en": "./interlinkers/software/ceditor/instructions.md"
     },

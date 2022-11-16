@@ -22,7 +22,7 @@
         "mef",
         "zgz"
     ],
-    "id": "wso2-api-manager",
+    "id": "wso2_api_manager",
     "instructions_translations": {
         "en": "./interlinkers/externalsoftware/wso2-api-Manager/instructions.md"
     },

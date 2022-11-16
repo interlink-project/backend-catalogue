@@ -23,7 +23,7 @@
     },
     "form": "survey_template",
     "format": "editable_source_document",
-    "id": "guidelines-for-surveys",
+    "id": "guidelines_for_surveys",
     "instructions_translations": {
         "en": "./interlinkers/knowledge/co-producers-perceptions-Questionnaire/instructions.md"
     },

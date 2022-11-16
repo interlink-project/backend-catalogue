@@ -22,7 +22,7 @@
     },
     "form": "guidelines",
     "format": "structured_format",
-    "id": "guidelines-for-co-design-of-service",
+    "id": "guidelines_for_co_design_of_service",
     "instructions_translations": {
         "en": "./interlinkers/knowledge/it-workshop-service-design/instructions.md"
     },

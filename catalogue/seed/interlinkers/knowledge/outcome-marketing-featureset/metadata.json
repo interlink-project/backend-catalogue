@@ -23,7 +23,7 @@
     },
     "form": "guidelines",
     "format": "editable_source_document",
-    "id": "outcome-marketing-featureset",
+    "id": "outcome_marketing_featureset",
     "instructions_translations": {
         "en": "./interlinkers/knowledge/outcome-marketing-featureset/instructions.md"
     },

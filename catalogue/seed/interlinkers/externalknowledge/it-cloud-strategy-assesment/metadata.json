@@ -23,7 +23,7 @@
     ],
     "form": "guidelines",
     "format": "editable_source_document",
-    "id": "agid-cloud-computing-migration-strategy-evalution-template",
+    "id": "agid_cloud_computing_migration_strategy_evalution_template",
     "instructions_translations": {
         "en": "./interlinkers/externalknowledge/it-cloud-competences-assesment/instructions.md"
     },

@@ -23,7 +23,7 @@
     },
     "form": "document_template",
     "format": "editable_source_document",
-    "id": "business-model-canvas",
+    "id": "business_model_canvas",
     "instructions_translations": {
         "en": "./interlinkers/knowledge/Business-Model-Canvas/instructions.md"
     },

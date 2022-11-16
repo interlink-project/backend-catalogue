@@ -50,7 +50,7 @@
                     "problemprofiles": [
                         "ORG_PROBLEM_7"
                     ],
-                    "id": "task-generate-a-checklist-for-improvements",
+                    "id": "task-generate_a_checklist_for_improvements",
                     "prerequisites": []
                 },
                 {
@@ -71,14 +71,14 @@
                     ],
                     "prerequisites": [
                         {
-                            "item": "task-generate-a-checklist-for-improvements",
+                            "item": "task-generate_a_checklist_for_improvements",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-link-to-content-management-system-cms-where-changes-should-be-applied"
+                    "id": "task-link_to_content_management_system_cms_where_changes_should_be_applied"
                 }
             ],
-            "id": "objective-apply-refinements",
+            "id": "objective-apply_refinements",
             "prerequisites": []
         },
         {
@@ -111,7 +111,7 @@
                     },
                     "problemprofiles": [],
                     "prerequisites": [],
-                    "id": "task-link-with-enhanced-version-of-public-service-description"
+                    "id": "task-link_with_enhanced_version_of_public_service_description"
                 },
                 {
                     "name_translations": {
@@ -131,20 +131,20 @@
                     ],
                     "prerequisites": [
                         {
-                            "item": "task-link-with-enhanced-version-of-public-service-description",
+                            "item": "task-link_with_enhanced_version_of_public_service_description",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-communicate-enhancements-to-co-refiners"
+                    "id": "task-communicate_enhancements_to_co_refiners"
                 }
             ],
             "prerequisites": [
                 {
-                    "item": "objective-apply-refinements",
+                    "item": "objective-apply_refinements",
                     "type": "previous"
                 }
             ],
-            "id": "objective-publish-refined-version-of-public-service-description"
+            "id": "objective-publish_refined_version_of_public_service_description"
         }
     ],
     "is_part_of_codelivery": true

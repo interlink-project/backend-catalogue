@@ -23,7 +23,7 @@
     ],
     "form": "guidelines",
     "format": "editable_source_document",
-    "id": "agid-cloud-computing-competence-evalution-template",
+    "id": "agid_cloud_computing_competence_evalution_template",
     "instructions_translations": {
         "en": "./interlinkers/externalknowledge/it-cloud-competences-assesment/instructions.md"
     },

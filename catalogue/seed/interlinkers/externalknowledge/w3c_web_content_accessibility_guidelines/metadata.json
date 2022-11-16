@@ -24,7 +24,7 @@
     ],
     "form": "guidelines",
     "format": "structured_format",
-    "id": "w3c-web-content-accessibility-guidelines",
+    "id": "w3c_web_content_accessibility_guidelines",
     "instructions_translations": {
         "en": "./interlinkers/externalknowledge/w3c_web_content_accessibility_guidelines/instructions.md"
     },

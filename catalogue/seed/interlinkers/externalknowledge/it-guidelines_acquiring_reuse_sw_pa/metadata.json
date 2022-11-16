@@ -23,7 +23,7 @@
     ],
     "form": "guidelines",
     "format": "structured_format",
-    "id": "guidelines-on-the-acquisition-and-reuse-of-software-for-public-administrations",
+    "id": "guidelines_on_the_acquisition_and_reuse_of_software_for_public_administrations",
     "instructions_translations": {
         "en": "./interlinkers/externalknowledge/it-guidelines_acquiring_reuse_sw_pa/instructions.md"
     },

@@ -24,7 +24,7 @@
     },
     "form": "document_template",
     "format": "editable_source_document",
-    "id": "information-sheet-template",
+    "id": "information_sheet_template",
     "instructions_translations": {
         "en": "./interlinkers/knowledge/Information-Sheet-Template/instructions.md"
     },

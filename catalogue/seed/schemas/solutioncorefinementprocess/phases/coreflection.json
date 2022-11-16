@@ -1,5 +1,5 @@
 {
-    "id": "phase-co-reflection-of-solution",
+    "id": "phase-co_reflection_of_solution",
     "prerequisites": [],
     "name_translations": {
         "en": "Co-reflection of solution",
@@ -46,7 +46,7 @@
                         "ORG_PROBLEM_10"
                     ],
                     "prerequisites": [],
-                    "id": "task-summarize-current-solution-features"
+                    "id": "task-summarize_current_solution_features"
                 },
                 {
                     "name_translations": {
@@ -66,11 +66,11 @@
                     ],
                     "prerequisites": [
                         {
-                            "item": "task-summarize-current-solution-features",
+                            "item": "task-summarize_current_solution_features",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-summarize-evaluation-results-of-current-solution"
+                    "id": "task-summarize_evaluation_results_of_current_solution"
                 },
                 {
                     "name_translations": {
@@ -90,14 +90,14 @@
                     ],
                     "prerequisites": [
                         {
-                            "item": "task-summarize-evaluation-results-of-current-solution",
+                            "item": "task-summarize_evaluation_results_of_current_solution",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-review-based-on-reflections-from-evaluators"
+                    "id": "task-review_based_on_reflections_from_evaluators"
                 }
             ],
-            "id": "objective-co-analyse-retrospectively-solution",
+            "id": "objective-co_analyse_retrospectively_solution",
             "prerequisites": []
         },
         {
@@ -137,7 +137,7 @@
                         "VAL_PROBLEM_2",
                         "UND_PROBLEM_1"
                     ],
-                    "id": "task-voting-and-discussing-current-functionalities",
+                    "id": "task-voting_and_discussing_current_functionalities",
                     "prerequisites": []
                 },
                 {
@@ -160,11 +160,11 @@
                     ],
                     "prerequisites": [
                         {
-                            "item": "task-voting-and-discussing-current-functionalities",
+                            "item": "task-voting_and_discussing_current_functionalities",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-voting-and-discussing-potential-new-functionalities-or-revisions-of-existing-ones"
+                    "id": "task-voting_and_discussing_potential_new_functionalities_or_revisions_of_existing_ones"
                 },
                 {
                     "name_translations": {
@@ -186,11 +186,11 @@
                     ],
                     "prerequisites": [
                         {
-                            "item": "task-voting-and-discussing-potential-new-functionalities-or-revisions-of-existing-ones",
+                            "item": "task-voting_and_discussing_potential_new_functionalities_or_revisions_of_existing_ones",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-guided-discussion-on-co-delivery-aspects-incentives-and-rewards"
+                    "id": "task-guided_discussion_on_co_delivery_aspects_incentives_and_rewards"
                 },
                 {
                     "name_translations": {
@@ -211,11 +211,11 @@
                     ],
                     "prerequisites": [
                         {
-                            "item": "task-guided-discussion-on-co-delivery-aspects-incentives-and-rewards",
+                            "item": "task-guided_discussion_on_co_delivery_aspects_incentives_and_rewards",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-guided-discussion-on-quality-of-co-production-satisfaction-trust-acceptance"
+                    "id": "task-guided_discussion_on_quality_of_co_production_satisfaction_trust_acceptance"
                 },
                 {
                     "name_translations": {
@@ -236,20 +236,20 @@
                     ],
                     "prerequisites": [
                         {
-                            "item": "task-guided-discussion-on-quality-of-co-production-satisfaction-trust-acceptance",
+                            "item": "task-guided_discussion_on_quality_of_co_production_satisfaction_trust_acceptance",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-guided-discussion-on-other-extensions-to-solution"
+                    "id": "task-guided_discussion_on_other_extensions_to_solution"
                 }
             ],
             "prerequisites": [
                 {
-                    "item": "objective-co-analyse-retrospectively-solution",
+                    "item": "objective-co_analyse_retrospectively_solution",
                     "type": "previous"
                 }
             ],
-            "id": "objective-co-reflect-on-new-features-for-solution"
+            "id": "objective-co_reflect_on_new_features_for_solution"
         }
     ],
     "is_part_of_codelivery": true

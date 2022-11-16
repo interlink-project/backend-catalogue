@@ -23,7 +23,7 @@
     },
     "form": "document_template",
     "format": "editable_source_document",
-    "id": "guidelines-for-interviews",
+    "id": "guidelines_for_interviews",
     "instructions_translations": {
         "en": "./interlinkers/knowledge/Guidelines-for-interviews/instructions.md"
     },

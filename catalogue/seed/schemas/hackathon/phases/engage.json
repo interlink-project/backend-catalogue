@@ -45,7 +45,7 @@
                     "problemprofiles": [
                         "UND_PROBLEM_2"
                     ],
-                    "id": "task-understand-the-different-types-of-stakeholders",
+                    "id": "task-understand_the_different_types_of_stakeholders",
                     "prerequisites": []
                 },
                 {
@@ -66,11 +66,11 @@
                     ],
                     "prerequisites": [
                         {
-                            "item": "task-understand-the-different-types-of-stakeholders",
+                            "item": "task-understand_the_different_types_of_stakeholders",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-map-stakeholders-analyse-motivation-skills-expectations"
+                    "id": "task-map_stakeholders_analyse_motivation_skills_expectations"
                 },
                 {
                     "name_translations": {
@@ -90,11 +90,11 @@
                     ],
                     "prerequisites": [
                         {
-                            "item": "task-map-stakeholders-analyse-motivation-skills-expectations",
+                            "item": "task-map_stakeholders_analyse_motivation_skills_expectations",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-visually-map-the-network-of-stakeholders"
+                    "id": "task-visually_map_the_network_of_stakeholders"
                 },
                 {
                     "name_translations": {
@@ -114,14 +114,14 @@
                     ],
                     "prerequisites": [
                         {
-                            "item": "task-visually-map-the-network-of-stakeholders",
+                            "item": "task-visually_map_the_network_of_stakeholders",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-create-a-contact-list-of-potential-network-participants"
+                    "id": "task-create_a_contact_list_of_potential_network_participants"
                 }
             ],
-            "id": "objective-identify-stakeholders",
+            "id": "objective-identify_stakeholders",
             "prerequisites": []
         },
         {
@@ -159,7 +159,7 @@
                     "problemprofiles": [
                         "ORG_PROBLEM_5"
                     ],
-                    "id": "task-prepare-an-engagement-plan",
+                    "id": "task-prepare_an_engagement_plan",
                     "prerequisites": []
                 },
                 {
@@ -181,11 +181,11 @@
                     ],
                     "prerequisites": [
                         {
-                            "item": "task-prepare-an-engagement-plan",
+                            "item": "task-prepare_an_engagement_plan",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-create-awareness-and-communication"
+                    "id": "task-create_awareness_and_communication"
                 },
                 {
                     "name_translations": {
@@ -205,11 +205,11 @@
                     ],
                     "prerequisites": [
                         {
-                            "item": "task-create-awareness-and-communication",
+                            "item": "task-create_awareness_and_communication",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-communicate-benefit-for-stakeholders"
+                    "id": "task-communicate_benefit_for_stakeholders"
                 },
                 {
                     "name_translations": {
@@ -230,20 +230,20 @@
                     ],
                     "prerequisites": [
                         {
-                            "item": "task-communicate-benefit-for-stakeholders",
+                            "item": "task-communicate_benefit_for_stakeholders",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-engage-citizens-in-the-co-production-process"
+                    "id": "task-engage_citizens_in_the_co_production_process"
                 }
             ],
             "prerequisites": [
                 {
-                    "item": "objective-identify-stakeholders",
+                    "item": "objective-identify_stakeholders",
                     "type": "previous"
                 }
             ],
-            "id": "objective-engage-stakeholders"
+            "id": "objective-engage_stakeholders"
         }
     ],
     "is_part_of_codelivery": false

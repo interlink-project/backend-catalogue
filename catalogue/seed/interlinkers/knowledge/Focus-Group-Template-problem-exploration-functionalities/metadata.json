@@ -23,7 +23,7 @@
     },
     "form": "document_template",
     "format": "editable_source_document",
-    "id": "focus-group-on-problem-exploration-for-new-digital-functionality",
+    "id": "focus_group_on_problem_exploration_for_new_digital_functionality",
     "instructions_translations": {
         "en": "./interlinkers/knowledge/Focus-Group-Template-problem-exploration-functionalities/instructions.md"
     },

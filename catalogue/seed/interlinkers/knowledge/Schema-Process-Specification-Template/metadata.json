@@ -23,7 +23,7 @@
     },
     "form": "document_template",
     "format": "editable_source_document",
-    "id": "schema-process-specification-template",
+    "id": "schema_process_specification_template",
     "instructions_translations": {
         "en": "./interlinkers/knowledge/Schema-Process-Specification-Template/instructions.md"
     },

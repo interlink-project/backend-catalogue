@@ -23,7 +23,7 @@
     },
     "form": "guidelines",
     "format": "editable_source_document",
-    "id": "guidelines-for-online-surveys",
+    "id": "guidelines_for_online_surveys",
     "instructions_translations": {
         "en": "./interlinkers/knowledge/Guidelines-for-online-surveys/instructions.md"
     },

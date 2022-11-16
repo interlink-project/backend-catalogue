@@ -53,7 +53,7 @@
                         "lv": "Uzlabojiet risin\u0101mo probl\u0113mu, sadarbojoties ar ieinteres\u0113to pu\u0161u t\u012bklu. Pakalpojuma izstr\u0101de ir probl\u0113mu risin\u0101\u0161anas darb\u012bba, un ir svar\u012bgi skaidri saprast, k\u0101ds ir izaicin\u0101jums, kuru komanda risina, un k\u0101 var sav\u0101kt vair\u0101k inform\u0101cijas, lai saprastu, k\u0101 pakalpojums ir j\u0101izstr\u0101d\u0101. Organiz\u0113jiet fokusa grupas, lai apspriestu s\u0101kotn\u0113j\u0101s idejas un pie\u0146\u0113mumus, pilnveidotu tos, izmantojot struktur\u0113tas metodes, un uzzin\u0101tu par tr\u016bksto\u0161o inform\u0101ciju, kas v\u0113l ir j\u0101apkopo."
                     },
                     "problemprofiles": [],
-                    "id": "task-collaboratively-hackathon-problem-refinement",
+                    "id": "task-collaboratively_hackathon_problem_refinement",
                     "prerequisites": []
                 },
                 {
@@ -72,11 +72,11 @@
                     "problemprofiles": [],
                     "prerequisites": [
                         {
-                            "item": "task-collaboratively-hackathon-problem-refinement",
+                            "item": "task-collaboratively_hackathon_problem_refinement",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-ideas-collection-for-hackathon-exploration-and-refinement"
+                    "id": "task-ideas_collection_for_hackathon_exploration_and_refinement"
                 },
                 {
                     "name_translations": {
@@ -96,14 +96,14 @@
                     ],
                     "prerequisites": [
                         {
-                            "item": "task-ideas-collection-for-hackathon-exploration-and-refinement",
+                            "item": "task-ideas_collection_for_hackathon_exploration_and_refinement",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-sketch-an-initial-idea-of-the-hackathon-theme-plan-submission-evaluation-process"
+                    "id": "task-sketch_an_initial_idea_of_the_hackathon_theme_plan_submission_evaluation_process"
                 }
             ],
-            "id": "objective-focus-the-problem-collaboratively",
+            "id": "objective-focus_the_problem_collaboratively",
             "prerequisites": []
         },
         {
@@ -143,7 +143,7 @@
                         "lv": "Atgriezieties ieinteres\u0113to personu t\u012bkl\u0101, lai apstiprin\u0101tu pakalpojuma ideju, izmantojot fokusa grupu vai aptauju."
                     },
                     "problemprofiles": [],
-                    "id": "task-collaboratively-agree-on-hackathon-design",
+                    "id": "task-collaboratively_agree_on_hackathon_design",
                     "prerequisites": []
                 },
                 {
@@ -164,16 +164,16 @@
                     ],
                     "prerequisites": [
                         {
-                            "item": "task-collaboratively-agree-on-hackathon-design",
+                            "item": "task-collaboratively_agree_on_hackathon_design",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-define-requirements-and-constraints-for-the-hackathon-plan-submission-evaluation-process"
+                    "id": "task-define_requirements_and_constraints_for_the_hackathon_plan_submission_evaluation_process"
                 }
             ],
             "prerequisites": [
                 {
-                    "item": "objective-focus-the-problem-collaboratively",
+                    "item": "objective-focus_the_problem_collaboratively",
                     "type": "previous"
                 }
             ],
@@ -213,7 +213,7 @@
                         "lv": "Iepaz\u012bstieties ar saskar\u0146u dizaina un publisko pakalpojumu izstr\u0101des labo praksi. J\u016bsu konkr\u0113taj\u0101 lieto\u0161anas gad\u012bjum\u0101 p\u0101rdom\u0101jiet, k\u0101 nodro\u0161in\u0101t, lai pakalpojumi tiek sniegti ar vair\u0101ku kan\u0101lu pal\u012bdz\u012bbu, maksim\u0101li palielinot to izmanto\u0161anu, ko potenci\u0101li izmanto jebkura lietot\u0101ju grupa vai a\u0123enti, kas darbojas vi\u0146u v\u0101rd\u0101, sniedzot skaidrus pazi\u0146ojumus par pieejam\u012bbas ierobe\u017eojumiem pa\u0161reiz\u0113j\u0101 \u012bsteno\u0161an\u0101."
                     },
                     "problemprofiles": [],
-                    "id": "task-consider-eu-guidelines-for-public-service-developement",
+                    "id": "task-consider_eu_guidelines_for_public_service_developement",
                     "prerequisites": []
                 },
                 {
@@ -232,11 +232,11 @@
                     "problemprofiles": [],
                     "prerequisites": [
                         {
-                            "item": "task-consider-eu-guidelines-for-public-service-developement",
+                            "item": "task-consider_eu_guidelines_for_public_service_developement",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-user-interface-design-for-hackathon-website-and-submission-system"
+                    "id": "task-user_interface_design_for_hackathon_website_and_submission_system"
                 },
                 {
                     "name_translations": {
@@ -256,11 +256,11 @@
                     ],
                     "prerequisites": [
                         {
-                            "item": "task-user-interface-design-for-hackathon-website-and-submission-system",
+                            "item": "task-user_interface_design_for_hackathon_website_and_submission_system",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-content-design-including-plan-rules-prize-announcement-and-so-on"
+                    "id": "task-content_design_including_plan_rules_prize_announcement_and_so_on"
                 }
             ],
             "prerequisites": [
@@ -269,7 +269,7 @@
                     "type": "previous"
                 }
             ],
-            "id": "objective-service-specification"
+            "id": "objective-service_specification"
         },
         {
             "name_translations": {
@@ -302,7 +302,7 @@
                         "lv": "Vai projekt\u0113\u0161anas rezult\u0101ts ir apmierino\u0161s?\nSekojiet pied\u0101v\u0101tajam kontrolsarakstam, lai saprastu, vai projekt\u0113\u0161ana ir nosl\u0113gta, vai ar\u012b ir ieteicams veikt iterat\u012bvu pilnveido\u0161anas ciklu."
                     },
                     "problemprofiles": [],
-                    "id": "task-evaluation-of-codesign",
+                    "id": "task-evaluation_of_codesign",
                     "prerequisites": []
                 },
                 {
@@ -321,11 +321,11 @@
                     "problemprofiles": [],
                     "prerequisites": [
                         {
-                            "item": "task-evaluation-of-codesign",
+                            "item": "task-evaluation_of_codesign",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-refine-the-preliminary-business-model"
+                    "id": "task-refine_the_preliminary_business_model"
                 },
                 {
                     "name_translations": {
@@ -343,11 +343,11 @@
                     "problemprofiles": [],
                     "prerequisites": [
                         {
-                            "item": "task-refine-the-preliminary-business-model",
+                            "item": "task-refine_the_preliminary_business_model",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-feasibility-analysis"
+                    "id": "task-feasibility_analysis"
                 },
                 {
                     "name_translations": {
@@ -365,16 +365,16 @@
                     "problemprofiles": [],
                     "prerequisites": [
                         {
-                            "item": "task-feasibility-analysis",
+                            "item": "task-feasibility_analysis",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-understand-motivations-and-incentives"
+                    "id": "task-understand_motivations_and_incentives"
                 }
             ],
             "prerequisites": [
                 {
-                    "item": "objective-service-specification",
+                    "item": "objective-service_specification",
                     "type": "previous"
                 }
             ],

@@ -23,7 +23,7 @@
     ],
     "form": "guidelines",
     "format": "structured_format",
-    "id": "agid-guidelines-for-the-development-of-secure-software-in-italian",
+    "id": "agid_guidelines_for_the_development_of_secure_software_in_italian",
     "instructions_translations": {
         "en": "./interlinkers/externalknowledge/it-pa-guidelines-for-secure-software/instructions.md"
     },

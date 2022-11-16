@@ -24,7 +24,7 @@
     },
     "form": "document_template",
     "format": "editable_source_document",
-    "id": "consent-form-for-interlink-project",
+    "id": "consent_form_for_interlink_project",
     "instructions_translations": {
         "en": "./interlinkers/knowledge/Consent-Form-INTERLINK/instructions.md"
     },

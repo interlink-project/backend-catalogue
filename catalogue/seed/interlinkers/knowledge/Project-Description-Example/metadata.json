@@ -23,7 +23,7 @@
     },
     "form": "document_template",
     "format": "editable_source_document",
-    "id": "project-description-example",
+    "id": "project_description_example",
     "instructions_translations": {
         "en": "./interlinkers/knowledge/Project-Description-Example/instructions.md"
     },

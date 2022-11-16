@@ -23,7 +23,7 @@
     },
     "form": "guidelines",
     "format": "pdf",
-    "id": "stakeholder-types-guidelines",
+    "id": "stakeholder_types_guidelines",
     "instructions_translations": {
         "en": "./interlinkers/knowledge/Stakeholder-Types-Guidelines/instructions.md"
     },

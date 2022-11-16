@@ -23,7 +23,7 @@
     },
     "form": "document_template",
     "format": "editable_source_document",
-    "id": "business-plan-template",
+    "id": "business_plan_template",
     "instructions_translations": {
         "en": "./interlinkers/knowledge/Business-Plan-Template/instructions.md"
     },

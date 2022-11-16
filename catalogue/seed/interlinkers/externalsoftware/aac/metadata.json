@@ -20,7 +20,7 @@
         "mef",
         "zgz"
     ],
-    "id": "aac-authentication-and-authorization-controller",
+    "id": "aac_authentication_and_authorization_controller",
     "instructions_translations": {
         "en": "./interlinkers/externalsoftware/aac/instructions.md"
     },

@@ -24,7 +24,7 @@
     ],
     "form": "guidelines",
     "format": "pdf",
-    "id": "edpb-data-protection-guidelines",
+    "id": "edpb_data_protection_guidelines",
     "instructions_translations": {
         "en": "./interlinkers/externalknowledge/it-guidelines-data-protection/instructions.md"
     },

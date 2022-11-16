@@ -1,5 +1,5 @@
 {
-    "id": "phase-re-design-of-solution",
+    "id": "phase-re_design_of_solution",
     "prerequisites": [
         {
             "item": "phase-co_reflection_of_solution",
@@ -52,10 +52,10 @@
                     },
                     "problemprofiles": [],
                     "prerequisites": [],
-                    "id": "task-planning-of-future-co-design-thematic-workshops"
+                    "id": "task-planning_of_future_co_design_thematic_workshops"
                 }
             ],
-            "id": "objective-co-decide-future-co-design-actions",
+            "id": "objective-co_decide_future_co_design_actions",
             "prerequisites": []
         },
         {
@@ -92,7 +92,7 @@
                         "DEF_PROBLEM_3"
                     ],
                     "prerequisites": [],
-                    "id": "task-collaborative-re-design-of-solution-functionalities"
+                    "id": "task-collaborative_re_design_of_solution_functionalities"
                 },
                 {
                     "name_translations": {
@@ -112,11 +112,11 @@
                     ],
                     "prerequisites": [
                         {
-                            "item": "task-collaborative-re-design-of-solution-functionalities",
+                            "item": "task-collaborative_re_design_of_solution_functionalities",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-co-design-of-co-delivery-mechanisms-incentives"
+                    "id": "task-co_design_of_co_delivery_mechanisms_incentives"
                 },
                 {
                     "name_translations": {
@@ -136,20 +136,20 @@
                     ],
                     "prerequisites": [
                         {
-                            "item": "task-co-design-of-co-delivery-mechanisms-incentives",
+                            "item": "task-co_design_of_co_delivery_mechanisms_incentives",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-collaborative-re-design-of-monitoring-mechanisms"
+                    "id": "task-collaborative_re_design_of_monitoring_mechanisms"
                 }
             ],
             "prerequisites": [
                 {
-                    "item": "objective-co-decide-future-co-design-actions",
+                    "item": "objective-co_decide_future_co_design_actions",
                     "type": "previous"
                 }
             ],
-            "id": "objective-repeat-co-design-process-based-on-features-co-decided"
+            "id": "objective-repeat_co_design_process_based_on_features_co_decided"
         }
     ],
     "is_part_of_codelivery": true

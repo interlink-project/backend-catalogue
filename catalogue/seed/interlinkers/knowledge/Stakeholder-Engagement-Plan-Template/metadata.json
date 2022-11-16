@@ -23,7 +23,7 @@
     },
     "form": "document_template",
     "format": "editable_source_document",
-    "id": "stakeholder-engagement-plan-for-interlink-project",
+    "id": "stakeholder_engagement_plan_for_interlink_project",
     "instructions_translations": {
         "en": "./interlinkers/knowledge/Stakeholder-Engagement-Plan-Template/instructions.md"
     },

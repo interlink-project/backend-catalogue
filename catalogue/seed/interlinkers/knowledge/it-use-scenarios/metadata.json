@@ -22,7 +22,7 @@
     },
     "form": "document_template",
     "format": "editable_source_document",
-    "id": "template-for-use-case-scenarios",
+    "id": "template_for_use_case_scenarios",
     "instructions_translations": {
         "en": "./interlinkers/knowledge/it-use-scenarios/instructions.md"
     },

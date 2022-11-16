@@ -50,7 +50,7 @@
                     "problemprofiles": [
                         "ORG_PROBLEM_7"
                     ],
-                    "id": "task-business-model-specification",
+                    "id": "task-business_model_specification",
                     "prerequisites": []
                 },
                 {
@@ -71,11 +71,11 @@
                     ],
                     "prerequisites": [
                         {
-                            "item": "task-business-model-specification",
+                            "item": "task-business_model_specification",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-exploitation-agreement"
+                    "id": "task-exploitation_agreement"
                 },
                 {
                     "name_translations": {
@@ -95,7 +95,7 @@
                     ],
                     "prerequisites": [
                         {
-                            "item": "task-exploitation-agreement",
+                            "item": "task-exploitation_agreement",
                             "type": "previous"
                         }
                     ],
@@ -134,7 +134,7 @@
                         "lv": "Ja pakalpojuma snieg\u0161ana tika dele\u0123\u0113ta vai to joproj\u0101m veic koprades komanda, ir j\u0101nodro\u0161ina uzdevumu sadale starp tiem, kas ir atbild\u012bgi par tehnisko uztur\u0113\u0161anu. Lai nodro\u0161in\u0101tu 24/7 darb\u012bbu, regul\u0101ri j\u0101veic l\u012bguma uraudz\u012bba un uztur\u0113\u0161anas darbi."
                     },
                     "problemprofiles": [],
-                    "id": "task-task-distribution-for-maintenance-contracts-regulation-data-management-archiving",
+                    "id": "task-task_distribution_for_maintenance_contracts_regulation_data_management_archiving",
                     "prerequisites": []
                 }
             ],
@@ -178,7 +178,7 @@
                         "lv": "Analiz\u0113jiet sniegt\u0101 pakalpojuma datu \u017eurn\u0101lu (logfailus). Analiz\u0113jiet ieinteres\u0113to pu\u0161u aizpild\u012bt\u0101s aptaujas anketas. "
                     },
                     "problemprofiles": [],
-                    "id": "task-monitoring-ongoing-evaluation-periodic-evaluations-with-stakeholders",
+                    "id": "task-monitoring_ongoing_evaluation_periodic_evaluations_with_stakeholders",
                     "prerequisites": []
                 }
             ],

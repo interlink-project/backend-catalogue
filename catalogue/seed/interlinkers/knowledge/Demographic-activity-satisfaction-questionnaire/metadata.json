@@ -23,7 +23,7 @@
     },
     "form": "survey_template",
     "format": "pdf",
-    "id": "demographic-and-activity-satisfaction-questionnaire",
+    "id": "demographic_and_activity_satisfaction_questionnaire",
     "instructions_translations": {
         "en": "./interlinkers/knowledge/Demographic-activity-satisfaction-questionnaire/instructions.md"
     },

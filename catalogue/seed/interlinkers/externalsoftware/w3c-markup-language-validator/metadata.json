@@ -22,7 +22,7 @@
         "mef",
         "zgz"
     ],
-    "id": "markup-validation-service",
+    "id": "markup_validation_service",
     "instructions_translations": {
         "en": "./interlinkers/externalsoftware/w3c-markup-language-validator/instructions.md"
     },

@@ -24,7 +24,7 @@
     ],
     "form": "guidelines",
     "format": "structured_format",
-    "id": "open-source-guides",
+    "id": "open_source_guides",
     "instructions_translations": {
         "en": "./interlinkers/externalknowledge/Opensource-Guide/instructions.md"
     },

@@ -45,7 +45,7 @@
                     "problemprofiles": [
                         "UND_PROBLEM_2"
                     ],
-                    "id": "task-understand-the-different-types-of-stakeholders",
+                    "id": "task-understand_the_different_types_of_stakeholders",
                     "prerequisites": []
                 },
                 {
@@ -66,11 +66,11 @@
                     ],
                     "prerequisites": [
                         {
-                            "item": "task-understand-the-different-types-of-stakeholders",
+                            "item": "task-understand_the_different_types_of_stakeholders",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-map-stakeholders-analyse-motivation-skills-expectations"
+                    "id": "task-map_stakeholders_analyse_motivation_skills_expectations"
                 },
                 {
                     "name_translations": {
@@ -90,11 +90,11 @@
                     ],
                     "prerequisites": [
                         {
-                            "item": "task-map-stakeholders-analyse-motivation-skills-expectations",
+                            "item": "task-map_stakeholders_analyse_motivation_skills_expectations",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-visually-map-the-network-of-stakeholders"
+                    "id": "task-visually_map_the_network_of_stakeholders"
                 },
                 {
                     "name_translations": {
@@ -114,14 +114,14 @@
                     ],
                     "prerequisites": [
                         {
-                            "item": "task-visually-map-the-network-of-stakeholders",
+                            "item": "task-visually_map_the_network_of_stakeholders",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-create-a-contact-list-of-potential-network-participants"
+                    "id": "task-create_a_contact_list_of_potential_network_participants"
                 }
             ],
-            "id": "objective-identify-stakeholders",
+            "id": "objective-identify_stakeholders",
             "prerequisites": []
         },
         {
@@ -159,7 +159,7 @@
                     "problemprofiles": [
                         "ORG_PROBLEM_5"
                     ],
-                    "id": "task-prepare-an-engagement-plan",
+                    "id": "task-prepare_an_engagement_plan",
                     "prerequisites": []
                 },
                 {
@@ -181,11 +181,11 @@
                     ],
                     "prerequisites": [
                         {
-                            "item": "task-prepare-an-engagement-plan",
+                            "item": "task-prepare_an_engagement_plan",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-create-awareness-and-communication"
+                    "id": "task-create_awareness_and_communication"
                 },
                 {
                     "name_translations": {
@@ -205,11 +205,11 @@
                     ],
                     "prerequisites": [
                         {
-                            "item": "task-create-awareness-and-communication",
+                            "item": "task-create_awareness_and_communication",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-communicate-benefit-for-stakeholders"
+                    "id": "task-communicate_benefit_for_stakeholders"
                 },
                 {
                     "name_translations": {
@@ -230,20 +230,20 @@
                     ],
                     "prerequisites": [
                         {
-                            "item": "task-communicate-benefit-for-stakeholders",
+                            "item": "task-communicate_benefit_for_stakeholders",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-engage-citizens-in-the-co-production-process"
+                    "id": "task-engage_citizens_in_the_co_production_process"
                 }
             ],
             "prerequisites": [
                 {
-                    "item": "objective-identify-stakeholders",
+                    "item": "objective-identify_stakeholders",
                     "type": "previous"
                 }
             ],
-            "id": "objective-engage-stakeholders"
+            "id": "objective-engage_stakeholders"
         },
         {
             "name_translations": {
@@ -274,7 +274,7 @@
                         "lv": "Apsveriet, vai j\u016bsu sadarb\u012bbas t\u012bkl\u0101 ieinteres\u0113taj\u0101m person\u0101m ir nepiecie\u0161ama ofici\u0101la vieno\u0161an\u0101s, lai neatkl\u0101tu konfidenci\u0101lo inform\u0101ciju, kas tiek koplietota k\u0101 da\u013ca no kop\u012bga pakalpojuma izveides."
                     },
                     "problemprofiles": [],
-                    "id": "task-define-a-non-disclosure-agreement-nda",
+                    "id": "task-define_a_non_disclosure_agreement_nda",
                     "prerequisites": []
                 },
                 {
@@ -296,20 +296,20 @@
                     ],
                     "prerequisites": [
                         {
-                            "item": "task-define-a-non-disclosure-agreement-nda",
+                            "item": "task-define_a_non_disclosure_agreement_nda",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-define-a-partnership-agreement"
+                    "id": "task-define_a_partnership_agreement"
                 }
             ],
             "prerequisites": [
                 {
-                    "item": "objective-engage-stakeholders",
+                    "item": "objective-engage_stakeholders",
                     "type": "previous"
                 }
             ],
-            "id": "objective-define-legal-and-ethical-framework"
+            "id": "objective-define_legal_and_ethical_framework"
         },
         {
             "name_translations": {
@@ -343,7 +343,7 @@
                         "lv": "K\u0101di dati tiks iev\u0101kti koprades laik\u0101?\nS\u0101ciet veidot savu datu p\u0101rvald\u012bbas pl\u0101nu, veicot datu avotu un veidu uzskaiti."
                     },
                     "problemprofiles": [],
-                    "id": "task-clarify-the-purpose-for-data-collection",
+                    "id": "task-clarify_the_purpose_for_data_collection",
                     "prerequisites": []
                 },
                 {
@@ -362,11 +362,11 @@
                     "problemprofiles": [],
                     "prerequisites": [
                         {
-                            "item": "task-clarify-the-purpose-for-data-collection",
+                            "item": "task-clarify_the_purpose_for_data_collection",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-understand-how-the-data-flows"
+                    "id": "task-understand_how_the_data_flows"
                 },
                 {
                     "name_translations": {
@@ -384,20 +384,20 @@
                     "problemprofiles": [],
                     "prerequisites": [
                         {
-                            "item": "task-understand-how-the-data-flows",
+                            "item": "task-understand_how_the_data_flows",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-be-aware-of-data-impact"
+                    "id": "task-be_aware_of_data_impact"
                 }
             ],
             "prerequisites": [
                 {
-                    "item": "objective-define-legal-and-ethical-framework",
+                    "item": "objective-define_legal_and_ethical_framework",
                     "type": "previous"
                 }
             ],
-            "id": "objective-define-data-management-plan"
+            "id": "objective-define_data_management_plan"
         }
     ],
     "is_part_of_codelivery": false

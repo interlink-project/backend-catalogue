@@ -58,11 +58,11 @@
                         "BUILD_PROBLEM_7",
                         "BUILD_PROBLEM_8"
                     ],
-                    "id": "task-technical-implementation-and-deployment",
+                    "id": "task-technical_implementation_and_deployment",
                     "prerequisites": []
                 }
             ],
-            "id": "objective-launch-hackathon-website",
+            "id": "objective-launch_hackathon_website",
             "prerequisites": []
         },
         {
@@ -106,7 +106,7 @@
                         "BUILD_PROBLEM_7",
                         "BUILD_PROBLEM_9"
                     ],
-                    "id": "task-launch-engagement-campaign",
+                    "id": "task-launch_engagement_campaign",
                     "prerequisites": []
                 },
                 {
@@ -127,11 +127,11 @@
                     ],
                     "prerequisites": [
                         {
-                            "item": "task-launch-engagement-campaign",
+                            "item": "task-launch_engagement_campaign",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-open-submissions"
+                    "id": "task-open_submissions"
                 },
                 {
                     "name_translations": {
@@ -157,20 +157,20 @@
                     ],
                     "prerequisites": [
                         {
-                            "item": "task-open-submissions",
+                            "item": "task-open_submissions",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-monitor-submissions"
+                    "id": "task-monitor_submissions"
                 }
             ],
             "prerequisites": [
                 {
-                    "item": "objective-launch-hackathon-website",
+                    "item": "objective-launch_hackathon_website",
                     "type": "previous"
                 }
             ],
-            "id": "objective-service-implementation"
+            "id": "objective-service_implementation"
         },
         {
             "name_translations": {
@@ -204,7 +204,7 @@
                         "lv": "Organiz\u0113jiet aktivit\u0101tes starp dal\u012bbniekiem atbilsto\u0161i vi\u0146u lom\u0101m un pien\u0101kumiem. Nodro\u0161iniet pakalpojumu kvalit\u0101tes uztur\u0113\u0161anu kooperat\u012bvaj\u0101s aktivit\u0101t\u0113s, kas saist\u012btas ar pakalpojumu koppieg\u0101di. Uzs\u0101kiet apmierin\u0101t\u012bbas un pakalpojumu kvalit\u0101tes nov\u0113rt\u0113juma aptaujas. "
                     },
                     "problemprofiles": [],
-                    "id": "task-coordinate-the-actors-involved-in-the-codelivery-of-the-hackathon-organizers-evaluators-participants",
+                    "id": "task-coordinate_the_actors_involved_in_the_codelivery_of_the_hackathon_organizers_evaluators_participants",
                     "prerequisites": []
                 },
                 {
@@ -223,11 +223,11 @@
                     "problemprofiles": [],
                     "prerequisites": [
                         {
-                            "item": "task-coordinate-the-actors-involved-in-the-codelivery-of-the-hackathon-organizers-evaluators-participants",
+                            "item": "task-coordinate_the_actors_involved_in_the_codelivery_of_the_hackathon_organizers_evaluators_participants",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-guarantee-transparent-communication-with-participants-in-the-hackathon"
+                    "id": "task-guarantee_transparent_communication_with_participants_in_the_hackathon"
                 },
                 {
                     "name_translations": {
@@ -245,20 +245,20 @@
                     "problemprofiles": [],
                     "prerequisites": [
                         {
-                            "item": "task-guarantee-transparent-communication-with-participants-in-the-hackathon",
+                            "item": "task-guarantee_transparent_communication_with_participants_in_the_hackathon",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-winner-selection-and-announcement"
+                    "id": "task-winner_selection_and_announcement"
                 }
             ],
             "prerequisites": [
                 {
-                    "item": "objective-service-implementation",
+                    "item": "objective-service_implementation",
                     "type": "previous"
                 }
             ],
-            "id": "objective-hackathon-celebration"
+            "id": "objective-hackathon_celebration"
         }
     ],
     "is_part_of_codelivery": true

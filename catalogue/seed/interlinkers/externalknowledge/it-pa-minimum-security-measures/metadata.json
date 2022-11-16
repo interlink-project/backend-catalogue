@@ -23,7 +23,7 @@
     ],
     "form": "guidelines",
     "format": "structured_format",
-    "id": "agid-minimum-security-measures-for-public-administration",
+    "id": "agid_minimum_security_measures_for_public_administration",
     "instructions_translations": {
         "en": "./interlinkers/externalknowledge/it-pa-minimum-security-measures/instructions.md"
     },

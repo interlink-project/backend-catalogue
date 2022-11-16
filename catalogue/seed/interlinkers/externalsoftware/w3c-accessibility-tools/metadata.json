@@ -22,7 +22,7 @@
         "mef",
         "zgz"
     ],
-    "id": "accessibility-tools",
+    "id": "accessibility_tools",
     "instructions_translations": {
         "en": "./interlinkers/externalsoftware/w3c-accessibility-tools/instructions.md"
     },

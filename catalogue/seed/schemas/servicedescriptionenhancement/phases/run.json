@@ -54,7 +54,7 @@
                     },
                     "problemprofiles": [],
                     "prerequisites": [],
-                    "id": "task-link-to-the-description-augmenter-project"
+                    "id": "task-link_to_the_description_augmenter_project"
                 },
                 {
                     "name_translations": {
@@ -72,14 +72,14 @@
                     "problemprofiles": [],
                     "prerequisites": [
                         {
-                            "item": "task-link-to-the-description-augmenter-project",
+                            "item": "task-link_to_the_description_augmenter_project",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-review-in-servicepedia-dashboard-user-contributions"
+                    "id": "task-review_in_servicepedia_dashboard_user_contributions"
                 }
             ],
-            "id": "objective-monitor-continuous-crowd-refinement-process",
+            "id": "objective-monitor_continuous_crowd_refinement_process",
             "prerequisites": []
         },
         {
@@ -123,17 +123,17 @@
                         "BUILD_PROBLEM_7",
                         "BUILD_PROBLEM_9"
                     ],
-                    "id": "task-publish-enhancement-report",
+                    "id": "task-publish_enhancement_report",
                     "prerequisites": []
                 }
             ],
             "prerequisites": [
                 {
-                    "item": "objective-monitor-continuous-crowd-refinement-process",
+                    "item": "objective-monitor_continuous_crowd_refinement_process",
                     "type": "previous"
                 }
             ],
-            "id": "objective-publish-report-with-descriptions-accepted-to-be-processed"
+            "id": "objective-publish_report_with_descriptions_accepted_to_be_processed"
         }
     ],
     "is_part_of_codelivery": true

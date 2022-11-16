@@ -56,11 +56,11 @@
                         "BUILD_PROBLEM_7",
                         "BUILD_PROBLEM_8"
                     ],
-                    "id": "task-technical-implementation",
+                    "id": "task-technical_implementation",
                     "prerequisites": []
                 }
             ],
-            "id": "objective-technical-implementation",
+            "id": "objective-technical_implementation",
             "prerequisites": []
         },
         {
@@ -103,17 +103,17 @@
                         "BUILD_PROBLEM_7",
                         "BUILD_PROBLEM_9"
                     ],
-                    "id": "task-service-implementation",
+                    "id": "task-service_implementation",
                     "prerequisites": []
                 }
             ],
             "prerequisites": [
                 {
-                    "item": "objective-technical-implementation",
+                    "item": "objective-technical_implementation",
                     "type": "previous"
                 }
             ],
-            "id": "objective-service-implementation"
+            "id": "objective-service_implementation"
         },
         {
             "name_translations": {
@@ -147,7 +147,7 @@
                         "lv": "Izveidojiet par pakalpojuma past\u0101v\u012bgu snieg\u0161anu (pakalpojuma palai\u0161anu, uztur\u0113\u0161anu, atbalstu un ekspluat\u0101ciju) atbild\u012bgo pu\u0161u karti. Pie\u0161\u0137iriet lomas un atbild\u012bbu da\u017e\u0101diem dal\u012bbniekiem. Valoriz\u0113jiet koppieg\u0101des darb\u012bbas, lai var\u0113tu izsekot un nov\u0113rt\u0113t koppieg\u0101des ieguld\u012bjumus. Defin\u0113jiet pakalpojuma snieg\u0161anas modeli. "
                     },
                     "problemprofiles": [],
-                    "id": "task-identify-all-the-actors-engaged-in-the-codelivery-their-role-and-responsability",
+                    "id": "task-identify_all_the_actors_engaged_in_the_codelivery_their_role_and_responsability",
                     "prerequisites": []
                 },
                 {
@@ -166,11 +166,11 @@
                     "problemprofiles": [],
                     "prerequisites": [
                         {
-                            "item": "task-identify-all-the-actors-engaged-in-the-codelivery-their-role-and-responsability",
+                            "item": "task-identify_all_the_actors_engaged_in_the_codelivery_their_role_and_responsability",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-coordinate-the-actors-involved-in-the-codelivery-of-the-service"
+                    "id": "task-coordinate_the_actors_involved_in_the_codelivery_of_the_service"
                 },
                 {
                     "name_translations": {
@@ -188,20 +188,20 @@
                     "problemprofiles": [],
                     "prerequisites": [
                         {
-                            "item": "task-coordinate-the-actors-involved-in-the-codelivery-of-the-service",
+                            "item": "task-coordinate_the_actors_involved_in_the_codelivery_of_the_service",
                             "type": "previous"
                         }
                     ],
-                    "id": "task-guarantee-transparent-communication-about-the-service-codelivered"
+                    "id": "task-guarantee_transparent_communication_about_the_service_codelivered"
                 }
             ],
             "prerequisites": [
                 {
-                    "item": "objective-service-implementation",
+                    "item": "objective-service_implementation",
                     "type": "previous"
                 }
             ],
-            "id": "objective-service-codelivery"
+            "id": "objective-service_codelivery"
         }
     ],
     "is_part_of_codelivery": true

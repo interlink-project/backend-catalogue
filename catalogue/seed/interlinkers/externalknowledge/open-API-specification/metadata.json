@@ -24,7 +24,7 @@
     ],
     "form": "guidelines",
     "format": "structured_format",
-    "id": "open-api-specification",
+    "id": "open_api_specification",
     "instructions_translations": {
         "en": "./interlinkers/externalknowledge/it-pa-minimum-security-measures/instructions.md"
     },

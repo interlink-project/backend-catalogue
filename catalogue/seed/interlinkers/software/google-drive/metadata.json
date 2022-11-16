@@ -15,7 +15,7 @@
         "mef",
         "zgz"
     ],
-    "id": "google-drive",
+    "id": "google_drive",
     "instructions_translations": {
         "en": "./interlinkers/software/google-drive/instructions.md"
     },

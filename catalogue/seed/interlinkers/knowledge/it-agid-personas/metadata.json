@@ -24,7 +24,7 @@
     },
     "form": "document_template",
     "format": "editable_source_document",
-    "id": "model-for-personas-in-italian",
+    "id": "model_for_personas_in_italian",
     "instructions_translations": {
         "en": "./interlinkers/knowledge/it-agid-personas/instructions.md"
     },

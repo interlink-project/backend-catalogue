@@ -22,7 +22,7 @@
     },
     "form": "document_template",
     "format": "editable_source_document",
-    "id": "template-for-user-journey",
+    "id": "template_for_user_journey",
     "instructions_translations": {
         "en": "./interlinkers/knowledge/it-user-journey/instructions.md"
     },
