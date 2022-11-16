@@ -63,7 +63,7 @@ for schema_metadata_path in Path("./schemas").glob("**/metadata.json"):
             phase = None
             with open(path) as phasefile:
                 phase = json.load(phasefile)
-                phase["id"] = "phase-" + slugify(phase["name_translations"]["en"])
+                phase["id"] = "phase-" + slugify(phase["name_translations"]["en"],separator='_')
 
                 last_objective = "" 
                 for objective in phase["objectives"]:
@@ -75,7 +75,7 @@ for schema_metadata_path in Path("./schemas").glob("**/metadata.json"):
                             "type": "previous"
                         }]                    
                     objective["prerequisites"] = obj_prereqs
-                    last_objective = "objective-" + slugify(objective["name_translations"]["en"])
+                    last_objective = "objective-" + slugify(objective["name_translations"]["en"],separator='_')
                     objective["id"] = last_objective
                     
                     last_task = "" 
@@ -89,7 +89,7 @@ for schema_metadata_path in Path("./schemas").glob("**/metadata.json"):
                             }]
                         task["prerequisites"] = task_prereqs
 
-                        last_task = "task-" + slugify(task["name_translations"]["en"])
+                        last_task = "task-" + slugify(task["name_translations"]["en"],separator='_')
                         task["id"] = last_task
                         add_to_weblate(schema_metadata["id"] +  DELIMITER  + phase["id"] +  DELIMITER + objective["id"], weblate_schemas, task)
                     add_to_weblate(schema_metadata["id"] +  DELIMITER  + phase["id"], weblate_schemas, objective)
@@ -111,7 +111,7 @@ for schema_metadata_path in Path("./schemas").glob("**/metadata.json"):
 for interlinker_metadata_path in Path("./interlinkers").glob("**/metadata.json"):
     with open(str(interlinker_metadata_path)) as json_file:
         interlinker_metadata = json.load(json_file)
-        id = slugify(interlinker_metadata["name_translations"]["en"]).lower()
+        id = slugify(interlinker_metadata["name_translations"]["en"],separator='_').lower()
         # set as id the value of the name slugified
         interlinker_metadata["id"] = id
         # set languages depending on current values of name and description
