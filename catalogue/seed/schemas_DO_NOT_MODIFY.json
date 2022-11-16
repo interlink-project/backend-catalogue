@@ -3411,7 +3411,7 @@
                     "it": "In questa fase si affrontano due obiettivi. In primo luogo, viene eseguita un'analisi retrospettiva collaborativa dell'attuale soluzione esistente, in cui vengono esaminati lo stato, i risultati e le riflessioni sugli aspetti positivi e negativi dell'attuale rilascio. Per raggiungere questo obiettivo, si possono realizzare presentazioni e documenti di riflessione. In secondo luogo, viene effettuata una riflessione collaborativa sulle possibili nuove caratteristiche desiderabili per la soluzione. Per raggiungere questo obiettivo, si possono effettuare sondaggi su possibili nuove funzionalit\u00e0 e discussioni guida. ",
                     "lv": "\u0160aj\u0101 posm\u0101 tiek risin\u0101ti divi m\u0113r\u0137i. Pirmk\u0101rt, tiek veikta pa\u0161reiz\u0113j\u0101 eso\u0161\u0101 risin\u0101juma retrospekt\u012bva anal\u012bze, kur\u0101 tiek p\u0101rskat\u012bts pa\u0161reiz\u0113j\u0101 atbr\u012bvot\u0101 risin\u0101juma st\u0101voklis, rezult\u0101ti un p\u0101rdomas par pozit\u012bvajiem un negat\u012bvajiem aspektiem. Lai sasniegtu \u0161o m\u0113r\u0137i, var tikt veiktas prezent\u0101cijas un atspogu\u013cojuma dokumenti. Otrk\u0101rt, tiek veiktas kop\u012bgas p\u0101rdomas par iesp\u0113jam\u0101m jaun\u0101m v\u0113lam\u0101m risin\u0101juma iez\u012bm\u0113m. Lai sasniegtu \u0161o m\u0113r\u0137i, var veikt aptaujas par iesp\u0113jam\u0101m jaun\u0101m funkcij\u0101m un vad\u012bt diskusijas. "
                 },
-                "id": "phase-co-reflection-of-solution",
+                "id": "phase-coreflectionofsolution",
                 "is_part_of_codelivery": true,
                 "name_translations": {
                     "en": "Co-reflection of solution",
@@ -3667,7 +3667,7 @@
                     "it": "In questa fase si affrontano due obiettivi. In primo luogo, devono essere decise e pianificate le future azioni di co-progettazione. In secondo luogo, si avvia la co-progettazione della soluzione esistente sulla base delle nuove funzionalit\u00e0 o estensioni decise in comune. ",
                     "lv": "\u0160aj\u0101 posm\u0101 tiek risin\u0101ti divi m\u0113r\u0137i. Pirmk\u0101rt, j\u0101izlemj un j\u0101pl\u0101no turpm\u0101k\u0101s kopprojekt\u0113\u0161anas darb\u012bbas. Otrk\u0101rt, tiek uzs\u0101kta eso\u0161\u0101 risin\u0101juma kopprojekt\u0113\u0161ana, pamatojoties uz kop\u012bgi pie\u0146emtajiem jaunajiem elementiem vai papla\u0161in\u0101jumiem. "
                 },
-                "id": "phase-re-design-of-solution",
+                "id": "phase-redesignofsolution",
                 "is_part_of_codelivery": true,
                 "name_translations": {
                     "en": "Re-design of solution",
