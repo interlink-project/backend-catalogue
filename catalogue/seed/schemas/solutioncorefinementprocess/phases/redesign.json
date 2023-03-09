@@ -1,5 +1,5 @@
 {
-    "id": "phase-coreflectionofsolution",
+    "id": "phase-re_design_of_solution",
     "prerequisites": [
         {
             "item": "phase-co_reflection_of_solution",
