@@ -1,7 +1,7 @@
 import enum
 from typing import Dict, List, Optional, Union
 
-from configuration import Environments, Languages
+from configuration import Environments, Languages, Complexities
 from problemprofiles.problemprofiles import WithProblemProfiles
 from pydantic import BaseModel, Extra, conlist, validator
 
@@ -28,6 +28,12 @@ class WithNameAndDesc(BaseModel):
 class Task(WithProblemProfiles, WithNameAndDesc, extra=Extra.forbid):
     id: str
     prerequisites: Dict[str, str]
+    complexity: Optional[List[Complexities]]
+    
+    # Changed for the list of complexities above
+    # management: Optional[int]
+    # development: Optional[int]
+    # exploitation: Optional[int]
 
 
 class Objective(WithProblemProfiles, WithNameAndDesc, extra=Extra.forbid):

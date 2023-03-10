@@ -70,6 +70,10 @@
                     "additionalProperties": {
                         "type": "string"
                     }
+                },
+                "complexities":{
+                    "title": "Complexities",
+                    "type": "object"
                 }
             },
             "required": [

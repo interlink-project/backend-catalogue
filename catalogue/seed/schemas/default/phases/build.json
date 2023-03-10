@@ -57,6 +57,9 @@
                         "BUILD_PROBLEM_8"
                     ],
                     "id": "task-technical_implementation",
+                    "management": 0,
+                    "development": 7,
+                    "exploitation": 0,
                     "prerequisites": []
                 }
             ],
@@ -104,6 +107,11 @@
                         "BUILD_PROBLEM_9"
                     ],
                     "id": "task-service_implementation",
+                    "complexities": {
+                        "management": 0,
+                        "development": 0,
+                        "exploitation": 0
+                    },
                     "prerequisites": []
                 }
             ],
@@ -148,6 +156,9 @@
                     },
                     "problemprofiles": [],
                     "id": "task-identify_all_the_actors_engaged_in_the_codelivery_their_role_and_responsability",
+                    "management": 0,
+                    "development": 0,
+                    "exploitation": 0,
                     "prerequisites": []
                 },
                 {
@@ -170,7 +181,10 @@
                             "type": "previous"
                         }
                     ],
-                    "id": "task-coordinate_the_actors_involved_in_the_codelivery_of_the_service"
+                    "id": "task-coordinate_the_actors_involved_in_the_codelivery_of_the_service",
+                    "management": 0,
+                    "development": 0,
+                    "exploitation": 0
                 },
                 {
                     "name_translations": {
@@ -192,7 +206,10 @@
                             "type": "previous"
                         }
                     ],
-                    "id": "task-guarantee_transparent_communication_about_the_service_codelivered"
+                    "id": "task-guarantee_transparent_communication_about_the_service_codelivered",
+                    "management": 0,
+                    "development": 0,
+                    "exploitation": 0
                 }
             ],
             "prerequisites": [

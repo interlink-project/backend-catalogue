@@ -12,6 +12,9 @@ class TreeItemBase(BaseModel):
     coproductionschema_id: Optional[uuid.UUID]
     parent_id: Optional[uuid.UUID]
     is_part_of_codelivery: Optional[bool]
+    management: Optional[int]
+    development: Optional[int]
+    exploitation: Optional[int]
 
 class TreeItemCreate(TreeItemBase):
     type: TreeItemTypes    

@@ -82,3 +82,8 @@ class TreeItemMetadata(BaseModel):
 
     # in case of being a phase
     is_part_of_codelivery = Column(Boolean, default=False)
+    
+    # for tasks
+    management = Column(Integer, default=0, nullable=False)
+    development = Column(Integer, default=0, nullable=False)
+    exploitation = Column(Integer, default=0, nullable=False)
