@@ -1,51 +1,69 @@
 {
-  "administrative_scopes": ["eu"],
-  "constraints_and_limitations_translations": {
-    "en": "No special constraints apply"
-  },
-  "description_translations": {
-    "en": "<p>This resource provides suggestions on how to take full advantage of the INTERLINK Collaborative Environment for your co-production processes</p>",
-    "es": "<p>Sugerencias para aprovechar al m&aacute;ximo el Entorno Colaborativo INTERLINK en sus procesos de coproducci&oacute;n</p>",
-    "it": "<p>Questa risorsa fornisce suggerimenti su come sfruttare appieno l'ambiente collaborativo di INTERLINK per supportare i processi di co-produzione.</p>",
-    "lv": "<p>Ieteikumi, k&#257; piln&#299;b&#257; izmantot INTERLINK sadarb&#299;bas vides priek&#353;roc&#299;bas kopra&#382;o&#353;anas procesos.</p>"
-  },
-  "difficulty": "easy",
-  "domain": "",
-  "environments": ["varam", "mef", "zgz"],
-  "file_translations": {
-    "en": "./interlinkers/knowledge/Setting-Out-For-Your-Co-Production-Jorney/resource.docx"
-  },
-  "form": "guidelines",
-  "format": "pdf",
-  "id": "suggestions_for_CE_usage",
-  "instructions_translations": {
-    "en": "./interlinkers/knowledge/Setting-Out-For-Your-Co-Production-Jorney/instructions.md"
-  },
-  "is_sustainability_related": true,
-  "languages": ["lv", "en", "es", "it"],
-  "licence": "public_domain",
-  "name_translations": {
-    "en": "Setting Out for your CoProduction Jorney",
-    "es": "Puesta en marcha del viaje de coproducci&oacute;n",
-    "it": "Partenza per il viaggio di co-produzione",
-    "lv": "Izbrauk&#353;ana uz kopra&#382;o&#353;anas projektu Jorney"
-  },
-  "problemprofiles": [
-    "ORG_PROBLEM_1",
-    "ORG_PROBLEM_2",
-    "ORG_PROBLEM_3",
-    "ORG_PROBLEM_4",
-    "ORG_PROBLEM_5"
-  ],
-  "process": "",
-  "regulations_and_standards_translations": {
-    "en": ""
-  },
-  "softwareinterlinker": "googledrive",
-  "tags_translations": {
-    "en": ["co-production", "bootstrap"]
-  },
-  "targets": ["all"],
-  "type": "knowledge",
-  "types": ["enhancing_services"]
+    "administrative_scopes": [
+        "eu"
+    ],
+    "constraints_and_limitations_translations": {
+        "en": "No special constraints apply"
+    },
+    "description_translations": {
+        "en": "<p>This resource provides suggestions on how to take full advantage of the INTERLINK Collaborative Environment for your co-production processes</p>",
+        "es": "<p>Sugerencias para aprovechar al m&aacute;ximo el Entorno Colaborativo INTERLINK en sus procesos de coproducci&oacute;n</p>",
+        "it": "<p>Questa risorsa fornisce suggerimenti su come sfruttare appieno l'ambiente collaborativo di INTERLINK per supportare i processi di co-produzione.</p>",
+        "lv": "<p>Ieteikumi, k&#257; piln&#299;b&#257; izmantot INTERLINK sadarb&#299;bas vides priek&#353;roc&#299;bas kopra&#382;o&#353;anas procesos.</p>"
+    },
+    "difficulty": "easy",
+    "domain": "",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "file_translations": {
+        "en": "./interlinkers/knowledge/Setting-Out-For-Your-Co-Production-Jorney/resource.docx"
+    },
+    "form": "guidelines",
+    "format": "pdf",
+    "id": "setting_out_for_your_coproduction_jorney",
+    "instructions_translations": {
+        "en": "./interlinkers/knowledge/Setting-Out-For-Your-Co-Production-Jorney/instructions.md"
+    },
+    "is_sustainability_related": true,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "public_domain",
+    "name_translations": {
+        "en": "Setting Out for your CoProduction Jorney",
+        "es": "Puesta en marcha del viaje de coproducci&oacute;n",
+        "it": "Partenza per il viaggio di co-produzione",
+        "lv": "Izbrauk&#353;ana uz kopra&#382;o&#353;anas projektu Jorney"
+    },
+    "problemprofiles": [
+        "ORG_PROBLEM_1",
+        "ORG_PROBLEM_2",
+        "ORG_PROBLEM_3",
+        "ORG_PROBLEM_4",
+        "ORG_PROBLEM_5"
+    ],
+    "process": "",
+    "regulations_and_standards_translations": {
+        "en": ""
+    },
+    "softwareinterlinker": "googledrive",
+    "tags_translations": {
+        "en": [
+            "co-production",
+            "bootstrap"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enhancing_services"
+    ]
 }
