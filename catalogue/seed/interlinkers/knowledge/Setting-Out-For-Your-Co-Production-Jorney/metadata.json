@@ -4,9 +4,9 @@
     "en": "No special constraints apply"
   },
   "description_translations": {
-    "en": "<p>Suggestions on how to take full advantage of the INTERLINK Collaborative Environment for your co-production processes</p>",
+    "en": "<p>This resource provides suggestions on how to take full advantage of the INTERLINK Collaborative Environment for your co-production processes</p>",
     "es": "<p>Sugerencias para aprovechar al m&aacute;ximo el Entorno Colaborativo INTERLINK en sus procesos de coproducci&oacute;n</p>",
-    "it": "<p>Suggerimenti su come sfruttare appieno l'ambiente collaborativo di INTERLINK per i vostri processi di co-produzione.</p>",
+    "it": "<p>Questa risorsa fornisce suggerimenti su come sfruttare appieno l'ambiente collaborativo di INTERLINK per supportare i processi di co-produzione.</p>",
     "lv": "<p>Ieteikumi, k&#257; piln&#299;b&#257; izmantot INTERLINK sadarb&#299;bas vides priek&#353;roc&#299;bas kopra&#382;o&#353;anas procesos.</p>"
   },
   "difficulty": "easy",
@@ -15,9 +15,9 @@
   "file_translations": {
     "en": "./interlinkers/knowledge/Setting-Out-For-Your-Co-Production-Jorney/resource.docx"
   },
-  "form": "document_template",
-  "format": "editable_source_document",
-  "id": "business_plan_template",
+  "form": "guidelines",
+  "format": "pdf",
+  "id": "suggestions_for_CE_usage",
   "instructions_translations": {
     "en": "./interlinkers/knowledge/Setting-Out-For-Your-Co-Production-Jorney/instructions.md"
   },
@@ -30,14 +30,20 @@
     "it": "Partenza per il viaggio di co-produzione",
     "lv": "Izbrauk&#353;ana uz kopra&#382;o&#353;anas projektu Jorney"
   },
-  "problemprofiles": ["SUS_PROBLEM_1"],
+  "problemprofiles": [
+    "ORG_PROBLEM_1",
+    "ORG_PROBLEM_2",
+    "ORG_PROBLEM_3",
+    "ORG_PROBLEM_4",
+    "ORG_PROBLEM_5"
+  ],
   "process": "",
   "regulations_and_standards_translations": {
     "en": ""
   },
   "softwareinterlinker": "googledrive",
   "tags_translations": {
-    "en": ["template", "canvas", "business"]
+    "en": ["co-production", "bootstrap"]
   },
   "targets": ["all"],
   "type": "knowledge",
