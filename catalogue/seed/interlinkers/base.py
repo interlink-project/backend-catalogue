@@ -84,6 +84,8 @@ class AdministrativeScopes(Enum):
 
 
 class InterlinkerSchema(WithProblemProfiles, extra=Extra.forbid):
+    class Config:
+        arbitrary_types_allowed = True
     is_sustainability_related: bool
     name_translations: dict
     # FOR 1
