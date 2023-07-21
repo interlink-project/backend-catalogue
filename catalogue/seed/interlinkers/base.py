@@ -118,7 +118,7 @@ class InterlinkerSchema(WithProblemProfiles, extra=Extra.forbid):
     # In the initial specification of INTERLINKERS this field will be defined as textual, to allow for more freedom in the description.
     # To be further evaluated which types of standard classifications will be used as id for a more constrained filling of this field.
 
-    tags_translations: Dict[str,  conlist(str, min_items=1)]
+    tags_translations: Dict[str,  conlist(str, min_length=1)]
     # FOR 1
     # Tags that can be used to characterize the INTERLINKER
 
