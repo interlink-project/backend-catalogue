@@ -1,0 +1,86 @@
+{
+    "administrative_scopes": [
+        "eu"
+    ],
+    "constraints_and_limitations_translations": {
+        "en": "No special constraints apply"
+    },
+    "description_translations": {
+        "en": "<p>This document provides tips and examples on how to exploit incentives, in particular within Public Administrations.</p>",
+        "it": "Questo documento contiene suggerimenti ed esempi per l'utilizzo di incentivi motivazionali, in particolare da parte di Pubbliche Amministrazioni."
+    },
+    "difficulty": "easy",
+    "domain": "",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "file_translations": {
+        "en": "./interlinkers/knowledge/Introduction-Incentives-Rewards/resource.pdf"
+    },
+    "form": "guidelines",
+    "format": "pdf",
+    "id": "introduction-incentives-rewards",
+    "instructions_translations": {
+        "en": "./interlinkers/knowledge/Introduction-Incentives-Rewards/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "public_domain",
+    "name_translations": {
+        "en": "Introduction to Incentives and Rewards",
+        "it": "Introduzione a Incentivi e Premi"
+    },
+    "problemprofiles": [
+        "ORG_PROBLEM_1",
+        "ORG_PROBLEM_2",
+        "ORG_PROBLEM_3",
+        "ORG_PROBLEM_4",
+        "ORG_PROBLEM_5",
+        "ORG_PROBLEM_6.1",
+        "ORG_PROBLEM_6.2",
+        "ORG_PROBLEM_6.3",
+        "ORG_PROBLEM_13",
+        "UND_PROBLEM_1",
+        "UND_PROBLEM_2",
+        "UND_PROBLEM_3",
+        "UND_PROBLEM_4",
+        "UND_PROBLEM_5",
+        "UND_PROBLEM_6",
+        "DEF_PROBLEM_1",
+        "DEF_PROBLEM_2",
+        "DEF_PROBLEM_3",
+        "DEF_PROBLEM_4",
+        "DEF_PROBLEM_5",
+        "DEF_PROBLEM_6",
+        "BUILD_PROBLEM_1",
+        "BUILD_PROBLEM_2",
+        "HACKATHON_PROBLEM_1",
+        "HACKATHON_PROBLEM_2"
+
+    ],
+    "process": "",
+    "regulations_and_standards_translations": {
+        "en": ""
+    },
+    "softwareinterlinker": "googledrive",
+    "tags_translations": {
+        "en": [
+            "Incentives",
+            "Rewards"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enhancing_services"
+    ]
+}
