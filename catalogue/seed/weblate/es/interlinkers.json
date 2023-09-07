@@ -49,6 +49,8 @@
     "externalsoftware;trello;name": "Trello",
     "externalsoftware;wso2_api_manager;description": "<p>WSO2 API Manager es una plataforma completa para construir, integrar y exponer sus servicios digitales como APIs gestionadas en la nube, en las instalaciones y en arquitecturas h\u00edbridas para impulsar su estrategia de transformaci\u00f3n digital. Permite a los desarrolladores de API dise\u00f1ar, publicar y gestionar el ciclo de vida de las API y a los gestores de productos de API crear productos de API a partir de una o m\u00e1s APIs.</p>",
     "externalsoftware;wso2_api_manager;name": "WSO2 API Manager",
+    "knowledgeinterlinker;advanced_tutorial_for_the_collaborative_environment;description": "",
+    "knowledgeinterlinker;advanced_tutorial_for_the_collaborative_environment;name": "",
     "knowledgeinterlinker;business_model_canvas;description": "Este lienzo puede utilizarse de forma colaborativa, por ejemplo, durante una tormenta de ideas o un grupo de discusi\u00f3n, para reflexionar sobre el modelo de negocio m\u00e1s adecuado asociado a un servicio coproducido.",
     "knowledgeinterlinker;business_model_canvas;name": "Business Model Canvas",
     "knowledgeinterlinker;business_plan_template;description": "<p>Este lienzo puede ser editado de forma colaborativa por el equipo coproductor para elaborar el plan de negocio de un servicio coproducido.</p>",
