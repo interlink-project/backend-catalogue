@@ -1,0 +1,66 @@
+{
+    "administrative_scopes": [
+        "eu"
+    ],
+    "constraints_and_limitations_translations": {
+        "en": "No special constraints apply"
+    },
+    "description_translations": {
+        "en": "<p>This resource provides training material in Italian on how to register to the INTERLINK Collaborative Environment.</p>",
+        "it": "Questo documento contiene un tutorial in italiano su come registrarsi sulla piattaforma Collaborative Environment del progetto INTERLINK."
+    },
+    "difficulty": "easy",
+    "domain": "",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "file_translations": {
+        "en": "./interlinkers/knowledge/Tutorial-Package-registration-IT/resource-IT.pdf"
+    },
+    "form": "guidelines",
+    "format": "pdf",
+    "id": "tutorial-registration-IT",
+    "instructions_translations": {
+        "en": "./interlinkers/knowledge/Tutorial-Package-registration-IT/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "public_domain",
+    "name_translations": {
+        "en": "Registration tutorial for the Collaborative Environment (Italian)",
+        "it": "Come registrarsi al Collaborative Environment (in italiano)"
+    },
+    "problemprofiles": [
+        "ORG_PROBLEM_1",
+        "ORG_PROBLEM_2",
+        "ORG_PROBLEM_3",
+        "ORG_PROBLEM_4",
+        "ORG_PROBLEM_5"
+    ],
+    "process": "",
+    "regulations_and_standards_translations": {
+        "en": ""
+    },
+    "softwareinterlinker": "googledrive",
+    "tags_translations": {
+        "en": [
+            "registration",
+            "Collaborative Environment",
+            "tutorial"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enhancing_services"
+    ]
+}
