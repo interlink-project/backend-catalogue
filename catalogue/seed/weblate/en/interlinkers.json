@@ -51,6 +51,8 @@
     "externalsoftware;wso2_api_manager;name": "WSO2 API Manager",
     "knowledgeinterlinker;advanced_tutorial_for_the_collaborative_environment;description": "<p>This resource provides training material on administrators' functionalities of the INTERLINK Collaborative Environment.</p>",
     "knowledgeinterlinker;advanced_tutorial_for_the_collaborative_environment;name": "Advanced tutorial for the Collaborative Environment",
+    "knowledgeinterlinker;basic_tutorial_for_the_collaborative_environment;description": "<p>This resource provides training material on baseline functionalities of the INTERLINK Collaborative Environment.</p>",
+    "knowledgeinterlinker;basic_tutorial_for_the_collaborative_environment;name": "Basic tutorial for the Collaborative Environment",
     "knowledgeinterlinker;business_model_canvas;description": "This canvas can be used collaboratively, for instance, during a brainstorming or a focus group, to reflect on the the most suitable business model associated to a co-produced service.",
     "knowledgeinterlinker;business_model_canvas;name": "Business Model Canvas",
     "knowledgeinterlinker;business_plan_template;description": "<p>This canvas can be edited collaboratively by the co-producing team to ellaborate the business plan for a co-produced service.</p>",
