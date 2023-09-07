@@ -1,0 +1,63 @@
+{
+    "administrative_scopes": [
+        "eu"
+    ],
+    "constraints_and_limitations_translations": {
+        "en": "No special constraints apply"
+    },
+    "description_translations": {
+        "en": "<p>Template for preparing use scenarios. </p>",
+        "es": "<p>Plantilla para preparar unos escenarios de uso. </p>",
+        "it": "<p>Modello per la preparazione di scenari d'uso. </p>",
+        "lv": "<p>Lieto\u0161anas scen\u0101rija sagatavo\u0161anas veidlapa (angliski).</p>"
+    },
+    "difficulty": "easy",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "file_translations": {
+        "en": "./interlinkers/knowledge/en-use-scenarios/resource.xlsx"
+    },
+    "form": "document_template",
+    "format": "editable_source_document",
+    "id": "template_for_use_case_scenarios_english",
+    "instructions_translations": {
+        "en": "./interlinkers/knowledge/en-use-scenarios/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "permissive",
+    "name_translations": {
+        "en": "Template for use case scenarios in English",
+        "es": "Plantilla de casos de uso en Ingl\u00e9s",
+        "it": "Modello schematico per gli scenari d'uso in inglese",
+        "lv": "Lieto\u0161anas scen\u0101rija gad\u012bjuma (use case) veidlapa angliski"
+    },
+    "problemprofiles": [
+        "ORG_PROBLEM_1",
+        "UND_PROBLEM_2"
+    ],
+    "regulations_and_standards_translations": {
+        "en": ""
+    },
+    "softwareinterlinker": "googledrive",
+    "tags_translations": {
+        "en": [
+            "services"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "knowledge",
+    "types": [
+        "enabling_services"
+    ]
+}
