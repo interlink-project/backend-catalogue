@@ -21,7 +21,7 @@
     },
     "form": "guidelines",
     "format": "pdf",
-    "id": "tutorial-admin",
+    "id": "advanced_tutorial_for_the_collaborative_environment",
     "instructions_translations": {
         "en": "./interlinkers/knowledge/Tutorial-Package-admin/instructions.md"
     },
