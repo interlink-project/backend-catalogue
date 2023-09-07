@@ -21,7 +21,7 @@
     },
     "form": "guidelines",
     "format": "editable_source_document",
-    "id": "introduction-gamification",
+    "id": "gamification_model_canvas",
     "instructions_translations": {
         "en": "./interlinkers/knowledge/Gamification-Canvas/instructions.md"
     },
@@ -63,7 +63,6 @@
         "BUILD_PROBLEM_2",
         "HACKATHON_PROBLEM_1",
         "HACKATHON_PROBLEM_2"
-
     ],
     "process": "",
     "regulations_and_standards_translations": {
