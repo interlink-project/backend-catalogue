@@ -21,7 +21,7 @@
     },
     "form": "guidelines",
     "format": "pdf",
-    "id": "introduction-gamification",
+    "id": "how_to_take_advantage_of_gamification_in_the_collaborative_environment",
     "instructions_translations": {
         "en": "./interlinkers/knowledge/Gamification-Collaborative-Environment/instructions.md"
     },
@@ -63,7 +63,6 @@
         "BUILD_PROBLEM_2",
         "HACKATHON_PROBLEM_1",
         "HACKATHON_PROBLEM_2"
-
     ],
     "process": "",
     "regulations_and_standards_translations": {
