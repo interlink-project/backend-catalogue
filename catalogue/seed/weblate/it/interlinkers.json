@@ -117,6 +117,8 @@
     "knowledgeinterlinker;template_for_structured_interview;name": "Modello per interviste strutturate",
     "knowledgeinterlinker;template_for_use_case_scenarios;description": "<p>Modello per la preparazione di scenari d'uso. </p>",
     "knowledgeinterlinker;template_for_use_case_scenarios;name": "Modello schematico per gli scenari d'uso",
+    "knowledgeinterlinker;template_for_use_case_scenarios_in_english;description": "<p>Modello per la preparazione di scenari d'uso. </p>",
+    "knowledgeinterlinker;template_for_use_case_scenarios_in_english;name": "Modello schematico per gli scenari d'uso in inglese",
     "knowledgeinterlinker;template_for_user_journey;description": "<p>Modello per la preparazione di un percorso utente. </p>",
     "knowledgeinterlinker;template_for_user_journey;name": "Modello schematico per il percorso dell'utente",
     "knowledgeinterlinker;usability_testing_guidelines;description": "<p>Linee guida e suggerimenti su come eseguire un test di usabilit\u00e0</p>",

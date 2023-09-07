@@ -117,6 +117,8 @@
     "knowledgeinterlinker;template_for_structured_interview;name": "template for structured interview",
     "knowledgeinterlinker;template_for_use_case_scenarios;description": "<p>Template for preparing a use scenarios. </p>",
     "knowledgeinterlinker;template_for_use_case_scenarios;name": "Template for use case scenarios",
+    "knowledgeinterlinker;template_for_use_case_scenarios_in_english;description": "<p>Template for preparing use scenarios. </p>",
+    "knowledgeinterlinker;template_for_use_case_scenarios_in_english;name": "Template for use case scenarios in English",
     "knowledgeinterlinker;template_for_user_journey;description": "<p>Template for preparing a user journey. </p>",
     "knowledgeinterlinker;template_for_user_journey;name": "Template for user journey",
     "knowledgeinterlinker;usability_testing_guidelines;description": "<p>Guidelines and tips on how to perform a usability testing</p>",
