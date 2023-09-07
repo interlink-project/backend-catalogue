@@ -27,6 +27,8 @@
     "externalsoftware;aac_authentication_and_authorization_controller;name": "AAC - Authentication and Authorization Controller",
     "externalsoftware;accessibility_tools;description": "<p>Web accessibility evaluation tools are software programs or online services that help you determine if web content meets accessibility guidelines. This page provides a list of evaluation tools that you can filter to find ones that match your particular needs.</p>",
     "externalsoftware;accessibility_tools;name": "Accessibility Tools",
+    "externalsoftware;brevo;description": "<p>Marketing automation platform and email marketing service for managing mailing lists and creating email marketing campaigns to send to customers.</p>",
+    "externalsoftware;brevo;name": "Brevo",
     "externalsoftware;doodle;description": "<p>Online calendar tool for time management and coordinating meetings. Anytime more than two people are trying to arrange a meeting, Doodle very useful. You can use doodle to plan meetings with team members, project collaborators, and external suppliers. </p>",
     "externalsoftware;doodle;name": "Doodle",
     "externalsoftware;event_co_designer;description": "<p>Event Co-designer (ECO) is an open source plugin for the popular WordPress (WP) content management system which allows co-designing and organising new public events. It is especially designed from the needs of the ZGZ use case and can be integrated directly to the existing Etopia WP website. ECO provides an easy-to-use and feature-rich calendar view to schedule new events and make requests for resources, facilities and services needed to organise the event. In addition, ECO includes collaborative tools for documenting, discussing  and co-evaluating the event proposal.</p>",
