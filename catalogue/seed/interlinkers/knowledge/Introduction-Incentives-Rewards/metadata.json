@@ -21,7 +21,7 @@
     },
     "form": "guidelines",
     "format": "pdf",
-    "id": "introduction-incentives-rewards",
+    "id": "introduction_to_incentives_and_rewards",
     "instructions_translations": {
         "en": "./interlinkers/knowledge/Introduction-Incentives-Rewards/instructions.md"
     },
@@ -63,7 +63,6 @@
         "BUILD_PROBLEM_2",
         "HACKATHON_PROBLEM_1",
         "HACKATHON_PROBLEM_2"
-
     ],
     "process": "",
     "regulations_and_standards_translations": {
