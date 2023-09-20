@@ -23,3 +23,16 @@ async def list_softwareinterlinkers(
     Retrieve software interlinkers.
     """
     return await crud.interlinker.get_multi_softwareinterlinkers(db)
+
+@router.get("/{name}", response_model=schemas.SoftwareInterlinkerOut)
+async def read_softwareinterlinkers(
+    *,
+    db: Session = Depends(deps.get_db),
+    name: str,
+    current_user: Optional[dict] = Depends(deps.get_current_user),
+) -> Any:
+    """
+    Retrieve software interlinkers.
+    """
+    return await crud.interlinker.get_softwareinterlinker_by_service_name(db,name)
+
