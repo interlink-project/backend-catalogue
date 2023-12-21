@@ -1,0 +1,81 @@
+{
+    "administrative_scopes": [
+        "eu",
+        "national",
+        "local"
+    ],
+    "constraints_and_limitations_translations": {
+        "en": "None",
+        "es": ""
+    },
+    "description_translations": {
+        "en": "<p>Loyalty Engine helps engaging users by implementing a personal dashboard that displays previous achievements and available challenges.</p>",
+        "es": "<p>Loyalty Engine helps engaging users by implementing a personal dashboard that displays previous achievements and available challenges.</p>",
+        "it": "<p>Loyalty Engine helps engaging users by implementing a personal dashboard that displays previous achievements and available challenges.</p>",
+        "lv": "<p>Loyalty Engine helps engaging users by implementing a personal dashboard that displays previous achievements and available challenges.</p>"
+    },
+    "difficulty": "medium",
+    "environments": [
+        "varam",
+        "mef",
+        "zgz"
+    ],
+    "id": "loyalty_engine",
+    "instructions_translations": {
+        "en": "./interlinkers/externalsoftware/loyalty-engine/instructions.md"
+    },
+    "is_sustainability_related": false,
+    "languages": [
+        "lv",
+        "en",
+        "es",
+        "it"
+    ],
+    "licence": "INTERLINK Co-exploitation License",
+    "logotype": "./interlinkers/externalsoftware/loyalty-engine/logo.png",
+    "name_translations": {
+        "en": "Loyalty Engine",
+        "es": "Loyalty Engine",
+        "it": "Loyalty Engine",
+        "lv": "Loyalty Engine"
+    },
+    "overview_text": {
+        "en": "Loyalty Engine helps engaging users",
+        "es": ""
+    },
+    "problemprofiles": [
+        "ORG_PROBLEM_1",
+        "ORG_PROBLEM_2",
+        "ORG_PROBLEM_4",
+        "ORG_PROBLEM_6.1",
+        "ORG_PROBLEM_6.3",
+        "UND_PROBLEM_1",
+        "UND_PROBLEM_5",
+        "DEF_PROBLEM_2",
+        "DEF_PROBLEM_5",
+        "VAL_PROBLEM_2",
+        "HACKATHON_PROBLEM_1"
+    ],
+    "regulations_and_standards_translations": {
+        "en": "None",
+        "es": ""
+    },
+    "tags_translations": {
+        "en": [
+            "project management",
+            "team working",
+            "survey"
+        ]
+    },
+    "targets": [
+        "all"
+    ],
+    "type": "software",
+    "types": [
+        "enabling_services",
+        "enhancing_services"
+    ],
+    "uri_translations": {
+        "en": ""
+    }
+}
