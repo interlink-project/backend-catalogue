@@ -1,3 +1,3 @@
 # How to use this INTERLINKER
 
-Instructions will be published soon...
+The Co-Calendar INTERLINKER is available at https://cocalendar.eu.
