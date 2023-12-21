@@ -1,3 +1,3 @@
 # How to use this INTERLINKER
 
-Instructions will be published soon...
+The Booking Activity Module (BAM) is available at https://cocalendar.eu.
