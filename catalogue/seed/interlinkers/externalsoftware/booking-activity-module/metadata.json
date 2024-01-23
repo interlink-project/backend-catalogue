@@ -20,7 +20,7 @@
         "mef",
         "zgz"
     ],
-    "id": "booking_activity_module",
+    "id": "booking_activity_module_bam",
     "instructions_translations": {
         "en": "./interlinkers/externalsoftware/booking-activity-module/instructions.md"
     },

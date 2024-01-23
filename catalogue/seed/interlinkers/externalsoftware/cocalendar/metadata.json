@@ -20,7 +20,7 @@
         "mef",
         "zgz"
     ],
-    "id": "cocalendar",
+    "id": "co_calendar",
     "instructions_translations": {
         "en": "./interlinkers/externalsoftware/cocalendar/instructions.md"
     },
