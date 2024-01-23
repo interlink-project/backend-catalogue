@@ -31,7 +31,7 @@
         "es",
         "it"
     ],
-    "licence": "INTERLINK Co-exploitation License",
+    "licence": "propietary",
     "logotype": "./interlinkers/externalsoftware/loyalty-engine/logo.png",
     "name_translations": {
         "en": "Loyalty Engine",
@@ -57,7 +57,7 @@
         "HACKATHON_PROBLEM_1"
     ],
     "regulations_and_standards_translations": {
-        "en": "None",
+        "en": "INTERLINK Co-exploitation License",
         "es": ""
     },
     "tags_translations": {
